@@ -7,15 +7,23 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
-    "isolatedModules": true,
     "jsx": "react-jsx",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": ["node_modules"]
 }

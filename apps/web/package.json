@@ -27,6 +27,7 @@
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tanstack/router-plugin": "^1.102.6",
+    "@types/node": "^22.13.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "vite": "^6.1.0"
