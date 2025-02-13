@@ -1,7 +1,6 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": false,
     "declaration": true,
     "declarationMap": true,
@@ -14,9 +13,6 @@
     "moduleResolution": "Bundler",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true

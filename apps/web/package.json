@@ -15,6 +15,7 @@
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-router": "^1.102.5",
     "@tanstack/router-devtools": "^1.102.5",
+    "@vitejs/plugin-react-swc": "^3.8.0",
     "eslint": "^9.20.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -28,7 +29,6 @@
     "@tanstack/router-plugin": "^1.102.6",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.1.0"
   }
 }
