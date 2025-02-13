@@ -1,17 +1,17 @@
 {
 	"private": true,
 	"scripts": {
-    "typecheck": "turbo run typecheck",
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint"
+		"typecheck": "turbo run typecheck",
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint"
 	},
 	"devDependencies": {
-		"turbo": "^2.4.2"
+		"turbo": "catalog:"
 	},
 	"packageManager": "pnpm@10.2.1",
 	"engines": {
-    "node": ">=22.10.0",
-    "pnpm": "^10.2.1"
-  }
+		"node": ">=22.10.0",
+		"pnpm": "^10.2.1"
+	}
 }
