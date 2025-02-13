@@ -15,5 +15,15 @@
       "persistent": true,
       "cache": false
     }
-  }
+  },
+  "globalEnv": [
+    "POSTGRES_URL",
+    "AUTH_SECRET",
+    "PORT"
+  ],
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "CI",
+    "npm_lifecycle_event"
+  ]
 }

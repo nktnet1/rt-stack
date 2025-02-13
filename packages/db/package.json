@@ -16,7 +16,6 @@
       "default": "./src/schema.ts"
     }
   },
-  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "dev": "tsc",
