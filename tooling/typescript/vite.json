@@ -1,29 +1,19 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "composite": false,
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "jsx": "react-jsx",
     "module": "ESNext",
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
     "noEmit": true,
-
-    /* Linting */
-    "strict": true,
+    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "preserveWatchOutput": true
   },
   "exclude": ["node_modules"]
 }
