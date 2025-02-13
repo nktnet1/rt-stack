@@ -1,0 +1,10 @@
+{
+  "name": "@repo/tailwind-config",
+  "exports": {
+    "./style.css": "./style.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.0.6",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
