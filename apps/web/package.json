@@ -5,22 +5,27 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts\"",
     "dev": "vite --port=3001",
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite"
   },
+  "dependencies": {
+    "@tanstack/react-router": "^1.102.5",
+    "@tanstack/router-devtools": "^1.102.5",
+    "eslint": "^9.20.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3"
+  },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@tanstack/router-plugin": "^1.102.6",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.1.0"
-  },
-  "dependencies": {
-    "@tanstack/react-router": "^1.102.5",
-    "@tanstack/router-devtools": "^1.102.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
   }
 }
