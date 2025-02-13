@@ -6,7 +6,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.ts\"",
-    "dev": "vite --port=3001",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "start": "vite"
