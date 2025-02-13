@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
+    "noEmit": "true",
     "verbatimModuleSyntax": true
   }
 }

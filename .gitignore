@@ -1,2 +1,4 @@
 node_modules/
-.turbo
+dist/
+.cache/
+.turbo/
