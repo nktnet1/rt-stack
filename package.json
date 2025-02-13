@@ -1,0 +1,15 @@
+{
+	"scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+	},
+	"devDependencies": {
+		"turbo": "^2.4.2"
+	},
+	"packageManager": "pnpm@10.2.1",
+	"engines": {
+    "node": ">=22.10.0",
+    "pnpm": "^10.2.1"
+  }
+}
