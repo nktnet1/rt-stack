@@ -134,6 +134,9 @@ importers:
       '@repo/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:packages/ui
       prettier:
         specifier: 'catalog:'
         version: 3.5.1
