@@ -29,7 +29,9 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
-    "drizzle-orm": "catalog:"
+    "drizzle-orm": "catalog:",
+    "drizzle-valibot": "^0.4.0",
+    "valibot": "1.0.0-rc.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

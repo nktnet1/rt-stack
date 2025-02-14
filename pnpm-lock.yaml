@@ -250,6 +250,12 @@ importers:
       drizzle-orm:
         specifier: 'catalog:'
         version: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)
+      drizzle-valibot:
+        specifier: ^0.4.0
+        version: 0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5))(valibot@1.0.0-rc.0(typescript@5.7.3))
+      valibot:
+        specifier: 1.0.0-rc.0
+        version: 1.0.0-rc.0(typescript@5.7.3)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -2635,6 +2641,12 @@ packages:
         optional: true
       sqlite3:
         optional: true
+
+  drizzle-valibot@0.4.0:
+    resolution: {integrity: sha512-0K90Ko1l5uRFNMN/3RwVQy+6biEHiXA/thxq+ZsEDuHqevpiY1Yy8qQEzx9eshv3HEtFlaulAoV0POZJ0bcdJg==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.0'
+      valibot: '>=1.0.0-beta.7'
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -5861,6 +5873,11 @@ snapshots:
       '@types/pg': 8.11.6
       '@vercel/postgres': 0.10.0
       kysely: 0.27.5
+
+  drizzle-valibot@0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5))(valibot@1.0.0-rc.0(typescript@5.7.3)):
+    dependencies:
+      drizzle-orm: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)
+      valibot: 1.0.0-rc.0(typescript@5.7.3)
 
   dunder-proto@1.0.1:
     dependencies:
