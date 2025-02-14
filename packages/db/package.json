@@ -18,11 +18,14 @@
   },
   "scripts": {
     "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "push": "pnpm with-env drizzle-kit push",
     "studio": "pnpm with-env drizzle-kit studio",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",

@@ -1,5 +1,11 @@
 {
   "name": "@repo/tailwind-config",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
   "exports": {
     "./style.css": "./style.css"
   },
