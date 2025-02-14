@@ -4,14 +4,14 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "",
-    "css": "../../tooling/tailwind/style.css",
+    "config": "../../tooling/tailwind/web.ts",
+    "css": "unused.css",
     "baseColor": "zinc",
     "cssVariables": true
   },
   "aliases": {
-    "utils": "./",
-    "components": "./src",
-    "ui": "./src"
+    "utils": "@repo/ui",
+    "components": "src/",
+    "ui": "src/"
   }
 }

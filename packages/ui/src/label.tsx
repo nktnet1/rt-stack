@@ -1,12 +1,12 @@
-import type { VariantProps } from 'class-variance-authority';
-import * as React from 'react';
-import { cva } from 'class-variance-authority';
-import { Label as LabelPrimitive } from 'radix-ui';
+import type { VariantProps } from "class-variance-authority";
+import * as React from "react";
+import { cva } from "class-variance-authority";
+import { Label as LabelPrimitive } from "radix-ui";
 
-import { cn } from './';
+import { cn } from "@repo/ui";
 
 const labelVariants = cva(
-  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
 );
 
 const Label = React.forwardRef<
