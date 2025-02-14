@@ -1,15 +1,14 @@
-import { createLazyFileRoute } from '@tanstack/react-router';
-import { Button } from '@repo/ui/button';
+import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/')({
-  component: HomeComponent,
+  component: RouteComponent,
 });
 
-function HomeComponent() {
+function RouteComponent() {
   return (
     <div className="p-2">
-      <h3>Welcome Home!</h3>
-      <Button>Hi there</Button>
+      <h3>Hello!</h3>
+      <p className="mt-3">Please <Link to="/login" className="underline font-bold">log in</Link> to view your posts.</p>
     </div>
   );
 }
