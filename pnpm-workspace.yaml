@@ -5,7 +5,7 @@ packages:
 catalog:
   "@eslint/js": ^9.20.0
   "@tailwindcss/vite": ^4.0.6
-  "@tanstack/react-router": ^1.102.5
+  "@tanstack/react-router": ^1.104.1
   "@tanstack/router-devtools": ^1.102.5
   "@tanstack/router-plugin": ^1.102.6
   "@types/node": ^22.13.2

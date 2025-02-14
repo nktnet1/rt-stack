@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const env = createEnv({
   runtimeEnv: process.env,
-  clientPrefix: 'VITE_',
+  clientPrefix: "VITE_",
   server: {
     BETTER_AUTH_URL: z.string().min(1),
     AUTH_SECRET:
