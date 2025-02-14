@@ -32,6 +32,7 @@ export default [
   {
     rules: {
       semi: ['error', 'always'],
+      'react/prop-types': 'off',
     },
   },
 ];
