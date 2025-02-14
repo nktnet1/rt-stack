@@ -21,11 +21,11 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
-    "@auth/core": "0.37.4",
-    "@auth/drizzle-adapter": "1.7.4",
+    "@auth/core": "catalog:",
+    "@auth/drizzle-adapter": "catalog:",
     "@repo/db": "workspace:*",
-    "@t3-oss/env-core": "^0.12.0",
-    "better-auth": "^1.1.17",
+    "@t3-oss/env-core": "catalog:",
+    "better-auth": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "zod": "catalog:"

@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "prettier": "^3.5.1"
+    "prettier": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
