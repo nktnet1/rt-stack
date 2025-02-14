@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "target": "ES2022",
     "lib": ["ES2022"],
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
 
     /** Keep TSC performant in monorepos */
     "incremental": true,
@@ -19,7 +19,6 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
-    "verbatimModuleSyntax": true,
 
     /** Transpile using Bundler (not tsc) */
     "module": "Preserve",

@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "useDefineForClassFields": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "env.ts"],
+  "exclude": ["node_modules"],
+}

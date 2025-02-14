@@ -3,7 +3,7 @@
 	"scripts": {
 		"typecheck": "turbo run typecheck",
 		"build": "turbo run build",
-		"dev": "turbo run dev",
+    "dev": "turbo watch dev --continue",
 		"lint": "turbo run lint"
 	},
 	"devDependencies": {
