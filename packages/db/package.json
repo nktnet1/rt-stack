@@ -29,9 +29,7 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
-    "drizzle-orm": "catalog:",
-    "drizzle-zod": "catalog:",
-    "zod": "catalog:"
+    "drizzle-orm": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

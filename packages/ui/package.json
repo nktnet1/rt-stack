@@ -46,12 +46,10 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:",
-    "typescript": "catalog:",
-    "zod": "catalog:"
+    "typescript": "catalog:"
   },
   "peerDependencies": {
-    "react": "19.0.0",
-    "zod": "catalog:"
+    "react": "19.0.0"
   },
   "prettier": "@repo/prettier-config"
 }
