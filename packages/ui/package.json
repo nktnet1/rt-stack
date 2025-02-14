@@ -1,0 +1,56 @@
+{
+  "name": "@repo/ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./dist/src/*.d.ts",
+      "default": [
+        "./src/*.ts",
+        "./src/*.tsx"
+      ]
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "catalog:",
+    "@radix-ui/react-icons": "catalog:",
+    "class-variance-authority": "catalog:",
+    "next-themes": "catalog:",
+    "radix-ui": "catalog:",
+    "react-hook-form": "catalog:",
+    "sonner": "catalog:",
+    "tailwind-merge": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "typescript": "catalog:",
+    "zod": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "19.0.0",
+    "zod": "catalog:"
+  },
+  "prettier": "@repo/prettier-config"
+}
