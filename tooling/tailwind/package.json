@@ -9,8 +9,12 @@
   "exports": {
     "./style.css": "./style.css"
   },
+  "prettier": "@repo/prettier-config",
   "dependencies": {
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/prettier-config": "workspace:*"
   }
 }

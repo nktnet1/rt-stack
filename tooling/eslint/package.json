@@ -12,7 +12,9 @@
     "./base": "./base.js",
     "./react-internals": "./react-internals.js"
   },
+  "prettier": "@repo/prettier-config",
   "devDependencies": {
+    "@repo/prettier-config": "workspace:*",
     "@eslint/js": "catalog:",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",

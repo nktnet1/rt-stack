@@ -27,6 +27,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "with-env": "dotenv -e ../../.env --"
   },
+  "prettier": "@repo/prettier-config",
   "dependencies": {
     "drizzle-orm": "catalog:",
     "drizzle-zod": "catalog:",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "dotenv-cli": "catalog:",

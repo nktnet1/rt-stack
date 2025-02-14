@@ -3,6 +3,7 @@
 /** @type { PrettierConfig } */
 const config = {
   plugins: [],
+  singleQuote: true,
 };
 
 export default config;
