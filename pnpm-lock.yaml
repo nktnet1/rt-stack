@@ -391,6 +391,9 @@ importers:
 
   tooling/tailwind:
     dependencies:
+      eslint:
+        specifier: 'catalog:'
+        version: 9.20.1(jiti@2.4.2)
       tailwindcss:
         specifier: 'catalog:'
         version: 4.0.6
@@ -398,6 +401,9 @@ importers:
         specifier: 'catalog:'
         version: 1.0.7(tailwindcss@4.0.6)
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint
       '@repo/prettier-config':
         specifier: workspace:*
         version: link:../prettier

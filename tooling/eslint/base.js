@@ -9,7 +9,7 @@ import onlyWarn from 'eslint-plugin-only-warn';
  *
  * @type {import("eslint").Linter.Config}
  * */
-export const config = [
+export default [
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
@@ -29,4 +29,9 @@ export const config = [
   {
     ignores: ['dist/**'],
   },
+  {
+    rules: {
+      semi: ['error', 'always'],
+    }
+  }
 ];

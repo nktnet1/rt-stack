@@ -10,7 +10,7 @@
   },
   "exports": {
     "./base": "./base.js",
-    "./react-internals": "./react-internals.js"
+    "./react": "./react.js"
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
