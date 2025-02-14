@@ -24,11 +24,12 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
+    "ui-add": "pnpm dlx shadcn@canary add && prettier src --write --list-different"
   },
   "dependencies": {
     "@hookform/resolvers": "catalog:",
     "@radix-ui/react-icons": "catalog:",
+    "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "catalog:",
     "next-themes": "catalog:",
     "radix-ui": "catalog:",
