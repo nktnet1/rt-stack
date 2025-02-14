@@ -7,7 +7,7 @@
     "baseUrl": ".",
     "paths": {
       "@/lib": ["./src"],
-      "@/*": ["./src/*"],
+      "@/ui*": ["./src/*"],
     }
   },
   "include": ["src"],
