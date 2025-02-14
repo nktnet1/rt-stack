@@ -135,6 +135,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind

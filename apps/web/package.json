@@ -6,6 +6,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.ts\"",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
@@ -22,8 +24,10 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
+  "prettier": "@repo/prettier-config",
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tanstack/router-plugin": "catalog:",
