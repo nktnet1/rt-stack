@@ -11,7 +11,7 @@
   },
   "aliases": {
     "utils": "@repo/ui",
-    "components": "src/",
+    "components": "@repo/ui",
     "ui": "src/"
   }
 }
