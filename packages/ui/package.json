@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsc",
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",

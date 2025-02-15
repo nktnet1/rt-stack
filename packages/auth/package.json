@@ -11,6 +11,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc",
+    "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "generate": "pnpx @better-auth/cli generate --output ../db/src/auth-schema.ts",

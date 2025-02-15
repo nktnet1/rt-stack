@@ -14,8 +14,8 @@
     "start": "vite"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
     "@repo/db": "workspace:*",
+    "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "^0.42.0",
     "@tanstack/react-router": "catalog:",
