@@ -1,5 +1,3 @@
-'use client';
-
 import * as v from 'valibot';
 import { useForm, type FieldApi } from '@tanstack/react-form';
 import { Eye, EyeOff } from 'lucide-react';

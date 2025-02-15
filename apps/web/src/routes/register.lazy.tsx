@@ -1,3 +1,4 @@
+import RegisterCredentialsForm from '@/components/RegisterCredentialsForm';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/register')({
@@ -6,8 +7,8 @@ export const Route = createLazyFileRoute('/register')({
 
 function RouteComponent() {
   return (
-    <div className="p-2">
-      <h3>Register page</h3>
+    <div className="p-2 md:p-6 flex flex-col items-center">
+      <RegisterCredentialsForm />
     </div>
   );
 }
