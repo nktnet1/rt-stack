@@ -9,6 +9,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
     "lint": "eslint \"**/*.ts\""
   },
   "dependencies": {
