@@ -3,8 +3,10 @@
   "extends": "./base.json",
   "compilerOptions": {
     /** Emit types for internal packages to speed up editor performance. */
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
     "outDir": "${configDir}/dist"
