@@ -1,5 +1,5 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
-import LoginCredentialsForm from '@/components/LoginCredentialsForm';
+import LoginCredentialsForm from '@/components/auth/LoginCredentialsForm';
 
 export const Route = createLazyFileRoute('/login')({
   component: RouteComponent,
