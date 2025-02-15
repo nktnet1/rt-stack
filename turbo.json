@@ -20,6 +20,9 @@
       "persistent": false,
       "cache": false
     },
+    "clean": {
+      "cache": false
+    },
     "ui-add": {
       "cache": false,
       "interactive": true
