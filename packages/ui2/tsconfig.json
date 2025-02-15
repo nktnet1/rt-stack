@@ -1,5 +1,0 @@
-{
-  "extends": "@repo/typescript-config/vite.json",
-  "include": ["."],
-  "exclude": ["node_modules"]
-}
