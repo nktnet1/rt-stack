@@ -14,18 +14,21 @@
     "start": "vite"
   },
   "dependencies": {
-    "@tailwindcss/vite": "catalog:",
-    "@tanstack/react-router": "catalog:",
-    "@tanstack/router-devtools": "catalog:",
-    "@vitejs/plugin-react-swc": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-form": "^0.42.0",
+    "@tanstack/react-router": "catalog:",
+    "@tanstack/router-devtools": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
+    "lucide-react": "^0.475.0",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "valibot": "1.0.0-rc.0"
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
