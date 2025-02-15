@@ -16,6 +16,7 @@
   "dependencies": {
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@repo/utils": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "^0.42.0",
     "@tanstack/react-router": "catalog:",
