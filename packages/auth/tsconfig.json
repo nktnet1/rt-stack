@@ -5,6 +5,6 @@
     "useDefineForClassFields": true,
     "skipLibCheck": true
   },
-  "include": ["src", "env.ts"],
+  "include": ["src", "src/env.ts"],
   "exclude": ["node_modules"]
 }

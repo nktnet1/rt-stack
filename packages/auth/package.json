@@ -7,9 +7,7 @@
     ".": {
       "default": "./src/index.ts"
     },
-    "./middleware": "./src/middleware.ts",
-    "./client": "./src/client.ts",
-    "./env": "./env.ts"
+    "./client": "./src/client.ts"
   },
   "license": "MIT",
   "scripts": {

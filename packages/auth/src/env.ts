@@ -4,8 +4,10 @@ import * as v from 'valibot';
 export const env = createEnv({
   runtimeEnv: process.env,
   clientPrefix: 'VITE_',
+  emptyStringAsUndefined: true,
   server: {
     BETTER_AUTH_URL: v.string(),
+    BACKEND_PORT: v.number(),
     AUTH_SECRET:
       process.env.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
