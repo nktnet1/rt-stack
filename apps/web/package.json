@@ -14,7 +14,6 @@
     "start": "vite"
   },
   "dependencies": {
-    "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
@@ -37,6 +36,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
     "vite": "catalog:"
   }
 }
