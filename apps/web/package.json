@@ -14,7 +14,6 @@
     "start": "vite"
   },
   "dependencies": {
-    "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
     "@tailwindcss/vite": "catalog:",
