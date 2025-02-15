@@ -1,6 +1,6 @@
 {
   "extends": "@repo/typescript-config/vite.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/style.css"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/style.css", "../../packages/ui/src/**/*.tsx"],
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
@@ -10,9 +10,6 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"],
-      "@repo/ui/*": [
-        "../../packages/ui/src/*"
-      ]
     }
   }
 }
