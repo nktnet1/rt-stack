@@ -162,9 +162,9 @@ importers:
 
   apps/web:
     dependencies:
-      '@repo/ui2':
+      '@repo/ui':
         specifier: workspace:*
-        version: link:../../packages/ui2
+        version: link:../../packages/ui
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.0.6(vite@6.1.0(@types/node@22.13.2)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0))

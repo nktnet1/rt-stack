@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/vite.json",
+  "extends": "@repo/typescript-config/internal-package.json",
   "include": ["."],
   "exclude": ["node_modules"]
 }

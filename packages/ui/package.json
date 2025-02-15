@@ -3,20 +3,17 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "license": "MIT",
   "exports": {
-    ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./src/index.ts"
+    "./lib/*": {
+      "types": "./dist/src/lib/*.d.ts",
+      "default": "./src/lib/*.ts"
     },
-    "./*": {
-      "types": "./dist/src/*.d.ts",
-      "default": [
-        "./src/*.ts",
-        "./src/*.tsx"
-      ]
+    "./components/*": {
+      "types": "./dist/src/components/*.d.ts",
+      "default": "./src/components/*.tsx"
     }
   },
-  "license": "MIT",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",

@@ -1,11 +1,11 @@
 import * as v from 'valibot';
 import { useForm } from '@tanstack/react-form';
 import { Eye, EyeOff } from 'lucide-react';
-import { Input } from '@repo/ui/input';
-import { Button } from '@repo/ui/button';
-import { Label } from '@repo/ui/label';
 import { useState } from 'react';
 import FormFieldInfo from '@/components/common/FormFieldInfo';
+import { Button } from '@repo/ui/components/button';
+import { Input } from '@repo/ui/components/input';
+import { Label } from '@repo/ui/components/label';
 
 const LoginSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
