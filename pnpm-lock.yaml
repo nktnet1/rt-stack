@@ -286,10 +286,13 @@ importers:
     dependencies:
       drizzle-orm:
         specifier: 'catalog:'
-        version: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)
+        version: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)(postgres@3.4.5)
       drizzle-valibot:
         specifier: ^0.4.0
-        version: 0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5))(valibot@1.0.0-rc.0(typescript@5.7.3))
+        version: 0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)(postgres@3.4.5))(valibot@1.0.0-rc.0(typescript@5.7.3))
+      postgres:
+        specifier: ^3.4.5
+        version: 3.4.5
       valibot:
         specifier: 1.0.0-rc.0
         version: 1.0.0-rc.0(typescript@5.7.3)
@@ -3526,6 +3529,10 @@ packages:
   postgres-range@1.1.4:
     resolution: {integrity: sha512-i/hbxIE9803Alj/6ytL7UHQxRvZkI9O4Sy+J3HGc4F4oo/2eQAjTSNJ0bfxyse3bH0nuVesCk+3IRLaMtG3H6w==}
 
+  postgres@3.4.5:
+    resolution: {integrity: sha512-cDWgoah1Gez9rN3H4165peY9qfpEo+SA61oQv65O3cRUE1pOEoJWwddwcqKE8XZYjbblOJlYDlLV4h67HrEVDg==}
+    engines: {node: '>=12'}
+
   preact-render-to-string@6.5.11:
     resolution: {integrity: sha512-ubnauqoGczeGISiOh6RjX0/cdaF8v/oDXIjO85XALCQjwQP+SB4RDXXtvZ6yTYSjG+PC1QRP2AhPgCEsM2EvUw==}
     peerDependencies:
@@ -6154,16 +6161,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5):
+  drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)(postgres@3.4.5):
     optionalDependencies:
       '@libsql/client-wasm': 0.14.0
       '@types/pg': 8.11.6
       '@vercel/postgres': 0.10.0
       kysely: 0.27.5
+      postgres: 3.4.5
 
-  drizzle-valibot@0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5))(valibot@1.0.0-rc.0(typescript@5.7.3)):
+  drizzle-valibot@0.4.0(drizzle-orm@0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)(postgres@3.4.5))(valibot@1.0.0-rc.0(typescript@5.7.3)):
     dependencies:
-      drizzle-orm: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)
+      drizzle-orm: 0.39.3(@libsql/client-wasm@0.14.0)(@types/pg@8.11.6)(@vercel/postgres@0.10.0)(kysely@0.27.5)(postgres@3.4.5)
       valibot: 1.0.0-rc.0(typescript@5.7.3)
 
   dunder-proto@1.0.1:
@@ -7055,6 +7063,8 @@ snapshots:
 
   postgres-range@1.1.4:
     optional: true
+
+  postgres@3.4.5: {}
 
   preact-render-to-string@6.5.11(preact@10.24.3):
     dependencies:

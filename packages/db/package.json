@@ -31,6 +31,7 @@
   "dependencies": {
     "drizzle-orm": "catalog:",
     "drizzle-valibot": "^0.4.0",
+    "postgres": "^3.4.5",
     "valibot": "1.0.0-rc.0"
   },
   "devDependencies": {
