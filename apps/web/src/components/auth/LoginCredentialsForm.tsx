@@ -32,7 +32,7 @@ export default function LoginCredentialsForm() {
 
   return (
     <form
-      className="flex flex-col gap-y-3 border p-4 w-full max-w-md"
+      className="flex flex-col gap-y-3"
       onSubmit={(e) => {
         e.preventDefault();
         e.stopPropagation();
