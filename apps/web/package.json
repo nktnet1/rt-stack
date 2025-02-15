@@ -14,13 +14,13 @@
     "start": "vite"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "catalog:",
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "catalog:",
     "@tanstack/react-router": "catalog:",
     "@tanstack/router-devtools": "catalog:",
-    "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",

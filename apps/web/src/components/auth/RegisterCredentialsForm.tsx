@@ -1,11 +1,11 @@
 import * as v from 'valibot';
 import { useForm } from '@tanstack/react-form';
-import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 import FormFieldInfo from '@/components/common/FormFieldInfo';
 import { Label } from '@repo/ui/components/label';
 import { Input } from '@repo/ui/components/input';
 import { Button } from '@repo/ui/components/button';
+import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 
 const RegisterSchema = v.pipe(
   v.object({
@@ -125,7 +125,7 @@ export default function RegisterCredentialsForm() {
                     setIsPasswordVisible(!isPasswordVisible);
                   }}
                 >
-                  {isPasswordVisible ? <Eye /> : <EyeOff />}
+                  {isPasswordVisible ? <EyeOpenIcon /> : <EyeNoneIcon />}
                 </Button>
               </div>
               <FormFieldInfo field={field} />
@@ -159,7 +159,7 @@ export default function RegisterCredentialsForm() {
                     setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
                   }}
                 >
-                  {isConfirmPasswordVisible ? <Eye /> : <EyeOff />}
+                  {isConfirmPasswordVisible ? <EyeOpenIcon /> : <EyeNoneIcon />}
                 </Button>
               </div>
               <FormFieldInfo field={field} />

@@ -1,11 +1,11 @@
 import * as v from 'valibot';
 import { useForm } from '@tanstack/react-form';
-import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 import FormFieldInfo from '@/components/common/FormFieldInfo';
 import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
 import { Label } from '@repo/ui/components/label';
+import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 
 const LoginSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
@@ -87,7 +87,7 @@ export default function LoginCredentialsForm() {
                       setIsPasswordVisible(!isPasswordVisible);
                     }}
                   >
-                    {isPasswordVisible ? <Eye /> : <EyeOff />}
+                    {isPasswordVisible ? <EyeOpenIcon /> : <EyeNoneIcon />}
                   </Button>
                 </div>
                 <FormFieldInfo field={field} />
