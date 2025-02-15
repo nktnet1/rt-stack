@@ -1,10 +1,9 @@
 {
+  "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "NodeNext",
-    "strict": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
+    "moduleResolution": "nodenext",
     "types": ["node"],
     "jsxImportSource": "hono/jsx"
   }

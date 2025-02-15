@@ -125,9 +125,15 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@t3-oss/env-core':
+        specifier: 'catalog:'
+        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.0(typescript@5.7.3))(zod@3.24.2)
       hono:
         specifier: ^4.7.1
         version: 4.7.1
+      valibot:
+        specifier: 1.0.0-rc.0
+        version: 1.0.0-rc.0(typescript@5.7.3)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -141,6 +147,9 @@ importers:
       '@types/node':
         specifier: ^20.11.17
         version: 20.17.19
+      dotenv-cli:
+        specifier: 'catalog:'
+        version: 8.0.0
       eslint:
         specifier: 'catalog:'
         version: 9.20.1(jiti@2.4.2)
