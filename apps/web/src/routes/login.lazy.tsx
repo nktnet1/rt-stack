@@ -11,7 +11,7 @@ function RouteComponent() {
       <div className="border p-4 w-full max-w-md rounded-lg">
         <LoginCredentialsForm />
         <div className="mt-4 text-center">
-          Don't have an account?{' '}
+          {"Don't have an account? "}
           <Link to="/register" className="underline">
             Register
           </Link>
