@@ -1,4 +1,9 @@
 node_modules/
 dist/
+
 .cache/
 .turbo/
+
+.env
+
+.DS_Store
