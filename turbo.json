@@ -25,13 +25,6 @@
       "interactive": true
     }
   },
-  "globalEnv": [
-    "POSTGRES_URL",
-    "AUTH_SECRET"
-  ],
-  "globalPassThroughEnv": [
-    "NODE_ENV",
-    "CI",
-    "npm_lifecycle_event"
-  ]
+  "globalEnv": ["POSTGRES_URL", "API_PORT", "AUTH_SECRET"],
+  "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
 }

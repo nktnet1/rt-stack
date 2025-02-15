@@ -9,7 +9,7 @@ app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
 
-const port = env.BACKEND_PORT;
+const port = env.API_PORT;
 console.log(`Server is running on http://localhost:${port}`);
 
 app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));

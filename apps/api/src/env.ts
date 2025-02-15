@@ -5,7 +5,7 @@ export const env = createEnv({
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,
   server: {
-    BACKEND_PORT: v.pipe(
+    API_PORT: v.pipe(
       v.string(),
       v.transform((s) => parseInt(s, 10)),
       v.number(),
