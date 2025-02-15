@@ -1,10 +1,11 @@
 import * as v from 'valibot';
-import { useForm, type FieldApi } from '@tanstack/react-form';
+import { useForm } from '@tanstack/react-form';
 import { Eye, EyeOff } from 'lucide-react';
 import { Input } from '@repo/ui/input';
 import { Button } from '@repo/ui/button';
 import { Label } from '@repo/ui/label';
 import { useState } from 'react';
+import FormFieldInfo from '@/components/common/FormFieldInfo';
 
 const RegisterSchema = v.pipe(
   v.object({
@@ -23,24 +24,11 @@ const RegisterSchema = v.pipe(
     v.partialCheck(
       [['password'], ['confirmPassword']],
       (input) => input.password === input.confirmPassword,
-      'Passwords do not match',
+      'The two passwords do not match.',
     ),
     ['confirmPassword'],
   ),
 );
-
-function FieldInfo({ field }: { field: FieldApi<any, any, any, any> }) {
-  return (
-    <>
-      {field.state.meta.isTouched && field.state.meta.errors.length ? (
-        <em className="text-destructive">
-          {field.state.meta.errors.join(',')}
-        </em>
-      ) : null}
-      {field.state.meta.isValidating ? 'Validating...' : null}
-    </>
-  );
-}
 
 export default function RegisterCredentialsForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -87,7 +75,7 @@ export default function RegisterCredentialsForm() {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
-              <FieldInfo field={field} />
+              <FormFieldInfo field={field} />
             </>
           )}
         />
@@ -106,7 +94,7 @@ export default function RegisterCredentialsForm() {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
-              <FieldInfo field={field} />
+              <FormFieldInfo field={field} />
             </>
           )}
         />
@@ -140,7 +128,7 @@ export default function RegisterCredentialsForm() {
                   {isPasswordVisible ? <Eye /> : <EyeOff />}
                 </Button>
               </div>
-              <FieldInfo field={field} />
+              <FormFieldInfo field={field} />
             </>
           )}
         />
@@ -174,7 +162,7 @@ export default function RegisterCredentialsForm() {
                   {isConfirmPasswordVisible ? <Eye /> : <EyeOff />}
                 </Button>
               </div>
-              <FieldInfo field={field} />
+              <FormFieldInfo field={field} />
             </>
           )}
         />

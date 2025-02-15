@@ -1,10 +1,11 @@
 import * as v from 'valibot';
-import { useForm, type FieldApi } from '@tanstack/react-form';
+import { useForm } from '@tanstack/react-form';
 import { Eye, EyeOff } from 'lucide-react';
 import { Input } from '@repo/ui/input';
 import { Button } from '@repo/ui/button';
 import { Label } from '@repo/ui/label';
 import { useState } from 'react';
+import FormFieldInfo from '@/components/common/FormFieldInfo';
 
 const LoginSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
@@ -13,19 +14,6 @@ const LoginSchema = v.object({
     v.minLength(8, 'Password must be at least 8 characters'),
   ),
 });
-
-function FieldInfo({ field }: { field: FieldApi<any, any, any, any> }) {
-  return (
-    <>
-      {field.state.meta.isTouched && field.state.meta.errors.length ? (
-        <em className="text-destructive">
-          {field.state.meta.errors.join(',')}
-        </em>
-      ) : null}
-      {field.state.meta.isValidating ? 'Validating...' : null}
-    </>
-  );
-}
 
 export default function LoginCredentialsForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -66,7 +54,7 @@ export default function LoginCredentialsForm() {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
-                <FieldInfo field={field} />
+                <FormFieldInfo field={field} />
               </>
             );
           }}
@@ -102,7 +90,7 @@ export default function LoginCredentialsForm() {
                     {isPasswordVisible ? <Eye /> : <EyeOff />}
                   </Button>
                 </div>
-                <FieldInfo field={field} />
+                <FormFieldInfo field={field} />
               </>
             </>
           )}
