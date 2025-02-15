@@ -30,16 +30,16 @@
   "prettier": "@repo/prettier-config",
   "dependencies": {
     "drizzle-orm": "catalog:",
-    "drizzle-valibot": "^0.4.0",
-    "pg": "^8.13.3",
-    "valibot": "1.0.0-rc.0"
+    "drizzle-valibot": "catalog:",
+    "pg": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/pg": "^8.11.11",
+    "@types/pg": "catalog:",
     "dotenv-cli": "catalog:",
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",

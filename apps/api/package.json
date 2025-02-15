@@ -10,20 +10,20 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.8",
+    "@hono/node-server": "catalog:",
     "@repo/auth": "workspace:*",
     "@t3-oss/env-core": "catalog:",
-    "hono": "^4.7.1",
-    "valibot": "1.0.0-rc.0"
+    "hono": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20.11.17",
+    "@types/node": "catalog:",
     "dotenv-cli": "catalog:",
     "eslint": "catalog:",
-    "tsx": "^4.7.1",
+    "tsx": "catalog:",
     "typescript": "catalog:"
   }
 }

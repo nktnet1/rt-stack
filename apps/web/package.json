@@ -17,14 +17,14 @@
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
     "@tailwindcss/vite": "catalog:",
-    "@tanstack/react-form": "^0.42.0",
+    "@tanstack/react-form": "catalog:",
     "@tanstack/react-router": "catalog:",
     "@tanstack/router-devtools": "catalog:",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwindcss": "catalog:",
-    "valibot": "1.0.0-rc.0"
+    "valibot": "catalog:"
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
