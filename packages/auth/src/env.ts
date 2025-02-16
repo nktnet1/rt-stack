@@ -5,9 +5,11 @@ export const env = createEnv({
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,
   clientPrefix: 'VITE_',
-  client: {},
+  client: {
+    VITE_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+  },
   server: {
-    BETTER_AUTH_URL: v.pipe(v.string(), v.minLength(1)),
+    API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
     AUTH_SECRET:
       process.env.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
