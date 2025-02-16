@@ -40,7 +40,7 @@ export default function AuthDisplay() {
             referrerPolicy="no-referrer"
             src={session.user.image ?? ''}
           />
-          <AvatarFallback>
+          <AvatarFallback className="text-sm">
             {(session.user.name?.split(' ')[0]?.[0] || '') +
               (session.user.name?.split(' ')[1]?.[0] || '')}
           </AvatarFallback>
