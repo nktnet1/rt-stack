@@ -6,16 +6,15 @@ The RT-stack is a [turborepo](https://turbo.build/repo/docs) with the following 
 
 ```
 apps
-  ├─ server
-  |   └─ Hono (wrapper for api & auth)
   ├─ web
   |   ├─ React V19 (vite)
-  |   ├─ Tailwindcss v4
   |   └─ Tanstack Router
+  ├─ server
+  |   └─ Hono (wrapper for api & auth)
 packages
   ├─ api
   |   ├─ tRPC v11
-  |   └─ Valibot (similar to Zod validation)
+  |   └─ Valibot (zod, but lightweight)
   ├─ auth
   |   └─ Better Auth (email/password implemented)
   ├─ db
@@ -26,14 +25,16 @@ packages
       ├─ TailwindCSS V4
       ├─ Shadcn
       └─ Radix UI
-configs (shared)
+configs
   ├─ eslint
   ├─ prettier
   ├─ tailwind
   └─ typescript
 ```
 
-This stack drew inspirations from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) stack.
+For a full list of dependencies, view the catalog in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+
+This stack drew many inspirations from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
 
 ## Getting Started
 
