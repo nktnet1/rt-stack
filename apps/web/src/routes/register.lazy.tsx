@@ -15,7 +15,7 @@ function RouteComponent() {
           <Link to="/login" className="underline">
             Log in
           </Link>
-          .
+          !
         </div>
       </div>
     </div>
