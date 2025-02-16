@@ -42,12 +42,11 @@ app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
 
-const port = env.API_PORT;
-console.log(`Server is running on http://localhost:${port}`);
+console.log(`Server is running on http://localhost:${env.API_PORT}`);
 
 app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));
 
 serve({
   fetch: app.fetch,
-  port,
+  port: env.API_PORT,
 });
