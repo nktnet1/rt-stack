@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Avoid flickering screen when refreshing on dark mode
+      (() => {
+        const classList = document.documentElement.classList;
+        const style = document.documentElement.style;
+        const update = () => {
+          if (
+            localStorage.theme === 'dark' ||
+            (!localStorage.theme && dark.matches)
+          ) {
+            classList.add('dark');
+            classList.remove('light');
+            style.colorScheme = 'dark';
+          } else {
+            classList.add('light');
+            classList.remove('dark');
+            style.colorScheme = 'light';
+          }
+        };
+        update();
+      })();
+    </script>
     <title>Application Template</title>
   </head>
 

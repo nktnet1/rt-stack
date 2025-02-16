@@ -15,8 +15,12 @@ import { ExitIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 
 export default function AuthDisplay() {
-  const { data: session } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   const { resolvedTheme, setTheme } = useTheme();
+
+  if (isPending) {
+    return null;
+  }
 
   if (!session) {
     return (
