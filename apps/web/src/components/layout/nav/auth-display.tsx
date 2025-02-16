@@ -22,7 +22,7 @@ export default function AuthDisplay() {
     return null;
   }
 
-  if (!session) {
+  if (!session?.user) {
     return (
       <div className="flex gap-x-2">
         <Link to="/login">Login</Link>

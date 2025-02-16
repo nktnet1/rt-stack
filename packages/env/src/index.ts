@@ -4,9 +4,9 @@ import * as v from 'valibot';
 import { createEnv } from '@t3-oss/env-core';
 
 const runtimeEnv =
-  typeof import.meta !== 'undefined' && 'env' in import.meta
-    ? import.meta.env
-    : process.env;
+  typeof process !== 'undefined' && typeof process.env !== 'undefined'
+    ? process.env
+    : import.meta.env;
 
 export const env = createEnv({
   runtimeEnv,
@@ -28,10 +28,9 @@ export const env = createEnv({
     ),
 
     AUTH_SECRET:
-      process.env.NODE_ENV === 'production'
+      runtimeEnv.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
         : v.optional(v.pipe(v.string(), v.minLength(1))),
   },
-  skipValidation:
-    !!process.env.CI || process.env.npm_lifecycle_event === 'lint',
+  skipValidation: !!runtimeEnv.CI || runtimeEnv.npm_lifecycle_event === 'lint',
 });

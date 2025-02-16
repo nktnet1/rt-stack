@@ -12,7 +12,7 @@ function RouteComponent() {
   const { data: session } = authClient.useSession();
   const { resolvedTheme, setTheme } = useTheme();
 
-  if (!session) {
+  if (!session?.user) {
     return (
       <div className="p-2 mt-3">
         <p>
