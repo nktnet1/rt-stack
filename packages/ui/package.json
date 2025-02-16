@@ -7,6 +7,9 @@
   "files": [
     "dist"
   ],
+  "imports": {
+    "#*": "./src/*"
+  },
   "exports": {
     "./lib/*": {
       "types": "./dist/src/lib/*.d.ts",
