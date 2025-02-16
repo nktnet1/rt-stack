@@ -62,11 +62,7 @@ export default function AuthDisplay() {
             setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
           }}
         >
-          {resolvedTheme === 'dark' ? (
-            <MoonIcon className="text-yellow-300" />
-          ) : (
-            <SunIcon className="text-red-600" />
-          )}
+          {resolvedTheme === 'dark' ? <MoonIcon /> : <SunIcon />}
           <span className="ml-[5px] capitalize">Theme</span>
         </DropdownMenuItem>
         <DropdownMenuItem
