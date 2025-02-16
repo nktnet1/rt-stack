@@ -2,32 +2,38 @@
 
 ## Background
 
+The RT-stack is a [turborepo](https://turbo.build/repo/docs) with the following apps, packages and shared configs:
+
 ```
 apps
   ├─ server
-  |   ├─ Hono server for lightweight, high-performance API routing
+  |   └─ Hono (wrapper for api & auth)
   ├─ web
-  |   ├─ Tanstack Router (React v19)
+  |   ├─ React V19 (vite)
   |   ├─ Tailwindcss v4
+  |   └─ Tanstack Router
 packages
+  ├─ api
+  |   ├─ tRPC v11
+  |   └─ Valibot (similar to Zod validation)
   ├─ auth
-  |   └─ Authentication handling using Better Auth
+  |   └─ Better Auth (email/password implemented)
   ├─ db
-  |   └─ Typesafe database calls using Drizzle ORM
-  ├─ valibot
-  |   └─ Data validation using Valibot
+  |   └─ Drizzle ORM + Postgresql
+  ├─ env
+  |   └─ @t3-oss/env-core (shared environment variables)
   └─ ui
-      └─ UI components using Radix UI and TailwindCSS
-configs
+      ├─ TailwindCSS V4
+      ├─ Shadcn
+      └─ Radix UI
+configs (shared)
   ├─ eslint
-  |   └─ Shared, fine-grained eslint presets for code consistency
   ├─ prettier
-  |   └─ Shared prettier configuration for code formatting
   ├─ tailwind
-  |   └─ Shared Tailwind CSS configuration for styling
   └─ typescript
-      └─ Shared tsconfig for TypeScript setup
 ```
+
+This stack drew inspirations from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo) stack.
 
 ## Getting Started
 
