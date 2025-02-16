@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "server",
   "type": "module",
   "scripts": {
     "dev": "pnpm with-env tsx watch src/index.ts",
