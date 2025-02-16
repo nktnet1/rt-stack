@@ -11,12 +11,10 @@ import {
   AvatarImage,
 } from '@repo/ui/components/avatar';
 import { Link } from '@tanstack/react-router';
-import { useTheme } from 'next-themes';
-import { ExitIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { ExitIcon } from '@radix-ui/react-icons';
 
 export default function AuthDisplay() {
   const { data: session } = authClient.useSession();
-  const { resolvedTheme, setTheme } = useTheme();
 
   if (!session) {
     return (
@@ -51,13 +49,6 @@ export default function AuthDisplay() {
         </div>
 
         <hr className="mb-2" />
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-        >
-          {resolvedTheme === 'dark' ? <MoonIcon /> : <SunIcon />}
-          <span className="ml-[5px] capitalize">Theme</span>
-        </DropdownMenuItem>
         <DropdownMenuItem
           onClick={async () => {
             await authClient.signOut();
