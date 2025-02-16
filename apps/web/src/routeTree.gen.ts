@@ -8,17 +8,17 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router'
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root';
+import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const RegisterLazyImport = createFileRoute('/register')();
-const LoginLazyImport = createFileRoute('/login')();
-const IndexLazyImport = createFileRoute('/')();
+const RegisterLazyImport = createFileRoute('/register')()
+const LoginLazyImport = createFileRoute('/login')()
+const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
@@ -26,93 +26,93 @@ const RegisterLazyRoute = RegisterLazyImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/register.lazy').then((d) => d.Route));
+} as any).lazy(() => import('./routes/register.lazy').then((d) => d.Route))
 
 const LoginLazyRoute = LoginLazyImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route));
+} as any).lazy(() => import('./routes/login.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route));
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof IndexLazyImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
-      id: '/login';
-      path: '/login';
-      fullPath: '/login';
-      preLoaderRoute: typeof LoginLazyImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/register': {
-      id: '/register';
-      path: '/register';
-      fullPath: '/register';
-      preLoaderRoute: typeof RegisterLazyImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute;
-  '/login': typeof LoginLazyRoute;
-  '/register': typeof RegisterLazyRoute;
+  '/': typeof IndexLazyRoute
+  '/login': typeof LoginLazyRoute
+  '/register': typeof RegisterLazyRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute;
-  '/login': typeof LoginLazyRoute;
-  '/register': typeof RegisterLazyRoute;
+  '/': typeof IndexLazyRoute
+  '/login': typeof LoginLazyRoute
+  '/register': typeof RegisterLazyRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  '/': typeof IndexLazyRoute;
-  '/login': typeof LoginLazyRoute;
-  '/register': typeof RegisterLazyRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexLazyRoute
+  '/login': typeof LoginLazyRoute
+  '/register': typeof RegisterLazyRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/login' | '/register';
-  fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/login' | '/register';
-  id: '__root__' | '/' | '/login' | '/register';
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/login' | '/register'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/login' | '/register'
+  id: '__root__' | '/' | '/login' | '/register'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute;
-  LoginLazyRoute: typeof LoginLazyRoute;
-  RegisterLazyRoute: typeof RegisterLazyRoute;
+  IndexLazyRoute: typeof IndexLazyRoute
+  LoginLazyRoute: typeof LoginLazyRoute
+  RegisterLazyRoute: typeof RegisterLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   LoginLazyRoute: LoginLazyRoute,
   RegisterLazyRoute: RegisterLazyRoute,
-};
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {

@@ -47,8 +47,7 @@
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
 
-  --color-background-elevated: hsl(var(--background-elevated));
-  --color-background-nav: hsl(var(--background-nav));
+  --color-nav: hsl(var(--nav));
 
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
@@ -105,6 +104,7 @@
 @layer base {
   :root {
     --selected: 350 50% 70%;
+    --nav: 350 50% 80%;
 
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -152,6 +152,7 @@
 
   .dark {
     --selected: 350 50% 30%;
+    --nav: 350 50% 80%;
 
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
