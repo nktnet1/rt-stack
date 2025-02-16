@@ -13,7 +13,7 @@ const app = new Hono<{
 }>();
 
 app.use(
-  '*',
+  '/api/auth/*',
   cors({
     origin: [authEnv.VITE_WEB_URL],
     allowHeaders: ['Content-Type', 'Authorization'],
@@ -42,11 +42,11 @@ app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
 
-console.log(`Server is running on http://localhost:${env.API_PORT}`);
-
 app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));
 
 serve({
   fetch: app.fetch,
   port: env.API_PORT,
 });
+
+console.log(`Server is running on http://localhost:${env.API_PORT}`);

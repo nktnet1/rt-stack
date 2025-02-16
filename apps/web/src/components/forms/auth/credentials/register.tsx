@@ -6,6 +6,9 @@ import { Label } from '@repo/ui/components/label';
 import { Input } from '@repo/ui/components/input';
 import { Button } from '@repo/ui/components/button';
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { authClient } from '@repo/auth/client';
+import { toast } from 'sonner';
+import { useNavigate } from '@tanstack/react-router';
 
 const RegisterSchema = v.pipe(
   v.object({
@@ -34,6 +37,8 @@ export default function RegisterCredentialsForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
+  const navigate = useNavigate();
+
   const form = useForm({
     defaultValues: {
       name: '',
@@ -45,7 +50,21 @@ export default function RegisterCredentialsForm() {
       onChange: RegisterSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
+      const { error } = await authClient.signUp.email(
+        {
+          name: value.name,
+          email: value.email,
+          password: value.password,
+        },
+        {
+          onSuccess: () => {
+            navigate({ to: '/' });
+          },
+        },
+      );
+      if (error) {
+        toast.error(error.message ?? JSON.stringify(error));
+      }
     },
     onSubmitInvalid: (error) => {
       console.log(error);

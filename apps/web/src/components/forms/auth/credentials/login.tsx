@@ -8,6 +8,7 @@ import { Label } from '@repo/ui/components/label';
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { authClient } from '@repo/auth/client';
 import { toast } from 'sonner';
+import { useNavigate } from '@tanstack/react-router';
 
 const LoginSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
@@ -18,6 +19,7 @@ const LoginSchema = v.object({
 });
 
 export default function LoginCredentialsForm() {
+  const navigate = useNavigate();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const form = useForm({
     defaultValues: {
@@ -28,12 +30,18 @@ export default function LoginCredentialsForm() {
       onChange: LoginSchema,
     },
     onSubmit: async ({ value }) => {
-      const { error } = await authClient.signIn.email({
-        email: value.email,
-        password: value.password,
-        callbackURL: '/dashboard',
-        rememberMe: false,
-      });
+      const { error } = await authClient.signIn.email(
+        {
+          email: value.email,
+          password: value.password,
+          rememberMe: false,
+        },
+        {
+          onSuccess: () => {
+            navigate({ to: '/' });
+          },
+        },
+      );
       if (error) {
         toast.error(error.message ?? JSON.stringify(error));
       }
