@@ -6,6 +6,8 @@
 
 @theme {
   --color-selected: hsl(var(--selected));
+  --color-nav: hsl(var(--nav));
+  --color-elevated: hsl(var(--elevated));
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -46,8 +48,6 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
-
-  --color-nav: hsl(var(--nav));
 
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
@@ -111,6 +111,7 @@
   :root {
     --selected: 350 50% 70%;
     --nav: 350 50% 80%;
+    --elevated: 0 0% 90%;
 
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -164,9 +165,10 @@
 
   .dark {
     --selected: 350 50% 30%;
-    --nav: 350 50% 80%;
+    --nav: 350 50% 40%;
+    --elevated: 0 0% 20%;
 
-    --background: 0 0% 4%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;

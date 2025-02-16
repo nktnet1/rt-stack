@@ -8,7 +8,7 @@ export const Route = createLazyFileRoute('/register')({
 function RouteComponent() {
   return (
     <div className="p-2 md:p-6 flex flex-col items-center">
-      <div className="border p-4 w-full max-w-md rounded-lg">
+      <div className="border p-4 md:p-8 w-full max-w-md rounded-lg bg-elevated">
         <RegisterCredentialsForm />
         <div className="mt-4 text-center">
           Already have an account?{' '}
