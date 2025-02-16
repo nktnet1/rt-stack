@@ -23,6 +23,7 @@ const IndexLazyImport = createFileRoute('/')()
 const noauthNoauthRegisterLazyImport = createFileRoute(
   '/(noauth)/_noauth/register',
 )()
+const noauthNoauthLoginLazyImport = createFileRoute('/(noauth)/_noauth/login')()
 
 // Create/Update Routes
 
@@ -60,6 +61,16 @@ const noauthNoauthRegisterLazyRoute = noauthNoauthRegisterLazyImport
     import('./routes/(noauth)/_noauth.register.lazy').then((d) => d.Route),
   )
 
+const noauthNoauthLoginLazyRoute = noauthNoauthLoginLazyImport
+  .update({
+    id: '/login',
+    path: '/login',
+    getParentRoute: () => noauthNoauthRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(noauth)/_noauth.login.lazy').then((d) => d.Route),
+  )
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -85,6 +96,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof noauthNoauthImport
       parentRoute: typeof noauthRoute
     }
+    '/(noauth)/_noauth/login': {
+      id: '/(noauth)/_noauth/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof noauthNoauthLoginLazyImport
+      parentRoute: typeof noauthNoauthImport
+    }
     '/(noauth)/_noauth/register': {
       id: '/(noauth)/_noauth/register'
       path: '/register'
@@ -105,10 +123,12 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface noauthNoauthRouteChildren {
+  noauthNoauthLoginLazyRoute: typeof noauthNoauthLoginLazyRoute
   noauthNoauthRegisterLazyRoute: typeof noauthNoauthRegisterLazyRoute
 }
 
 const noauthNoauthRouteChildren: noauthNoauthRouteChildren = {
+  noauthNoauthLoginLazyRoute: noauthNoauthLoginLazyRoute,
   noauthNoauthRegisterLazyRoute: noauthNoauthRegisterLazyRoute,
 }
 
@@ -129,12 +149,14 @@ const noauthRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '/': typeof noauthNoauthRouteWithChildren
+  '/login': typeof noauthNoauthLoginLazyRoute
   '/register': typeof noauthNoauthRegisterLazyRoute
   '/posts': typeof authPostsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof noauthNoauthRouteWithChildren
+  '/login': typeof noauthNoauthLoginLazyRoute
   '/register': typeof noauthNoauthRegisterLazyRoute
   '/posts': typeof authPostsIndexRoute
 }
@@ -144,20 +166,22 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/(noauth)': typeof noauthRouteWithChildren
   '/(noauth)/_noauth': typeof noauthNoauthRouteWithChildren
+  '/(noauth)/_noauth/login': typeof noauthNoauthLoginLazyRoute
   '/(noauth)/_noauth/register': typeof noauthNoauthRegisterLazyRoute
   '/(auth)/posts/': typeof authPostsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/register' | '/posts'
+  fullPaths: '/' | '/login' | '/register' | '/posts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/register' | '/posts'
+  to: '/' | '/login' | '/register' | '/posts'
   id:
     | '__root__'
     | '/'
     | '/(noauth)'
     | '/(noauth)/_noauth'
+    | '/(noauth)/_noauth/login'
     | '/(noauth)/_noauth/register'
     | '/(auth)/posts/'
   fileRoutesById: FileRoutesById
@@ -203,8 +227,13 @@ export const routeTree = rootRoute
       "filePath": "(noauth)/_noauth.tsx",
       "parent": "/(noauth)",
       "children": [
+        "/(noauth)/_noauth/login",
         "/(noauth)/_noauth/register"
       ]
+    },
+    "/(noauth)/_noauth/login": {
+      "filePath": "(noauth)/_noauth.login.lazy.tsx",
+      "parent": "/(noauth)/_noauth"
     },
     "/(noauth)/_noauth/register": {
       "filePath": "(noauth)/_noauth.register.lazy.tsx",
