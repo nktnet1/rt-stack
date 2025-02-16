@@ -43,11 +43,13 @@ const noauthNoauthRoute = noauthNoauthImport.update({
   getParentRoute: () => noauthRoute,
 } as any)
 
-const authPostsIndexRoute = authPostsIndexImport.update({
-  id: '/(auth)/posts/',
-  path: '/posts/',
-  getParentRoute: () => rootRoute,
-} as any)
+const authPostsIndexRoute = authPostsIndexImport
+  .update({
+    id: '/(auth)/posts/',
+    path: '/posts/',
+    getParentRoute: () => rootRoute,
+  } as any)
+  .lazy(() => import('./routes/(auth)/posts/index.lazy').then((d) => d.Route))
 
 const noauthNoauthRegisterLazyRoute = noauthNoauthRegisterLazyImport
   .update({

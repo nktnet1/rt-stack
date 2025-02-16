@@ -30,7 +30,6 @@
     "ui-add": "pnpm dlx shadcn@canary add && prettier src --write --list-different"
   },
   "dependencies": {
-    "@hookform/resolvers": "catalog:",
     "@radix-ui/react-avatar": "catalog:",
     "@radix-ui/react-dialog": "catalog:",
     "@radix-ui/react-dropdown-menu": "catalog:",

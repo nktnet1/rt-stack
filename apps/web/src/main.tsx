@@ -1,23 +1,12 @@
 import './style.css';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createRouter } from '@tanstack/react-router';
-import { routeTree } from './routeTree.gen';
+import { RouterProvider } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
-
-// Set up a Router instance
-const router = createRouter({
-  routeTree,
-  defaultPreload: 'intent',
-});
-
-// Register things for typesafety
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
-}
+import { createRouter } from '@/router';
 
 const rootElement = document.getElementById('app')!;
+
+const router = createRouter();
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);

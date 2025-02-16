@@ -1,10 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/(auth)/posts/')({
-  component: RouteComponent,
-  pendingComponent: () => <div>Loading...</div>,
+  loader: async ({ context }) => {
+    console.log(context);
+  },
 });
-
-function RouteComponent() {
-  return <div>Your posts:</div>;
-}
