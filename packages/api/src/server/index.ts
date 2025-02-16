@@ -1,6 +1,6 @@
 import { publicProcedure, router } from './trpc';
 
-const appRouter = router({
+export const appRouter = router({
   echo: publicProcedure.query(async () => {
     return { message: 'helloworld' };
   }),

@@ -3,6 +3,8 @@ import { Hono } from 'hono';
 import { auth } from '@repo/auth/server';
 import { env } from '@repo/env';
 import { cors } from 'hono/cors';
+import { trpcServer } from '@hono/trpc-server';
+import { appRouter } from '@repo/api/server';
 
 const app = new Hono<{
   Variables: {
@@ -37,11 +39,18 @@ app.use('*', async (c, next) => {
   return next();
 });
 
+app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));
+
+app.use(
+  '/trpc/*',
+  trpcServer({
+    router: appRouter,
+  }),
+);
+
 app.get('/', (c) => {
   return c.text('Hello Hono!');
 });
-
-app.on(['POST', 'GET'], '/api/auth/**', (c) => auth.handler(c.req.raw));
 
 serve({
   fetch: app.fetch,

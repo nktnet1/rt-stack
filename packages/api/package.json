@@ -4,9 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./env": "./src/env.ts",
-    "./server": "./src/server",
-    "./client": "./src/client"
+    "./server": "./src/server/index.ts",
+    "./client": "./src/client/index.ts"
   },
   "license": "MIT",
   "scripts": {
