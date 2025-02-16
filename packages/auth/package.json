@@ -4,9 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
+    "./env": "./src/env.ts",
+    "./server": "./src/server.ts",
     "./client": "./src/client.ts"
   },
   "license": "MIT",
@@ -26,7 +25,8 @@
     "@repo/db": "workspace:*",
     "@t3-oss/env-core": "catalog:",
     "better-auth": "catalog:",
-    "valibot": "catalog:"
+    "valibot": "catalog:",
+    "vite": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

@@ -15,6 +15,14 @@
       "dependsOn": ["^typecheck"]
     },
     "lint": {},
+    "push": {
+      "cache": false,
+      "interactive": true
+    },
+    "studio": {
+      "cache": false,
+      "persistent": true
+    },
     "dev": {
       "dependsOn": ["^dev"],
       "persistent": false,
@@ -28,6 +36,12 @@
       "interactive": true
     }
   },
-  "globalEnv": ["POSTGRES_URL", "API_PORT", "AUTH_SECRET"],
+  "globalEnv": [
+    "POSTGRES_URL",
+    "AUTH_SECRET",
+    "API_PORT",
+    "API_URL",
+    "VITE_WEB_URL"
+  ],
   "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
 }

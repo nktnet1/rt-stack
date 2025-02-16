@@ -4,6 +4,8 @@
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",
     "dev": "turbo watch dev --continue",
+    "db:push": "turbo -F @repo/db push",
+    "db:studio": "turbo -F @repo/db studio",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
     "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
     "preclean": "git clean -xdf node_modules",

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "useDefineForClassFields": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node", "vite"]
   },
   "include": ["src", "src/env.ts"],
   "exclude": ["node_modules"]
