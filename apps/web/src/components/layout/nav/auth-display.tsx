@@ -24,10 +24,26 @@ export default function AuthDisplay() {
 
   if (!session?.user) {
     return (
-      <div className="flex gap-x-2">
-        <Link to="/login">Login</Link>
+      <div className="flex gap-x-2 justify-between">
+        <Link
+          to="/login"
+          activeProps={{
+            className: 'font-bold',
+          }}
+          activeOptions={{ exact: true }}
+        >
+          Login
+        </Link>
         <span>|</span>
-        <Link to="/register">Register</Link>
+        <Link
+          to="/register"
+          activeProps={{
+            className: 'font-bold',
+          }}
+          activeOptions={{ exact: true }}
+        >
+          Register
+        </Link>
       </div>
     );
   }
