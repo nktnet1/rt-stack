@@ -42,12 +42,16 @@ function RouteComponent() {
     );
   }
   return (
-    <div className="p-2 mt-3 flex flex-col">
+    <div className="flex flex-col">
       <div>
         Welcome, <span className="font-bold">{session.user.name}</span>!
       </div>
       <div className="mt-2">
-        Click <Link to="/">here</Link> to view your posts.
+        Click{' '}
+        <Link to="/posts" className="underline">
+          here
+        </Link>{' '}
+        to view your posts.
       </div>
     </div>
   );
