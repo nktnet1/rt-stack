@@ -1,7 +1,7 @@
 import { serve } from '@hono/node-server';
 import { env as authEnv } from '@repo/auth/env';
 import { Hono } from 'hono';
-import { env } from './env.js';
+import { env } from '@repo/api/env';
 import { auth } from '@repo/auth/server';
 import { cors } from 'hono/cors';
 

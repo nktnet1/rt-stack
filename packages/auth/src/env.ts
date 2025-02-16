@@ -9,12 +9,12 @@ export const env = createEnv({
     VITE_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
   },
   server: {
+    NODE_ENV: v.optional(v.picklist(['development', 'production'])),
     API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
     AUTH_SECRET:
       process.env.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
         : v.optional(v.pipe(v.string(), v.minLength(1))),
-    NODE_ENV: v.optional(v.picklist(['development', 'production'])),
   },
   skipValidation:
     !!process.env.CI || process.env.npm_lifecycle_event === 'lint',

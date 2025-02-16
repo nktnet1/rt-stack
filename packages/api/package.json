@@ -4,10 +4,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./src/index.ts"
-    }
+    "./env": "./src/env.ts",
+    "./server": "./src/server",
+    "./client": "./src/client"
   },
   "license": "MIT",
   "scripts": {
@@ -21,6 +20,8 @@
   "dependencies": {
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
+    "@t3-oss/env-core": "catalog:",
+    "@trpc/client": "^11.0.0-rc.768",
     "@trpc/server": "11.0.0-rc.768",
     "valibot": "catalog:"
   },
@@ -30,7 +31,8 @@
     "@repo/typescript-config": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vite": "catalog:"
   },
   "prettier": "@repo/prettier-config"
 }
