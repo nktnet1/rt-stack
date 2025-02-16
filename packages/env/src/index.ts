@@ -4,13 +4,12 @@ import * as v from 'valibot';
 import { createEnv } from '@t3-oss/env-core';
 
 const runtimeEnv =
-  typeof process !== 'undefined' && typeof process.env !== 'undefined'
-    ? process.env
-    : import.meta.env;
+  typeof process !== 'undefined' ? process.env : import.meta.env;
 
 export const env = createEnv({
   runtimeEnv,
   emptyStringAsUndefined: true,
+  // Your vite apps must also define `envPrefix` to be the same.
   clientPrefix: 'PUBLIC_',
   client: {
     PUBLIC_API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
