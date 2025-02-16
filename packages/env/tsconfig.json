@@ -4,8 +4,8 @@
     "downlevelIteration": true,
     "useDefineForClassFields": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node", "vite"]
   },
-  "include": ["src"],
+  "include": ["src", "src/client/env.ts"],
   "exclude": ["node_modules"]
 }

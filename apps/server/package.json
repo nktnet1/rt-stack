@@ -14,9 +14,8 @@
     "@hono/trpc-server": "^0.3.4",
     "@repo/auth": "workspace:*",
     "@repo/api": "workspace:*",
-    "@t3-oss/env-core": "catalog:",
-    "hono": "catalog:",
-    "valibot": "catalog:"
+    "@repo/env": "workspace:*",
+    "hono": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

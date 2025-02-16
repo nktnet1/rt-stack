@@ -23,10 +23,8 @@
     "@auth/core": "catalog:",
     "@auth/drizzle-adapter": "catalog:",
     "@repo/db": "workspace:*",
-    "@t3-oss/env-core": "catalog:",
-    "better-auth": "catalog:",
-    "valibot": "catalog:",
-    "vite": "catalog:"
+    "@repo/env": "workspace:*",
+    "better-auth": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

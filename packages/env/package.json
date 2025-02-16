@@ -1,38 +1,35 @@
 {
-  "name": "@repo/api",
+  "name": "@repo/env",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": {
     "./env": "./src/env.ts",
-    "./server": "./src/server",
-    "./client": "./src/client"
+    "./server": "./src/server.ts",
+    "./client": "./src/client.ts"
   },
   "license": "MIT",
   "scripts": {
+    "dev": "tsc",
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
+    "generate": "pnpx @better-auth/cli generate --output ../db/src/auth-schema.ts",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --noEmit"
   },
+  "prettier": "@repo/prettier-config",
   "dependencies": {
-    "@repo/auth": "workspace:*",
-    "@repo/db": "workspace:*",
-    "@repo/env": "workspace:*",
-    "@trpc/client": "^11.0.0-rc.768",
-    "@trpc/server": "11.0.0-rc.768",
-    "valibot": "catalog:"
+    "@t3-oss/env-core": "catalog:",
+    "valibot": "catalog:",
+    "vite": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
     "eslint": "catalog:",
-    "prettier": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:"
-  },
-  "prettier": "@repo/prettier-config"
+    "typescript": "catalog:"
+  }
 }

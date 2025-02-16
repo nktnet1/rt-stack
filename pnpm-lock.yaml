@@ -197,15 +197,12 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@t3-oss/env-core':
-        specifier: 'catalog:'
-        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.0(typescript@5.7.3))(zod@3.24.2)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       hono:
         specifier: 'catalog:'
         version: 4.7.1
-      valibot:
-        specifier: 'catalog:'
-        version: 1.0.0-rc.0(typescript@5.7.3)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -319,9 +316,9 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@t3-oss/env-core':
-        specifier: 'catalog:'
-        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.0(typescript@5.7.3))(zod@3.24.2)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
       '@trpc/client':
         specifier: ^11.0.0-rc.768
         version: 11.0.0-rc.768(@trpc/server@11.0.0-rc.768(typescript@5.7.3))(typescript@5.7.3)
@@ -331,9 +328,6 @@ importers:
       valibot:
         specifier: 'catalog:'
         version: 1.0.0-rc.0(typescript@5.7.3)
-      vite:
-        specifier: 'catalog:'
-        version: 6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -353,6 +347,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
+      vite:
+        specifier: 'catalog:'
+        version: 6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
 
   packages/auth:
     dependencies:
@@ -365,18 +362,12 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@t3-oss/env-core':
-        specifier: 'catalog:'
-        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.0(typescript@5.7.3))(zod@3.24.2)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
       better-auth:
         specifier: 'catalog:'
         version: 1.1.17
-      valibot:
-        specifier: 'catalog:'
-        version: 1.0.0-rc.0(typescript@5.7.3)
-      vite:
-        specifier: 'catalog:'
-        version: 6.1.0(@types/node@20.17.19)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -433,6 +424,37 @@ importers:
       drizzle-kit:
         specifier: 'catalog:'
         version: 0.30.4
+      eslint:
+        specifier: 'catalog:'
+        version: 9.20.1(jiti@2.4.2)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.7.3
+
+  packages/env:
+    dependencies:
+      '@t3-oss/env-core':
+        specifier: 'catalog:'
+        version: 0.12.0(typescript@5.7.3)(valibot@1.0.0-rc.0(typescript@5.7.3))(zod@3.24.2)
+      valibot:
+        specifier: 'catalog:'
+        version: 1.0.0-rc.0(typescript@5.7.3)
+      vite:
+        specifier: 'catalog:'
+        version: 6.1.0(@types/node@20.17.19)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.17.19
       eslint:
         specifier: 'catalog:'
         version: 9.20.1(jiti@2.4.2)
