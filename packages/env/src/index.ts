@@ -1,14 +1,24 @@
+/// <reference types="vite/client" />
+
 import * as v from 'valibot';
 import { createEnv } from '@t3-oss/env-core';
 
+const runtimeEnv =
+  typeof import.meta !== 'undefined' && 'env' in import.meta
+    ? import.meta.env
+    : process.env;
+
 export const env = createEnv({
-  runtimeEnv: process.env,
+  runtimeEnv,
   emptyStringAsUndefined: true,
+  clientPrefix: 'PUBLIC_',
+  client: {
+    PUBLIC_API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+    PUBLIC_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+  },
   server: {
     NODE_ENV: v.optional(v.picklist(['development', 'production'])),
-    VITE_PUBLIC_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
 
-    API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
     API_PORT: v.pipe(
       v.optional(v.string(), '3000'),
       v.transform((s) => parseInt(s, 10)),

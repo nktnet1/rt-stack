@@ -1,10 +1,10 @@
 import { db } from '@repo/db/client';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { env } from '@repo/env/server';
+import { env } from '@repo/env';
 
 export const auth = betterAuth({
-  trustedOrigins: [env.VITE_PUBLIC_WEB_URL],
+  trustedOrigins: [env.PUBLIC_WEB_URL],
   database: drizzleAdapter(db, {
     provider: 'pg',
   }),

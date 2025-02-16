@@ -41,7 +41,7 @@
     "AUTH_SECRET",
     "API_PORT",
     "API_URL",
-    "VITE_PUBLIC_WEB_URL"
+    "PUBLIC_WEB_URL"
   ],
   "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
 }

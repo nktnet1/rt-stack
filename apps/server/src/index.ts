@@ -1,7 +1,7 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { auth } from '@repo/auth/server';
-import { env } from '@repo/env/server';
+import { env } from '@repo/env';
 import { cors } from 'hono/cors';
 
 const app = new Hono<{
@@ -14,7 +14,7 @@ const app = new Hono<{
 app.use(
   '/api/auth/*',
   cors({
-    origin: [env.VITE_PUBLIC_WEB_URL],
+    origin: [env.PUBLIC_WEB_URL],
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     exposeHeaders: ['Content-Length'],
