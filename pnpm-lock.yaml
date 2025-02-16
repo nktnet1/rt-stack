@@ -320,7 +320,7 @@ importers:
         specifier: workspace:*
         version: link:../env
       '@trpc/client':
-        specifier: ^11.0.0-rc.768
+        specifier: 11.0.0-rc.768
         version: 11.0.0-rc.768(@trpc/server@11.0.0-rc.768(typescript@5.7.3))(typescript@5.7.3)
       '@trpc/server':
         specifier: 11.0.0-rc.768
