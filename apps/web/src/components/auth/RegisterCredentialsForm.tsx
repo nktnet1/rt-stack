@@ -87,6 +87,7 @@ export default function RegisterCredentialsForm() {
             <>
               <Label htmlFor={field.name}>Email</Label>
               <Input
+                className="mt-1"
                 id={field.name}
                 type="email"
                 name={field.name}
@@ -107,6 +108,7 @@ export default function RegisterCredentialsForm() {
               <Label htmlFor={field.name}>Password</Label>
               <div className="flex justify-end items-center relative w-full">
                 <Input
+                  className="mt-1"
                   id={field.name}
                   type={isPasswordVisible ? 'text' : 'password'}
                   name={field.name}
@@ -141,6 +143,7 @@ export default function RegisterCredentialsForm() {
               <Label htmlFor={field.name}>Confirm Password</Label>
               <div className="flex justify-end items-center relative w-full">
                 <Input
+                  className="mt-1"
                   id={field.name}
                   type={isConfirmPasswordVisible ? 'text' : 'password'}
                   name={field.name}

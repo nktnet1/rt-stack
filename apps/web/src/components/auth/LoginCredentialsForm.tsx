@@ -55,6 +55,7 @@ export default function LoginCredentialsForm() {
               <>
                 <Label htmlFor={field.name}>Email</Label>
                 <Input
+                  className="mt-1"
                   id={field.name}
                   type="email"
                   name={field.name}
@@ -77,6 +78,7 @@ export default function LoginCredentialsForm() {
               <>
                 <div className="flex justify-end items-center relative w-full">
                   <Input
+                    className="mt-1"
                     id={field.name}
                     type={isPasswordVisible ? 'text' : 'password'}
                     name={field.name}
