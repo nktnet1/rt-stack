@@ -13,20 +13,22 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as PostsIndexImport } from './routes/posts/index'
-import { Route as authAuthImport } from './routes/(auth)/_auth'
+import { Route as noauthNoauthImport } from './routes/(noauth)/_noauth'
+import { Route as authPostsIndexImport } from './routes/(auth)/posts/index'
 
 // Create Virtual Routes
 
-const authImport = createFileRoute('/(auth)')()
+const noauthImport = createFileRoute('/(noauth)')()
 const IndexLazyImport = createFileRoute('/')()
-const authAuthRegisterLazyImport = createFileRoute('/(auth)/_auth/register')()
-const authAuthLoginLazyImport = createFileRoute('/(auth)/_auth/login')()
+const noauthNoauthRegisterLazyImport = createFileRoute(
+  '/(noauth)/_noauth/register',
+)()
+const noauthNoauthLoginLazyImport = createFileRoute('/(noauth)/_noauth/login')()
 
 // Create/Update Routes
 
-const authRoute = authImport.update({
-  id: '/(auth)',
+const noauthRoute = noauthImport.update({
+  id: '/(noauth)',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -36,34 +38,36 @@ const IndexLazyRoute = IndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
-const PostsIndexRoute = PostsIndexImport.update({
-  id: '/posts/',
+const noauthNoauthRoute = noauthNoauthImport.update({
+  id: '/_noauth',
+  getParentRoute: () => noauthRoute,
+} as any)
+
+const authPostsIndexRoute = authPostsIndexImport.update({
+  id: '/(auth)/posts/',
   path: '/posts/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const authAuthRoute = authAuthImport.update({
-  id: '/_auth',
-  getParentRoute: () => authRoute,
-} as any)
-
-const authAuthRegisterLazyRoute = authAuthRegisterLazyImport
+const noauthNoauthRegisterLazyRoute = noauthNoauthRegisterLazyImport
   .update({
     id: '/register',
     path: '/register',
-    getParentRoute: () => authAuthRoute,
+    getParentRoute: () => noauthNoauthRoute,
   } as any)
   .lazy(() =>
-    import('./routes/(auth)/_auth.register.lazy').then((d) => d.Route),
+    import('./routes/(noauth)/_noauth.register.lazy').then((d) => d.Route),
   )
 
-const authAuthLoginLazyRoute = authAuthLoginLazyImport
+const noauthNoauthLoginLazyRoute = noauthNoauthLoginLazyImport
   .update({
     id: '/login',
     path: '/login',
-    getParentRoute: () => authAuthRoute,
+    getParentRoute: () => noauthNoauthRoute,
   } as any)
-  .lazy(() => import('./routes/(auth)/_auth.login.lazy').then((d) => d.Route))
+  .lazy(() =>
+    import('./routes/(noauth)/_noauth.login.lazy').then((d) => d.Route),
+  )
 
 // Populate the FileRoutesByPath interface
 
@@ -76,120 +80,121 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/(auth)': {
-      id: '/(auth)'
+    '/(noauth)': {
+      id: '/(noauth)'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof authImport
+      preLoaderRoute: typeof noauthImport
       parentRoute: typeof rootRoute
     }
-    '/(auth)/_auth': {
-      id: '/(auth)/_auth'
+    '/(noauth)/_noauth': {
+      id: '/(noauth)/_noauth'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof authAuthImport
-      parentRoute: typeof authRoute
+      preLoaderRoute: typeof noauthNoauthImport
+      parentRoute: typeof noauthRoute
     }
-    '/posts/': {
-      id: '/posts/'
-      path: '/posts'
-      fullPath: '/posts'
-      preLoaderRoute: typeof PostsIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/(auth)/_auth/login': {
-      id: '/(auth)/_auth/login'
+    '/(noauth)/_noauth/login': {
+      id: '/(noauth)/_noauth/login'
       path: '/login'
       fullPath: '/login'
-      preLoaderRoute: typeof authAuthLoginLazyImport
-      parentRoute: typeof authAuthImport
+      preLoaderRoute: typeof noauthNoauthLoginLazyImport
+      parentRoute: typeof noauthNoauthImport
     }
-    '/(auth)/_auth/register': {
-      id: '/(auth)/_auth/register'
+    '/(noauth)/_noauth/register': {
+      id: '/(noauth)/_noauth/register'
       path: '/register'
       fullPath: '/register'
-      preLoaderRoute: typeof authAuthRegisterLazyImport
-      parentRoute: typeof authAuthImport
+      preLoaderRoute: typeof noauthNoauthRegisterLazyImport
+      parentRoute: typeof noauthNoauthImport
+    }
+    '/(auth)/posts/': {
+      id: '/(auth)/posts/'
+      path: '/posts'
+      fullPath: '/posts'
+      preLoaderRoute: typeof authPostsIndexImport
+      parentRoute: typeof rootRoute
     }
   }
 }
 
 // Create and export the route tree
 
-interface authAuthRouteChildren {
-  authAuthLoginLazyRoute: typeof authAuthLoginLazyRoute
-  authAuthRegisterLazyRoute: typeof authAuthRegisterLazyRoute
+interface noauthNoauthRouteChildren {
+  noauthNoauthLoginLazyRoute: typeof noauthNoauthLoginLazyRoute
+  noauthNoauthRegisterLazyRoute: typeof noauthNoauthRegisterLazyRoute
 }
 
-const authAuthRouteChildren: authAuthRouteChildren = {
-  authAuthLoginLazyRoute: authAuthLoginLazyRoute,
-  authAuthRegisterLazyRoute: authAuthRegisterLazyRoute,
+const noauthNoauthRouteChildren: noauthNoauthRouteChildren = {
+  noauthNoauthLoginLazyRoute: noauthNoauthLoginLazyRoute,
+  noauthNoauthRegisterLazyRoute: noauthNoauthRegisterLazyRoute,
 }
 
-const authAuthRouteWithChildren = authAuthRoute._addFileChildren(
-  authAuthRouteChildren,
+const noauthNoauthRouteWithChildren = noauthNoauthRoute._addFileChildren(
+  noauthNoauthRouteChildren,
 )
 
-interface authRouteChildren {
-  authAuthRoute: typeof authAuthRouteWithChildren
+interface noauthRouteChildren {
+  noauthNoauthRoute: typeof noauthNoauthRouteWithChildren
 }
 
-const authRouteChildren: authRouteChildren = {
-  authAuthRoute: authAuthRouteWithChildren,
+const noauthRouteChildren: noauthRouteChildren = {
+  noauthNoauthRoute: noauthNoauthRouteWithChildren,
 }
 
-const authRouteWithChildren = authRoute._addFileChildren(authRouteChildren)
+const noauthRouteWithChildren =
+  noauthRoute._addFileChildren(noauthRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof authAuthRouteWithChildren
-  '/posts': typeof PostsIndexRoute
-  '/login': typeof authAuthLoginLazyRoute
-  '/register': typeof authAuthRegisterLazyRoute
+  '/': typeof noauthNoauthRouteWithChildren
+  '/login': typeof noauthNoauthLoginLazyRoute
+  '/register': typeof noauthNoauthRegisterLazyRoute
+  '/posts': typeof authPostsIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof authAuthRouteWithChildren
-  '/posts': typeof PostsIndexRoute
-  '/login': typeof authAuthLoginLazyRoute
-  '/register': typeof authAuthRegisterLazyRoute
+  '/': typeof noauthNoauthRouteWithChildren
+  '/login': typeof noauthNoauthLoginLazyRoute
+  '/register': typeof noauthNoauthRegisterLazyRoute
+  '/posts': typeof authPostsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/(auth)': typeof authRouteWithChildren
-  '/(auth)/_auth': typeof authAuthRouteWithChildren
-  '/posts/': typeof PostsIndexRoute
-  '/(auth)/_auth/login': typeof authAuthLoginLazyRoute
-  '/(auth)/_auth/register': typeof authAuthRegisterLazyRoute
+  '/(noauth)': typeof noauthRouteWithChildren
+  '/(noauth)/_noauth': typeof noauthNoauthRouteWithChildren
+  '/(noauth)/_noauth/login': typeof noauthNoauthLoginLazyRoute
+  '/(noauth)/_noauth/register': typeof noauthNoauthRegisterLazyRoute
+  '/(auth)/posts/': typeof authPostsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/posts' | '/login' | '/register'
+  fullPaths: '/' | '/login' | '/register' | '/posts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/posts' | '/login' | '/register'
+  to: '/' | '/login' | '/register' | '/posts'
   id:
     | '__root__'
     | '/'
-    | '/(auth)'
-    | '/(auth)/_auth'
-    | '/posts/'
-    | '/(auth)/_auth/login'
-    | '/(auth)/_auth/register'
+    | '/(noauth)'
+    | '/(noauth)/_noauth'
+    | '/(noauth)/_noauth/login'
+    | '/(noauth)/_noauth/register'
+    | '/(auth)/posts/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  authRoute: typeof authRouteWithChildren
-  PostsIndexRoute: typeof PostsIndexRoute
+  noauthRoute: typeof noauthRouteWithChildren
+  authPostsIndexRoute: typeof authPostsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  authRoute: authRouteWithChildren,
-  PostsIndexRoute: PostsIndexRoute,
+  noauthRoute: noauthRouteWithChildren,
+  authPostsIndexRoute: authPostsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -203,37 +208,37 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/(auth)",
-        "/posts/"
+        "/(noauth)",
+        "/(auth)/posts/"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/(auth)": {
-      "filePath": "(auth)",
+    "/(noauth)": {
+      "filePath": "(noauth)",
       "children": [
-        "/(auth)/_auth"
+        "/(noauth)/_noauth"
       ]
     },
-    "/(auth)/_auth": {
-      "filePath": "(auth)/_auth.tsx",
-      "parent": "/(auth)",
+    "/(noauth)/_noauth": {
+      "filePath": "(noauth)/_noauth.tsx",
+      "parent": "/(noauth)",
       "children": [
-        "/(auth)/_auth/login",
-        "/(auth)/_auth/register"
+        "/(noauth)/_noauth/login",
+        "/(noauth)/_noauth/register"
       ]
     },
-    "/posts/": {
-      "filePath": "posts/index.tsx"
+    "/(noauth)/_noauth/login": {
+      "filePath": "(noauth)/_noauth.login.lazy.tsx",
+      "parent": "/(noauth)/_noauth"
     },
-    "/(auth)/_auth/login": {
-      "filePath": "(auth)/_auth.login.lazy.tsx",
-      "parent": "/(auth)/_auth"
+    "/(noauth)/_noauth/register": {
+      "filePath": "(noauth)/_noauth.register.lazy.tsx",
+      "parent": "/(noauth)/_noauth"
     },
-    "/(auth)/_auth/register": {
-      "filePath": "(auth)/_auth.register.lazy.tsx",
-      "parent": "/(auth)/_auth"
+    "/(auth)/posts/": {
+      "filePath": "(auth)/posts/index.tsx"
     }
   }
 }
