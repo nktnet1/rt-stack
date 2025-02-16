@@ -87,6 +87,7 @@ export default function RegisterCredentialsForm() {
             <>
               <Label htmlFor={field.name}>Name</Label>
               <Input
+                className="mt-1"
                 id={field.name}
                 type="text"
                 name={field.name}
