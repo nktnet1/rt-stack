@@ -9,8 +9,8 @@ function RouteComponent() {
   const { data: session } = authClient.useSession();
   if (!session) {
     return (
-      <div className="p-2">
-        <p className="mt-3">
+      <div className="p-2 mt-3">
+        <p>
           Please{' '}
           <Link to="/login" className="underline font-bold">
             log in
@@ -20,5 +20,5 @@ function RouteComponent() {
       </div>
     );
   }
-  return <div className="p-2">Welcome, {session.user.name}!</div>;
+  return <div className="p-2 mt-3">Welcome, {session.user.name}!</div>;
 }

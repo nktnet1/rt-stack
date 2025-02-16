@@ -29,7 +29,7 @@ export default function AuthDisplay() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer w-8 h-8 md:w-9 md:h-9">
+        <Avatar className="cursor-pointer w-8.5 h-8.5">
           <AvatarImage
             referrerPolicy="no-referrer"
             src={session.user.image ?? ''}
