@@ -1,6 +1,33 @@
-# Vitalised Stack 
+# RT-Stack 
 
+## Background
 
+```
+apps
+  ├─ server
+  |   ├─ Hono server for lightweight, high-performance API routing
+  ├─ web
+  |   ├─ Tanstack Router (React v19)
+  |   ├─ Tailwindcss v4
+packages
+  ├─ auth
+  |   └─ Authentication handling using Better Auth
+  ├─ db
+  |   └─ Typesafe database calls using Drizzle ORM
+  ├─ valibot
+  |   └─ Data validation using Valibot
+  └─ ui
+      └─ UI components using Radix UI and TailwindCSS
+configs
+  ├─ eslint
+  |   └─ Shared, fine-grained eslint presets for code consistency
+  ├─ prettier
+  |   └─ Shared prettier configuration for code formatting
+  ├─ tailwind
+  |   └─ Shared Tailwind CSS configuration for styling
+  └─ typescript
+      └─ Shared tsconfig for TypeScript setup
+```
 
 ## Getting Started
 

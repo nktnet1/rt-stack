@@ -1,7 +1,7 @@
 packages:
   - apps/*
+  - configs/*
   - packages/*
-  - tooling/*
 catalog:
   '@auth/drizzle-adapter': 1.7.4
   '@eslint/js': ^9.20.0

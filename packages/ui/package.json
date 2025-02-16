@@ -40,7 +40,6 @@
     "class-variance-authority": "catalog:",
     "next-themes": "catalog:",
     "radix-ui": "catalog:",
-    "react-hook-form": "catalog:",
     "sonner": "catalog:",
     "tailwind-merge": "catalog:"
   },
