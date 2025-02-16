@@ -58,7 +58,11 @@ export default function AuthDisplay() {
             setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
           }}
         >
-          {resolvedTheme === 'dark' ? <MoonIcon /> : <SunIcon />}
+          {resolvedTheme === 'dark' ? (
+            <MoonIcon className="text-yellow-300" />
+          ) : (
+            <SunIcon className="text-red-600" />
+          )}
           <span className="ml-[5px] capitalize">Theme</span>
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -67,7 +71,7 @@ export default function AuthDisplay() {
           }}
           className="cursor-pointer"
         >
-          <ExitIcon className="mr-[5px] w-5 ml-[2px]" />
+          <ExitIcon className="mr-[5px] w-5 ml-[0.5px]" />
           Logout
         </DropdownMenuItem>
       </DropdownMenuContent>
