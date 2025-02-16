@@ -7,6 +7,7 @@ import { Input } from '@repo/ui/components/input';
 import { Label } from '@repo/ui/components/label';
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { authClient } from '@repo/auth/client';
+import { toast } from 'sonner';
 
 const LoginSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
@@ -27,14 +28,15 @@ export default function LoginCredentialsForm() {
       onChange: LoginSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
-      const { data, error } = await authClient.signIn.email({
+      const { error } = await authClient.signIn.email({
         email: value.email,
         password: value.password,
         callbackURL: '/dashboard',
         rememberMe: false,
       });
-      console.log(data, error);
+      if (error) {
+        toast.error(error.message ?? JSON.stringify(error));
+      }
     },
   });
 

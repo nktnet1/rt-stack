@@ -65,6 +65,12 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
+  --color-toast-error: hsl(var(--toast-error));
+  --color-toast-info: hsl(var(--toast-info));
+  --color-toast-loading: hsl(var(--toast-loading));
+  --color-toast-success: hsl(var(--toast-success));
+  --color-toast-warning: hsl(var(--toast-warning));
+
   @keyframes accordion-down {
     from {
       height: 0;
@@ -140,6 +146,12 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
+    --toast-error: 0 100% 90%;
+    --toast-info: 330 100% 90%;
+    --toast-loading: 0 0% 90%;
+    --toast-success: 142 76% 90%;
+    --toast-warning: 48 96% 90%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -186,6 +198,12 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --toast-error: 0 100% 30%;
+    --toast-info: 330 100% 30%;
+    --toast-loading: 0 0% 30%;
+    --toast-success: 142 76% 30%;
+    --toast-warning: 48 96% 30%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;

@@ -258,6 +258,9 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.0.0(react@19.0.0)
+      sonner:
+        specifier: 'catalog:'
+        version: 1.7.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tailwindcss:
         specifier: 'catalog:'
         version: 4.0.6
