@@ -19,8 +19,8 @@ function RouteComponent() {
           Please{' '}
           <Link to="/login" className="underline font-bold">
             log in
-          </Link>{' '}
-          to view your posts.
+          </Link>
+          .
         </p>
         <div className="mt-3 flex items-center gap-x-2">
           Toggle theme:
@@ -41,5 +41,14 @@ function RouteComponent() {
       </div>
     );
   }
-  return <div className="p-2 mt-3">Welcome, {session.user.name}!</div>;
+  return (
+    <div className="p-2 mt-3 flex flex-col">
+      <div>
+        Welcome, <span className="font-bold">{session.user.name}</span>!
+      </div>
+      <div className="mt-2">
+        Click <Link to="/">here</Link> to view your posts.
+      </div>
+    </div>
+  );
 }
