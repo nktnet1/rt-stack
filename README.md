@@ -1,22 +1,22 @@
-# RT Stack 
+# RT Stack
 
-RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for developing modular fullstack projects with shared configs and full type-safety.
+RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for developing fullstack projects with modular components, shared configs and full type-safety.
 
 ## About
 
-Below is a brief overview of all the components of the stack:
+Below is an overview of all the components in the stack:
 
 ```
 apps
   ├─ web
   |   ├─ React (vite)
+  |   ├─ Tailwindcss
   |   └─ Tanstack (router, query, form)
   ├─ server
   |   └─ Hono (wrapper for api & auth)
 packages
   ├─ api
-  |   ├─ tRPC
-  |   └─ Valibot (zod, but lightweight)
+  |   └─ tRPC with valibot
   ├─ auth
   |   └─ Better Auth
   ├─ db
@@ -34,35 +34,39 @@ configs
 ```
 
 Additionally, the following base features are implemented out-of-the-box:
+
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([tRPC](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-Open [pnpm-workspace.yaml](pnpm-workspace.yaml) to view all dependencies in the catalog.
+View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 
 ### Inspirations
 
 Many aspects of the RT Stack were derived [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo), although there is a strong preference for
+
 - [Valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 - [Tanstack Router](https://tanstack.com/router/latest) (web) + [Hono](https://hono.dev) (server) instead of [NextJS](https://nextjs.org) (fullstack)
 - [Better Auth](https://www.better-auth.com) for authentication instead [Auth.js (Next Auth)](https://authjs.dev)
 
 There is also a goal of always supporting the latest major releases of core dependencies, e.g.:
+
 - React v19
 - Tailwindcss v4 & Shadcn/UI (canary)
 - tRPC V11
 - Eslint v9
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
 Ensure the following tools are available on your system:
+
 1. [node](https://nodejs.org/en/download) (version 22+)
 1. [pnpm](https://pnpm.io/installation) (version 10+)
 1. [postgres](https://www.postgresql.org) database, e.g. using one of
-    - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
-    - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
+   - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
+   - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
 
 ### Setup
 
@@ -87,20 +91,37 @@ pnpm db:push
 pnpm dev
 ```
 
-## Maintainence
+### Working with a single component
 
-The scripts below are set up in the project root's [package.json](package.json) and [turbo.json](turbo.json):
+Use `pnpm --filter=<name>` (where `<name>` is defined in the `package.json` of each component).
+
+Examples:
 
 ```sh
-pnpm typecheck      # repot typescript isses
+# Install the nuqs package for our web application:
+pnpm --filter=web install nuqs
 
-pnpm format         # report prettier issues
-pnpm format:fix     # auto-fix prettier issues
+# Format only the UI package:
+pnpm --filter=@repo/ui format
 
-pnpm lint           # report eslint issues
-pnpm lint:fix       # auto-fix eslint issues
+# Get a list of all package names (for Linux/MacOS):
+find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
+```
 
-pnpm clean          # remove all .cache, .turbo, dist, node_modules
+### QOL Scripts:
+
+All scripts are defined in [package.json](package.json) and [turbo.json](turbo.json):
+
+```sh
+pnpm typecheck            # repot typescript isses
+
+pnpm format               # report prettier issues
+pnpm format:fix           # auto-fix prettier issues
+
+pnpm lint                 # report eslint issues
+pnpm lint:fix             # auto-fix eslint issues
+
+pnpm clean                # remove all .cache, .turbo, dist, node_modules
 
 # Migrate all dependencies to a shared catalog in pnpm-workspace.yaml
 pnpx codemod pnpm/catalog

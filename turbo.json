@@ -2,6 +2,18 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
+    "dev": {
+      "dependsOn": ["^dev"],
+      "persistent": false,
+      "cache": false
+    },
+    "ui-add": {
+      "cache": false,
+      "interactive": true
+    },
+    "clean": {
+      "cache": false
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
@@ -23,18 +35,6 @@
     "studio": {
       "cache": false,
       "persistent": true
-    },
-    "dev": {
-      "dependsOn": ["^dev"],
-      "persistent": false,
-      "cache": false
-    },
-    "clean": {
-      "cache": false
-    },
-    "ui-add": {
-      "cache": false,
-      "interactive": true
     }
   },
   "globalEnv": [
