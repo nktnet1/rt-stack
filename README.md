@@ -92,9 +92,15 @@ pnpm dev
 
 ### Working with a single component
 
-Use `pnpm --filter=<name>` (where `<name>` is defined in the `package.json` of each component).
+Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each component).
 
-Examples:
+You can get a list of all package names using the command:
+
+```sh
+find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
+```
+
+Example usage:
 
 ```sh
 # Install the nuqs package for our web application:
@@ -102,9 +108,6 @@ pnpm --filter=web install nuqs
 
 # Format only the UI package:
 pnpm --filter=@repo/ui format
-
-# Get a list of all package names (for Linux/MacOS):
-find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
 ```
 
 ### Other QOL Scripts:
