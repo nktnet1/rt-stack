@@ -2,8 +2,10 @@
 
 ## Background
 
-The RT-stack is a [turborepo](https://turbo.build/repo/docs) template that drew many inspirations from
-[t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). It contains the following apps, packages and shared tooling configs:
+The RT-stack is a modern [turborepo](https://turbo.build/repo/docs) template that drew many inspirations from
+[t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
+
+It contains the following apps, packages and shared tooling configs:
 
 ```
 apps
@@ -19,7 +21,7 @@ packages
   ├─ auth
   |   └─ Better Auth
   ├─ db
-  |   └─ Drizzle ORM + Postgresql
+  |   └─ Drizzle ORM (Postgresql)
   ├─ env
   |   └─ @t3-oss/env-core (shared env with validation)
   └─ ui
@@ -37,7 +39,7 @@ For a full list of dependencies, see the [pnpm-workspace.yaml](pnpm-workspace.ya
 Additionally, the following base features are implemented out-of-the-box:
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
-- 
+- web/server API integration (posts list/creation similar to create-t3-turbo)
 
 ## Getting Started
 
@@ -45,36 +47,51 @@ Additionally, the following base features are implemented out-of-the-box:
 
 Ensure the following tools are available on your system:
 1. [node](https://nodejs.org/en/download) (version 22+)
-1. [pnpm](https://pnpm.io/installation)
+1. [pnpm](https://pnpm.io/installation) (version 10+)
 1. [postgres](https://www.postgresql.org) database, e.g. using one of
     - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
     - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
 
-### Setup Instructions
+### Setup
 
-1. Install dependencies for all apps and packages
-    ```sh
-    pnpm install
-    ```
+```sh
+# Install all dependencies for apps and packages
+pnpm install
 
-1. Set up environment variables
-    ```sh
-    cp .env.example .env
-    ```
+# Set up environment variables by copying the example file
+cp .env.example .env
 
-1. Start a local postgres instance, e.g.
-    ```sh
-    # Remove --detach to run it in the foreground
-    docker compose -f ./packages/db/postgres.local.yaml up --detach
-    ```
-    If you use use an external database, modify the `POSTGRES_URL` in your `.env` file accordingly.
+# Start a local postgres instance in the background (e.g. using docker/podman)
+#
+# Alternatively, if you already have a postgres database, modify the POSTGRES_URL
+# in your .env file accordingly.
+#
+# Example with docker below. Remove --detach to run it in the foreground
+docker compose -f ./packages/db/postgres.local.yaml up --detach
 
-1. Apply database migrations
-    ```sh
-    pnpm db:push
-    ```
+# Push drizzle schema to your database
+pnpm db:push
+```
 
-1. Start all applications in development mode:
-    ```sh
-    pnpm dev
-    ```
+## Development
+
+```sh
+# Start all applications in development mode
+pnpm dev
+```
+
+## Maintainence
+
+The scripts below are set up in the project root's [package.json](package.json) and [turbo.json](turbo.json):
+
+```sh
+pnpm typecheck      # repot typescript isses
+
+pnpm format         # report prettier issues
+pnpm format:fix     # auto-fix prettier issues
+
+pnpm lint           # report eslint issues
+pnpm lint:fix       # auto-fix eslint issues
+
+pnpm clean          # remove all .cache, .turbo, dist, node_modules
+```

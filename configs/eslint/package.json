@@ -14,8 +14,10 @@
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
-    "@repo/prettier-config": "workspace:*",
     "@eslint/js": "catalog:",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/eslint-config-prettier": "^6.11.3",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-only-warn": "catalog:",

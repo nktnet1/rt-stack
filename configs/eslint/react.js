@@ -6,16 +6,12 @@ import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import baseConfig from './base.js';
 
-/**
- * A custom ESLint configuration for libraries that use React.
- *
- * @type {import("eslint").Linter.Config} */
-export default [
+export default tseslint.config([
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  pluginReact.configs.recommended,
   {
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
@@ -39,4 +35,4 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off',
     },
   },
-];
+]);
