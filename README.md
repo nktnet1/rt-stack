@@ -28,7 +28,7 @@ packages
   └─ ui
       ├─ tailwindcss
       └─ shadcn & radix ui
-configs
+tools
   ├─ eslint
   ├─ prettier
   ├─ tailwind

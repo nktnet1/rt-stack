@@ -166,7 +166,7 @@ importers:
     devDependencies:
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:configs/prettier
+        version: link:tools/prettier
       prettier:
         specifier: 'catalog:'
         version: 3.5.1
@@ -197,13 +197,13 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.4
@@ -279,16 +279,16 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/tailwind-config':
         specifier: workspace:*
-        version: link:../../configs/tailwind
+        version: link:../../tools/tailwind
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@tanstack/router-plugin':
         specifier: 'catalog:'
         version: 1.105.0(@tanstack/react-router@1.105.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0))
@@ -310,82 +310,6 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.2)(yaml@2.7.0)
-
-  configs/eslint:
-    devDependencies:
-      '@eslint/js':
-        specifier: 'catalog:'
-        version: 9.20.0
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript
-      '@types/eslint-config-prettier':
-        specifier: ^6.11.3
-        version: 6.11.3
-      eslint:
-        specifier: 'catalog:'
-        version: 9.20.1(jiti@2.4.2)
-      eslint-config-prettier:
-        specifier: 'catalog:'
-        version: 10.0.1(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-only-warn:
-        specifier: 'catalog:'
-        version: 1.1.0
-      eslint-plugin-react:
-        specifier: 'catalog:'
-        version: 7.37.4(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-react-hooks:
-        specifier: 'catalog:'
-        version: 5.1.0(eslint@9.20.1(jiti@2.4.2))
-      eslint-plugin-turbo:
-        specifier: 'catalog:'
-        version: 2.4.2(eslint@9.20.1(jiti@2.4.2))(turbo@2.4.2)
-      globals:
-        specifier: 'catalog:'
-        version: 15.15.0
-      typescript:
-        specifier: 'catalog:'
-        version: 5.7.3
-      typescript-eslint:
-        specifier: 'catalog:'
-        version: 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
-
-  configs/prettier:
-    dependencies:
-      prettier:
-        specifier: 'catalog:'
-        version: 3.5.1
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript
-      typescript:
-        specifier: 'catalog:'
-        version: 5.7.3
-
-  configs/tailwind:
-    dependencies:
-      eslint:
-        specifier: 'catalog:'
-        version: 9.20.1(jiti@2.4.2)
-      tailwindcss:
-        specifier: 'catalog:'
-        version: 4.0.6
-      tailwindcss-animate:
-        specifier: 'catalog:'
-        version: 1.0.7(tailwindcss@4.0.6)
-    devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier
-
-  configs/typescript: {}
 
   packages/api:
     dependencies:
@@ -413,13 +337,13 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       eslint:
         specifier: 'catalog:'
         version: 9.20.1(jiti@2.4.2)
@@ -450,13 +374,13 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.4
@@ -484,13 +408,13 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.4
@@ -524,13 +448,13 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@types/node':
         specifier: 'catalog:'
         version: 22.13.4
@@ -582,16 +506,16 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint
+        version: link:../../tools/eslint
       '@repo/prettier-config':
         specifier: workspace:*
-        version: link:../../configs/prettier
+        version: link:../../tools/prettier
       '@repo/tailwind-config':
         specifier: workspace:*
-        version: link:../../configs/tailwind
+        version: link:../../tools/tailwind
       '@repo/typescript-config':
         specifier: workspace:*
-        version: link:../../configs/typescript
+        version: link:../../tools/typescript
       '@types/react':
         specifier: 'catalog:'
         version: 19.0.8
@@ -607,6 +531,82 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
+
+  tools/eslint:
+    devDependencies:
+      '@eslint/js':
+        specifier: 'catalog:'
+        version: 9.20.0
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript
+      '@types/eslint-config-prettier':
+        specifier: ^6.11.3
+        version: 6.11.3
+      eslint:
+        specifier: 'catalog:'
+        version: 9.20.1(jiti@2.4.2)
+      eslint-config-prettier:
+        specifier: 'catalog:'
+        version: 10.0.1(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-only-warn:
+        specifier: 'catalog:'
+        version: 1.1.0
+      eslint-plugin-react:
+        specifier: 'catalog:'
+        version: 7.37.4(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-react-hooks:
+        specifier: 'catalog:'
+        version: 5.1.0(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-turbo:
+        specifier: 'catalog:'
+        version: 2.4.2(eslint@9.20.1(jiti@2.4.2))(turbo@2.4.2)
+      globals:
+        specifier: 'catalog:'
+        version: 15.15.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.7.3
+      typescript-eslint:
+        specifier: 'catalog:'
+        version: 8.24.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
+
+  tools/prettier:
+    dependencies:
+      prettier:
+        specifier: 'catalog:'
+        version: 3.5.1
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript
+      typescript:
+        specifier: 'catalog:'
+        version: 5.7.3
+
+  tools/tailwind:
+    dependencies:
+      eslint:
+        specifier: 'catalog:'
+        version: 9.20.1(jiti@2.4.2)
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.0.6
+      tailwindcss-animate:
+        specifier: 'catalog:'
+        version: 1.0.7(tailwindcss@4.0.6)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier
+
+  tools/typescript: {}
 
 packages:
 
