@@ -1,10 +1,19 @@
-# RT Stack
-
 RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for developing fullstack projects with modular components, shared configs and full type-safety.
 
-## About
+- [About](#about)
+  - [Stack overview](#stack-overview)
+  - [Base Functionalities](#base-functionalities)
+  - [Inspirations & Goals](#inspirations--goals)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+- [Development](#development)
+  - [Working with a single component](#working-with-a-single-component)
+  - [Other QOL Scripts:](#other-qol-scripts)
 
-### Stack overview
+# About
+
+## Stack overview
 
 Below is an overview of all the components in the stack:
 
@@ -37,7 +46,7 @@ configs
 
 View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 
-### Base Functionalities
+## Base Functionalities
 
 The following features are implemented out-of-the-box:
 
@@ -45,7 +54,7 @@ The following features are implemented out-of-the-box:
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-### Inspirations & Goals
+## Inspirations & Goals
 
 Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
 However, there is a strong preference for:
@@ -62,9 +71,9 @@ Additionally, the aim of this project is to always adopting the latest releases 
 - eslint v9
 - pnpm v10
 
-## Quick Start
+# Quick Start
 
-### Prerequisites
+## Prerequisites
 
 Ensure the following tools are available on your system:
 
@@ -74,7 +83,7 @@ Ensure the following tools are available on your system:
    - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
    - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
 
-### Setup
+## Setup
 
 ```sh
 # Install all dependencies for apps and packages
@@ -90,14 +99,14 @@ docker compose --file ./packages/db/postgres.local.yaml up --detach
 pnpm db:push
 ```
 
-## Development
+# Development
 
 ```sh
 # Start all applications in development mode
 pnpm dev
 ```
 
-### Working with a single component
+## Working with a single component
 
 Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each component).
 
@@ -117,7 +126,7 @@ pnpm --filter=web install nuqs
 pnpm --filter=@repo/ui format
 ```
 
-### Other QOL Scripts:
+## Other QOL Scripts:
 
 All scripts are defined in [package.json](package.json) and [turbo.json](turbo.json):
 
