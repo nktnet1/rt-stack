@@ -36,7 +36,7 @@ configs
 Additionally, the following base features are implemented out-of-the-box:
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
-- web/server integration (trpc API example for creating/listing posts)
+- web/server integration ([tRPC](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
 Open [pnpm-workspace.yaml](pnpm-workspace.yaml) to view all dependencies in the catalog.
 
