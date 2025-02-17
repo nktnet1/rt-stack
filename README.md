@@ -4,6 +4,8 @@ RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for dev
 
 ## About
 
+### Stack overview
+
 Below is an overview of all the components in the stack:
 
 ```
@@ -35,19 +37,24 @@ configs
 
 View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 
-Additionally, the following base features are implemented out-of-the-box:
+### Base Functionalities
+
+The following features are implemented out-of-the-box:
 
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However, there is a strong preference for:
+### Inspirations & Goals
+
+Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
+However, there is a strong preference for:
 
 - [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
 - [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 
-There is also a goal of always adopting the latest releases of dependencies and tools, including:
+Additionally, the aim of this project is to always adopting the latest releases of dependencies and tools. For example:
 
 - react v19
 - tailwindcss v4 & shadcn-ui (canary)
@@ -125,5 +132,5 @@ pnpm lint:fix               # auto-fix eslint issues
 
 pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
-pnpx codemod pnpm/catalog   # Migrate dependencies to pnpm-workspace.yaml
+pnpx codemod pnpm/catalog   # migrate dependencies to pnpm-workspace.yaml
 ```
