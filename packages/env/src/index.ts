@@ -3,6 +3,9 @@
 import * as v from 'valibot';
 import { createEnv } from '@t3-oss/env-core';
 
+const DEFAULT_API_PORT = 3035;
+const DEFAULT_WEB_PORT = 8085;
+
 const runtimeEnv =
   typeof process !== 'undefined' ? process.env : import.meta.env;
 
@@ -31,8 +34,8 @@ export const env = createEnv({
   },
 
   server: {
-    WEB_PORT: createPortSchema({ defaultPort: 8085 }),
-    API_PORT: createPortSchema({ defaultPort: 3035 }),
+    WEB_PORT: createPortSchema({ defaultPort: DEFAULT_WEB_PORT }),
+    API_PORT: createPortSchema({ defaultPort: DEFAULT_API_PORT }),
     AUTH_SECRET:
       runtimeEnv.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
