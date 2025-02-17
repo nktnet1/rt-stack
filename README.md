@@ -20,9 +20,9 @@ packages
   ├─ auth
   |   └─ Better Auth
   ├─ db
-  |   └─ Drizzle ORM (Postgresql)
+  |   └─ Drizzle ORM (Postgresql database)
   ├─ env
-  |   └─ @t3-oss/env-core (shared env with validation)
+  |   └─ @t3-oss/env-core (shared, validated env)
   └─ ui
       ├─ TailwindCSS
       └─ Shadcn & Radix UI
@@ -33,21 +33,19 @@ configs
   └─ typescript
 ```
 
+View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+
 Additionally, the following base features are implemented out-of-the-box:
 
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([tRPC](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However, there is a strong preference for:
 
-### Inspirations
-
-Many aspects of the RT Stack were derived [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo), although there is a strong preference for
-
-- [Valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 - [Tanstack Router](https://tanstack.com/router/latest) (web) + [Hono](https://hono.dev) (server) instead of [NextJS](https://nextjs.org) (fullstack)
 - [Better Auth](https://www.better-auth.com) for authentication instead [Auth.js (Next Auth)](https://authjs.dev)
+- [Valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 
 There is also a goal of always supporting the latest major releases of core dependencies, e.g.:
 
