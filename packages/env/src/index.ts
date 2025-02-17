@@ -32,7 +32,7 @@ export const env = createEnv({
 
   server: {
     WEB_PORT: createPortSchema({ defaultPort: 8085 }),
-    API_PORT: createPortSchema({ defaultPort: 3005 }),
+    API_PORT: createPortSchema({ defaultPort: 3035 }),
     AUTH_SECRET:
       runtimeEnv.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))
