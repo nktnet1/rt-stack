@@ -6,6 +6,15 @@ import { createEnv } from '@t3-oss/env-core';
 const runtimeEnv =
   typeof process !== 'undefined' ? process.env : import.meta.env;
 
+const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
+  v.pipe(
+    v.optional(v.string(), `${defaultPort}`),
+    v.transform((s) => parseInt(s, 10)),
+    v.number(),
+    v.minValue(1024),
+    v.maxValue(65535),
+  );
+
 export const env = createEnv({
   runtimeEnv,
   emptyStringAsUndefined: true,
@@ -22,13 +31,8 @@ export const env = createEnv({
   },
 
   server: {
-    API_PORT: v.pipe(
-      v.optional(v.string(), '3000'),
-      v.transform((s) => parseInt(s, 10)),
-      v.number(),
-      v.minValue(1024),
-      v.maxValue(65535),
-    ),
+    WEB_PORT: createPortSchema({ defaultPort: 8085 }),
+    API_PORT: createPortSchema({ defaultPort: 3005 }),
     AUTH_SECRET:
       runtimeEnv.NODE_ENV === 'production'
         ? v.pipe(v.string(), v.minLength(1))

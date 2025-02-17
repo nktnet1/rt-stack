@@ -18,6 +18,7 @@
     "@radix-ui/react-icons": "catalog:",
     "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
+    "@repo/env": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "catalog:",

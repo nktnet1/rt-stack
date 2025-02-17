@@ -14,7 +14,7 @@ function RouteComponent() {
 
   if (!session?.user) {
     return (
-      <div className="p-2 mt-3">
+      <div className="mt-3">
         <p>
           Please{' '}
           <Link to="/login" className="underline font-bold">
