@@ -43,13 +43,14 @@ Open [pnpm-workspace.yaml](pnpm-workspace.yaml) to view all dependencies in the 
 ### Inspirations
 
 Many aspects of the RT Stack were derived [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo), although there is a strong preference for
-- [Valibot](https://valibot.dev) for input validation instead of zod
-- [Tanstack Router](https://tanstack.com/router/latest) (web, CSR) + [Hono](https://hono.dev) (server) instead of [NextJS](https://nextjs.org) (fullstack, SSR)
+- [Valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
+- [Tanstack Router](https://tanstack.com/router/latest) (web) + [Hono](https://hono.dev) (server) instead of [NextJS](https://nextjs.org) (fullstack)
 - [Better Auth](https://www.better-auth.com) for authentication instead [Auth.js (Next Auth)](https://authjs.dev)
 
-There is also a goal to adopting the latest versions of dependencies, e.g.:
+There is also a goal of always supporting the latest major releases of core dependencies, e.g.:
 - React v19
 - Tailwindcss v4 & Shadcn/UI (canary)
+- tRPC V11
 - Eslint v9
 
 ## Getting Started
