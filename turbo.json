@@ -38,7 +38,7 @@
     }
   },
   "globalEnv": [
-    "POSTGRES_URL",
+    "DATABASE_URL",
     "AUTH_SECRET",
     "API_PORT",
     "API_URL",

@@ -70,9 +70,10 @@ Ensure the following tools are available on your system:
 
 1. [node](https://nodejs.org/en/download) (version 22+)
 1. [pnpm](https://pnpm.io/installation) (version 10+)
-1. [postgres](https://www.postgresql.org) database, e.g. using one of
+1. [postgres](https://www.postgresql.org) database, which you can easily run using tools like:
    - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
    - [podman](https://podman.io/docs/installation) and [podman-compose](https://github.com/containers/podman-compose)
+   - [supabase](https://supabase.com)'s free tier cloud database
 
 ### Setup
 
@@ -89,6 +90,8 @@ docker compose --file ./packages/db/postgres.local.yaml up --detach
 # Push drizzle schema to your database
 pnpm db:push
 ```
+
+If you use an external postgres database, modify the `DATABASE_URL` variable in your `.env` file accordingly.
 
 ## Development
 
