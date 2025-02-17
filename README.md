@@ -9,23 +9,23 @@ Below is an overview of all the components in the stack:
 ```
 apps
   ├─ web
-  |   ├─ React (vite)
-  |   ├─ Tailwindcss
-  |   └─ Tanstack (router, query, form)
+  |   ├─ react (vite)
+  |   ├─ tailwindcss
+  |   └─ tanstack (router, query, form)
   ├─ server
-  |   └─ Hono (wrapper for api & auth)
+  |   └─ hono (wrapper for api & auth)
 packages
   ├─ api
-  |   └─ tRPC with valibot
+  |   └─ trpc with valibot
   ├─ auth
-  |   └─ Better Auth
+  |   └─ better auth
   ├─ db
-  |   └─ Drizzle ORM (Postgresql database)
+  |   └─ drizzle orm (postgresql database)
   ├─ env
   |   └─ @t3-oss/env-core (shared, validated env)
   └─ ui
-      ├─ TailwindCSS
-      └─ Shadcn & Radix UI
+      ├─ tailwindcss
+      └─ shadcn & radix ui
 configs
   ├─ eslint
   ├─ prettier
@@ -39,20 +39,21 @@ Additionally, the following base features are implemented out-of-the-box:
 
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
-- web/server integration ([tRPC](https://trpc.io/docs/quickstart) API example for creating/listing posts)
+- web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
 Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However, there is a strong preference for:
 
-- [Tanstack Router](https://tanstack.com/router/latest) (web) + [Hono](https://hono.dev) (server) instead of [NextJS](https://nextjs.org) (fullstack)
-- [Better Auth](https://www.better-auth.com) for authentication instead [Auth.js (Next Auth)](https://authjs.dev)
-- [Valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
+- [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
+- [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
+- [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 
-There is also a goal of always supporting the latest major releases of core dependencies, e.g.:
+There is also a goal of always adopting the latest releases of dependencies and tools, including:
 
-- React v19
-- Tailwindcss v4 & Shadcn/UI (canary)
-- tRPC V11
-- Eslint v9
+- react v19
+- tailwindcss v4 & shadcn-ui (canary)
+- trpc v11
+- eslint v9
+- pnpm v10
 
 ## Quick Start
 
@@ -106,21 +107,20 @@ pnpm --filter=@repo/ui format
 find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
 ```
 
-### QOL Scripts:
+### Other QOL Scripts:
 
 All scripts are defined in [package.json](package.json) and [turbo.json](turbo.json):
 
 ```sh
-pnpm typecheck            # repot typescript isses
+pnpm typecheck              # repot typescript isses
 
-pnpm format               # report prettier issues
-pnpm format:fix           # auto-fix prettier issues
+pnpm format                 # report prettier issues
+pnpm format:fix             # auto-fix prettier issues
 
-pnpm lint                 # report eslint issues
-pnpm lint:fix             # auto-fix eslint issues
+pnpm lint                   # report eslint issues
+pnpm lint:fix               # auto-fix eslint issues
 
-pnpm clean                # remove all .cache, .turbo, dist, node_modules
+pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
-# Migrate all dependencies to a shared catalog in pnpm-workspace.yaml
-pnpx codemod pnpm/catalog
+pnpx codemod pnpm/catalog   # Migrate dependencies to pnpm-workspace.yaml
 ```
