@@ -1,11 +1,9 @@
-# RT-Stack 
+# RT Stack 
 
 ## Background
 
-The RT-stack is a modern [turborepo](https://turbo.build/repo/docs) template that drew many inspirations from
+RT stack is a modern [turborepo](https://turbo.build/repo/docs) template that drew many inspirations from
 [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
-
-It contains the following apps, packages and shared tooling configs:
 
 ```
 apps
@@ -61,13 +59,8 @@ pnpm install
 # Set up environment variables by copying the example file
 cp .env.example .env
 
-# Start a local postgres instance in the background (e.g. using docker/podman)
-#
-# Alternatively, if you already have a postgres database, modify the POSTGRES_URL
-# in your .env file accordingly.
-#
-# Example with docker below. Remove --detach to run it in the foreground
-docker compose -f ./packages/db/postgres.local.yaml up --detach
+# Start a local postgres instance in the background (e.g. using docker)
+docker compose --file ./packages/db/postgres.local.yaml up --detach
 
 # Push drizzle schema to your database
 pnpm db:push

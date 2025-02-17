@@ -382,11 +382,7 @@ importers:
         specifier: workspace:*
         version: link:../prettier
 
-  configs/typescript:
-    devDependencies:
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:../prettier
+  configs/typescript: {}
 
   packages/api:
     dependencies:
