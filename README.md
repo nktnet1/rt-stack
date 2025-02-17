@@ -2,13 +2,14 @@
 
 ## Background
 
-The RT-stack is a [turborepo](https://turbo.build/repo/docs) with the following apps, packages and shared configs:
+The RT-stack is a [turborepo](https://turbo.build/repo/docs) template that drew many inspirations from
+[t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). It contains the following apps, packages and shared tooling configs:
 
 ```
 apps
   ├─ web
   |   ├─ React V19 (vite)
-  |   └─ Tanstack Router
+  |   └─ Tanstack (router, query, form)
   ├─ server
   |   └─ Hono (wrapper for api & auth)
 packages
@@ -16,15 +17,14 @@ packages
   |   ├─ tRPC v11
   |   └─ Valibot (zod, but lightweight)
   ├─ auth
-  |   └─ Better Auth (email/password implemented)
+  |   └─ Better Auth
   ├─ db
   |   └─ Drizzle ORM + Postgresql
   ├─ env
-  |   └─ @t3-oss/env-core (shared environment variables)
+  |   └─ @t3-oss/env-core (shared env with validation)
   └─ ui
       ├─ TailwindCSS V4
-      ├─ Shadcn
-      └─ Radix UI
+      └─ Shadcn & Radix UI
 configs
   ├─ eslint
   ├─ prettier
@@ -32,9 +32,12 @@ configs
   └─ typescript
 ```
 
-For a full list of dependencies, view the catalog in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+For a full list of dependencies, see the [pnpm-workspace.yaml](pnpm-workspace.yaml) catalog.
 
-This stack drew many inspirations from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
+Additionally, the following base features are implemented out-of-the-box:
+- login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password))
+- themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
+- 
 
 ## Getting Started
 
@@ -61,6 +64,7 @@ Ensure the following tools are available on your system:
 
 1. Start a local postgres instance, e.g.
     ```sh
+    # Remove --detach to run it in the foreground
     docker compose -f ./packages/db/postgres.local.yaml up --detach
     ```
     If you use use an external database, modify the `POSTGRES_URL` in your `.env` file accordingly.
