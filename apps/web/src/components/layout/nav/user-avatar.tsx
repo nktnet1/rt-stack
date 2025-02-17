@@ -10,66 +10,31 @@ import {
   AvatarFallback,
   AvatarImage,
 } from '@repo/ui/components/avatar';
-import { Link } from '@tanstack/react-router';
 import { ExitIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 
-export default function AuthDisplay() {
-  const { data: session, isPending } = authClient.useSession();
+export default function UserAvatar({
+  user,
+}: {
+  user: typeof authClient.$Infer.Session.user;
+}) {
   const { resolvedTheme, setTheme } = useTheme();
-
-  if (isPending) {
-    return null;
-  }
-
-  if (!session?.user) {
-    return (
-      <div className="flex gap-x-2 justify-between">
-        <Link
-          to="/login"
-          activeProps={{
-            className: 'font-bold',
-          }}
-          activeOptions={{ exact: true }}
-        >
-          Login
-        </Link>
-        <span>|</span>
-        <Link
-          to="/register"
-          activeProps={{
-            className: 'font-bold',
-          }}
-          activeOptions={{ exact: true }}
-        >
-          Register
-        </Link>
-      </div>
-    );
-  }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="cursor-pointer w-8.5 h-8.5">
-          <AvatarImage
-            referrerPolicy="no-referrer"
-            src={session.user.image ?? ''}
-          />
+          <AvatarImage referrerPolicy="no-referrer" src={user.image ?? ''} />
           <AvatarFallback className="text-sm">
-            {(session.user.name?.split(' ')[0]?.[0] || '') +
-              (session.user.name?.split(' ')[1]?.[0] || '')}
+            {(user.name?.split(' ')[0]?.[0] || '') +
+              (user.name?.split(' ')[1]?.[0] || '')}
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
         <div className="flex flex-col p-2 max-w-full break-words whitespace-break-spaces">
-          <span className="text-sm font-bold line-clamp-2">
-            {session.user.name}
-          </span>
-          <span className="text-xs italic mt-1 line-clamp-2">
-            {session.user.email}
-          </span>
+          <span className="text-sm font-bold line-clamp-2">{user.name}</span>
+          <span className="text-xs italic mt-1 line-clamp-2">{user.email}</span>
         </div>
 
         <hr className="mb-2" />
