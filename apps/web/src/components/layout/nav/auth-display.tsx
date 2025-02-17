@@ -62,12 +62,14 @@ export default function AuthDisplay() {
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <div className="flex flex-col p-2">
-          <span className="text-sm truncate max-w-[130px] font-bold">
+      <DropdownMenuContent align="end" className="w-40">
+        <div className="flex flex-col p-2 max-w-full break-words whitespace-break-spaces">
+          <span className="text-sm truncate max-w-[130px] font-bold line-clamp-2">
             {session.user.name}
           </span>
-          <span className="text-xs italic mt-1">{session.user.email}</span>
+          <span className="text-xs italic mt-1 line-clamp-2">
+            {session.user.email}
+          </span>
         </div>
 
         <hr className="mb-2" />
