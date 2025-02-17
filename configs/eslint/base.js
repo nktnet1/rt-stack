@@ -7,24 +7,24 @@ import tseslint from 'typescript-eslint';
 import onlyWarn from 'eslint-plugin-only-warn';
 
 export const restrictEnvAccess = tseslint.config(
-  { ignores: ["**/env.ts"] },
+  { ignores: ['**/env.ts'] },
   {
-    files: ["**/*.js", "**/*.ts", "**/*.tsx"],
+    files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     rules: {
-      "no-restricted-properties": [
-        "error",
+      'no-restricted-properties': [
+        'error',
         {
-          object: "process",
-          property: "env",
+          object: 'process',
+          property: 'env',
           message:
             "Use `import { env } from '~/env'` instead to ensure validated types.",
         },
       ],
-      "no-restricted-imports": [
-        "error",
+      'no-restricted-imports': [
+        'error',
         {
-          name: "process",
-          importNames: ["env"],
+          name: 'process',
+          importNames: ['env'],
           message:
             "Use `import { env } from '~/env'` instead to ensure validated types.",
         },
@@ -37,6 +37,7 @@ export default tseslint.config([
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
+  ...restrictEnvAccess,
   {
     plugins: {
       turbo: turboPlugin,

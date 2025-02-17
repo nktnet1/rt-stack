@@ -12,25 +12,24 @@
          */
         const classList = document.documentElement.classList;
         const style = document.documentElement.style;
-        const dark = window.matchMedia("(prefers-color-scheme: dark)");
+        const dark = window.matchMedia('(prefers-color-scheme: dark)');
 
         const update = () => {
           if (
-            localStorage.theme === "dark" ||
+            localStorage.theme === 'dark' ||
             (!localStorage.theme && dark.matches)
           ) {
-
-            classList.add("dark");
-            style.colorScheme = "dark";
+            classList.add('dark');
+            style.colorScheme = 'dark';
           } else {
-            classList.remove("dark");
-            style.colorScheme = "light";
+            classList.remove('dark');
+            style.colorScheme = 'light';
           }
         };
         update();
 
         if (dark instanceof EventTarget) {
-          dark.addEventListener("change", () => {
+          dark.addEventListener('change', () => {
             delete localStorage.theme;
             update();
           });
@@ -40,7 +39,7 @@
             update();
           });
         }
-        window.addEventListener("storage", update);
+        window.addEventListener('storage', update);
       })();
     </script>
     <title>Application Template</title>

@@ -11,7 +11,7 @@ export default tseslint.config([
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
-  pluginReact.configs.recommended,
+  pluginReact.configs.flat.recommended,
   {
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
