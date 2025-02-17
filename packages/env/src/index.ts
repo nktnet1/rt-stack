@@ -13,12 +13,15 @@ export const env = createEnv({
   // Your vite apps must also define `envPrefix` to be the same.
   clientPrefix: 'PUBLIC_',
   client: {
-    PUBLIC_API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
     PUBLIC_WEB_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+    PUBLIC_API_URL: v.pipe(v.string(), v.minLength(1), v.url()),
+  },
+
+  shared: {
+    NODE_ENV: v.optional(v.picklist(['development', 'production'])),
   },
 
   server: {
-    NODE_ENV: v.optional(v.picklist(['development', 'production'])),
     API_PORT: v.pipe(
       v.optional(v.string(), '3000'),
       v.transform((s) => parseInt(s, 10)),
