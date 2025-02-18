@@ -7,7 +7,13 @@ import { env, CLIENT_ENV_PREFIX } from '@repo/env';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [TanStackRouterVite({}), tailwindcss(), react()],
+  plugins: [
+    TanStackRouterVite({
+      routeToken: 'layout',
+    }),
+    tailwindcss(),
+    react(),
+  ],
   envPrefix: CLIENT_ENV_PREFIX,
   server: {
     port: env.WEB_PORT,

@@ -1,11 +1,11 @@
 import { authClient } from '@repo/auth/client';
-import { Navigate, Outlet, createRootRoute } from '@tanstack/react-router';
+import { Navigate, Outlet, createFileRoute } from '@tanstack/react-router';
 
-export const Route = createRootRoute({
-  component: RootComponent,
+export const Route = createFileRoute('/_public')({
+  component: Layout,
 });
 
-function RootComponent() {
+function Layout() {
   const { data: session } = authClient.useSession();
 
   if (!session?.user) {

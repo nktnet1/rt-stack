@@ -6,7 +6,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { toast } from 'sonner';
 
-export const Route = createLazyFileRoute('/(protected)/posts/')({
+export const Route = createLazyFileRoute('/_protected/posts/')({
   component: RouteComponent,
 });
 

@@ -13,23 +13,26 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as publicPublicImport } from './routes/(public)/_public'
-import { Route as protectedPostsIndexImport } from './routes/(protected)/posts/index'
-import { Route as protectedPostsPostidIndexImport } from './routes/(protected)/posts/$postid/index'
+import { Route as PublicLayoutImport } from './routes/_public/layout'
+import { Route as ProtectedLayoutImport } from './routes/_protected/layout'
+import { Route as PublicRegisterImport } from './routes/_public/register'
+import { Route as PublicLoginImport } from './routes/_public/login'
+import { Route as ProtectedPostsIndexImport } from './routes/_protected/posts/index'
+import { Route as ProtectedPostsPostidIndexImport } from './routes/_protected/posts/$postid/index'
 
 // Create Virtual Routes
 
-const publicImport = createFileRoute('/(public)')()
 const IndexLazyImport = createFileRoute('/')()
-const publicPublicRegisterLazyImport = createFileRoute(
-  '/(public)/_public/register',
-)()
-const publicPublicLoginLazyImport = createFileRoute('/(public)/_public/login')()
 
 // Create/Update Routes
 
-const publicRoute = publicImport.update({
-  id: '/(public)',
+const PublicLayoutRoute = PublicLayoutImport.update({
+  id: '/_public',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProtectedLayoutRoute = ProtectedLayoutImport.update({
+  id: '/_protected',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,52 +42,33 @@ const IndexLazyRoute = IndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
-const publicPublicRoute = publicPublicImport.update({
-  id: '/_public',
-  getParentRoute: () => publicRoute,
+const PublicRegisterRoute = PublicRegisterImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => PublicLayoutRoute,
 } as any)
 
-const protectedPostsIndexRoute = protectedPostsIndexImport
-  .update({
-    id: '/(protected)/posts/',
-    path: '/posts/',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() =>
-    import('./routes/(protected)/posts/index.lazy').then((d) => d.Route),
-  )
+const PublicLoginRoute = PublicLoginImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => PublicLayoutRoute,
+} as any)
 
-const publicPublicRegisterLazyRoute = publicPublicRegisterLazyImport
-  .update({
-    id: '/register',
-    path: '/register',
-    getParentRoute: () => publicPublicRoute,
-  } as any)
-  .lazy(() =>
-    import('./routes/(public)/_public.register.lazy').then((d) => d.Route),
-  )
+const ProtectedPostsIndexRoute = ProtectedPostsIndexImport.update({
+  id: '/posts/',
+  path: '/posts/',
+  getParentRoute: () => ProtectedLayoutRoute,
+} as any).lazy(() =>
+  import('./routes/_protected/posts/index.lazy').then((d) => d.Route),
+)
 
-const publicPublicLoginLazyRoute = publicPublicLoginLazyImport
-  .update({
-    id: '/login',
-    path: '/login',
-    getParentRoute: () => publicPublicRoute,
-  } as any)
-  .lazy(() =>
-    import('./routes/(public)/_public.login.lazy').then((d) => d.Route),
-  )
-
-const protectedPostsPostidIndexRoute = protectedPostsPostidIndexImport
-  .update({
-    id: '/(protected)/posts/$postid/',
-    path: '/posts/$postid/',
-    getParentRoute: () => rootRoute,
-  } as any)
-  .lazy(() =>
-    import('./routes/(protected)/posts/$postid/index.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+const ProtectedPostsPostidIndexRoute = ProtectedPostsPostidIndexImport.update({
+  id: '/posts/$postid/',
+  path: '/posts/$postid/',
+  getParentRoute: () => ProtectedLayoutRoute,
+} as any).lazy(() =>
+  import('./routes/_protected/posts/$postid/index.lazy').then((d) => d.Route),
+)
 
 // Populate the FileRoutesByPath interface
 
@@ -97,134 +81,137 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/(public)': {
-      id: '/(public)'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof publicImport
+    '/_protected': {
+      id: '/_protected'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ProtectedLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/(public)/_public': {
-      id: '/(public)/_public'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof publicPublicImport
-      parentRoute: typeof publicRoute
+    '/_public': {
+      id: '/_public'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof PublicLayoutImport
+      parentRoute: typeof rootRoute
     }
-    '/(public)/_public/login': {
-      id: '/(public)/_public/login'
+    '/_public/login': {
+      id: '/_public/login'
       path: '/login'
       fullPath: '/login'
-      preLoaderRoute: typeof publicPublicLoginLazyImport
-      parentRoute: typeof publicPublicImport
+      preLoaderRoute: typeof PublicLoginImport
+      parentRoute: typeof PublicLayoutImport
     }
-    '/(public)/_public/register': {
-      id: '/(public)/_public/register'
+    '/_public/register': {
+      id: '/_public/register'
       path: '/register'
       fullPath: '/register'
-      preLoaderRoute: typeof publicPublicRegisterLazyImport
-      parentRoute: typeof publicPublicImport
+      preLoaderRoute: typeof PublicRegisterImport
+      parentRoute: typeof PublicLayoutImport
     }
-    '/(protected)/posts/': {
-      id: '/(protected)/posts/'
+    '/_protected/posts/': {
+      id: '/_protected/posts/'
       path: '/posts'
       fullPath: '/posts'
-      preLoaderRoute: typeof protectedPostsIndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof ProtectedPostsIndexImport
+      parentRoute: typeof ProtectedLayoutImport
     }
-    '/(protected)/posts/$postid/': {
-      id: '/(protected)/posts/$postid/'
+    '/_protected/posts/$postid/': {
+      id: '/_protected/posts/$postid/'
       path: '/posts/$postid'
       fullPath: '/posts/$postid'
-      preLoaderRoute: typeof protectedPostsPostidIndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof ProtectedPostsPostidIndexImport
+      parentRoute: typeof ProtectedLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface publicPublicRouteChildren {
-  publicPublicLoginLazyRoute: typeof publicPublicLoginLazyRoute
-  publicPublicRegisterLazyRoute: typeof publicPublicRegisterLazyRoute
+interface ProtectedLayoutRouteChildren {
+  ProtectedPostsIndexRoute: typeof ProtectedPostsIndexRoute
+  ProtectedPostsPostidIndexRoute: typeof ProtectedPostsPostidIndexRoute
 }
 
-const publicPublicRouteChildren: publicPublicRouteChildren = {
-  publicPublicLoginLazyRoute: publicPublicLoginLazyRoute,
-  publicPublicRegisterLazyRoute: publicPublicRegisterLazyRoute,
+const ProtectedLayoutRouteChildren: ProtectedLayoutRouteChildren = {
+  ProtectedPostsIndexRoute: ProtectedPostsIndexRoute,
+  ProtectedPostsPostidIndexRoute: ProtectedPostsPostidIndexRoute,
 }
 
-const publicPublicRouteWithChildren = publicPublicRoute._addFileChildren(
-  publicPublicRouteChildren,
+const ProtectedLayoutRouteWithChildren = ProtectedLayoutRoute._addFileChildren(
+  ProtectedLayoutRouteChildren,
 )
 
-interface publicRouteChildren {
-  publicPublicRoute: typeof publicPublicRouteWithChildren
+interface PublicLayoutRouteChildren {
+  PublicLoginRoute: typeof PublicLoginRoute
+  PublicRegisterRoute: typeof PublicRegisterRoute
 }
 
-const publicRouteChildren: publicRouteChildren = {
-  publicPublicRoute: publicPublicRouteWithChildren,
+const PublicLayoutRouteChildren: PublicLayoutRouteChildren = {
+  PublicLoginRoute: PublicLoginRoute,
+  PublicRegisterRoute: PublicRegisterRoute,
 }
 
-const publicRouteWithChildren =
-  publicRoute._addFileChildren(publicRouteChildren)
+const PublicLayoutRouteWithChildren = PublicLayoutRoute._addFileChildren(
+  PublicLayoutRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
-  '/': typeof publicPublicRouteWithChildren
-  '/login': typeof publicPublicLoginLazyRoute
-  '/register': typeof publicPublicRegisterLazyRoute
-  '/posts': typeof protectedPostsIndexRoute
-  '/posts/$postid': typeof protectedPostsPostidIndexRoute
+  '/': typeof IndexLazyRoute
+  '': typeof PublicLayoutRouteWithChildren
+  '/login': typeof PublicLoginRoute
+  '/register': typeof PublicRegisterRoute
+  '/posts': typeof ProtectedPostsIndexRoute
+  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof publicPublicRouteWithChildren
-  '/login': typeof publicPublicLoginLazyRoute
-  '/register': typeof publicPublicRegisterLazyRoute
-  '/posts': typeof protectedPostsIndexRoute
-  '/posts/$postid': typeof protectedPostsPostidIndexRoute
+  '/': typeof IndexLazyRoute
+  '': typeof PublicLayoutRouteWithChildren
+  '/login': typeof PublicLoginRoute
+  '/register': typeof PublicRegisterRoute
+  '/posts': typeof ProtectedPostsIndexRoute
+  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/(public)': typeof publicRouteWithChildren
-  '/(public)/_public': typeof publicPublicRouteWithChildren
-  '/(public)/_public/login': typeof publicPublicLoginLazyRoute
-  '/(public)/_public/register': typeof publicPublicRegisterLazyRoute
-  '/(protected)/posts/': typeof protectedPostsIndexRoute
-  '/(protected)/posts/$postid/': typeof protectedPostsPostidIndexRoute
+  '/_protected': typeof ProtectedLayoutRouteWithChildren
+  '/_public': typeof PublicLayoutRouteWithChildren
+  '/_public/login': typeof PublicLoginRoute
+  '/_public/register': typeof PublicRegisterRoute
+  '/_protected/posts/': typeof ProtectedPostsIndexRoute
+  '/_protected/posts/$postid/': typeof ProtectedPostsPostidIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
+  fullPaths: '/' | '' | '/login' | '/register' | '/posts' | '/posts/$postid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
+  to: '/' | '' | '/login' | '/register' | '/posts' | '/posts/$postid'
   id:
     | '__root__'
     | '/'
-    | '/(public)'
-    | '/(public)/_public'
-    | '/(public)/_public/login'
-    | '/(public)/_public/register'
-    | '/(protected)/posts/'
-    | '/(protected)/posts/$postid/'
+    | '/_protected'
+    | '/_public'
+    | '/_public/login'
+    | '/_public/register'
+    | '/_protected/posts/'
+    | '/_protected/posts/$postid/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  publicRoute: typeof publicRouteWithChildren
-  protectedPostsIndexRoute: typeof protectedPostsIndexRoute
-  protectedPostsPostidIndexRoute: typeof protectedPostsPostidIndexRoute
+  ProtectedLayoutRoute: typeof ProtectedLayoutRouteWithChildren
+  PublicLayoutRoute: typeof PublicLayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  publicRoute: publicRouteWithChildren,
-  protectedPostsIndexRoute: protectedPostsIndexRoute,
-  protectedPostsPostidIndexRoute: protectedPostsPostidIndexRoute,
+  ProtectedLayoutRoute: ProtectedLayoutRouteWithChildren,
+  PublicLayoutRoute: PublicLayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -238,41 +225,42 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/(public)",
-        "/(protected)/posts/",
-        "/(protected)/posts/$postid/"
+        "/_protected",
+        "/_public"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/(public)": {
-      "filePath": "(public)",
+    "/_protected": {
+      "filePath": "_protected/layout.tsx",
       "children": [
-        "/(public)/_public"
+        "/_protected/posts/",
+        "/_protected/posts/$postid/"
       ]
     },
-    "/(public)/_public": {
-      "filePath": "(public)/_public.tsx",
-      "parent": "/(public)",
+    "/_public": {
+      "filePath": "_public/layout.tsx",
       "children": [
-        "/(public)/_public/login",
-        "/(public)/_public/register"
+        "/_public/login",
+        "/_public/register"
       ]
     },
-    "/(public)/_public/login": {
-      "filePath": "(public)/_public.login.lazy.tsx",
-      "parent": "/(public)/_public"
+    "/_public/login": {
+      "filePath": "_public/login.tsx",
+      "parent": "/_public"
     },
-    "/(public)/_public/register": {
-      "filePath": "(public)/_public.register.lazy.tsx",
-      "parent": "/(public)/_public"
+    "/_public/register": {
+      "filePath": "_public/register.tsx",
+      "parent": "/_public"
     },
-    "/(protected)/posts/": {
-      "filePath": "(protected)/posts/index.tsx"
+    "/_protected/posts/": {
+      "filePath": "_protected/posts/index.tsx",
+      "parent": "/_protected"
     },
-    "/(protected)/posts/$postid/": {
-      "filePath": "(protected)/posts/$postid/index.tsx"
+    "/_protected/posts/$postid/": {
+      "filePath": "_protected/posts/$postid/index.tsx",
+      "parent": "/_protected"
     }
   }
 }

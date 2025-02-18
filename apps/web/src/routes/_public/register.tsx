@@ -1,7 +1,7 @@
 import RegisterCredentialsForm from '@/components/auth/credentials/register-form';
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 
-export const Route = createLazyFileRoute('/(public)/_public/register')({
+export const Route = createFileRoute('/_public/register')({
   component: RouteComponent,
 });
 
