@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createTRPCQueryUtils, createTRPCReact } from '@trpc/react-query';
 import type { AppRouter } from '@repo/api/server';
 import { CircleIcon } from '@radix-ui/react-icons';
-import { trpcClient } from '@/api/trpc/client';
+import { trpcClient } from '@repo/api/client';
 
 export const queryClient = new QueryClient();
 

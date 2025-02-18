@@ -12,5 +12,5 @@ export default [
     rules: {
       'no-restricted-properties': 'off',
     },
-  }
+  },
 ];

@@ -24,7 +24,6 @@
     "@tanstack/react-query": "5.62.8",
     "@tanstack/react-router": "catalog:",
     "@tanstack/router-devtools": "catalog:",
-    "@trpc/client": "11.0.0-rc.768",
     "@trpc/react-query": "11.0.0-rc.768",
     "dotenv-cli": "catalog:",
     "next-themes": "catalog:",

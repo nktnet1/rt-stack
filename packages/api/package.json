@@ -21,6 +21,7 @@
     "@repo/db": "workspace:*",
     "@repo/env": "workspace:*",
     "@trpc/server": "11.0.0-rc.768",
+    "@trpc/client": "11.0.0-rc.768",
     "@types/pg": "catalog:",
     "valibot": "catalog:"
   },
