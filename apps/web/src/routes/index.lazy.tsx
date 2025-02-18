@@ -1,7 +1,7 @@
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { authClient } from '@repo/auth/client';
 import { useTheme } from 'next-themes';
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 
 export const Route = createLazyFileRoute('/')({
@@ -46,10 +46,13 @@ function RouteComponent() {
       <div>
         Welcome, <span className="font-bold">{session.user.name}</span>!
       </div>
-      <div className="mt-2">
+      <div className="mt-2 flex gap-x-1.5">
         Click{' '}
-        <Link to="/posts" className="underline">
-          here
+        <Link
+          to="/posts"
+          className="flex items-center gap-x-1 text-blue-500 underline"
+        >
+          here <Link2Icon className="mt-0.5" />
         </Link>{' '}
         to view your posts.
       </div>
