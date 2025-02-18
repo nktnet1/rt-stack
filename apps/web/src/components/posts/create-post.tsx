@@ -15,10 +15,10 @@ import {
   DialogTrigger,
 } from '@repo/ui/components/dialog';
 import { PlusIcon } from '@radix-ui/react-icons';
-import { useTRPC } from '@/router';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { trpc } from '@/router';
 import { TRPCClientError } from '@trpc/client';
 
 const FormSchema = v.object({
@@ -33,7 +33,6 @@ const FormSchema = v.object({
 });
 
 export default function CreatePostButton() {
-  const trpc = useTRPC();
   const getAllPostsQuery = useQuery(trpc.posts.all.queryOptions());
   const createPostMutation = useMutation(trpc.posts.create.mutationOptions());
   const [openDialog, setOpenDialog] = useState(false);

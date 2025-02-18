@@ -11,7 +11,7 @@ import Spinner from '@/components/layout/spinner';
 
 export const queryClient = new QueryClient();
 
-export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
+export const { useTRPC } = createTRPCContext<AppRouter>();
 
 export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,
@@ -30,9 +30,7 @@ export function createRouter() {
     Wrap: function WrapComponent({ children }) {
       return (
         <QueryClientProvider client={queryClient}>
-          <TRPCProvider trpcClient={trpcClient} queryClient={queryClient}>
-            {children}
-          </TRPCProvider>
+          {children}
         </QueryClientProvider>
       );
     },

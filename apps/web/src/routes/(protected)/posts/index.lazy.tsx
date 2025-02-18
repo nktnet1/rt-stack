@@ -1,5 +1,6 @@
 import CreatePostButton from '@/components/posts/create-post';
 import { trpc } from '@/router';
+import { TrashIcon } from '@radix-ui/react-icons';
 import { useQuery } from '@tanstack/react-query';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
@@ -25,6 +26,8 @@ function RouteComponent() {
                 <div className="italic text-sm">
                   {p.createdAt.toLocaleString()}
                 </div>
+
+                <TrashIcon />
               </div>
             ))
           : 'Please create a new post.'}
