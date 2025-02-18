@@ -1,4 +1,5 @@
 import { trpc } from '@/router';
+import { useQuery } from '@tanstack/react-query';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/(auth)/posts/')({
@@ -6,7 +7,7 @@ export const Route = createLazyFileRoute('/(auth)/posts/')({
 });
 
 function RouteComponent() {
-  const postsQuery = trpc.echo.useQuery();
+  const postsQuery = useQuery(trpc.echo.queryOptions());
   if (!postsQuery.data) {
     return <div>No data</div>;
   }

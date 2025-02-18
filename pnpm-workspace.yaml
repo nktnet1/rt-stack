@@ -22,7 +22,7 @@ catalog:
   '@types/node': ^22.13.4
   '@types/pg': ^8.11.11
   '@types/react': ^19.0.8
-  '@types/react-dom': ^19.0.3
+  '@types/react-dom': ^19.0.4
   '@vitejs/plugin-react-swc': ^3.8.0
   better-auth: ^1.1.18
   class-variance-authority: ^0.7.1
@@ -51,6 +51,6 @@ catalog:
   tsx: ^4.19.2
   turbo: ^2.4.2
   typescript: ^5.7.3
-  typescript-eslint: ^8.24.0
-  valibot: 1.0.0-rc.0
+  typescript-eslint: ^8.24.1
+  valibot: 1.0.0-rc.1
   vite: ^6.1.0

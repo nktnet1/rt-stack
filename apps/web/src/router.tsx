@@ -1,18 +1,21 @@
 import { routeTree } from './routeTree.gen';
 import { createRouter as createTanstackRouter } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { createTRPCQueryUtils, createTRPCReact } from '@trpc/react-query';
+import {
+  createTRPCContext,
+  createTRPCOptionsProxy,
+} from '@trpc/tanstack-react-query';
 import type { AppRouter } from '@repo/api/server';
 import { CircleIcon } from '@radix-ui/react-icons';
 import { trpcClient } from '@repo/api/client';
 
 export const queryClient = new QueryClient();
 
-export const trpc = createTRPCReact<AppRouter>({});
+export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>();
 
-export const trpcQueryUtils = createTRPCQueryUtils({
-  queryClient,
+export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,
+  queryClient,
 });
 
 export function createRouter() {
@@ -21,7 +24,7 @@ export function createRouter() {
     scrollRestoration: true,
     defaultPreload: 'intent',
     context: {
-      trpcQueryUtils,
+      trpc,
     },
     defaultPendingComponent: () => (
       <div className={`inline-block animate-spin duration-300 px-3`}>
@@ -30,11 +33,11 @@ export function createRouter() {
     ),
     Wrap: function WrapComponent({ children }) {
       return (
-        <trpc.Provider client={trpcClient} queryClient={queryClient}>
-          <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <TRPCProvider trpcClient={trpcClient} queryClient={queryClient}>
             {children}
-          </QueryClientProvider>
-        </trpc.Provider>
+          </TRPCProvider>
+        </QueryClientProvider>
       );
     },
   });
