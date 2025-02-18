@@ -52,8 +52,8 @@ export default function CreatePostButton() {
           title: value.title,
           content: value.content,
         });
-        await getAllPostsQuery.refetch();
         setOpenDialog(false);
+        await getAllPostsQuery.refetch();
       } catch (error) {
         if (error instanceof TRPCClientError) {
           toast.error(error.message);

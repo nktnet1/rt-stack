@@ -13,7 +13,7 @@ const postRouter = router({
         title: true,
         createdAt: true,
       },
-      orderBy: desc(post.id),
+      orderBy: desc(post.createdAt),
     });
   }),
 
