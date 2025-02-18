@@ -14,6 +14,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@repo/ui/components/dialog';
+import { PlusIcon } from '@radix-ui/react-icons';
+import { useTRPC } from '@/router';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { toast } from 'sonner';
+import { TRPCClientError } from '@trpc/client';
 
 const FormSchema = v.object({
   title: v.pipe(
@@ -27,6 +33,11 @@ const FormSchema = v.object({
 });
 
 export default function CreatePostButton() {
+  const trpc = useTRPC();
+  const getAllPostsQuery = useQuery(trpc.posts.all.queryOptions());
+  const createPostMutation = useMutation(trpc.posts.create.mutationOptions());
+  const [openDialog, setOpenDialog] = useState(false);
+
   const form = useForm({
     defaultValues: {
       title: '',
@@ -36,19 +47,35 @@ export default function CreatePostButton() {
       onChange: FormSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log(value);
+      try {
+        await createPostMutation.mutateAsync({
+          title: value.title,
+          content: value.content,
+        });
+        await getAllPostsQuery.refetch();
+        setOpenDialog(false);
+      } catch (error) {
+        if (error instanceof TRPCClientError) {
+          toast.error(error.message);
+        } else {
+          toast.error('An unknown error has occurred. Please try again!');
+        }
+      }
     },
   });
 
   return (
-    <Dialog>
+    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
-        <Button variant="outline">Create</Button>
+        <Button>
+          <PlusIcon />
+          Create
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] data-[state=open]:slide-in-from-right-1/2 data-[state=closed]:slide-out-to-right-1/2">
+      <DialogContent className="sm:max-w-[425px] data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right">
         <DialogHeader>
           <DialogTitle>Create Post</DialogTitle>
-          <DialogDescription>Enter a post title and content</DialogDescription>
+          <DialogDescription>Enter a title and content</DialogDescription>
         </DialogHeader>
         <form
           className="flex flex-col gap-y-3"
@@ -66,7 +93,7 @@ export default function CreatePostButton() {
                   <>
                     <Label htmlFor={field.name}>Title</Label>
                     <Input
-                      className="mt-1"
+                      className="mt-2"
                       id={field.name}
                       name={field.name}
                       value={field.state.value}
@@ -87,7 +114,7 @@ export default function CreatePostButton() {
                   <>
                     <Label htmlFor={field.name}>Content</Label>
                     <Textarea
-                      className="mt-1"
+                      className="mt-2"
                       id={field.name}
                       name={field.name}
                       value={field.state.value}
@@ -100,17 +127,21 @@ export default function CreatePostButton() {
               }}
             />
           </div>
+          <DialogFooter>
+            <form.Subscribe
+              selector={(state) => [state.canSubmit, state.isSubmitting]}
+              children={([canSubmit, isSubmitting]) => (
+                <Button
+                  type="submit"
+                  disabled={!canSubmit}
+                  className="mt-3 h-10 w-24"
+                >
+                  {isSubmitting ? '...' : `Create ${isSubmitting}`}
+                </Button>
+              )}
+            />
+          </DialogFooter>
         </form>
-        <DialogFooter>
-          <form.Subscribe
-            selector={(state) => [state.canSubmit, state.isSubmitting]}
-            children={([canSubmit, isSubmitting]) => (
-              <Button type="submit" disabled={!canSubmit} className="h-12 mt-3">
-                {isSubmitting ? '...' : 'Create'}
-              </Button>
-            )}
-          />
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

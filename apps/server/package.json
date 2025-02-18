@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@hono/node-server": "catalog:",
-    "@hono/trpc-server": "^0.3.4",
+    "@hono/trpc-server": "catalog:",
     "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/env": "workspace:*",

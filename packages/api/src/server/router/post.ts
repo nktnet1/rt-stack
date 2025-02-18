@@ -27,7 +27,7 @@ const postRouter = router({
 
   create: protectedProcedure
     .input(CreatePostSchema)
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
       return ctx.db.insert(post).values({
         createdBy: ctx.session.user.id,
         ...input,

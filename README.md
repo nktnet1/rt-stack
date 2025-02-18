@@ -51,11 +51,12 @@ The following features are implemented out-of-the-box:
 
 Many aspects of the RT Stack were derived from the
 [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However,
-there is a strong preference for:
+there is a preference for:
 
 - [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
 - [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
+- [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
 
 Additionally, the aim of this project is to always adopting the latest releases
 of dependencies and tools. For example:

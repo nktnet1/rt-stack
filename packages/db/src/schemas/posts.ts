@@ -24,5 +24,5 @@ export const CreatePostSchema = v.omit(
     title: v.pipe(v.string(), v.maxLength(256)),
     content: v.pipe(v.string(), v.maxLength(256)),
   }),
-  ['createdAt', 'createdBy', 'updatedAt', 'updatedBy'],
+  ['id', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy'],
 );

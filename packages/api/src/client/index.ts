@@ -1,12 +1,14 @@
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { env } from '@repo/env';
 import urlJoin from 'url-join';
+import SuperJSON from 'superjson';
 import type { AppRouter } from '../server';
 
 export const trpcClient = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
       url: urlJoin(env.PUBLIC_API_URL, 'trpc'),
+      transformer: SuperJSON,
       fetch(url, options) {
         return fetch(url, {
           ...options,
