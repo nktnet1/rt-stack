@@ -34,6 +34,7 @@ export const env = createEnv({
   },
 
   server: {
+    DATABASE_URL: v.string(),
     WEB_PORT: createPortSchema({ defaultPort: DEFAULT_WEB_PORT }),
     API_PORT: createPortSchema({ defaultPort: DEFAULT_API_PORT }),
     AUTH_SECRET:

@@ -29,6 +29,7 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
+    "@repo/env": "workspace:*",
     "drizzle-orm": "catalog:",
     "drizzle-valibot": "catalog:",
     "pg": "catalog:",

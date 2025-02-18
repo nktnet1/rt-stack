@@ -3,6 +3,7 @@ import { db } from '@repo/db/client';
 import { auth } from '@repo/auth/server';
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
+  console.log({ headers: opts.headers });
   const session = await auth.api.getSession({
     headers: opts.headers,
   });
