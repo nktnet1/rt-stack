@@ -64,6 +64,7 @@ serve(
     hostname: env.API_HOST,
   },
   (info) => {
-    console.log(`Hono internal server: http://${info.address}:${info.port}`);
+    const host = info.family === 'IPv6' ? `[${info.address}]` : info.address;
+    console.log(`Hono internal server: http://${host}:${info.port}`);
   },
 );
