@@ -66,9 +66,6 @@ export default function RegisterCredentialsForm() {
         toast.error(error.message ?? JSON.stringify(error));
       }
     },
-    onSubmitInvalid: (error) => {
-      console.log(error);
-    },
   });
 
   return (
