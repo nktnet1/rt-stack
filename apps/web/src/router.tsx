@@ -6,7 +6,6 @@ import {
   createTRPCOptionsProxy,
 } from '@trpc/tanstack-react-query';
 import type { AppRouter } from '@repo/api/server';
-import { CircleIcon } from '@radix-ui/react-icons';
 import { trpcClient } from '@repo/api/client';
 import Spinner from '@/components/layout/spinner';
 
