@@ -24,6 +24,7 @@
     "@trpc/server": "catalog:",
     "@types/pg": "catalog:",
     "superjson": "catalog:",
+    "url-join": "catalog:",
     "valibot": "catalog:"
   },
   "devDependencies": {

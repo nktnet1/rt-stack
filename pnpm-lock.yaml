@@ -297,9 +297,6 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.0.6
-      url-join:
-        specifier: 'catalog:'
-        version: 5.0.0
       valibot:
         specifier: 'catalog:'
         version: 1.0.0-rc.1(typescript@5.7.3)
@@ -364,6 +361,9 @@ importers:
       superjson:
         specifier: 'catalog:'
         version: 2.2.2
+      url-join:
+        specifier: 'catalog:'
+        version: 5.0.0
       valibot:
         specifier: 'catalog:'
         version: 1.0.0-rc.1(typescript@5.7.3)

@@ -32,7 +32,6 @@
     "react-dom": "catalog:",
     "sonner": "catalog:",
     "tailwindcss": "catalog:",
-    "url-join": "catalog:",
     "valibot": "catalog:"
   },
   "prettier": "@repo/prettier-config",
