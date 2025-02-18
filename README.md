@@ -104,6 +104,11 @@ You can then start all applications with
 pnpm dev
 ```
 
+By default the following URLs will be accesibile:
+
+- web application: http://localhost:8085
+- backend server: http://localhost:3035
+
 ## Developing
 
 ### Working with a single component
