@@ -46,7 +46,7 @@ export default function CreatePostButton() {
     validators: {
       onChange: FormSchema,
     },
-    onSubmit: async ({ value }) => {
+    onSubmit: async ({ value, formApi }) => {
       try {
         await createPostMutation.mutateAsync({
           title: value.title,
@@ -54,6 +54,7 @@ export default function CreatePostButton() {
         });
         setOpenDialog(false);
         await getAllPostsQuery.refetch();
+        formApi.reset();
       } catch (error) {
         if (error instanceof TRPCClientError) {
           toast.error(error.message);
