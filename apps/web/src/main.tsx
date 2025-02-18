@@ -22,7 +22,6 @@ if (!rootElement.innerHTML) {
       >
         <RouterProvider router={router} />
       </ThemeProvider>
-      ,
     </React.StrictMode>,
   );
 }
