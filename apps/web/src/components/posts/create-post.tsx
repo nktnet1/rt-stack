@@ -136,7 +136,7 @@ export default function CreatePostButton() {
                   disabled={!canSubmit}
                   className="mt-3 h-10 w-24"
                 >
-                  {isSubmitting ? '...' : `Create ${isSubmitting}`}
+                  {isSubmitting ? '...' : `Create`}
                 </Button>
               )}
             />
