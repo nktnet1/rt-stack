@@ -10,7 +10,7 @@
     "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
     "clean": "turbo run clean",
     "postclean": "git clean -xdf .cache .turbo node_modules",
-    "ui-add": "turbo run ui-add",
+    "ui-add": "turbo run ui-add --",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix"
   },

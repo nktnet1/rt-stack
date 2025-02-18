@@ -6,7 +6,7 @@ import { CreatePostSchema, post } from '@repo/db/schema';
 import { protectedProcedure, publicProcedure, router } from '../trpc';
 
 const postRouter = router({
-  all: publicProcedure.query(({ ctx }) => {
+  all: protectedProcedure.query(({ ctx }) => {
     return ctx.db.query.post.findMany({
       columns: {
         id: true,

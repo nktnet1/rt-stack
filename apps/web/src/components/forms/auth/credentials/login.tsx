@@ -10,7 +10,7 @@ import { authClient } from '@repo/auth/client';
 import { toast } from 'sonner';
 import { useNavigate } from '@tanstack/react-router';
 
-const LoginSchema = v.object({
+const FormSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
   password: v.pipe(
     v.string(),
@@ -27,7 +27,7 @@ export default function LoginCredentialsForm() {
       password: '',
     },
     validators: {
-      onChange: LoginSchema,
+      onChange: FormSchema,
     },
     onSubmit: async ({ value }) => {
       const { error } = await authClient.signIn.email(

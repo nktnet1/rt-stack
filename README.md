@@ -140,7 +140,7 @@ to toggle select your desired component(s), and `<Enter>` to install them.
 Alternatively, to install a single component, e.g. `button`, use the command
 
 ```sh
-pnpm ui-add -- button
+pnpm ui-add button
 ```
 
 ### Tooling Scripts:
