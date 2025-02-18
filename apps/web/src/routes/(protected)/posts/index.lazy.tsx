@@ -1,7 +1,5 @@
-import CreatePostButton from '@/components/posts/create-dialog-button';
+import CreatePostButton from '@/components/posts/create-post';
 import { trpc } from '@/router';
-import { PlusIcon } from '@radix-ui/react-icons';
-import { Button } from '@repo/ui/components/button';
 import { useQuery } from '@tanstack/react-query';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
