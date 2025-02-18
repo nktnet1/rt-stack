@@ -7,10 +7,18 @@ export const Route = createLazyFileRoute('/(auth)/posts/')({
 });
 
 function RouteComponent() {
-  const postsQuery = useQuery(trpc.echo.queryOptions());
-  if (!postsQuery.data) {
+  const { data: posts } = useQuery(trpc.posts.all.queryOptions());
+
+  if (!posts?.length) {
     return <div>No data</div>;
   }
 
-  return <div>Your posts: {postsQuery.data.message}</div>;
+  return (
+    <div>
+      Your posts:
+      {posts.map((p) => (
+        <div key={p.id}>{p.title}</div>
+      ))}
+    </div>
+  );
 }
