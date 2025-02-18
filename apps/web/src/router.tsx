@@ -1,10 +1,7 @@
 import { routeTree } from './routeTree.gen';
 import { createRouter as createTanstackRouter } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import {
-  createTRPCContext,
-  createTRPCOptionsProxy,
-} from '@trpc/tanstack-react-query';
+import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import type { AppRouter } from '@repo/api/server';
 import { trpcClient } from '@repo/api/client';
 import Spinner from '@/components/layout/spinner';
@@ -21,9 +18,6 @@ export function createRouter() {
     routeTree,
     scrollRestoration: true,
     defaultPreload: 'intent',
-    context: {
-      trpc,
-    },
     defaultPendingComponent: () => <Spinner />,
     Wrap: function WrapComponent({ children }) {
       return (

@@ -15,6 +15,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as publicPublicImport } from './routes/(public)/_public'
 import { Route as protectedPostsIndexImport } from './routes/(protected)/posts/index'
+import { Route as protectedPostsPostidIndexImport } from './routes/(protected)/posts/$postid/index'
 
 // Create Virtual Routes
 
@@ -73,6 +74,18 @@ const publicPublicLoginLazyRoute = publicPublicLoginLazyImport
     import('./routes/(public)/_public.login.lazy').then((d) => d.Route),
   )
 
+const protectedPostsPostidIndexRoute = protectedPostsPostidIndexImport
+  .update({
+    id: '/(protected)/posts/$postid/',
+    path: '/posts/$postid/',
+    getParentRoute: () => rootRoute,
+  } as any)
+  .lazy(() =>
+    import('./routes/(protected)/posts/$postid/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -119,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof protectedPostsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/(protected)/posts/$postid/': {
+      id: '/(protected)/posts/$postid/'
+      path: '/posts/$postid'
+      fullPath: '/posts/$postid'
+      preLoaderRoute: typeof protectedPostsPostidIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -154,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof publicPublicLoginLazyRoute
   '/register': typeof publicPublicRegisterLazyRoute
   '/posts': typeof protectedPostsIndexRoute
+  '/posts/$postid': typeof protectedPostsPostidIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -161,6 +182,7 @@ export interface FileRoutesByTo {
   '/login': typeof publicPublicLoginLazyRoute
   '/register': typeof publicPublicRegisterLazyRoute
   '/posts': typeof protectedPostsIndexRoute
+  '/posts/$postid': typeof protectedPostsPostidIndexRoute
 }
 
 export interface FileRoutesById {
@@ -171,13 +193,14 @@ export interface FileRoutesById {
   '/(public)/_public/login': typeof publicPublicLoginLazyRoute
   '/(public)/_public/register': typeof publicPublicRegisterLazyRoute
   '/(protected)/posts/': typeof protectedPostsIndexRoute
+  '/(protected)/posts/$postid/': typeof protectedPostsPostidIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/posts'
+  fullPaths: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register' | '/posts'
+  to: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
   id:
     | '__root__'
     | '/'
@@ -186,6 +209,7 @@ export interface FileRouteTypes {
     | '/(public)/_public/login'
     | '/(public)/_public/register'
     | '/(protected)/posts/'
+    | '/(protected)/posts/$postid/'
   fileRoutesById: FileRoutesById
 }
 
@@ -193,12 +217,14 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   publicRoute: typeof publicRouteWithChildren
   protectedPostsIndexRoute: typeof protectedPostsIndexRoute
+  protectedPostsPostidIndexRoute: typeof protectedPostsPostidIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   publicRoute: publicRouteWithChildren,
   protectedPostsIndexRoute: protectedPostsIndexRoute,
+  protectedPostsPostidIndexRoute: protectedPostsPostidIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -213,7 +239,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/(public)",
-        "/(protected)/posts/"
+        "/(protected)/posts/",
+        "/(protected)/posts/$postid/"
       ]
     },
     "/": {
@@ -243,6 +270,9 @@ export const routeTree = rootRoute
     },
     "/(protected)/posts/": {
       "filePath": "(protected)/posts/index.tsx"
+    },
+    "/(protected)/posts/$postid/": {
+      "filePath": "(protected)/posts/$postid/index.tsx"
     }
   }
 }

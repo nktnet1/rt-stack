@@ -1,13 +1,9 @@
 import { Navbar } from '@/components/layout/nav/navbar';
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
+import { Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import { Toaster } from '@repo/ui/components/sonner';
-import type { trpc } from '@/router';
 
-export interface RouterAppContext {
-  trpc: typeof trpc;
-}
-export const Route = createRootRouteWithContext<RouterAppContext>()({
+export const Route = createRootRoute({
   component: RootComponent,
 });
 

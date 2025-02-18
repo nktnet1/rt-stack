@@ -32,6 +32,8 @@ const FormSchema = v.object({
   ),
 });
 
+const generateTimestamp = () => +new Date();
+
 export default function CreatePostButton() {
   const getAllPostsQuery = useQuery(trpc.posts.all.queryOptions());
   const createPostMutation = useMutation(trpc.posts.create.mutationOptions());
@@ -39,8 +41,8 @@ export default function CreatePostButton() {
 
   const form = useForm({
     defaultValues: {
-      title: '',
-      content: '',
+      title: `Post ${generateTimestamp()}`,
+      content: 'Default content',
     },
     validators: {
       onChange: FormSchema,
@@ -54,6 +56,7 @@ export default function CreatePostButton() {
         setOpenDialog(false);
         await getAllPostsQuery.refetch();
         formApi.reset();
+        toast.success('Your post has been created!');
       } catch (error) {
         if (error instanceof TRPCClientError) {
           toast.error(error.message);
