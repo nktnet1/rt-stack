@@ -120,6 +120,27 @@ pnpm --filter=web install nuqs
 pnpm --filter=@repo/ui format
 ```
 
+### Adding new shadcn ui components
+
+This can be done by running the command
+
+```sh
+pnpm ui-add
+```
+
+This will open a terminal application. Press `i` to enter interactive mode,
+then use `J/K` (or the arrow keys) to navigate up and down. Press `<space>`
+to toggle select your desired component(s), and `<Enter>` to install them.
+
+Alternatively, to install a single component, e.g. a button, use the command:
+
+```sh
+pnpm ui-add -- button
+```
+
+Note that `--` is necessary to pass the `button` argument to the underlying
+script instead of turbo.
+
 ### Other QOL Scripts:
 
 All scripts are defined in [package.json](package.json) and [turbo.json](turbo.json):

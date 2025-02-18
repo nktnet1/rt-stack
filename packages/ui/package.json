@@ -27,7 +27,8 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "ui-add": "pnpm dlx shadcn@canary add && prettier src --write --list-different"
+    "ui-add": "pnpm dlx shadcn@canary add",
+    "postui-add": "prettier src --write --list-different"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "catalog:",
