@@ -21,8 +21,8 @@ catalog:
   "@tanstack/react-router": ^1.106.0
   "@tanstack/router-devtools": ^1.106.0
   "@tanstack/router-plugin": ^1.106.0
-  "@trpc/client": 11.0.0-rc.768
-  "@trpc/server": 11.0.0-rc.768
+  "@trpc/client": 11.0.0-rc.789
+  "@trpc/server": 11.0.0-rc.789
   "@trpc/tanstack-react-query": 11.0.0-rc.781
   "@types/eslint-config-prettier": ^6.11.3
   "@types/node": ^22.13.4
