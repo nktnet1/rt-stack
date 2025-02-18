@@ -109,7 +109,7 @@ pnpm dev
 
 Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each component).
 
-You can get a list of all package names using the command:
+You can get a list of all package names using the command
 
 ```sh
 find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
@@ -137,16 +137,13 @@ This will open a terminal application. Press `i` to enter interactive mode,
 then use `J/K` (or the arrow keys) to navigate up and down. Press `<space>`
 to toggle select your desired component(s), and `<Enter>` to install them.
 
-Alternatively, to install a single component, e.g. a button, use the command:
+Alternatively, to install a single component, e.g. `button`, use the command
 
 ```sh
 pnpm ui-add -- button
 ```
 
-Note that `--` is necessary to pass the `button` argument to the underlying
-script instead of turbo.
-
-### Other QOL Scripts:
+### Tooling Scripts:
 
 All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
