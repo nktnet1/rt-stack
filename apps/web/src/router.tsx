@@ -11,8 +11,6 @@ import Spinner from '@/components/layout/spinner';
 
 export const queryClient = new QueryClient();
 
-export const { useTRPC } = createTRPCContext<AppRouter>();
-
 export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,
   queryClient,
