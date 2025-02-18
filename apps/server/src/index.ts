@@ -60,6 +60,7 @@ app.get('/', (c) => {
 serve({
   fetch: app.fetch,
   port: env.API_PORT,
+  hostname: env.API_HOST,
 });
 
-console.log(`Hono server: http://localhost:${env.API_PORT}`);
+console.log(`Hono internal server: http://${env.API_HOST}:${env.API_PORT}`);

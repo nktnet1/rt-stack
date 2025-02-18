@@ -3,7 +3,7 @@ import { createTRPCContext, publicProcedure, router } from './trpc';
 export { createTRPCContext };
 
 export const appRouter = router({
-  echo: publicProcedure.query(async ({ ctx }) => {
+  echo: publicProcedure.query(async () => {
     return { message: 'helloworld' };
   }),
 });
