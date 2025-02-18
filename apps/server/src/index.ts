@@ -7,6 +7,12 @@ import { trpcServer } from '@hono/trpc-server';
 import { appRouter, createTRPCContext } from '@repo/api/server';
 import { logger } from 'hono/logger';
 
+const wildcardPath = {
+  ALL: '*',
+  BETTER_AUTH: '/api/auth/*',
+  TRPC: '/trpc/*',
+} as const;
+
 const app = new Hono<{
   Variables: {
     user: typeof auth.$Infer.Session.user | null;
@@ -17,7 +23,7 @@ const app = new Hono<{
 app.use(logger());
 
 app.use(
-  '/api/auth/*',
+  wildcardPath.BETTER_AUTH,
   cors({
     origin: [env.PUBLIC_WEB_URL],
     allowHeaders: ['Content-Type', 'Authorization'],
@@ -28,17 +34,19 @@ app.use(
   }),
 );
 
-app.use('*', async (c, next) => {
+app.use(wildcardPath.ALL, async (c, next) => {
   const session = await auth.api.getSession({ headers: c.req.raw.headers });
   c.set('user', session?.user ?? null);
   c.set('session', session?.session ?? null);
   return next();
 });
 
-app.on(['POST', 'GET'], '/api/auth/*', (c) => auth.handler(c.req.raw));
+app.on(['POST', 'GET'], wildcardPath.BETTER_AUTH, (c) =>
+  auth.handler(c.req.raw),
+);
 
 app.use(
-  '/trpc/*',
+  wildcardPath.TRPC,
   trpcServer({
     router: appRouter,
     createContext: (c) => createTRPCContext({ headers: c.req.headers }),

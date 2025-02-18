@@ -3,7 +3,6 @@ import { db } from '@repo/db/client';
 import { auth } from '@repo/auth/server';
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  console.log({ headers: opts.headers });
   const session = await auth.api.getSession({
     headers: opts.headers,
   });
@@ -28,7 +27,7 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   const result = await next();
   const end = Date.now();
   console.log(
-    `[TRPC] /${path} executed after ${end - start}ms${waitMs > 0 ? ` (artificial delay: ${waitMs}ms)` : ''}`,
+    `\t[TRPC] /${path} executed after ${end - start}ms${waitMs > 0 ? ` (artificial delay: ${waitMs}ms)` : ''}`,
   );
   return result;
 });
