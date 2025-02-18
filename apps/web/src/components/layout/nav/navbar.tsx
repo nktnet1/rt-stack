@@ -6,8 +6,8 @@ export function Navbar() {
   const { data: session, isPending } = authClient.useSession();
 
   return (
-    <div className="p-2 flex items-center justify-between text-lg bg-nav h-12">
-      <div className="flex gap-x-3">
+    <div className="px-2 md:px-4 flex items-center justify-between text-lg bg-nav h-12">
+      <div className="flex gap-x-4">
         <Link
           to="/"
           activeProps={{ className: 'brightness-70 underline' }}
