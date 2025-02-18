@@ -1,6 +1,8 @@
 # RT Stack
 
-RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for developing fullstack projects with modular components, shared configs and full type-safety.
+RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for
+developing fullstack projects with modular components, shared configs and full
+type-safety.
 
 ## About
 
@@ -47,14 +49,16 @@ The following features are implemented out-of-the-box:
 
 ### Inspirations & Goals
 
-Many aspects of the RT Stack were derived from the [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
-However, there is a strong preference for:
+Many aspects of the RT Stack were derived from the
+[t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However,
+there is a strong preference for:
 
 - [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
 - [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 
-Additionally, the aim of this project is to always adopting the latest releases of dependencies and tools. For example:
+Additionally, the aim of this project is to always adopting the latest releases
+of dependencies and tools. For example:
 
 - react v19
 - tailwindcss v4 & shadcn-ui (canary)
@@ -93,12 +97,13 @@ pnpm db:push
 
 If you use an external postgres database, modify the `DATABASE_URL` variable in your `.env` file accordingly.
 
-## Development
+You can then start all applications with
 
 ```sh
-# Start all applications in development mode
 pnpm dev
 ```
+
+## Developing
 
 ### Working with a single component
 
@@ -143,7 +148,8 @@ script instead of turbo.
 
 ### Other QOL Scripts:
 
-All scripts are defined in [package.json](package.json) and [turbo.json](turbo.json):
+All scripts are defined in [package.json](package.json) and
+[turbo.json](turbo.json):
 
 ```sh
 pnpm typecheck              # repot typescript isses

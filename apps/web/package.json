@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@radix-ui/react-icons": "catalog:",
-    "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/env": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -25,6 +24,7 @@
     "@tanstack/react-query": "5.62.8",
     "@tanstack/react-router": "catalog:",
     "@tanstack/router-devtools": "catalog:",
+    "@trpc/client": "11.0.0-rc.768",
     "@trpc/react-query": "11.0.0-rc.768",
     "dotenv-cli": "catalog:",
     "next-themes": "catalog:",
@@ -32,10 +32,12 @@
     "react-dom": "catalog:",
     "sonner": "catalog:",
     "tailwindcss": "catalog:",
+    "url-join": "^5.0.0",
     "valibot": "catalog:"
   },
   "prettier": "@repo/prettier-config",
   "devDependencies": {
+    "@repo/api": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",

@@ -1,10 +1,10 @@
 import { routeTree } from './routeTree.gen';
 import { createRouter as createTanstackRouter } from '@tanstack/react-router';
-import { trpcClient } from '@repo/api/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createTRPCQueryUtils, createTRPCReact } from '@trpc/react-query';
 import type { AppRouter } from '@repo/api/server';
 import { CircleIcon } from '@radix-ui/react-icons';
+import { trpcClient } from '@/api/trpc/client';
 
 export const queryClient = new QueryClient();
 
