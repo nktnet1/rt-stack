@@ -8,6 +8,7 @@ import {
 import type { AppRouter } from '@repo/api/server';
 import { CircleIcon } from '@radix-ui/react-icons';
 import { trpcClient } from '@repo/api/client';
+import Spinner from '@/components/layout/spinner';
 
 export const queryClient = new QueryClient();
 
@@ -26,11 +27,7 @@ export function createRouter() {
     context: {
       trpc,
     },
-    defaultPendingComponent: () => (
-      <div className={`inline-block animate-spin duration-300 px-3`}>
-        <CircleIcon />
-      </div>
-    ),
+    defaultPendingComponent: () => <Spinner />,
     Wrap: function WrapComponent({ children }) {
       return (
         <QueryClientProvider client={queryClient}>
