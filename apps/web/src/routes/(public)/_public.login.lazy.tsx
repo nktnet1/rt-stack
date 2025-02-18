@@ -1,7 +1,7 @@
-import RegisterCredentialsForm from '@/components/forms/auth/credentials/register';
+import LoginCredentialsForm from '@/components/auth/credentials/login-form';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
-export const Route = createLazyFileRoute('/(noauth)/_noauth/register')({
+export const Route = createLazyFileRoute('/(public)/_public/login')({
   component: RouteComponent,
 });
 
@@ -9,11 +9,11 @@ function RouteComponent() {
   return (
     <div className="p-2 md:p-6 flex flex-col items-center">
       <div className="border p-4 md:p-8 w-full max-w-md rounded-lg bg-elevated">
-        <RegisterCredentialsForm />
+        <LoginCredentialsForm />
         <div className="mt-4 text-center">
-          Already have an account?{' '}
-          <Link to="/login" className="underline">
-            Log in
+          {"Don't have an account? "}
+          <Link to="/register" className="underline">
+            Register
           </Link>
           !
         </div>

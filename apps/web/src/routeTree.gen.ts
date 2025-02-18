@@ -13,22 +13,22 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as noauthNoauthImport } from './routes/(noauth)/_noauth'
-import { Route as authPostsIndexImport } from './routes/(auth)/posts/index'
+import { Route as publicPublicImport } from './routes/(public)/_public'
+import { Route as protectedPostsIndexImport } from './routes/(protected)/posts/index'
 
 // Create Virtual Routes
 
-const noauthImport = createFileRoute('/(noauth)')()
+const publicImport = createFileRoute('/(public)')()
 const IndexLazyImport = createFileRoute('/')()
-const noauthNoauthRegisterLazyImport = createFileRoute(
-  '/(noauth)/_noauth/register',
+const publicPublicRegisterLazyImport = createFileRoute(
+  '/(public)/_public/register',
 )()
-const noauthNoauthLoginLazyImport = createFileRoute('/(noauth)/_noauth/login')()
+const publicPublicLoginLazyImport = createFileRoute('/(public)/_public/login')()
 
 // Create/Update Routes
 
-const noauthRoute = noauthImport.update({
-  id: '/(noauth)',
+const publicRoute = publicImport.update({
+  id: '/(public)',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -38,37 +38,39 @@ const IndexLazyRoute = IndexLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
-const noauthNoauthRoute = noauthNoauthImport.update({
-  id: '/_noauth',
-  getParentRoute: () => noauthRoute,
+const publicPublicRoute = publicPublicImport.update({
+  id: '/_public',
+  getParentRoute: () => publicRoute,
 } as any)
 
-const authPostsIndexRoute = authPostsIndexImport
+const protectedPostsIndexRoute = protectedPostsIndexImport
   .update({
-    id: '/(auth)/posts/',
+    id: '/(protected)/posts/',
     path: '/posts/',
     getParentRoute: () => rootRoute,
   } as any)
-  .lazy(() => import('./routes/(auth)/posts/index.lazy').then((d) => d.Route))
+  .lazy(() =>
+    import('./routes/(protected)/posts/index.lazy').then((d) => d.Route),
+  )
 
-const noauthNoauthRegisterLazyRoute = noauthNoauthRegisterLazyImport
+const publicPublicRegisterLazyRoute = publicPublicRegisterLazyImport
   .update({
     id: '/register',
     path: '/register',
-    getParentRoute: () => noauthNoauthRoute,
+    getParentRoute: () => publicPublicRoute,
   } as any)
   .lazy(() =>
-    import('./routes/(noauth)/_noauth.register.lazy').then((d) => d.Route),
+    import('./routes/(public)/_public.register.lazy').then((d) => d.Route),
   )
 
-const noauthNoauthLoginLazyRoute = noauthNoauthLoginLazyImport
+const publicPublicLoginLazyRoute = publicPublicLoginLazyImport
   .update({
     id: '/login',
     path: '/login',
-    getParentRoute: () => noauthNoauthRoute,
+    getParentRoute: () => publicPublicRoute,
   } as any)
   .lazy(() =>
-    import('./routes/(noauth)/_noauth.login.lazy').then((d) => d.Route),
+    import('./routes/(public)/_public.login.lazy').then((d) => d.Route),
   )
 
 // Populate the FileRoutesByPath interface
@@ -82,39 +84,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/(noauth)': {
-      id: '/(noauth)'
+    '/(public)': {
+      id: '/(public)'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof noauthImport
+      preLoaderRoute: typeof publicImport
       parentRoute: typeof rootRoute
     }
-    '/(noauth)/_noauth': {
-      id: '/(noauth)/_noauth'
+    '/(public)/_public': {
+      id: '/(public)/_public'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof noauthNoauthImport
-      parentRoute: typeof noauthRoute
+      preLoaderRoute: typeof publicPublicImport
+      parentRoute: typeof publicRoute
     }
-    '/(noauth)/_noauth/login': {
-      id: '/(noauth)/_noauth/login'
+    '/(public)/_public/login': {
+      id: '/(public)/_public/login'
       path: '/login'
       fullPath: '/login'
-      preLoaderRoute: typeof noauthNoauthLoginLazyImport
-      parentRoute: typeof noauthNoauthImport
+      preLoaderRoute: typeof publicPublicLoginLazyImport
+      parentRoute: typeof publicPublicImport
     }
-    '/(noauth)/_noauth/register': {
-      id: '/(noauth)/_noauth/register'
+    '/(public)/_public/register': {
+      id: '/(public)/_public/register'
       path: '/register'
       fullPath: '/register'
-      preLoaderRoute: typeof noauthNoauthRegisterLazyImport
-      parentRoute: typeof noauthNoauthImport
+      preLoaderRoute: typeof publicPublicRegisterLazyImport
+      parentRoute: typeof publicPublicImport
     }
-    '/(auth)/posts/': {
-      id: '/(auth)/posts/'
+    '/(protected)/posts/': {
+      id: '/(protected)/posts/'
       path: '/posts'
       fullPath: '/posts'
-      preLoaderRoute: typeof authPostsIndexImport
+      preLoaderRoute: typeof protectedPostsIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -122,53 +124,53 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-interface noauthNoauthRouteChildren {
-  noauthNoauthLoginLazyRoute: typeof noauthNoauthLoginLazyRoute
-  noauthNoauthRegisterLazyRoute: typeof noauthNoauthRegisterLazyRoute
+interface publicPublicRouteChildren {
+  publicPublicLoginLazyRoute: typeof publicPublicLoginLazyRoute
+  publicPublicRegisterLazyRoute: typeof publicPublicRegisterLazyRoute
 }
 
-const noauthNoauthRouteChildren: noauthNoauthRouteChildren = {
-  noauthNoauthLoginLazyRoute: noauthNoauthLoginLazyRoute,
-  noauthNoauthRegisterLazyRoute: noauthNoauthRegisterLazyRoute,
+const publicPublicRouteChildren: publicPublicRouteChildren = {
+  publicPublicLoginLazyRoute: publicPublicLoginLazyRoute,
+  publicPublicRegisterLazyRoute: publicPublicRegisterLazyRoute,
 }
 
-const noauthNoauthRouteWithChildren = noauthNoauthRoute._addFileChildren(
-  noauthNoauthRouteChildren,
+const publicPublicRouteWithChildren = publicPublicRoute._addFileChildren(
+  publicPublicRouteChildren,
 )
 
-interface noauthRouteChildren {
-  noauthNoauthRoute: typeof noauthNoauthRouteWithChildren
+interface publicRouteChildren {
+  publicPublicRoute: typeof publicPublicRouteWithChildren
 }
 
-const noauthRouteChildren: noauthRouteChildren = {
-  noauthNoauthRoute: noauthNoauthRouteWithChildren,
+const publicRouteChildren: publicRouteChildren = {
+  publicPublicRoute: publicPublicRouteWithChildren,
 }
 
-const noauthRouteWithChildren =
-  noauthRoute._addFileChildren(noauthRouteChildren)
+const publicRouteWithChildren =
+  publicRoute._addFileChildren(publicRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof noauthNoauthRouteWithChildren
-  '/login': typeof noauthNoauthLoginLazyRoute
-  '/register': typeof noauthNoauthRegisterLazyRoute
-  '/posts': typeof authPostsIndexRoute
+  '/': typeof publicPublicRouteWithChildren
+  '/login': typeof publicPublicLoginLazyRoute
+  '/register': typeof publicPublicRegisterLazyRoute
+  '/posts': typeof protectedPostsIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof noauthNoauthRouteWithChildren
-  '/login': typeof noauthNoauthLoginLazyRoute
-  '/register': typeof noauthNoauthRegisterLazyRoute
-  '/posts': typeof authPostsIndexRoute
+  '/': typeof publicPublicRouteWithChildren
+  '/login': typeof publicPublicLoginLazyRoute
+  '/register': typeof publicPublicRegisterLazyRoute
+  '/posts': typeof protectedPostsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/(noauth)': typeof noauthRouteWithChildren
-  '/(noauth)/_noauth': typeof noauthNoauthRouteWithChildren
-  '/(noauth)/_noauth/login': typeof noauthNoauthLoginLazyRoute
-  '/(noauth)/_noauth/register': typeof noauthNoauthRegisterLazyRoute
-  '/(auth)/posts/': typeof authPostsIndexRoute
+  '/(public)': typeof publicRouteWithChildren
+  '/(public)/_public': typeof publicPublicRouteWithChildren
+  '/(public)/_public/login': typeof publicPublicLoginLazyRoute
+  '/(public)/_public/register': typeof publicPublicRegisterLazyRoute
+  '/(protected)/posts/': typeof protectedPostsIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -179,24 +181,24 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/(noauth)'
-    | '/(noauth)/_noauth'
-    | '/(noauth)/_noauth/login'
-    | '/(noauth)/_noauth/register'
-    | '/(auth)/posts/'
+    | '/(public)'
+    | '/(public)/_public'
+    | '/(public)/_public/login'
+    | '/(public)/_public/register'
+    | '/(protected)/posts/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  noauthRoute: typeof noauthRouteWithChildren
-  authPostsIndexRoute: typeof authPostsIndexRoute
+  publicRoute: typeof publicRouteWithChildren
+  protectedPostsIndexRoute: typeof protectedPostsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  noauthRoute: noauthRouteWithChildren,
-  authPostsIndexRoute: authPostsIndexRoute,
+  publicRoute: publicRouteWithChildren,
+  protectedPostsIndexRoute: protectedPostsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -210,37 +212,37 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/(noauth)",
-        "/(auth)/posts/"
+        "/(public)",
+        "/(protected)/posts/"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/(noauth)": {
-      "filePath": "(noauth)",
+    "/(public)": {
+      "filePath": "(public)",
       "children": [
-        "/(noauth)/_noauth"
+        "/(public)/_public"
       ]
     },
-    "/(noauth)/_noauth": {
-      "filePath": "(noauth)/_noauth.tsx",
-      "parent": "/(noauth)",
+    "/(public)/_public": {
+      "filePath": "(public)/_public.tsx",
+      "parent": "/(public)",
       "children": [
-        "/(noauth)/_noauth/login",
-        "/(noauth)/_noauth/register"
+        "/(public)/_public/login",
+        "/(public)/_public/register"
       ]
     },
-    "/(noauth)/_noauth/login": {
-      "filePath": "(noauth)/_noauth.login.lazy.tsx",
-      "parent": "/(noauth)/_noauth"
+    "/(public)/_public/login": {
+      "filePath": "(public)/_public.login.lazy.tsx",
+      "parent": "/(public)/_public"
     },
-    "/(noauth)/_noauth/register": {
-      "filePath": "(noauth)/_noauth.register.lazy.tsx",
-      "parent": "/(noauth)/_noauth"
+    "/(public)/_public/register": {
+      "filePath": "(public)/_public.register.lazy.tsx",
+      "parent": "/(public)/_public"
     },
-    "/(auth)/posts/": {
-      "filePath": "(auth)/posts/index.tsx"
+    "/(protected)/posts/": {
+      "filePath": "(protected)/posts/index.tsx"
     }
   }
 }
