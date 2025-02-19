@@ -75,7 +75,7 @@ export default function CreatePostButton() {
           Create
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right">
+      <DialogContent className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right">
         <DialogHeader>
           <DialogTitle>Create Post</DialogTitle>
           <DialogDescription>Enter a title and content</DialogDescription>
@@ -118,6 +118,7 @@ export default function CreatePostButton() {
                     <Label htmlFor={field.name}>Content</Label>
                     <Textarea
                       className="mt-2"
+                      rows={8}
                       id={field.name}
                       name={field.name}
                       value={field.state.value}

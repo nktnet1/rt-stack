@@ -20,10 +20,10 @@ function PostItem({
     <Link
       to="/posts/$postid"
       params={{ postid: post.id }}
-      className="border border-gray-500 bg-elevated p-4 w-full flex items-center justify-between rounded-xl hover:brightness-90"
+      className="border border-gray-500 bg-elevated p-4 w-full flex items-center justify-between gap-x-3 rounded-xl hover:brightness-90"
     >
-      <div>
-        <div className="text-lg font-bold line-clamp-1">{post.title}</div>
+      <div className="flex flex-col gap-y-1">
+        <div className="text-lg font-bold line-clamp-3">{post.title}</div>
         <div className="italic text-sm">{post.createdAt.toLocaleString()}</div>
       </div>
 
