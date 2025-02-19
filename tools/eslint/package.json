@@ -27,5 +27,8 @@
     "globals": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.31.0"
   }
 }
