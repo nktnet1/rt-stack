@@ -115,15 +115,9 @@ By default the following URLs will be accesibile:
 
 ## Developing
 
-### Working with a single component
+### Working with a single package
 
-Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each component).
-
-You can get a list of all package names using the command
-
-```sh
-find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
-```
+Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined in the `package.json` of each package).
 
 Example usage:
 
@@ -131,27 +125,34 @@ Example usage:
 # Install the nuqs package for our web application:
 pnpm --filter=web install nuqs
 
-# Format only the UI package:
+# Format only the ui package:
 pnpm --filter=@repo/ui format
 ```
 
-### Adding new shadcn ui components
+You can get a list of all package names using the command below:
 
-This can be done by running the command
+```sh
+find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
+```
+
+### Adding new shadcn components
+
+To install a single Shadcn/UI component, e.g. `button`, use the command
+
+```sh
+pnpm ui-add button
+```
+
+You can also open an intera
 
 ```sh
 pnpm ui-add
 ```
 
-This will open a terminal application. Press `i` to enter interactive mode,
-then use `J/K` (or the arrow keys) to navigate up and down. Press `<space>`
-to toggle select your desired component(s), and `<Enter>` to install them.
-
-Alternatively, to install a single component, e.g. `button`, use the command
-
-```sh
-pnpm ui-add button
-```
+- press `i` to enter interactive mode on startup
+- use `J/K` (or arrow keys) to navigate up and down.
+- use `<space>` to toggle select your desired component(s)
+- hit `<Enter>` to install all selected components
 
 ### Tooling Scripts:
 
