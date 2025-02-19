@@ -8,6 +8,10 @@
     ".": {
       "types": "./dist/src/index.d.ts",
       "default": "./dist/src/index.js"
+    },
+    "./create": {
+      "types": "./dist/src/create.d.ts",
+      "default": "./dist/src/create.js"
     }
   },
   "scripts": {
@@ -22,8 +26,7 @@
   "prettier": "@repo/prettier-config",
   "dependencies": {
     "@t3-oss/env-core": "catalog:",
-    "valibot": "catalog:",
-    "vite": "catalog:"
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -31,6 +34,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vite": "catalog:"
   }
 }

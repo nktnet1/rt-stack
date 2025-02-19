@@ -109,9 +109,11 @@ By default the following URLs will be accesibile:
 - web application: http://localhost:8085
 - backend server: http://localhost:3035
 
-> [!NOTE]  
-> There is an artificial delay added in development mode to simulate API usage in real-world environments.
-> You can disable this by removing the `timingMiddleware` in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+> [!NOTE]
+>
+> 1. There is an artificial delay added in development mode to simulate API usage in real-world environments.
+>    You can disable this by removing the `timingMiddleware` in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+> 2. The `route
 
 ## Developing
 
@@ -150,8 +152,8 @@ pnpm ui-add
 ```
 
 - press `i` to enter interactive mode on startup
-- use `J/K` (or arrow keys) to navigate up and down.
-- use `<space>` to toggle select your desired component(s)
+- use `j/k` (or arrow keys) to navigate up and down.
+- use `<Space>` to toggle select your desired component(s)
 - hit `<Enter>` to install all selected components
 
 ### Tooling Scripts:

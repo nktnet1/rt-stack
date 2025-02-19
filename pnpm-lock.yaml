@@ -481,9 +481,6 @@ importers:
       valibot:
         specifier: 'catalog:'
         version: 1.0.0-rc.1(typescript@5.7.3)
-      vite:
-        specifier: 'catalog:'
-        version: 6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3)(yaml@2.7.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -503,6 +500,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.7.3
+      vite:
+        specifier: 'catalog:'
+        version: 6.1.0(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(tsx@4.19.3)(yaml@2.7.0)
 
   packages/ui:
     dependencies:
