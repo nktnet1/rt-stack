@@ -1,13 +1,8 @@
 {
   "extends": "@repo/typescript-config/internal-package.json",
   "compilerOptions": {
-    "downlevelIteration": true,
-    "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "emitDeclarationOnly": false,
-    "noEmit": false,
     "types": ["node", "vite"]
   },
-  "include": ["src", "src/client/env.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

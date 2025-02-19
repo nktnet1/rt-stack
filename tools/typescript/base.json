@@ -21,8 +21,8 @@
     "checkJs": true,
 
     /** Transpile using Bundler (not tsc) */
-    "module": "Preserve",
-    "moduleResolution": "Bundler",
+    "module": "es2022",
+    "moduleResolution": "bundler",
     "noEmit": true
   },
   "exclude": ["node_modules", "build", "dist"]

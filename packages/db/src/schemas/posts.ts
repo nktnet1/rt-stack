@@ -17,7 +17,7 @@ export const post = pgTable('post', (t) => ({
 export const CreatePostSchema = v.omit(
   createInsertSchema(post, {
     title: v.pipe(v.string(), v.maxLength(256)),
-    content: v.pipe(v.string(), v.maxLength(256)),
+    content: v.pipe(v.string(), v.maxLength(512)),
   }),
   ['id', 'createdAt', 'createdBy'],
 );

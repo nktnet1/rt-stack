@@ -1,5 +1,6 @@
 {
   "name": "server",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "pnpm with-env tsx watch src/index.ts",
