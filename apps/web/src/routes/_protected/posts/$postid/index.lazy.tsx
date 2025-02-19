@@ -16,13 +16,6 @@ function RouteComponent() {
         <p className="text-sm text-gray-500 mt-4">
           Created by <span className="font-medium">{post.author.name}</span>,{' '}
           {post.createdAt.toLocaleString()}
-          {post.updatedAt && post.lastUpdateUser && (
-            <>
-              • Last updated by{' '}
-              <span className="font-medium">{post.lastUpdateUser.name}</span>,{' '}
-              {post.updatedAt.toLocaleDateString()}
-            </>
-          )}
         </p>
       </div>
       <Button asChild variant="link" className="w-12 border border-gray-500">

@@ -13,10 +13,6 @@ export const post = pgTable('post', (t) => ({
     .text()
     .references(() => user.id)
     .notNull(),
-  updatedAt: t
-    .timestamp({ mode: 'date', withTimezone: true })
-    .$onUpdateFn(() => sql`now()`),
-  updatedBy: t.text().references(() => user.id),
 }));
 
 export const CreatePostSchema = v.omit(
@@ -24,5 +20,5 @@ export const CreatePostSchema = v.omit(
     title: v.pipe(v.string(), v.maxLength(256)),
     content: v.pipe(v.string(), v.maxLength(256)),
   }),
-  ['id', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy'],
+  ['id', 'createdAt', 'createdBy'],
 );

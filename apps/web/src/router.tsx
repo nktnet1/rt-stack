@@ -3,8 +3,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter as createTanstackRouter } from '@tanstack/react-router';
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import type { AppRouter } from '@repo/api/server';
-import { routeTree } from './routeTree.gen';
 import Spinner from '@/components/layout/spinner';
+import { routeTree } from '@/routeTree.gen';
 
 export const queryClient = new QueryClient();
 
