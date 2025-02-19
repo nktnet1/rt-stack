@@ -1,7 +1,7 @@
 import * as v from 'valibot';
 
-import { desc, eq } from '@repo/db';
-import { CreatePostSchema, post } from '@repo/db/schema';
+import { alias, desc, eq } from '@repo/db';
+import { CreatePostSchema, post, user } from '@repo/db/schema';
 
 import { protectedProcedure, publicProcedure, router } from '../trpc';
 import { TRPCError } from '@trpc/server';
@@ -21,9 +21,28 @@ const postRouter = router({
   one: publicProcedure
     .input(v.object({ id: v.pipe(v.string(), v.uuid()) }))
     .query(async ({ ctx, input }) => {
-      const dbPost = await ctx.db.query.post.findFirst({
-        where: eq(post.id, input.id),
-      });
+      const updateUser = alias(user, 'update_user');
+      const [dbPost] = await ctx.db
+        .select({
+          id: post.id,
+          title: post.title,
+          content: post.content,
+          createdAt: post.createdAt,
+          updatedAt: post.updatedAt,
+          author: {
+            id: user.id,
+            name: user.name,
+          },
+          lastUpdateUser: {
+            id: updateUser.id,
+            name: updateUser.name,
+          },
+        })
+        .from(post)
+        .innerJoin(user, eq(post.createdBy, user.id))
+        .leftJoin(updateUser, eq(post.updatedBy, updateUser.id))
+        .where(eq(post.id, input.id));
+
       if (!dbPost) {
         throw new TRPCError({
           code: 'BAD_REQUEST',

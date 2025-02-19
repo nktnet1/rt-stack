@@ -25,20 +25,20 @@ function RouteComponent() {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-4 py-6 w-full max-w-6xl mx-auto">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">Posts</h1>
         <CreatePostButton />
       </div>
-      <hr className="mt-3 border-b-2" />
-      <div className="flex gap-x-3 gap-y-3 flex-wrap mt-3">
+      <hr className="mt-4 border-b-2 border-gray-400" />
+      <div className="flex gap-x-3 gap-y-3 flex-wrap mt-6">
         {posts?.length
           ? posts.map((p) => (
               <Link
                 to="/posts/$postid"
                 params={{ postid: p.id }}
                 key={p.id}
-                className="border bg-elevated p-4 w-full flex items-center justify-between"
+                className="border border-gray-500 bg-elevated p-4 w-full flex items-center justify-between rounded-xl"
               >
                 <div>
                   <div className="text-lg font-bold line-clamp-1">
