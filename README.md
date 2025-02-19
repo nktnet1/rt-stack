@@ -109,12 +109,6 @@ By default the following URLs will be accesibile:
 - web application: http://localhost:8085
 - backend server: http://localhost:3035
 
-> [!NOTE]
->
-> 1. There is an artificial delay added in development mode to simulate API usage in real-world environments.
->    You can disable this by removing the `timingMiddleware` in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
-> 2. The `route
-
 ## Developing
 
 ### Working with a single package
@@ -174,3 +168,22 @@ pnpm clean                  # remove all .cache, .turbo, dist, node_modules
 
 pnpx codemod pnpm/catalog   # migrate dependencies to pnpm-workspace.yaml
 ```
+
+## Caveats
+
+### Tanstack Router Layout
+
+The following is configured in [vite.config.ts](apps/web/vite.config.ts) web application:
+
+```ts
+TanStackRouterVite({
+  routeToken: 'layout',
+}),
+```
+
+This is to allow for a `layout.tsx` file in each directory similar to NextJS. You can read more about this [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
+
+### Server API
+
+There is an artificial delay added in development mode to simulate API usage in real-world environments.
+You can disable this by removing the `timingMiddleware` in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)

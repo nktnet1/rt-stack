@@ -16,7 +16,7 @@ const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
     v.maxValue(65535),
   );
 
-export const getAppEnv = (
+export const createValidatedEnv = (
   runtimeEnv: Record<string, string | undefined> = process.env,
 ) => {
   return createEnv({

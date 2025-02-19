@@ -1,7 +1,7 @@
-import { getAppEnv } from '@repo/env/create';
+import { createValidatedEnv } from '@repo/env/create';
 import type { Config } from 'drizzle-kit';
 
-const env = getAppEnv();
+const env = createValidatedEnv();
 
 if (!env.DATABASE_URL) {
   throw new Error('Missing DATABASE_URL');
