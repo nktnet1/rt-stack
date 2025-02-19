@@ -9,10 +9,10 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
     "clean": "git clean -xdf .cache dist .turbo node_modules",
-    "dev": "pnpm with-env vite",
-    "build": "pnpm with-env vite build",
-    "preview": "pnpm with-env vite preview",
-    "start": "pnpm with-env vite",
+    "dev": "pnpm with-env vite --configLoader runner",
+    "build": "pnpm with-env vite build --configLoader runner",
+    "preview": "pnpm with-env vite preview --configLoader runner",
+    "start": "pnpm with-env vite --configLoader runner",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {

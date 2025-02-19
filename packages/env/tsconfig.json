@@ -1,10 +1,6 @@
 {
   "extends": "@repo/typescript-config/internal-package.json",
   "compilerOptions": {
-    "useDefineForClassFields": true,
-    "skipLibCheck": true,
-    "emitDeclarationOnly": false,
-    "noEmit": false,
     "types": ["node", "vite"]
   },
   "include": ["src/**/*.ts"],

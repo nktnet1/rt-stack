@@ -7,11 +7,11 @@
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "default": "./src/index.ts"
     },
     "./create": {
       "types": "./dist/src/create.d.ts",
-      "default": "./dist/src/create.js"
+      "default": "./src/create.ts"
     }
   },
   "scripts": {
