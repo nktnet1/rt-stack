@@ -21,7 +21,7 @@
     "checkJs": true,
 
     /** Transpile using Bundler (not tsc) */
-    "module": "preserve",
+    "module": "es2022",
     "moduleResolution": "bundler",
     "noEmit": true
   },

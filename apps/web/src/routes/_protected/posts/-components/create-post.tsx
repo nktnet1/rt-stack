@@ -42,7 +42,16 @@ export default function CreatePostButton() {
   const form = useForm({
     defaultValues: {
       title: `Post ${generateTimestamp()}`,
-      content: 'Default content',
+      content: `\
+The year was 2081, and everybody was finally equal.  
+They weren't only equal before God and the law.  
+They were equal every which way.  
+Nobody was smarter than anybody else.  
+Nobody was better looking than anybody else.  
+Nobody was stronger or quicker than anybody else.  
+All this equality was due to the 211th, 212th, and 213th Amendments to the Constitution,  
+and to the unceasing vigilance of agents of the United States Handicapper General.
+  `,
     },
     validators: {
       onChange: FormSchema,
@@ -78,7 +87,9 @@ export default function CreatePostButton() {
       <DialogContent className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right">
         <DialogHeader>
           <DialogTitle>Create Post</DialogTitle>
-          <DialogDescription>Enter a title and content</DialogDescription>
+          <DialogDescription>
+            Write about an interesting topic!
+          </DialogDescription>
         </DialogHeader>
         <form
           className="flex flex-col gap-y-3"
