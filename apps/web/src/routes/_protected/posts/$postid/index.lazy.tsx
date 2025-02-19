@@ -1,4 +1,5 @@
-import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import DeletePostButton from '@/components/posts/delete-post';
+import { ArrowLeftIcon, TrashIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
@@ -25,11 +26,16 @@ function RouteComponent() {
           )}
         </p>
       </div>
-      <Button asChild variant="link" className="w-12 border border-gray-500">
-        <Link to="/posts">
-          <ArrowLeftIcon />
-        </Link>
-      </Button>
+      <div className="flex items-center border-gray-500 justify-between">
+        <Button asChild variant="link" className="w-12 border border-gray-500">
+          <Link to="/posts">
+            <ArrowLeftIcon />
+          </Link>
+        </Button>
+        <DeletePostButton postId={post.id} className="h-full">
+          <TrashIcon />
+        </DeletePostButton>
+      </div>
 
       <div className="bg-elevated shadow rounded-2xl p-6 w-full min-h-96">
         <p className="leading-relaxed">

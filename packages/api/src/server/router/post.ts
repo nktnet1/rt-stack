@@ -65,7 +65,13 @@ const postRouter = router({
   delete: protectedProcedure
     .input(v.object({ id: v.pipe(v.string(), v.uuid()) }))
     .mutation(async ({ ctx, input }) => {
-      await ctx.db.delete(post).where(eq(post.id, input.id));
+      const res = await ctx.db.delete(post).where(eq(post.id, input.id));
+      if (res.rowCount === 0) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: `No such post with id ${input.id}`,
+        });
+      }
       return {};
     }),
 });
