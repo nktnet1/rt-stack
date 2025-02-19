@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, LineHeightIcon } from '@radix-ui/react-icons';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
@@ -14,7 +14,7 @@ function RouteComponent() {
       <div className="text-center">
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
         <p className="text-sm text-gray-500 mt-4">
-          Written by <span className="font-medium">{post.author.name}</span>,{' '}
+          Created by <span className="font-medium">{post.author.name}</span>,{' '}
           {post.createdAt.toLocaleString()}
           {post.updatedAt && post.lastUpdateUser && (
             <>
