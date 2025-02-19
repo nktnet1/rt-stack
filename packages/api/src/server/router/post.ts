@@ -1,4 +1,4 @@
-import { alias, desc, eq } from '@repo/db';
+import { desc, eq } from '@repo/db';
 import { CreatePostSchema, post, user } from '@repo/db/schema';
 
 import { TRPCError } from '@trpc/server';
