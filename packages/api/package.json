@@ -16,6 +16,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
+  "prettier": "@repo/prettier-config",
   "dependencies": {
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
@@ -35,6 +36,5 @@
     "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
-  },
-  "prettier": "@repo/prettier-config"
+  }
 }

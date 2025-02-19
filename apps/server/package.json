@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --"
   },
+  "prettier": "@repo/prettier-config",
   "dependencies": {
     "@hono/node-server": "catalog:",
     "@hono/trpc-server": "catalog:",
