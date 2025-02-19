@@ -14,8 +14,8 @@ Below is an overview of all the components in the stack:
 apps
   ├─ web
   |   ├─ react (vite)
-  |   ├─ tailwindcss
-  |   └─ tanstack (router, query, form)
+  |   ├─ tanstack (router, query, form)
+  |   └─ tailwindcss
   ├─ server
   |   └─ hono (wrapper for api & auth)
 packages
