@@ -1,6 +1,9 @@
 import { authClient } from '@repo/auth/client';
 import { Link } from '@tanstack/react-router';
 import UserAvatar from '@/components/layout/nav/user-avatar';
+import { postsSearchDefaults } from '@/components/posts/postsSearchSchema';
+
+const activeClassName = 'underline decoration-2 opacity-70';
 
 export function Navbar() {
   const { data: session, isPending } = authClient.useSession();
@@ -10,7 +13,7 @@ export function Navbar() {
       <div className="flex gap-x-4">
         <Link
           to="/"
-          activeProps={{ className: 'brightness-70 underline' }}
+          activeProps={{ className: activeClassName }}
           activeOptions={{ exact: true }}
         >
           Home
@@ -18,7 +21,8 @@ export function Navbar() {
         {session?.user ? (
           <Link
             to="/posts"
-            activeProps={{ className: 'brightness-70 underline' }}
+            activeProps={{ className: activeClassName }}
+            search={postsSearchDefaults}
           >
             Posts
           </Link>
@@ -30,7 +34,7 @@ export function Navbar() {
         <div className="flex gap-x-2 justify-between">
           <Link
             to="/login"
-            activeProps={{ className: 'brightness-70 underline' }}
+            activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
             Login
@@ -38,7 +42,7 @@ export function Navbar() {
           <span>|</span>
           <Link
             to="/register"
-            activeProps={{ className: 'brightness-70 underline' }}
+            activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
             Register

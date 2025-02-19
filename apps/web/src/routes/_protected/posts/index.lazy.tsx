@@ -47,7 +47,7 @@ function RouteComponent() {
       <div className="flex gap-x-3 gap-y-3 flex-wrap mt-6">
         {posts?.length
           ? posts.map((p) => <PostItem key={p.id} post={p} />)
-          : 'You have not created any posts.'}
+          : 'There are no posts available.'}
       </div>
     </div>
   );
