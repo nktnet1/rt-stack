@@ -1,4 +1,3 @@
-import { sql } from 'drizzle-orm';
 import { pgTable } from 'drizzle-orm/pg-core';
 import { createInsertSchema } from 'drizzle-valibot';
 import * as v from 'valibot';
