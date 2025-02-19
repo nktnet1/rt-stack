@@ -21,6 +21,7 @@
     "@types/eslint-config-prettier": "catalog:",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
+    "eslint-plugin-import": "catalog:",
     "eslint-plugin-only-warn": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
@@ -28,8 +29,5 @@
     "globals": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"
-  },
-  "dependencies": {
-    "eslint-plugin-import": "^2.31.0"
   }
 }

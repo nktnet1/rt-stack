@@ -111,6 +111,9 @@ catalogs:
     eslint-config-prettier:
       specifier: ^10.0.1
       version: 10.0.1
+    eslint-plugin-import:
+      specifier: ^2.31.0
+      version: 2.31.0
     eslint-plugin-only-warn:
       specifier: ^1.1.0
       version: 1.1.0
@@ -572,10 +575,6 @@ importers:
         version: 5.7.3
 
   tools/eslint:
-    dependencies:
-      eslint-plugin-import:
-        specifier: ^2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))
     devDependencies:
       '@eslint/js':
         specifier: 'catalog:'
@@ -595,6 +594,9 @@ importers:
       eslint-config-prettier:
         specifier: 'catalog:'
         version: 10.0.1(eslint@9.20.1(jiti@2.4.2))
+      eslint-plugin-import:
+        specifier: 'catalog:'
+        version: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3))(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-only-warn:
         specifier: 'catalog:'
         version: 1.1.0
