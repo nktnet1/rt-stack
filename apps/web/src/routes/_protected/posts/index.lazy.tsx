@@ -41,7 +41,6 @@ function RouteComponent() {
     <div className="flex flex-col md:px-4 py-6 w-full max-w-6xl mx-auto">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">Posts</h1>
-
         <CreatePostButton />
       </div>
       <hr className="mt-4 border-b-2 border-gray-400" />

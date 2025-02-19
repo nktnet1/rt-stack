@@ -26,16 +26,11 @@ function RouteComponent() {
           )}
         </p>
       </div>
-      <div className="flex items-center border-gray-500 justify-between">
-        <Button asChild variant="link" className="w-12 border border-gray-500">
-          <Link to="/posts">
-            <ArrowLeftIcon />
-          </Link>
-        </Button>
-        <DeletePostButton postId={post.id} className="h-full">
-          <TrashIcon />
-        </DeletePostButton>
-      </div>
+      <Button asChild variant="link" className="w-12 border border-gray-500">
+        <Link to="/posts">
+          <ArrowLeftIcon />
+        </Link>
+      </Button>
 
       <div className="bg-elevated shadow rounded-2xl p-6 w-full min-h-96">
         <p className="leading-relaxed">
