@@ -20,6 +20,7 @@ export default defineConfig({
   server: {
     port: env.WEB_PORT,
     host: env.WEB_HOST,
+    strictPort: true,
   },
   resolve: {
     alias: {
