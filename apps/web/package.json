@@ -11,7 +11,7 @@
     "clean": "git clean -xdf .cache dist .turbo node_modules",
     "dev": "pnpm with-env vite",
     "build": "pnpm with-env vite build",
-    "serve": "pnpm with-env vite preview",
+    "preview": "pnpm with-env vite preview",
     "start": "pnpm with-env vite",
     "with-env": "dotenv -e ../../.env --"
   },
