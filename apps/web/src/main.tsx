@@ -1,8 +1,8 @@
 import './style.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { RouterProvider } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { createRouter } from '@/router';
 
 const rootElement = document.getElementById('app')!;

@@ -1,7 +1,7 @@
-import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { env } from '@repo/env';
-import urlJoin from 'url-join';
+import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import SuperJSON from 'superjson';
+import urlJoin from 'url-join';
 import type { AppRouter } from '../server';
 
 export const trpcClient = createTRPCClient<AppRouter>({

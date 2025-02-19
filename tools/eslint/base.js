@@ -56,7 +56,25 @@ export default tseslint.config([
       import: eslintPluginImport,
     },
     rules: {
-      'no-cycle': 'warn',
+      'import/no-cycle': 'warn',
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'type',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+          ],
+          alphabetize: {
+            order: 'asc',
+          },
+        },
+      ],
     },
   },
   {

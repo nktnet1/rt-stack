@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
-import * as v from 'valibot';
 import { createEnv } from '@t3-oss/env-core';
+import * as v from 'valibot';
 
 const DEFAULT_API_PORT = 3035;
 const DEFAULT_WEB_PORT = 8085;

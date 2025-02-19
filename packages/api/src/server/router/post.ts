@@ -1,10 +1,10 @@
-import * as v from 'valibot';
 
 import { alias, desc, eq } from '@repo/db';
 import { CreatePostSchema, post, user } from '@repo/db/schema';
 
-import { protectedProcedure, publicProcedure, router } from '../trpc';
 import { TRPCError } from '@trpc/server';
+import * as v from 'valibot';
+import { protectedProcedure, publicProcedure, router } from '../trpc';
 
 const postRouter = router({
   all: protectedProcedure.query(({ ctx }) => {

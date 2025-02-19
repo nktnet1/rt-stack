@@ -1,6 +1,6 @@
-import { initTRPC, TRPCError } from '@trpc/server';
-import { db } from '@repo/db/client';
 import { auth } from '@repo/auth/server';
+import { db } from '@repo/db/client';
+import { initTRPC, TRPCError } from '@trpc/server';
 import SuperJSON from 'superjson';
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {

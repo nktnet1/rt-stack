@@ -1,10 +1,10 @@
-import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { auth } from '@repo/auth/server';
-import { env } from '@repo/env';
-import { cors } from 'hono/cors';
 import { trpcServer } from '@hono/trpc-server';
 import { appRouter, createTRPCContext } from '@repo/api/server';
+import { auth } from '@repo/auth/server';
+import { env } from '@repo/env';
+import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 
 const wildcardPath = {
