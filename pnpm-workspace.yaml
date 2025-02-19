@@ -21,9 +21,9 @@ catalog:
   '@tanstack/react-router': ^1.106.0
   '@tanstack/router-devtools': ^1.106.0
   '@tanstack/router-plugin': ^1.106.0
-  '@trpc/client': 11.0.0-rc.789
-  '@trpc/server': 11.0.0-rc.789
-  '@trpc/tanstack-react-query': 11.0.0-rc.789
+  '@trpc/client': 11.0.0-rc.791
+  '@trpc/server': 11.0.0-rc.791
+  '@trpc/tanstack-react-query': 11.0.0-rc.791
   '@types/eslint-config-prettier': ^6.11.3
   '@types/node': ^22.13.4
   '@types/pg': ^8.11.11
@@ -61,4 +61,4 @@ catalog:
   typescript-eslint: ^8.24.1
   url-join: ^5.0.0
   valibot: 1.0.0-rc.1
-  vite: ^6.1.0
+  vite: ^6.1.1

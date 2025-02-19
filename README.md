@@ -1,8 +1,7 @@
 # RT Stack
 
-RT stack is a modern [turborepo](https://turbo.build/repo/docs) template for
-developing fullstack projects with modular components, shared configs and full
-type-safety.
+A modern [turborepo](https://turbo.build/repo/docs) template for building
+fullstack projects with modular components, shared configs and 100% type-safety.
 
 ## About
 
@@ -14,8 +13,8 @@ Below is an overview of all the components in the stack:
 apps
   ├─ web
   |   ├─ react (vite)
-  |   ├─ tailwindcss
-  |   └─ tanstack (router, query, form)
+  |   ├─ tanstack (router, query, form)
+  |   └─ tailwindcss
   ├─ server
   |   └─ hono (wrapper for api & auth)
 packages
@@ -83,6 +82,9 @@ Ensure the following tools are available on your system:
 ### Setup
 
 ```sh
+# Create a repository using the rt-stack template
+pnpm dlx create-turbo@latest -e https://github.com/nktnet1/rt-stack
+
 # Install all dependencies for apps and packages
 pnpm install
 
@@ -181,9 +183,12 @@ TanStackRouterVite({
 }),
 ```
 
-This is to allow for a `layout.tsx` file in each directory similar to NextJS. You can read more about this [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
+This is to allow for a `layout.tsx` file in each directory similar to NextJS.
+You can read more about this
+[here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
 
 ### Server API
 
-There is an artificial delay added in development mode to simulate API usage in real-world environments.
-You can disable this by removing the `timingMiddleware` in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+There is an artificial delay added in development mode to simulate API usage in
+real-world environments. You can disable this by removing the `timingMiddleware`
+in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
