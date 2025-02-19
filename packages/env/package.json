@@ -1,5 +1,6 @@
 {
   "name": "@repo/env",
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +10,6 @@
       "default": "./dist/src/index.js"
     }
   },
-  "license": "MIT",
   "scripts": {
     "dev": "tsc",
     "build": "tsc",

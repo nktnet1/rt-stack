@@ -12,6 +12,11 @@ export const CLIENT_ENV_PREFIX = 'PUBLIC_';
 const runtimeEnv =
   typeof process !== 'undefined' ? process.env : import.meta.env;
 
+console.log({
+  runtimeEnv:
+    typeof process !== 'undefined' ? 'process.env' : 'import.meta.env',
+});
+
 const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
   v.pipe(
     v.optional(v.string(), `${defaultPort}`),

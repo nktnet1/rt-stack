@@ -1,5 +1,6 @@
 {
   "name": "@repo/typescript-config",
+  "license": "MIT",
   "private": true,
   "files": [
     "*.json"

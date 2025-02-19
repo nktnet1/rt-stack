@@ -1,5 +1,6 @@
 {
   "private": true,
+  "license": "MIT",
   "scripts": {
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",

@@ -1,5 +1,6 @@
 {
   "name": "@repo/db",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "exports": {
