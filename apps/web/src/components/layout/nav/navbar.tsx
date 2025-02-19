@@ -1,7 +1,7 @@
 import { authClient } from '@repo/auth/client';
 import { Link } from '@tanstack/react-router';
 import UserAvatar from '@/components/layout/nav/user-avatar';
-import { postsSearchDefaults } from '@/components/posts/postsSearchSchema';
+import { postsLinkOptions } from '@/components/posts/postsSearchSchema';
 
 const activeClassName = 'underline decoration-2 opacity-70';
 
@@ -20,9 +20,8 @@ export function Navbar() {
         </Link>
         {session?.user ? (
           <Link
-            to="/posts"
+            {...postsLinkOptions}
             activeProps={{ className: activeClassName }}
-            search={postsSearchDefaults}
           >
             Posts
           </Link>

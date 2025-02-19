@@ -1,3 +1,4 @@
+import { linkOptions } from '@tanstack/react-router';
 import * as v from 'valibot';
 
 export const postsSearchSchema = v.object({
@@ -6,3 +7,8 @@ export const postsSearchSchema = v.object({
 });
 
 export const postsSearchDefaults = v.getFallbacks(postsSearchSchema);
+
+export const postsLinkOptions = linkOptions({
+  to: '/posts',
+  search: postsSearchDefaults,
+});

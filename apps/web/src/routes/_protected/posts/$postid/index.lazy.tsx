@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
-import { postsSearchDefaults } from '../../../../components/posts/postsSearchSchema';
+import { postsLinkOptions } from '@/components/posts/postsSearchSchema';
 
 export const Route = createLazyFileRoute('/_protected/posts/$postid/')({
   component: RouteComponent,
@@ -20,7 +20,7 @@ function RouteComponent() {
         </p>
       </div>
       <Button asChild variant="link" className="w-12 border border-gray-500">
-        <Link to="/posts" search={postsSearchDefaults}>
+        <Link {...postsLinkOptions}>
           <ArrowLeftIcon />
         </Link>
       </Button>
