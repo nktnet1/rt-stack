@@ -38,7 +38,7 @@ function RouteComponent() {
   const { data: posts } = useQuery(trpc.posts.all.queryOptions());
 
   return (
-    <div className="flex flex-col md:px-4 py-6 w-full max-w-6xl mx-auto">
+    <div className="flex flex-col md:p-4 w-full max-w-6xl mx-auto">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">Posts</h1>
         <CreatePostButton />
