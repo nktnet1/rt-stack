@@ -2,7 +2,7 @@ import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
 import {
   postsSearchSchema,
   postsSearchDefaults,
-} from '@/components/posts/postsSearchSchema';
+} from '@/cons/posts-link-options';
 import { queryClient, trpc } from '@/router';
 
 export const Route = createFileRoute('/_protected/posts/')({

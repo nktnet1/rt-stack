@@ -8,7 +8,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import * as v from 'valibot';
-import FormFieldInfo from '@/components/common/form-field-info';
+import FormFieldInfo from '@/routes/-components/common/form-field-info';
 
 const FormSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),
