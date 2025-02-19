@@ -1,6 +1,6 @@
-import UserAvatar from '@/components/layout/nav/user-avatar';
 import { authClient } from '@repo/auth/client';
 import { Link } from '@tanstack/react-router';
+import UserAvatar from '@/components/layout/nav/user-avatar';
 
 export function Navbar() {
   const { data: session, isPending } = authClient.useSession();

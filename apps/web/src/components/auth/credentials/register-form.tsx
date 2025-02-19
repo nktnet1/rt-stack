@@ -1,14 +1,14 @@
-import * as v from 'valibot';
-import { useForm } from '@tanstack/react-form';
-import { useState } from 'react';
-import FormFieldInfo from '@/components/common/form-field-info';
-import { Label } from '@repo/ui/components/label';
-import { Input } from '@repo/ui/components/input';
-import { Button } from '@repo/ui/components/button';
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { authClient } from '@repo/auth/client';
-import { toast } from 'sonner';
+import { Button } from '@repo/ui/components/button';
+import { Input } from '@repo/ui/components/input';
+import { Label } from '@repo/ui/components/label';
+import { useForm } from '@tanstack/react-form';
 import { useNavigate } from '@tanstack/react-router';
+import { useState } from 'react';
+import { toast } from 'sonner';
+import * as v from 'valibot';
+import FormFieldInfo from '@/components/common/form-field-info';
 
 const FormSchema = v.pipe(
   v.object({

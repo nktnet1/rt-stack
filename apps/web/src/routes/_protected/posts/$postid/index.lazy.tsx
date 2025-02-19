@@ -1,5 +1,4 @@
-import DeletePostButton from '@/components/posts/delete-post';
-import { ArrowLeftIcon, TrashIcon } from '@radix-ui/react-icons';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 

@@ -1,9 +1,9 @@
-import { trpc } from '@/router';
 import { Button } from '@repo/ui/components/button';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import type { ReactNode } from '@tanstack/react-router';
-import { toast } from 'sonner';
 import { cn } from '@repo/ui/lib/utils';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { toast } from 'sonner';
+import type { ReactNode } from '@tanstack/react-router';
+import { trpc } from '@/router';
 
 export default function DeletePostButton({
   children,
@@ -35,7 +35,7 @@ export default function DeletePostButton({
         deletePostMutation.mutate({ id: postId });
       }}
       variant="destructive"
-      className={cn('h-9 w-10')}
+      className={cn('h-9 w-10', className)}
     >
       {children}
     </Button>

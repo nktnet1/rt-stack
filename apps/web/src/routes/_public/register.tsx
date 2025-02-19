@@ -1,5 +1,5 @@
-import RegisterCredentialsForm from '@/components/auth/credentials/register-form';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import RegisterCredentialsForm from '@/components/auth/credentials/register-form';
 
 export const Route = createFileRoute('/_public/register')({
   component: RouteComponent,

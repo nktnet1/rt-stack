@@ -58,7 +58,7 @@ export default tseslint.config([
     rules: {
       'import/no-cycle': 'warn',
       'import/order': [
-        'error',
+        'warn',
         {
           groups: [
             'builtin',

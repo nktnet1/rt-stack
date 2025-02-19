@@ -1,11 +1,11 @@
+import { TrashIcon } from '@radix-ui/react-icons';
+import { useQuery } from '@tanstack/react-query';
+import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import type { AppRouter } from '@repo/api/server';
 import type { inferRouterOutputs } from '@trpc/server';
 import CreatePostButton from '@/components/posts/create-post';
-import { trpc } from '@/router';
-import { useQuery } from '@tanstack/react-query';
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import DeletePostButton from '@/components/posts/delete-post';
-import { TrashIcon } from '@radix-ui/react-icons';
+import { trpc } from '@/router';
 
 export const Route = createLazyFileRoute('/_protected/posts/')({
   component: RouteComponent,

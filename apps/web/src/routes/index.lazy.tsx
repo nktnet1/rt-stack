@@ -1,8 +1,8 @@
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
-import { authClient } from '@repo/auth/client';
-import { useTheme } from 'next-themes';
 import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { authClient } from '@repo/auth/client';
 import { Button } from '@repo/ui/components/button';
+import { createLazyFileRoute, Link } from '@tanstack/react-router';
+import { useTheme } from 'next-themes';
 
 export const Route = createLazyFileRoute('/')({
   component: RouteComponent,
