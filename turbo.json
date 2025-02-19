@@ -1,0 +1,51 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "dependsOn": ["^dev"],
+      "persistent": false,
+      "cache": false
+    },
+    "ui-add": {
+      "cache": false,
+      "interactive": true
+    },
+    "clean": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"],
+      "cache": false
+    },
+    "format": {
+      "outputs": [".cache/.prettiercache"],
+      "outputLogs": "new-only"
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "lint": {},
+    "push": {
+      "cache": false,
+      "interactive": true
+    },
+    "studio": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalEnv": [
+    "DATABASE_URL",
+    "AUTH_SECRET",
+    "API_PORT",
+    "API_URL",
+    "PUBLIC_API_URL",
+    "WEB_PORT",
+    "WEB_URL",
+    "PUBLIC_WEB_URL"
+  ],
+  "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
+}

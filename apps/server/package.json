@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm with-env tsx watch src/index.ts",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@hono/node-server": "catalog:",
+    "@hono/trpc-server": "catalog:",
+    "@repo/api": "workspace:*",
+    "@repo/auth": "workspace:*",
+    "@repo/env": "workspace:*",
+    "hono": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "dotenv-cli": "catalog:",
+    "eslint": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

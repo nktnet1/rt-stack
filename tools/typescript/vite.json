@@ -1,0 +1,19 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": false,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true
+  },
+  "exclude": ["node_modules"]
+}

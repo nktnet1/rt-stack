@@ -1,0 +1,53 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "clean": "git clean -xdf .cache dist .turbo node_modules",
+    "dev": "pnpm with-env vite",
+    "build": "pnpm with-env vite build",
+    "serve": "pnpm with-env vite preview",
+    "start": "pnpm with-env vite",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@radix-ui/react-icons": "catalog:",
+    "@repo/auth": "workspace:*",
+    "@repo/env": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-form": "catalog:",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "@tanstack/router-devtools": "catalog:",
+    "@trpc/client": "catalog:",
+    "@trpc/tanstack-react-query": "catalog:",
+    "dotenv-cli": "catalog:",
+    "next-themes": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "sonner": "catalog:",
+    "tailwindcss": "catalog:",
+    "valibot": "catalog:"
+  },
+  "prettier": "@repo/prettier-config",
+  "devDependencies": {
+    "@repo/api": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@tanstack/router-plugin": "catalog:",
+    "@trpc/server": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
+    "eslint": "catalog:",
+    "vite": "catalog:"
+  }
+}

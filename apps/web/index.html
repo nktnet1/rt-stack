@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        /*
+         * Avoid flickering screen when refreshing on dark mode
+         * https://dev.to/izznatsir/flicker-free-dark-mode-in-vite-spa-180o
+         */
+        const classList = document.documentElement.classList;
+        const style = document.documentElement.style;
+        const dark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const update = () => {
+          if (
+            localStorage.theme === 'dark' ||
+            (!localStorage.theme && dark.matches)
+          ) {
+            classList.add('dark');
+            style.colorScheme = 'dark';
+          } else {
+            classList.remove('dark');
+            style.colorScheme = 'light';
+          }
+        };
+        update();
+
+        if (dark instanceof EventTarget) {
+          dark.addEventListener('change', () => {
+            delete localStorage.theme;
+            update();
+          });
+        } else {
+          dark.addListener(() => {
+            delete localStorage.theme;
+            update();
+          });
+        }
+        window.addEventListener('storage', update);
+      })();
+    </script>
+    <title>RT Stack</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

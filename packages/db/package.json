@@ -1,0 +1,49 @@
+{
+  "name": "@repo/db",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./src/client.ts"
+    },
+    "./schema": {
+      "types": "./dist/schema.d.ts",
+      "default": "./src/schema.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "push": "pnpm with-env drizzle-kit push",
+    "studio": "pnpm with-env drizzle-kit studio",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "prettier": "@repo/prettier-config",
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "drizzle-orm": "catalog:",
+    "drizzle-valibot": "catalog:",
+    "pg": "catalog:",
+    "valibot": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/pg": "catalog:",
+    "dotenv-cli": "catalog:",
+    "drizzle-kit": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@repo/ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "imports": {
+    "#*": "./src/*"
+  },
+  "exports": {
+    "./lib/*": {
+      "types": "./dist/src/lib/*.d.ts",
+      "default": "./src/lib/*.js"
+    },
+    "./components/*": {
+      "types": "./dist/src/components/*.d.ts",
+      "default": "./src/components/*.tsx"
+    }
+  },
+  "scripts": {
+    "dev": "tsc",
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "ui-add": "pnpm dlx shadcn@canary add",
+    "postui-add": "prettier src --write --list-different"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "catalog:",
+    "@radix-ui/react-dialog": "catalog:",
+    "@radix-ui/react-dropdown-menu": "catalog:",
+    "@radix-ui/react-icons": "catalog:",
+    "@radix-ui/react-label": "catalog:",
+    "@radix-ui/react-slot": "catalog:",
+    "@radix-ui/react-toast": "catalog:",
+    "class-variance-authority": "catalog:",
+    "next-themes": "catalog:",
+    "radix-ui": "catalog:",
+    "sonner": "catalog:",
+    "tailwind-merge": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:"
+  },
+  "prettier": "@repo/prettier-config"
+}

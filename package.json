@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "typecheck": "turbo run typecheck",
+    "build": "turbo run build",
+    "dev": "turbo watch dev --continue",
+    "db:push": "turbo -F @repo/db push",
+    "db:studio": "turbo -F @repo/db studio",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "clean": "turbo run clean",
+    "postclean": "git clean -xdf .cache .turbo node_modules",
+    "ui-add": "turbo run ui-add -F @repo/ui --",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix"
+  },
+  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
+  "prettier": "@repo/prettier-config",
+  "devDependencies": {
+    "@repo/prettier-config": "workspace:*",
+    "prettier": "catalog:",
+    "turbo": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.10.0",
+    "pnpm": "^10.4.1"
+  }
+}
