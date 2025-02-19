@@ -1,6 +1,3 @@
-> [!IMPORTANT]
-> This branch contains old commits that were removed before the public release of this Github Repository.
-
 # RT Stack
 
 A modern [turborepo](https://turbo.build/repo/docs) template for building
@@ -84,7 +81,7 @@ Ensure the following tools are available on your system:
 
 ### Setup
 
-```sh
+```bash
 # Create a repository using the rt-stack template
 pnpm dlx create-turbo@latest -e https://github.com/nktnet1/rt-stack
 
@@ -105,7 +102,7 @@ If you use an external postgres database, modify the `DATABASE_URL` variable in 
 
 You can then start all applications with
 
-```sh
+```bash
 pnpm dev
 ```
 
@@ -122,7 +119,7 @@ Use [pnpm --filter=<name>](https://pnpm.io/filtering) (where `<name>` is defined
 
 Example usage:
 
-```sh
+```bash
 # Install the nuqs package for our web application:
 pnpm --filter=web install nuqs
 
@@ -132,7 +129,7 @@ pnpm --filter=@repo/ui format
 
 You can get a list of all package names using the command below:
 
-```sh
+```bash
 find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
 ```
 
@@ -140,13 +137,13 @@ find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
 
 To install a single Shadcn/UI component, e.g. `button`, use the command
 
-```sh
+```bash
 pnpm ui-add button
 ```
 
 You can also open an intera
 
-```sh
+```bash
 pnpm ui-add
 ```
 
@@ -160,7 +157,7 @@ pnpm ui-add
 All scripts are defined in [package.json](package.json) and
 [turbo.json](turbo.json):
 
-```sh
+```bash
 pnpm typecheck              # repot typescript isses
 
 pnpm format                 # report prettier issues

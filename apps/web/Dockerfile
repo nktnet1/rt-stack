@@ -1,4 +1,4 @@
-FROM node:22 AS build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 ENV PNPM_HOME="/pnpm"
@@ -8,8 +8,7 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY apps/web/package.json ./apps/web/package.json
 
-RUN npm install -g pnpm
-RUN && pnpm install
+RUN npm i -g corepack@latest && corepack enable pnpm && pnpm i --frozen-lockfile
 
 COPY . ./
 
@@ -17,13 +16,16 @@ RUN pnpm build
 
 # =========================================================================== #
 
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM node:22-alpine AS prod
+WORKDIR /app
 
-ENV WEB_PORT=80
+RUN npm i -g serve
+COPY --from=build /app/apps/web/dist /app/dist
+
+ENV WEB_PORT=3000
 ENV WEB_HOST=0.0.0.0
-ENV PUBLIC_WEB_URL=http://localhost:8181
+ENV PUBLIC_WEB_URL=http://0.0.0.0:3000
 
-EXPOSE 80
+EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "serve", "-s", "dist" ]

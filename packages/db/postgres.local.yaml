@@ -1,7 +1,7 @@
 # Local database
 services:
   db:
-    image: postgres:latest
+    image: docker.io/postgres:latest
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
