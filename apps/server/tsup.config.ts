@@ -13,6 +13,12 @@ export default defineConfig({
   loader: { '.json': 'copy' },
   minify: false,
   sourcemap: true,
+  esbuildOptions: (options) => {
+    options.alias = {
+      '#server': './src',
+      '#api': '../../packages/api/src',
+    };
+  },
 
   // https://github.com/egoist/tsup/issues/927#issuecomment-2416440833
   banner: ({ format }) => {
