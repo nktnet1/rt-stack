@@ -3,7 +3,7 @@ import { CreatePostSchema, post, user } from '@repo/db/schema';
 
 import { TRPCError } from '@trpc/server';
 import * as v from 'valibot';
-import { protectedProcedure, publicProcedure, router } from '../trpc';
+import { protectedProcedure, publicProcedure, router } from '#api/server/trpc';
 
 const postRouter = router({
   all: protectedProcedure.query(({ ctx }) => {

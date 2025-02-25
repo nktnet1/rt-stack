@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#api/*": "./src/*"
+  },
   "exports": {
     "./server": "./src/server/index.ts",
     "./client": "./src/client/index.ts"

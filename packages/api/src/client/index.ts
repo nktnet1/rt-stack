@@ -1,7 +1,7 @@
 import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import SuperJSON from 'superjson';
 import urlJoin from 'url-join';
-import type { AppRouter } from '../server';
+import type { AppRouter } from '#api/server';
 
 export interface APIClientOptions {
   serverUrl: string;
