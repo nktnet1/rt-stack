@@ -3,6 +3,9 @@
   "include": ["src"],
   "compilerOptions": {
     "types": ["node"],
-    "jsxImportSource": "hono/jsx"
+    "jsxImportSource": "hono/jsx",
+    "paths": {
+      "#server/*": ["./src/*"]
+    }
   }
 }

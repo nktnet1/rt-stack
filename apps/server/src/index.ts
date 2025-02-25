@@ -6,7 +6,7 @@ import { createDb } from '@repo/db/client';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
-import { env } from './env';
+import { env } from '#server/env';
 
 const wildcardPath = {
   ALL: '*',

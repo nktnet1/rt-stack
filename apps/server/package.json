@@ -2,6 +2,9 @@
   "name": "server",
   "license": "MIT",
   "type": "module",
+  "imports": {
+    "#server/*": "./src/*"
+  },
   "scripts": {
     "build": "tsup",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
