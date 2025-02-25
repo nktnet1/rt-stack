@@ -4,7 +4,7 @@
     "lib": ["ES2022", "dom", "dom.iterable"],
     "jsx": "preserve",
     "paths": {
-      "#/*": ["./src/*"]
+      "#ui/*": ["./src/*"]
     }
   },
   "include": ["src"],
