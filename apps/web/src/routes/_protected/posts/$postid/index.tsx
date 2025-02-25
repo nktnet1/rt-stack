@@ -1,9 +1,9 @@
 import { ArrowLeftIcon, ReloadIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { queryClient } from '@/clients/queryClient';
-import { trpc } from '@/router';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { queryClient } from '#web/clients/queryClient';
+import { trpc } from '#web/router';
+import { postsLinkOptions } from '#web/validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
   loader: ({ params }) =>

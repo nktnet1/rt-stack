@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@repo/ui/components/dropdown-menu';
 import { useTheme } from 'next-themes';
-import { authClient } from '@/clients/authClient';
+import { authClient } from '#web/clients/authClient';
 
 export default function UserAvatar({
   user,

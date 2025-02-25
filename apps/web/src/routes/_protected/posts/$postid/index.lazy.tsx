@@ -8,7 +8,7 @@ import {
   TooltipArrow,
 } from '@repo/ui/components/tooltip';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { postsLinkOptions } from '#web/validations/posts-link-options';
 
 export const Route = createLazyFileRoute('/_protected/posts/$postid/')({
   component: RouteComponent,

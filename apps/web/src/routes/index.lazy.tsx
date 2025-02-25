@@ -2,8 +2,8 @@ import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
-import { authClient } from '@/clients/authClient';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { authClient } from '#web/clients/authClient';
+import { postsLinkOptions } from '#web/validations/posts-link-options';
 
 export const Route = createLazyFileRoute('/')({
   component: RouteComponent,

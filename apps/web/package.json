@@ -4,6 +4,9 @@
   "license": "MIT",
   "private": true,
   "type": "module",
+  "imports": {
+    "#web/*": "./src/*"
+  },
   "scripts": {
     "build": "pnpm env:run build",
     "clean": "git clean -xdf .cache dist .turbo node_modules",

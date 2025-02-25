@@ -1,10 +1,10 @@
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
-import { queryClient } from '@/clients/queryClient';
-import { trpc } from '@/router';
+import { queryClient } from '#web/clients/queryClient';
+import { trpc } from '#web/router';
 import {
   postsSearchSchema,
   postsSearchDefaults,
-} from '@/validations/posts-link-options';
+} from '#web/validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/')({
   loader: () => queryClient.ensureQueryData(trpc.posts.all.queryOptions()),

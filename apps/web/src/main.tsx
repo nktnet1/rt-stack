@@ -3,7 +3,7 @@ import { RouterProvider } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createRouter } from '@/router';
+import { createRouter } from '#web/router';
 
 const rootElement = document.getElementById('app')!;
 

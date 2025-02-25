@@ -18,9 +18,9 @@ import { TRPCClientError } from '@trpc/client';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import * as v from 'valibot';
-import { trpc } from '@/router';
-import FormFieldInfo from '@/routes/-components/common/form-field-info';
-import Spinner from '@/routes/-components/common/spinner';
+import { trpc } from '#web/router';
+import FormFieldInfo from '#web/routes/-components/common/form-field-info';
+import Spinner from '#web/routes/-components/common/spinner';
 
 const FormSchema = v.object({
   title: v.pipe(

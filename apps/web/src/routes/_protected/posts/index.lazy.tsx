@@ -3,9 +3,9 @@ import { useQuery } from '@tanstack/react-query';
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 import type { AppRouter } from '@repo/api/server';
 import type { inferRouterOutputs } from '@trpc/server';
-import { trpc } from '@/router';
-import CreatePostButton from '@/routes/_protected/posts/-components/create-post';
-import DeletePostButton from '@/routes/_protected/posts/-components/delete-post';
+import { trpc } from '#web/router';
+import CreatePostButton from '#web/routes/_protected/posts/-components/create-post';
+import DeletePostButton from '#web/routes/_protected/posts/-components/delete-post';
 
 export const Route = createLazyFileRoute('/_protected/posts/')({
   component: RouteComponent,

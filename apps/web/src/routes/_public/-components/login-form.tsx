@@ -7,9 +7,9 @@ import { useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import * as v from 'valibot';
-import { authClient } from '@/clients/authClient';
-import FormFieldInfo from '@/routes/-components/common/form-field-info';
-import Spinner from '@/routes/-components/common/spinner';
+import { authClient } from '#web/clients/authClient';
+import FormFieldInfo from '#web/routes/-components/common/form-field-info';
+import Spinner from '#web/routes/-components/common/spinner';
 
 const FormSchema = v.object({
   email: v.pipe(v.string(), v.email('Please enter a valid email address')),

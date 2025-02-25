@@ -10,8 +10,8 @@ import { cn } from '@repo/ui/lib/utils';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import type { ReactNode } from '@tanstack/react-router';
-import { trpc } from '@/router';
-import Spinner from '@/routes/-components/common/spinner';
+import { trpc } from '#web/router';
+import Spinner from '#web/routes/-components/common/spinner';
 
 export default function DeletePostButton({
   children,
