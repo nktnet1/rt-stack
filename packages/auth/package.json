@@ -25,7 +25,6 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
-    "@auth/drizzle-adapter": "catalog:",
     "@repo/db": "workspace:*",
     "better-auth": "catalog:"
   },
