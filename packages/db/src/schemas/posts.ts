@@ -1,7 +1,7 @@
 import { pgTable } from 'drizzle-orm/pg-core';
 import { createInsertSchema } from 'drizzle-valibot';
 import * as v from 'valibot';
-import { user } from './auth';
+import { user } from '#db/schemas/auth';
 
 export const post = pgTable('post', (t) => ({
   id: t.uuid().notNull().primaryKey().defaultRandom(),

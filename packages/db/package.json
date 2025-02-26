@@ -3,6 +3,9 @@
   "license": "MIT",
   "private": true,
   "type": "module",
+  "imports": {
+    "#db/*": "./src/*"
+  },
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",

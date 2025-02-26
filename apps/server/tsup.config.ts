@@ -17,6 +17,8 @@ export default defineConfig({
     options.alias = {
       '#server': './src',
       '#api': '../../packages/api/src',
+      '#auth': '../../packages/auth/src',
+      '#db': '../../packages/db/src',
     };
   },
 
