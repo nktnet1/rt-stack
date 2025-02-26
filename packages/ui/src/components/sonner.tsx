@@ -11,7 +11,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
       theme={theme as ToasterProps['theme']}
       toastOptions={{
         classNames: {
-          // !important to override: https://github.com/shadcn-ui/ui/issues/3579
+          /**
+           * !important necessary to override sonner styles in Tailwind V4
+           * https://github.com/emilkowalski/sonner/issues/591#issue-2876586315
+           */
           error: '!border-none !bg-toast-error !text-foreground',
           info: '!border-none !bg-toast-info !text-foreground',
           loading: '!border-none !bg-toast-loading !text-foreground',

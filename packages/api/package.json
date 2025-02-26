@@ -8,8 +8,14 @@
     "#api/*": "./src/*"
   },
   "exports": {
-    "./server": "./src/server/index.ts",
-    "./client": "./src/client/index.ts"
+    "./client": {
+      "types": "./dist/src/client/index.d.ts",
+      "default": "./src/client/index.ts"
+    },
+    "./server": {
+      "types": "./dist/src/server/index.d.ts",
+      "default": "./src/server/index.ts"
+    }
   },
   "scripts": {
     "build": "tsc",
