@@ -1,0 +1,9 @@
+.cache/
+.turbo/
+.DS_Store
+
+.env*
+!.env.example
+
+dist/
+node_modules/

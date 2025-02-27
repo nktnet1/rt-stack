@@ -1,0 +1,8 @@
+.cache/
+.turbo/
+.DS_Store
+
+.env*
+
+dist/
+node_modules/

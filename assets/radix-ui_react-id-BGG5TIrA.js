@@ -1,0 +1,1 @@
+import{r as o,a as s}from"./react-BZZGMMFc.js";import{u}from"./radix-ui_react-use-layout-effect-Jme05bcc.js";var i=s.useId||(()=>{}),c=0;function f(r){const[t,a]=o.useState(i());return u(()=>{a(e=>e??String(c++))},[r]),t?`radix-${t}`:""}export{f as u};

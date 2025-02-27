@@ -1,0 +1,1 @@
+function r(t){return Object.prototype.toString.call(t).slice(8,-1)}function o(t){return r(t)==="Array"}function c(t){if(r(t)!=="Object")return!1;const e=Object.getPrototypeOf(t);return!!e&&e.constructor===Object&&e===Object.prototype}export{c as a,o as i};
