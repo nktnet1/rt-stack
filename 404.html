@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/rt-stack/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        /*
+         * Avoid flickering screen when refreshing on dark mode
+         * https://dev.to/izznatsir/flicker-free-dark-mode-in-vite-spa-180o
+         */
+        const classList = document.documentElement.classList;
+        const style = document.documentElement.style;
+        const dark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const update = () => {
+          if (
+            localStorage.theme === 'dark' ||
+            (!localStorage.theme && dark.matches)
+          ) {
+            classList.add('dark');
+            style.colorScheme = 'dark';
+          } else {
+            classList.remove('dark');
+            style.colorScheme = 'light';
+          }
+        };
+        update();
+
+        if (dark instanceof EventTarget) {
+          dark.addEventListener('change', () => {
+            delete localStorage.theme;
+            update();
+          });
+        } else {
+          dark.addListener(() => {
+            delete localStorage.theme;
+            update();
+          });
+        }
+        window.addEventListener('storage', update);
+      })();
+    </script>
+    <title>RT Stack</title>
+    <script type="module" crossorigin src="/rt-stack/assets/index-B1oB4Muq.js"></script>
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/jsesc-D3UT-Xig.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/react-BZZGMMFc.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tiny-warning-Dirz_SfZ.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tiny-invariant-CopsF_GD.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_router-core-B06iNA1V.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/scheduler-BNqrtbQi.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/react-dom-D9WouzKh.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_history-BgGms_Z1.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_store-DQw-rJC3.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/use-sync-external-store-CsFubbBw.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_react-store-B628rfma.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_react-router-D3Bm1MMP.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/next-themes-dkKhvZDu.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_query-core-Cxu9h0h4.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_react-query-BhEX8kyD.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/trpc_server-DMrzVOqI.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/trpc_client-DQ04mxAn.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/trpc_tanstack-react-query-BjhuIdgN.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/is-what-BoOFN6tv.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/copy-anything-Dvn9QQgG.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/superjson-48Mxh8m0.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/url-join-Cu798wIg.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/valibot-DvJQJ8E7.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/sonner-CMo9tMVF.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/better-fetch_fetch-C41JW5oQ.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/nanostores-DvbOqThF.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/better-auth-TMQYNRmI.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-icons-DatsqTOI.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/clsx-B-dksMZM.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/class-variance-authority-DzGUYBzK.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tailwind-merge-AdmevC4f.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-context-CQDGV1I0.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-use-callback-ref-DjVlb3BH.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-use-layout-effect-Jme05bcc.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-compose-refs-7HAuM-X7.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-slot--BpqKsae.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-primitive-BaDgsUWH.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-avatar-5kTsmunl.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_primitive-DW48STyt.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-use-controllable-state-Cx-1UPgD.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-collection-DxuKjypo.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-direction-BCxcveKa.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-use-escape-keydown-BLtMOHGc.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-dismissable-layer-DBgF7ybc.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-focus-guards-DZmgz6uq.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-focus-scope-DTYqovgL.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/floating-ui_utils-ByXonxeg.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/floating-ui_core-geVRkBjc.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/floating-ui_dom-BOkDLKWa.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/floating-ui_react-dom-BHZLRXGC.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-arrow-1ME_hPOK.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-use-size-FIiJEmTB.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-popper-CyZmWFYz.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-portal-NQd4xsn9.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-presence-CzoR69Nq.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-id-BGG5TIrA.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-roving-focus-CTakj-14.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/aria-hidden-DQ5UC2Eg.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tslib-CDuPK5Eb.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/get-nonce-C-Z93AgS.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/react-style-singleton-4PaDvyjz.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/react-remove-scroll-bar-IDAqYdzA.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/use-sidecar-fSr0kamb.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/use-callback-ref-D562u6ou.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/react-remove-scroll-QikgRaYJ.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-menu-By6RPvvU.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-dropdown-menu-DlUhXOWb.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/radix-ui_react-label-B3wQDOAp.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_form-core-BjEBGLyu.js">
+    <link rel="modulepreload" crossorigin href="/rt-stack/assets/tanstack_react-form-BBjCcTmH.js">
+    <link rel="stylesheet" crossorigin href="/rt-stack/assets/index-Cc0GpFBj.css">
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
