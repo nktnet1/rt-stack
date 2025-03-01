@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { admin } from 'better-auth/plugins';
 import type { DatabaseInstance } from '@repo/db/client';
 
 export interface AuthOptions {
@@ -18,6 +19,7 @@ export const createAuth = ({
   return betterAuth({
     secret: authSecret,
     trustedOrigins: [webUrl].map((url) => new URL(url).origin),
+    plugins: [admin()],
     database: drizzleAdapter(db, {
       provider: 'pg',
     }),
