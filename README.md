@@ -35,7 +35,8 @@ deployments and 100% type-safety.
   - [Using Major Platforms](#using-major-platforms)
 - [Other Notes](#other-notes)
   - [Tanstack Router Layout](#tanstack-router-layout)
-  - [Server API](#server-api)
+  - [Server API Artificial Delays](#server-api-artificial-delays)
+  - [Better Auth Plugins](#better-auth-plugins)
   - [Environment Variables](#environment-variables)
 
 ## About
@@ -79,9 +80,7 @@ The following features are implemented out-of-the-box:
 - themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
 - web/server integration ([trpc](https://trpc.io/docs/quickstart) API example for creating/listing posts)
 
-You can experiment with the deployed demo from the template starter code below:
-
-- https://nktnet1.github.io/rt-stack
+You can visit the [live demo](https://nktnet1.github.io/rt-stack) to see these features in action.
 
 ### Inspirations & Goals
 
@@ -194,7 +193,7 @@ To install a single Shadcn/UI component, e.g. `button`, use the command
 pnpm ui-add button
 ```
 
-You can also open an intera
+You can also open an interactive session to select components using a TUI by not passing any arguments
 
 ```bash
 pnpm ui-add
@@ -257,6 +256,12 @@ details, see
 - [apps/web/nginx.conf](apps/web/nginx.conf)
 
 ## Deployment
+
+> [!TIP]
+> The [live demo](https://nktnet1.github.io/rt-stack) of RT Stack is currently deployed to
+>
+> - github pages for the web frontend
+> - fly.io for the server backend and postgres database
 
 ### Using Containers
 
@@ -321,11 +326,24 @@ This is to allow for a `layout.tsx` file in each directory similar to NextJS.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
 
-### Server API
+### Server API Artificial Delays
 
 There is an artificial delay added in development mode to simulate API usage in
 real-world environments. You can disable this by removing the `timingMiddleware`
 in [./packages/api/src/server/trpc.ts](./packages/api/src/server/trpc.ts)
+
+### Better-Auth Plugins
+
+When adding new plugins to better-auth, you should also update the `AuthClient`
+type definition. For example, when adding the [admin plugin](https://www.better-auth.com/docs/plugins/admin):
+
+```ts
+export type AuthClient = ReturnType<
+  typeof createBetterAuthClient<{ plugins: [ReturnType<typeof adminClient>] }>
+>;
+```
+
+The full code is available in the [better-auth-admin-plugin](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-plugin) branch.
 
 ### Environment Variables
 
