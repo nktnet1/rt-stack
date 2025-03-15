@@ -6,9 +6,7 @@ export interface AuthClientOptions {
 
 export type AuthClient = ReturnType<typeof createBetterAuthClient>;
 
-export const createAuthClient = ({
-  apiBaseUrl,
-}: AuthClientOptions): AuthClient =>
+export const createAuthClient = ({ apiBaseUrl }: AuthClientOptions) =>
   createBetterAuthClient({
     baseURL: apiBaseUrl,
   });
