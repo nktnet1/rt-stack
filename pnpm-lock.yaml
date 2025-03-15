@@ -85,7 +85,7 @@ catalogs:
       specifier: ^3.8.0
       version: 3.8.0
     better-auth:
-      specifier: https://pkg.pr.new/better-auth/better-auth@1827
+      specifier: https://pkg.pr.new/better-auth/better-auth@dac51d3
       version: 1.2.5-beta.1
     class-variance-authority:
       specifier: ^0.7.1
@@ -420,7 +420,7 @@ importers:
         version: link:../db
       better-auth:
         specifier: 'catalog:'
-        version: https://pkg.pr.new/better-auth/better-auth@1827(typescript@5.8.2)
+        version: https://pkg.pr.new/better-auth/better-auth@dac51d3(typescript@5.8.2)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -2332,8 +2332,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  better-auth@https://pkg.pr.new/better-auth/better-auth@1827:
-    resolution: {tarball: https://pkg.pr.new/better-auth/better-auth@1827}
+  better-auth@https://pkg.pr.new/better-auth/better-auth@dac51d3:
+    resolution: {tarball: https://pkg.pr.new/better-auth/better-auth@dac51d3}
     version: 1.2.5-beta.1
 
   better-call@1.0.4:
@@ -5948,7 +5948,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  better-auth@https://pkg.pr.new/better-auth/better-auth@1827(typescript@5.8.2):
+  better-auth@https://pkg.pr.new/better-auth/better-auth@dac51d3(typescript@5.8.2):
     dependencies:
       '@better-auth/utils': 0.2.4
       '@better-fetch/fetch': 1.1.15

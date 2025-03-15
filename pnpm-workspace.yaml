@@ -29,7 +29,7 @@ catalog:
   '@types/react': ^19.0.10
   '@types/react-dom': ^19.0.4
   '@vitejs/plugin-react-swc': ^3.8.0
-  better-auth: https://pkg.pr.new/better-auth/better-auth@1827
+  better-auth: https://pkg.pr.new/better-auth/better-auth@dac51d3
   class-variance-authority: ^0.7.1
   dotenv-cli: ^8.0.0
   drizzle-kit: ^0.30.5
