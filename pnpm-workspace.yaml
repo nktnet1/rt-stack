@@ -3,7 +3,7 @@ packages:
   - packages/*
   - tools/*
 catalog:
-  '@eslint/js': ^9.23.0
+  '@eslint/js': ^9.24.0
   '@hono/node-server': ^1.14.0
   '@hono/trpc-server': ^0.3.4
   '@radix-ui/react-avatar': ^1.1.3
@@ -14,20 +14,20 @@ catalog:
   '@radix-ui/react-slot': ^1.1.2
   '@radix-ui/react-toast': ^1.2.6
   '@radix-ui/react-tooltip': ^1.1.8
-  '@tailwindcss/vite': ^4.0.17
-  '@tanstack/react-form': ^1.2.3
-  '@tanstack/react-query': ^5.71.1
-  '@tanstack/react-router': ^1.114.29
-  '@tanstack/router-devtools': ^1.114.31
-  '@tanstack/router-plugin': ^1.114.31
-  '@trpc/client': ^11.0.1
-  '@trpc/server': ^11.0.1
-  '@trpc/tanstack-react-query': ^11.0.1
+  '@tailwindcss/vite': ^4.1.3
+  '@tanstack/react-form': ^1.3.0
+  '@tanstack/react-query': ^5.71.10
+  '@tanstack/react-router': ^1.114.34
+  '@tanstack/router-devtools': ^1.114.34
+  '@tanstack/router-plugin': ^1.114.34
+  '@trpc/client': ^11.0.2
+  '@trpc/server': ^11.0.2
+  '@trpc/tanstack-react-query': ^11.0.2
   '@types/eslint-config-prettier': ^6.11.3
-  '@types/node': ^22.13.14
+  '@types/node': ^22.14.0
   '@types/pg': ^8.11.11
-  '@types/react': ^19.0.12
-  '@types/react-dom': ^19.0.4
+  '@types/react': ^19.1.0
+  '@types/react-dom': ^19.1.1
   '@vitejs/plugin-react-swc': ^3.8.1
   better-auth: ^1.2.5
   class-variance-authority: ^0.7.1
@@ -35,14 +35,14 @@ catalog:
   drizzle-kit: ^0.30.6
   drizzle-orm: ^0.41.0
   drizzle-valibot: ^0.4.1
-  eslint: ^9.23.0
+  eslint: ^9.24.0
   eslint-config-prettier: ^10.1.1
-  eslint-config-turbo: ^2.4.4
+  eslint-config-turbo: ^2.5.0
   eslint-plugin-import: ^2.31.0
   eslint-plugin-only-warn: ^1.1.0
-  eslint-plugin-react: ^7.37.4
+  eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^5.2.0
-  eslint-plugin-turbo: ^2.4.4
+  eslint-plugin-turbo: ^2.5.0
   globals: ^16.0.0
   hono: ^4.7.5
   next-themes: ^0.4.6
@@ -52,16 +52,16 @@ catalog:
   react: ^19.1.0
   react-dom: ^19.1.0
   shx: ^0.4.0
-  sonner: ^2.0.2
+  sonner: ^2.0.3
   superjson: ^2.2.2
   tailwind-merge: ^3.1.0
-  tailwindcss: ^4.0.17
+  tailwindcss: ^4.1.3
   tailwindcss-animate: ^1.0.7
   tsup: ^8.4.0
   tsx: ^4.19.3
-  turbo: ^2.4.4
-  typescript: ^5.8.2
+  turbo: ^2.5.0
+  typescript: ^5.8.3
   typescript-eslint: ^8.29.0
   url-join: ^5.0.0
   valibot: ^1.0.0
-  vite: ^6.2.4
+  vite: ^6.2.5
