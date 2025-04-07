@@ -1,0 +1,15 @@
+name: Assign Author
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assign-author:
+    if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/assign-author@v1

@@ -1,0 +1,33 @@
+name: DEV:AWS API deploy
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/api/**'
+      - 'packages/**/**'
+      - 'tools/**/**'
+# TODO: 未実装
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOGE_FUGA: hogefuga
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: 'package.json'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build api
+        working-directory: apps/api
+        run: npm run build
+      - name: Deploy to AWS
+        run: echo 'deploy to AWS...'
