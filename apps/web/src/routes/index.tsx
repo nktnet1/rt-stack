@@ -3,7 +3,7 @@ import { Button } from '@repo/ui/components/button';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
 import { authClient } from '@/clients/authClient';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,

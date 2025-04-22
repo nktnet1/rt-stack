@@ -10,7 +10,7 @@ import {
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { queryClient } from '@/clients/queryClient';
 import { trpc } from '@/router';
-import { postsLinkOptions } from '@/validations/posts-link-options';
+import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
   loader: ({ params }) =>
