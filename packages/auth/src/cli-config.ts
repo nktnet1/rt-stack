@@ -1,5 +1,6 @@
 import { createDb } from '@repo/db/client';
-import { createAuth } from './server';
+import { betterAuth } from 'better-auth';
+import { getBaseOptions } from './server';
 
 /**
  * @internal
@@ -12,10 +13,6 @@ import { createAuth } from './server';
  * The documentation for better-auth CLI can be found here:
  * - https://www.better-auth.com/docs/concepts/cli
  */
-export const auth = createAuth({
-  webUrl: 'https://placeholder.com',
-  authSecret: '',
-  db: createDb({
-    databaseUrl: '',
-  }),
+export const auth = betterAuth({
+  ...getBaseOptions(createDb()),
 });
