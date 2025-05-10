@@ -21,7 +21,7 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "prettier": "@repo/prettier-config",
   "devDependencies": {
     "@repo/prettier-config": "workspace:*",
@@ -30,17 +30,5 @@
   },
   "engines": {
     "node": ">=22.10.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@babel/helpers@<7.26.10": "^7.26.10",
-      "cookie@<0.7.0": "^0.7.0",
-      "esbuild@<0.25.0": "^0.25.0"
-    },
-    "onlyBuiltDependencies": [],
-    "ignoredBuiltDependencies": [
-      "@swc/core",
-      "esbuild"
-    ]
   }
 }
