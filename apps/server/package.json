@@ -1,6 +1,5 @@
 {
   "name": "server",
-  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "tsup",
