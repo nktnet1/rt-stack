@@ -38,6 +38,7 @@ deployments and 100% type-safety.
   - [Tanstack Router](#tanstack-router)
   - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
+  - [Extensions to existing template](#extensions-to-existing-template)
 
 ## About
 
@@ -444,3 +445,15 @@ pnpm env:copy-example
 
 It is recommended that any new apps that uses environment variables follow the
 example script set in [apps/server/package.json](apps/server/package.json).
+
+### Extensions to existing template
+
+The below branches demonsrates how you can build and extend upon the existing
+RT Stack template:
+
+1. Adding `docs` application with NextJS + Fumadocs
+   - [nextjs-fumadocs](https://github.com/nktnet1/rt-stack/tree/nextjs-fumadocs)
+1. Supporting multiple languages (internationalisation/localisation)
+   - [i18n](https://github.com/nktnet1/rt-stack/tree/i18n)
+1. Integrating better-auth plugins, e.g. admin and organisation
+   - [better-auth-admin-organization-plugins](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins)
