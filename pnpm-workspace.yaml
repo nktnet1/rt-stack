@@ -9,6 +9,7 @@ ignoredBuiltDependencies:
 overrides:
   esbuild@<=0.24.2: ">=0.25.0"
 catalog:
+  "@eslint/eslintrc": ^3.3.1
   "@eslint/js": ^9.27.0
   "@hono/node-server": ^1.14.1
   "@hono/trpc-server": ^0.3.4
@@ -36,6 +37,7 @@ catalog:
   "@types/pg": ^8.15.2
   "@types/react": ^19.1.4
   "@types/react-dom": ^19.1.5
+  "@typescript-eslint/eslint-plugin": ^8.32.1
   "@vitejs/plugin-react-swc": ^3.9.0
   better-auth: ^1.2.8
   class-variance-authority: ^0.7.1
@@ -44,10 +46,12 @@ catalog:
   drizzle-orm: ^0.43.1
   drizzle-valibot: ^0.4.1
   eslint: ^9.27.0
+  eslint-config-next: ^15.3.2
   eslint-config-prettier: ^10.1.5
   eslint-config-turbo: ^2.5.3
   eslint-plugin-import: ^2.31.0
   eslint-plugin-only-warn: ^1.1.0
+  eslint-plugin-prettier: ^5.4.0
   eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^5.2.0
   eslint-plugin-turbo: ^2.5.3
