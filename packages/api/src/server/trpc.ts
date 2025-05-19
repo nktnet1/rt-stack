@@ -52,7 +52,7 @@ export const publicProcedure = t.procedure.use(timingMiddleware);
 
 export const protectedProcedure = publicProcedure.use(({ ctx, next }) => {
   if (!ctx.session?.user) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' });
+    throw new TRPCError({ code: 'FORBIDDEN' });
   }
   return next({
     ctx: {

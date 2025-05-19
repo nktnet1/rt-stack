@@ -7,7 +7,7 @@ const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
   v.pipe(
     v.optional(v.string(), `${defaultPort}`),
     v.transform((s) => parseInt(s, 10)),
-    v.number(),
+    v.integer(),
     v.minValue(0),
     v.maxValue(65535),
   );

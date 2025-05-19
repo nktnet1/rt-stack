@@ -28,10 +28,10 @@ import { trpc } from '@/router';
 import CreatePostButton from '@/routes/_protected/posts/-components/create-post';
 import DeletePostButton from '@/routes/_protected/posts/-components/delete-post';
 import {
-  postsSearchSchema,
   postsSearchDefaults,
+  postsSearchSchema,
   type PostSearchSchema,
-} from '@/validations/posts-link-options';
+} from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/')({
   loader: () => queryClient.ensureQueryData(trpc.posts.all.queryOptions()),

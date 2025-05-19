@@ -1,6 +1,5 @@
 {
   "name": "@repo/tailwind-config",
-  "license": "MIT",
   "type": "module",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
