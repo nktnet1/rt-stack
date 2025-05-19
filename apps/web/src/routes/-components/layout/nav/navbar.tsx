@@ -37,7 +37,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
             activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
-            Login
+            {t('nav.links.login')}
           </Link>
           <span>|</span>
           <Link
@@ -45,7 +45,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
             activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
-            Register
+            {t('nav.links.register')}
           </Link>
         </div>
       )}

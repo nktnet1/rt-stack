@@ -3,9 +3,8 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
-      "dependsOn": [],
-      "inputs": ["./locales/**/*.json"],
-      "cache": true
+      "inputs": ["$TURBO_DEFAULT$", "locales"],
+      "cache": false
     }
   }
 }

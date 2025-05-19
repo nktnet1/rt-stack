@@ -1,9 +1,14 @@
 interface Resources {
   "common": {
+    "app": {
+      "name": "RT Stack"
+    },
     "nav": {
       "links": {
         "home": "Home",
-        "posts": "Posts"
+        "posts": "Posts",
+        "login": "Login",
+        "register": "Register"
       },
       "avatar": {
         "theme": "Theme",
@@ -30,7 +35,19 @@ interface Resources {
         "loginLinkReference": "Already have an account? <LoginLink>Log in</LoginLink>!"
       }
     },
-    "home": {},
+    "home": {
+      "authenticated": {
+        "welcomeUserText": "Welcome, <Bold>{{name}}</Bold>!",
+        "clickToViewPostText": "Click <LinkComponent>here <IconComponent/></LinkComponent> to view your posts"
+      },
+      "common": {
+        "liveDemoText": "This is the live demo for <LinkComponent>{{appName}}</LinkComponent>.",
+        "toggleThemeText": "Toggle Theme:"
+      },
+      "unauthenticated": {
+        "loginText": "Please <LinkComponent>login<LinkComponent>."
+      }
+    },
     "posts": {
       "list": {
         "title": "Posts",
