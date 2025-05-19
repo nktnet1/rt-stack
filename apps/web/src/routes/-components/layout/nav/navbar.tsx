@@ -1,6 +1,7 @@
 import { useTranslation } from '@repo/i18n/react';
 import { Link } from '@tanstack/react-router';
 import type { AuthSession } from '@/clients/authClient';
+import LanguageSelector from '@/routes/-components/common/language-toggle';
 import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
@@ -29,7 +30,10 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
         ) : null}
       </div>
       {session?.user ? (
-        <UserAvatar user={session.user} />
+        <div className="flex gap-x-2">
+          <LanguageSelector />
+          <UserAvatar user={session.user} />
+        </div>
       ) : (
         <div className="flex gap-x-2 justify-between">
           <Link

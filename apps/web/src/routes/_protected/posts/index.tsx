@@ -135,11 +135,7 @@ function RouteComponent() {
               onPointerDownOutside={(e) => e.preventDefault()}
               className="bg-neutral-500 fill-neutral-500 duration-0"
             >
-              <span>
-                {t('posts.list.sortByCreatedDateTooltip', {
-                  direction: search.sortDirection,
-                })}
-              </span>
+              <span>{t('posts.list.sortByCreatedDateTooltip')}</span>
               <TooltipArrow width={15} height={10} className="duration-0" />
             </TooltipContent>
           </Tooltip>

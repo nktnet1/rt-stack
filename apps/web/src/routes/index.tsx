@@ -4,6 +4,7 @@ import { Button } from '@repo/ui/components/button';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
 import { authClient } from '@/clients/authClient';
+import LanguageSelector from '@/routes/-components/common/language-toggle';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/')({
@@ -96,6 +97,11 @@ function RouteComponent() {
             <SunIcon className="text-red-600" />
           )}
         </Button>
+      </div>
+
+      <div className="mt-2 flex items-center gap-x-2">
+        <span>{t('home.common.selectLanguageText')}</span>
+        <LanguageSelector />
       </div>
     </div>
   );

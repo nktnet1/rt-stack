@@ -41,7 +41,8 @@
     },
     "common": {
       "liveDemoText": "Đây là bản demo trực tiếp của <LinkComponent>{{appName}}</LinkComponent>.",
-      "toggleThemeText": "Chuyển đổi chủ đề:"
+      "toggleThemeText": "Chuyển đổi chủ đề:",
+      "selectLanguageText": "Chọn ngôn ngữ:"
     },
     "unauthenticated": {
       "loginText": "Vui lòng <LinkComponent>đăng nhập<LinkComponent>."
@@ -52,7 +53,7 @@
       "title": "Bài viết",
       "emptyText": "Hiện không có bài viết nào.",
       "searchPlaceholder": "Tìm kiếm theo tiêu đề...",
-      "sortByCreatedDateTooltip": "Sắp xếp theo ngày tạo ({{direction}}) v2"
+      "sortByCreatedDateTooltip": "Sắp xếp theo ngày tạo"
     },
     "create": {
       "buttonLabel": "Tạo mới",

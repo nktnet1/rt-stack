@@ -1,12 +1,10 @@
 import '@/style.css';
-import createI18n from '@repo/i18n';
+import '@/clients/i18nClient';
 import { RouterProvider } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createRouter } from '@/router';
-
-createI18n({ debug: !import.meta.env.PROD });
 
 const ROOT_ELEMENT_ID = 'app';
 

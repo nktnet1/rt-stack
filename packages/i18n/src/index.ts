@@ -12,6 +12,10 @@ const resources = {
   },
 };
 
+export const SupportedLanguages = Object.keys(
+  resources,
+) as (keyof typeof resources)[];
+
 const createI18n = (options?: InitOptions) => {
   i18n.use(initReactI18next).init({
     debug: true,
@@ -25,6 +29,7 @@ const createI18n = (options?: InitOptions) => {
     },
     ...options,
   });
+  return i18n;
 };
 
 export default createI18n;

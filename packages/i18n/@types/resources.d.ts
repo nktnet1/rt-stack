@@ -42,7 +42,8 @@ interface Resources {
       },
       "common": {
         "liveDemoText": "This is the live demo for <LinkComponent>{{appName}}</LinkComponent>.",
-        "toggleThemeText": "Toggle Theme:"
+        "toggleThemeText": "Toggle Theme:",
+        "selectLanguageText": "Select Language:"
       },
       "unauthenticated": {
         "loginText": "Please <LinkComponent>login<LinkComponent>."
@@ -53,7 +54,7 @@ interface Resources {
         "title": "Posts",
         "emptyText": "There are no posts available.",
         "searchPlaceholder": "Search by title...",
-        "sortByCreatedDateTooltip": "Sort by created date ({{direction}}) v2"
+        "sortByCreatedDateTooltip": "Sort by created date"
       },
       "create": {
         "buttonLabel": "Create",
