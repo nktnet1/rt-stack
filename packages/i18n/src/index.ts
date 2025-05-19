@@ -1,0 +1,26 @@
+import i18n, { type InitOptions } from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import enCommon from '../locales/en/common.json';
+
+const resources = {
+  en: {
+    common: enCommon,
+  },
+};
+
+const createI18n = (options?: InitOptions) => {
+  i18n.use(initReactI18next).init({
+    debug: true,
+    lng: 'en',
+    resources,
+    fallbackLng: 'en',
+    defaultNS: 'common',
+    interpolation: {
+      escapeValue: false,
+      ...options?.interpolation,
+    },
+    ...options,
+  });
+};
+
+export default createI18n;

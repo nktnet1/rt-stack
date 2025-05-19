@@ -1,0 +1,52 @@
+interface Resources {
+  "common": {
+    "nav": {
+      "links": {
+        "home": "Home",
+        "posts": "Posts"
+      },
+      "avatar": {
+        "theme": "Theme",
+        "logout": "Log out"
+      }
+    },
+    "auth": {
+      "login": {
+        "labels": {
+          "email": "Email",
+          "password": "Password"
+        },
+        "verb": "Log In",
+        "registerLinkReference": "Don't have an account? <RegisterLink>Register</RegisterLink>!"
+      },
+      "register": {
+        "labels": {
+          "fullName": "Full Name",
+          "email": "Email",
+          "password": "Password",
+          "confirmPassword": "Confirm Password"
+        },
+        "verb": "Register",
+        "loginLinkReference": "Already have an account? <LoginLink>Log in</LoginLink>!"
+      }
+    },
+    "home": {},
+    "posts": {
+      "list": {
+        "title": "Posts",
+        "emptyText": "There are no posts available.",
+        "searchPlaceholder": "Search by title...",
+        "sortByCreatedDateTooltip": "Sort by created date ({{direction}}) v2"
+      },
+      "create": {
+        "buttonLabel": "Create",
+        "title": "Create Post",
+        "subtitle": "Write about an interesting topic!",
+        "postTitleLabel": "Title",
+        "postContentLabel": "Content"
+      }
+    }
+  }
+}
+
+export default Resources;

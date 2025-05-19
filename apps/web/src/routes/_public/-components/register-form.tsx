@@ -1,4 +1,5 @@
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
 import { Label } from '@repo/ui/components/label';
@@ -35,6 +36,7 @@ const FormSchema = v.pipe(
 );
 
 export default function RegisterCredentialsForm() {
+  const { t } = useTranslation();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
     useState(false);
@@ -83,7 +85,9 @@ export default function RegisterCredentialsForm() {
           name="name"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Full Name</Label>
+              <Label htmlFor={field.name}>
+                {t('auth.register.labels.fullName')}
+              </Label>
               <Input
                 className="mt-1"
                 id={field.name}
@@ -103,7 +107,9 @@ export default function RegisterCredentialsForm() {
           name="email"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Email</Label>
+              <Label htmlFor={field.name}>
+                {t('auth.register.labels.email')}
+              </Label>
               <Input
                 className="mt-1"
                 id={field.name}
@@ -123,7 +129,9 @@ export default function RegisterCredentialsForm() {
           name="password"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Password</Label>
+              <Label htmlFor={field.name}>
+                {t('auth.register.labels.password')}
+              </Label>
               <div className="flex justify-end items-center relative w-full">
                 <Input
                   className="mt-1"
@@ -158,7 +166,9 @@ export default function RegisterCredentialsForm() {
           name="confirmPassword"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Confirm Password</Label>
+              <Label htmlFor={field.name}>
+                {t('auth.register.labels.confirmPassword')}
+              </Label>
               <div className="flex justify-end items-center relative w-full">
                 <Input
                   className="mt-1"
@@ -192,7 +202,7 @@ export default function RegisterCredentialsForm() {
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit, isSubmitting]) => (
           <Button type="submit" disabled={!canSubmit} className="h-12 mt-3">
-            {isSubmitting ? <Spinner /> : 'Register'}
+            {isSubmitting ? <Spinner /> : t('auth.register.verb')}
           </Button>
         )}
       />
