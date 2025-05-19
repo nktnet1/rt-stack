@@ -10,7 +10,7 @@
     "env:copy-example": "shx -- cp -n .env.example .env",
     "env:remove": "shx -- rm -f .env",
     "env:run": "dotenv -- vite --configLoader runner",
-    "format": "prettier --check .  --ignore-path .prettierignore --ignore-path ../../.gitignore",
+    "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "preview": "pnpm env:run preview",
     "start": "pnpm env:run",
