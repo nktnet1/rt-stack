@@ -38,6 +38,7 @@ deployments and 100% type-safety.
   - [Tanstack Router](#tanstack-router)
   - [Server API Artificial Delays](#server-api-artificial-delays)
   - [Environment Variables](#environment-variables)
+  - [Extensions to existing template](#extensions-to-existing-template)
 
 ## About
 
@@ -444,3 +445,33 @@ pnpm env:copy-example
 
 It is recommended that any new apps that uses environment variables follow the
 example script set in [apps/server/package.json](apps/server/package.json).
+
+<h3>Extensions to Existing Template</h3>
+<p>The table below demonstrates how you can build and extend upon the existing RT Stack template:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th>Branch Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NextJS</td>
+      <td>Adds a <code>docs</code> application that uses NextJS and Fumadocs, along with the workspace <code>@repo/ui</code> package.</td>
+      <td><a href="https://github.com/nktnet1/rt-stack/tree/nextjs-fumadocs">nextjs-fumadocs</a></td>
+    </tr>
+    <tr>
+      <td>Multi-language support</td>
+      <td>Implements internationalisation support, e.g. switching between English and Vietnamese.</td>
+      <td><a href="https://github.com/nktnet1/rt-stack/tree/i18n">i18n</a></td>
+    </tr>
+    <tr>
+      <td>Better-auth Plugins</td>
+      <td>Demonstrates how to integrate better-auth plugins in a type-safe and CLI-compatible manner.</td>
+      <td><a href="https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins">better-auth-admin-organization-plugins</a></td>
+    </tr>
+  </tbody>
+</table>
