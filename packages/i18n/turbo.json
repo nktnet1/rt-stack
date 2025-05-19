@@ -3,7 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
-      "inputs": ["$TURBO_DEFAULT$", "locales"],
+      "inputs": ["$TURBO_DEFAULT$", "!@types/resources.d.ts"],
       "cache": false
     }
   }

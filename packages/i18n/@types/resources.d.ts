@@ -61,6 +61,13 @@ interface Resources {
         "subtitle": "Write about an interesting topic!",
         "postTitleLabel": "Title",
         "postContentLabel": "Content"
+      },
+      "delete": {
+        "iconTooltip": "Delete post"
+      },
+      "view": {
+        "createdByLabel": "Created by",
+        "backButton": "View all posts"
       }
     }
   }

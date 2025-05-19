@@ -1,10 +1,14 @@
 import i18n, { type InitOptions } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import enCommon from '../locales/en/common.json';
+import vnCommon from '../locales/vn/common.json';
 
 const resources = {
   en: {
     common: enCommon,
+  },
+  vn: {
+    common: vnCommon,
   },
 };
 

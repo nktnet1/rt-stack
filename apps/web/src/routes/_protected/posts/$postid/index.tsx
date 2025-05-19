@@ -1,4 +1,5 @@
 import { ArrowLeftIcon, ReloadIcon } from '@radix-ui/react-icons';
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import {
   TooltipProvider,
@@ -46,6 +47,7 @@ export const Route = createFileRoute('/_protected/posts/$postid/')({
 });
 
 function RouteComponent() {
+  const { t } = useTranslation();
   const post = Route.useLoaderData();
 
   return (
@@ -53,7 +55,8 @@ function RouteComponent() {
       <div className="text-center p-5 rounded-2xl">
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
         <p className="text-sm text-gray-500 mt-2">
-          Created by <span className="font-medium">{post.author.name}</span>,{' '}
+          {t('posts.view.createdByLabel')}{' '}
+          <span className="font-medium">{post.author.name}</span>,{' '}
           {post.createdAt.toLocaleString()}
         </p>
       </div>
