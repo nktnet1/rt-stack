@@ -13,8 +13,27 @@ function RouteComponent() {
   const { data: session } = authClient.useSession();
   const { resolvedTheme, setTheme } = useTheme();
 
-  return !session?.user ? (
+  return (
     <div className="mt-1">
+      {session?.user && (
+        <>
+          <div className="flex flex-col mb-5 bg-elevated p-3">
+            <div>
+              Welcome, <span className="font-bold">{session.user.name}</span>!
+            </div>
+            <div className="mt-3 flex gap-x-1.5">
+              Click{' '}
+              <Link
+                {...postsLinkOptions}
+                className="flex items-center gap-x-1 text-blue-500 underline"
+              >
+                here <Link2Icon className="mt-0.5" />
+              </Link>{' '}
+              to view your posts.
+            </div>
+          </div>
+        </>
+      )}
       <div>
         This is the live demo for{' '}
         <a
@@ -27,13 +46,15 @@ function RouteComponent() {
         </a>
         .
       </div>
-      <div className="mt-4">
-        Please{' '}
-        <Link to="/login" className="underline font-bold">
-          log in
-        </Link>
-        .
-      </div>
+      {!session?.user && (
+        <div className="mt-4">
+          Please{' '}
+          <Link to="/login" className="underline font-bold">
+            log in
+          </Link>
+          .
+        </div>
+      )}
 
       <div className="mt-3 flex items-center gap-x-2">
         Toggle theme:
@@ -48,34 +69,6 @@ function RouteComponent() {
             <SunIcon className="text-red-600" />
           )}
         </Button>
-      </div>
-    </div>
-  ) : (
-    <div className="flex flex-col">
-      <div>
-        Welcome, <span className="font-bold">{session.user.name}</span>!
-      </div>
-      <div className="mt-3 flex gap-x-1.5">
-        Click{' '}
-        <Link
-          {...postsLinkOptions}
-          className="flex items-center gap-x-1 text-blue-500 underline"
-        >
-          here <Link2Icon className="mt-0.5" />
-        </Link>{' '}
-        to view your posts.
-      </div>
-      <div className="mt-3">
-        For the source code, see{' '}
-        <a
-          className="text-blue-500 underline"
-          target="_blank"
-          href="https://github.com/nktnet1/rt-stack"
-          rel="noreferrer"
-        >
-          RT Stack on GitHub
-        </a>
-        .
       </div>
     </div>
   );
