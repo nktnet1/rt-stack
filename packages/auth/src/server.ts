@@ -1,4 +1,4 @@
-import { betterAuth, type BetterAuthOptions } from 'better-auth';
+import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import type { DatabaseInstance } from '@repo/db/client';
 
@@ -20,7 +20,12 @@ export const getBaseOptions = (db: DatabaseInstance) =>
     database: drizzleAdapter(db, {
       provider: 'pg',
     }),
-    plugins: [],
+
+    /**
+     * Only uncomment the line below if you are using plugins, so that
+     * your types can be correctly inferred:
+     */
+    // plugins: [],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = ({
