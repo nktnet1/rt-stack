@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { Button } from '@repo/ui/components/button';
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
@@ -7,11 +7,7 @@ export default function HomePage() {
       <h1 className="mb-4 text-2xl font-bold">RT-Stack</h1>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Button>
-          <Link
-            href="/docs"
-          >
-            Docs
-          </Link>
+          <Link href="/docs">Docs</Link>
         </Button>
         <Button>
           <Link

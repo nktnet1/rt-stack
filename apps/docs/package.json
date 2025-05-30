@@ -7,7 +7,8 @@
     "clean": "git clean -xdf .cache dist .turbo .next .source node_modules",
     "dev": "next dev --turbo --port 3036",
     "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
-    "lint": "next lint",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
     "start": "next start --port 3036",
     "postinstall": "fumadocs-mdx",
     "typecheck": "tsc"
@@ -35,6 +36,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
+    "eslint": "catalog:",
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
