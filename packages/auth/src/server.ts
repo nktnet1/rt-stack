@@ -1,4 +1,4 @@
-import { betterAuth, type BetterAuthOptions } from 'better-auth';
+import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { admin, organization } from 'better-auth/plugins';
 import type { DatabaseInstance } from '@repo/db/client';
@@ -9,17 +9,25 @@ export interface AuthOptions {
   db: DatabaseInstance;
 }
 
-export type AuthInstance = ReturnType<typeof betterAuth>;
+export type AuthInstance = ReturnType<
+  typeof betterAuth<ReturnType<typeof getBaseOptions>>
+>;
 
 /**
  * This function is abstracted for schema generations in cli-config.ts
  */
-export const getBaseOptions = (db: DatabaseInstance): BetterAuthOptions => ({
-  database: drizzleAdapter(db, {
-    provider: 'pg',
-  }),
-  plugins: [admin(), organization()],
-});
+export const getBaseOptions = (db: DatabaseInstance) =>
+  ({
+    database: drizzleAdapter(db, {
+      provider: 'pg',
+    }),
+
+    /**
+     * Only uncomment the line below if you are using plugins, so that
+     * your types can be correctly inferred:
+     */
+    plugins: [admin(), organization()],
+  }) satisfies BetterAuthOptions;
 
 export const createAuth = ({
   webUrl,
