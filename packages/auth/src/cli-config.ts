@@ -1,6 +1,6 @@
 import { createDb } from '@repo/db/client';
 import { betterAuth } from 'better-auth';
-import { getBaseOptions } from './server';
+import { type AuthInstance, getBaseOptions } from './server';
 
 /**
  * @internal
@@ -13,6 +13,6 @@ import { getBaseOptions } from './server';
  * The documentation for better-auth CLI can be found here:
  * - https://www.better-auth.com/docs/concepts/cli
  */
-export const auth = betterAuth({
+export const auth: AuthInstance = betterAuth({
   ...getBaseOptions(createDb()),
 });
