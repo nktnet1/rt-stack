@@ -4,14 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./client": {
-      "types": "./dist/src/client.d.ts",
-      "default": "./src/client.ts"
-    },
-    "./server": {
-      "types": "./dist/src/server.d.ts",
-      "default": "./src/server.ts"
-    }
+    "./client": "./src/client.ts",
+    "./server": "./src/server.ts"
   },
   "scripts": {
     "build": "tsc",

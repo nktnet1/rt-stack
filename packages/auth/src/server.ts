@@ -8,9 +8,7 @@ export interface AuthOptions {
   db: DatabaseInstance;
 }
 
-export type AuthInstance = ReturnType<
-  typeof betterAuth<ReturnType<typeof getBaseOptions>>
->;
+export type AuthInstance = ReturnType<typeof createAuth>;
 
 /**
  * This function is abstracted for schema generations in cli-config.ts
@@ -28,11 +26,7 @@ export const getBaseOptions = (db: DatabaseInstance) =>
     // plugins: [],
   }) satisfies BetterAuthOptions;
 
-export const createAuth = ({
-  webUrl,
-  db,
-  authSecret,
-}: AuthOptions): AuthInstance => {
+export const createAuth = ({ webUrl, db, authSecret }: AuthOptions) => {
   return betterAuth({
     ...getBaseOptions(db),
     secret: authSecret,
