@@ -73,4 +73,5 @@ ignoredBuiltDependencies:
   - esbuild
 
 overrides:
+  brace-expansion@<=2.0.1: 2.0.2
   esbuild@<=0.24.2: '>=0.25.0'
