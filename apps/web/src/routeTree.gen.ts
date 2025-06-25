@@ -8,116 +8,149 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as PublicLayoutRouteImport } from './routes/_public/layout'
+import { Route as ProtectedLayoutRouteImport } from './routes/_protected/layout'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as PublicRegisterRouteImport } from './routes/_public/register'
+import { Route as PublicLoginRouteImport } from './routes/_public/login'
+import { Route as ProtectedPostsIndexRouteImport } from './routes/_protected/posts/index'
+import { Route as ProtectedPostsPostidIndexRouteImport } from './routes/_protected/posts/$postid/index'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as PublicLayoutImport } from './routes/_public/layout'
-import { Route as ProtectedLayoutImport } from './routes/_protected/layout'
-import { Route as IndexImport } from './routes/index'
-import { Route as PublicRegisterImport } from './routes/_public/register'
-import { Route as PublicLoginImport } from './routes/_public/login'
-import { Route as ProtectedPostsIndexImport } from './routes/_protected/posts/index'
-import { Route as ProtectedPostsPostidIndexImport } from './routes/_protected/posts/$postid/index'
-
-// Create/Update Routes
-
-const PublicLayoutRoute = PublicLayoutImport.update({
+const PublicLayoutRoute = PublicLayoutRouteImport.update({
   id: '/_public',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const ProtectedLayoutRoute = ProtectedLayoutImport.update({
+const ProtectedLayoutRoute = ProtectedLayoutRouteImport.update({
   id: '/_protected',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const PublicRegisterRoute = PublicRegisterImport.update({
+const PublicRegisterRoute = PublicRegisterRouteImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => PublicLayoutRoute,
 } as any)
-
-const PublicLoginRoute = PublicLoginImport.update({
+const PublicLoginRoute = PublicLoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => PublicLayoutRoute,
 } as any)
-
-const ProtectedPostsIndexRoute = ProtectedPostsIndexImport.update({
+const ProtectedPostsIndexRoute = ProtectedPostsIndexRouteImport.update({
   id: '/posts/',
   path: '/posts/',
   getParentRoute: () => ProtectedLayoutRoute,
 } as any)
+const ProtectedPostsPostidIndexRoute =
+  ProtectedPostsPostidIndexRouteImport.update({
+    id: '/posts/$postid/',
+    path: '/posts/$postid/',
+    getParentRoute: () => ProtectedLayoutRoute,
+  } as any)
 
-const ProtectedPostsPostidIndexRoute = ProtectedPostsPostidIndexImport.update({
-  id: '/posts/$postid/',
-  path: '/posts/$postid/',
-  getParentRoute: () => ProtectedLayoutRoute,
-} as any)
-
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/login': typeof PublicLoginRoute
+  '/register': typeof PublicRegisterRoute
+  '/posts': typeof ProtectedPostsIndexRoute
+  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/login': typeof PublicLoginRoute
+  '/register': typeof PublicRegisterRoute
+  '/posts': typeof ProtectedPostsIndexRoute
+  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/_protected': typeof ProtectedLayoutRouteWithChildren
+  '/_public': typeof PublicLayoutRouteWithChildren
+  '/_public/login': typeof PublicLoginRoute
+  '/_public/register': typeof PublicRegisterRoute
+  '/_protected/posts/': typeof ProtectedPostsIndexRoute
+  '/_protected/posts/$postid/': typeof ProtectedPostsPostidIndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
+  id:
+    | '__root__'
+    | '/'
+    | '/_protected'
+    | '/_public'
+    | '/_public/login'
+    | '/_public/register'
+    | '/_protected/posts/'
+    | '/_protected/posts/$postid/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  ProtectedLayoutRoute: typeof ProtectedLayoutRouteWithChildren
+  PublicLayoutRoute: typeof PublicLayoutRouteWithChildren
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
+    '/_public': {
+      id: '/_public'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof PublicLayoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_protected': {
       id: '/_protected'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof ProtectedLayoutImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof ProtectedLayoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_public': {
-      id: '/_public'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof PublicLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/_public/login': {
-      id: '/_public/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof PublicLoginImport
-      parentRoute: typeof PublicLayoutImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_public/register': {
       id: '/_public/register'
       path: '/register'
       fullPath: '/register'
-      preLoaderRoute: typeof PublicRegisterImport
-      parentRoute: typeof PublicLayoutImport
+      preLoaderRoute: typeof PublicRegisterRouteImport
+      parentRoute: typeof PublicLayoutRoute
+    }
+    '/_public/login': {
+      id: '/_public/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof PublicLoginRouteImport
+      parentRoute: typeof PublicLayoutRoute
     }
     '/_protected/posts/': {
       id: '/_protected/posts/'
       path: '/posts'
       fullPath: '/posts'
-      preLoaderRoute: typeof ProtectedPostsIndexImport
-      parentRoute: typeof ProtectedLayoutImport
+      preLoaderRoute: typeof ProtectedPostsIndexRouteImport
+      parentRoute: typeof ProtectedLayoutRoute
     }
     '/_protected/posts/$postid/': {
       id: '/_protected/posts/$postid/'
       path: '/posts/$postid'
       fullPath: '/posts/$postid'
-      preLoaderRoute: typeof ProtectedPostsPostidIndexImport
-      parentRoute: typeof ProtectedLayoutImport
+      preLoaderRoute: typeof ProtectedPostsPostidIndexRouteImport
+      parentRoute: typeof ProtectedLayoutRoute
     }
   }
 }
-
-// Create and export the route tree
 
 interface ProtectedLayoutRouteChildren {
   ProtectedPostsIndexRoute: typeof ProtectedPostsIndexRoute
@@ -147,112 +180,11 @@ const PublicLayoutRouteWithChildren = PublicLayoutRoute._addFileChildren(
   PublicLayoutRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '': typeof PublicLayoutRouteWithChildren
-  '/login': typeof PublicLoginRoute
-  '/register': typeof PublicRegisterRoute
-  '/posts': typeof ProtectedPostsIndexRoute
-  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
-}
-
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '': typeof PublicLayoutRouteWithChildren
-  '/login': typeof PublicLoginRoute
-  '/register': typeof PublicRegisterRoute
-  '/posts': typeof ProtectedPostsIndexRoute
-  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/_protected': typeof ProtectedLayoutRouteWithChildren
-  '/_public': typeof PublicLayoutRouteWithChildren
-  '/_public/login': typeof PublicLoginRoute
-  '/_public/register': typeof PublicRegisterRoute
-  '/_protected/posts/': typeof ProtectedPostsIndexRoute
-  '/_protected/posts/$postid/': typeof ProtectedPostsPostidIndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/login' | '/register' | '/posts' | '/posts/$postid'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/login' | '/register' | '/posts' | '/posts/$postid'
-  id:
-    | '__root__'
-    | '/'
-    | '/_protected'
-    | '/_public'
-    | '/_public/login'
-    | '/_public/register'
-    | '/_protected/posts/'
-    | '/_protected/posts/$postid/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ProtectedLayoutRoute: typeof ProtectedLayoutRouteWithChildren
-  PublicLayoutRoute: typeof PublicLayoutRouteWithChildren
-}
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedLayoutRoute: ProtectedLayoutRouteWithChildren,
   PublicLayoutRoute: PublicLayoutRouteWithChildren,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/",
-        "/_protected",
-        "/_public"
-      ]
-    },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/_protected": {
-      "filePath": "_protected/layout.tsx",
-      "children": [
-        "/_protected/posts/",
-        "/_protected/posts/$postid/"
-      ]
-    },
-    "/_public": {
-      "filePath": "_public/layout.tsx",
-      "children": [
-        "/_public/login",
-        "/_public/register"
-      ]
-    },
-    "/_public/login": {
-      "filePath": "_public/login.tsx",
-      "parent": "/_public"
-    },
-    "/_public/register": {
-      "filePath": "_public/register.tsx",
-      "parent": "/_public"
-    },
-    "/_protected/posts/": {
-      "filePath": "_protected/posts/index.tsx",
-      "parent": "/_protected"
-    },
-    "/_protected/posts/$postid/": {
-      "filePath": "_protected/posts/$postid/index.tsx",
-      "parent": "/_protected"
-    }
-  }
-}
-ROUTE_MANIFEST_END */
