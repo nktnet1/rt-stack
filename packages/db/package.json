@@ -46,6 +46,7 @@
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",
     "shx": "catalog:",
+    "prettier": "catalog:",
     "typescript": "catalog:"
   }
 }

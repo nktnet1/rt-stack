@@ -21,10 +21,7 @@
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
   "packageManager": "pnpm@10.13.1",
-  "prettier": "@repo/prettier-config",
   "devDependencies": {
-    "@repo/prettier-config": "workspace:*",
-    "prettier": "catalog:",
     "turbo": "catalog:"
   },
   "engines": {

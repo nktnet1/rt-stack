@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/prettier-config": "workspace:*"
+    "@repo/prettier-config": "workspace:*",
+    "prettier": "catalog:"
   }
 }

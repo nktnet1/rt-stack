@@ -50,6 +50,7 @@
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
     "shx": "catalog:",
+    "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

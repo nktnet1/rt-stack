@@ -201,12 +201,6 @@ importers:
 
   .:
     devDependencies:
-      '@repo/prettier-config':
-        specifier: workspace:*
-        version: link:tools/prettier
-      prettier:
-        specifier: 'catalog:'
-        version: 3.6.2
       turbo:
         specifier: 'catalog:'
         version: 2.5.5
@@ -253,6 +247,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.31.0(jiti@2.4.2)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       shx:
         specifier: 'catalog:'
         version: 0.4.0
@@ -356,6 +353,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.31.0(jiti@2.4.2)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       shx:
         specifier: 'catalog:'
         version: 0.4.0
@@ -436,6 +436,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.31.0(jiti@2.4.2)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -479,6 +482,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 9.31.0(jiti@2.4.2)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       shx:
         specifier: 'catalog:'
         version: 0.4.0
@@ -598,6 +604,9 @@ importers:
       globals:
         specifier: 'catalog:'
         version: 16.3.0
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -636,6 +645,9 @@ importers:
       '@repo/prettier-config':
         specifier: workspace:*
         version: link:../prettier
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
 
   tools/typescript: {}
 
