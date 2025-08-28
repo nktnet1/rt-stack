@@ -14,5 +14,5 @@ export const createAuthClient = ({ apiBaseUrl }: AuthClientOptions) =>
      * Ensure that you are using the client-side version of the plugin,
      * e.g. `adminClient` instead of `admin`.
      */
-    // plugins: []
+    plugins: [],
   });

@@ -26,6 +26,7 @@
     "@orpc/client": "^1.8.5",
     "@orpc/contract": "^1.8.5",
     "@orpc/openapi": "^1.8.5",
+    "@orpc/openapi-client": "^1.8.5",
     "@orpc/server": "^1.8.5",
     "@orpc/tanstack-query": "^1.8.5",
     "@repo/auth": "workspace:*",

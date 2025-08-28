@@ -1,7 +1,7 @@
-import { os } from '@orpc/server';
-import * as v from 'valibot';
+import { os, implement } from '@orpc/server';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import { appContract } from '../contracts';
 
 export const createORPCContext = async ({
   auth,
@@ -42,17 +42,7 @@ const timingMiddleware = os.middleware(async ({ next, path }) => {
   return result;
 });
 
-const base = os.errors({
-  MISSING_POST: {
-    status: 404,
-    data: v.object({
-      postId: v.string(),
-    }),
-  },
-  FORBIDDEN: {
-    status: 403,
-  },
-});
+const base = implement(appContract);
 
 export const publicProcedure = base
   .$context<Awaited<ReturnType<typeof createORPCContext>>>()

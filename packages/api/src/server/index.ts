@@ -1,11 +1,9 @@
-import { RPCHandler } from '@orpc/server/fetch';
+import { OpenAPIHandler } from '@orpc/openapi/fetch';
 import { StrictGetMethodPlugin } from '@orpc/server/plugins';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
 import { createORPCContext } from './orpc';
 import { appRouter } from './router';
-
-export type AppRouter = typeof appRouter;
 
 export const createApi = ({
   auth,
@@ -16,7 +14,7 @@ export const createApi = ({
   db: DatabaseInstance;
   prefix: `/${string}`;
 }) => {
-  const handler = new RPCHandler(appRouter, {
+  const handler = new OpenAPIHandler(appRouter, {
     plugins: [new StrictGetMethodPlugin()],
   });
   return {

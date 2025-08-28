@@ -1,20 +1,24 @@
 import { createORPCClient } from '@orpc/client';
-import { RPCLink } from '@orpc/client/fetch';
+import { OpenAPILink } from '@orpc/openapi-client/fetch';
 import { createTanstackQueryUtils } from '@orpc/tanstack-query';
 import urlJoin from 'url-join';
-import type { AppRouter } from '../server';
-import type { InferRouterOutputs, RouterClient } from '@orpc/server';
+import type {
+  ContractRouterClient,
+  InferContractRouterOutputs,
+} from '@orpc/contract';
+import type { JsonifiedClient } from '@orpc/openapi-client';
+import { appContract } from '../contracts';
 
 export { isDefinedError, safe } from '@orpc/client';
-
-export type RouterOutput = InferRouterOutputs<AppRouter>;
 
 export interface APIClientOptions {
   serverUrl: string;
 }
 
+export type RouterOutput = InferContractRouterOutputs<typeof appContract>;
+
 export const createAPIClient = ({ serverUrl }: APIClientOptions) => {
-  const link = new RPCLink({
+  const link = new OpenAPILink(appContract, {
     url: urlJoin(serverUrl, 'rpc'),
     fetch: (request, init) => {
       return globalThis.fetch(request, {
@@ -23,7 +27,10 @@ export const createAPIClient = ({ serverUrl }: APIClientOptions) => {
       });
     },
   });
-  return createORPCClient<RouterClient<AppRouter>>(link);
+  const client: JsonifiedClient<ContractRouterClient<typeof appContract>> =
+    createORPCClient(link);
+
+  return client;
 };
 
 export const createTanstackQueryAPIClient = (opts: APIClientOptions) => {

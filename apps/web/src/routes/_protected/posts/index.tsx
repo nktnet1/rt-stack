@@ -93,10 +93,10 @@ function RouteComponent() {
   const lowercaseSearch = search.searchString.toLowerCase();
   const filteredPost = posts
     ?.filter((p) => p.title.toLowerCase().includes(lowercaseSearch))
-    .sort((a, b) =>
+    ?.sort((a, b) =>
       search.sortDirection === 'asc'
-        ? a.createdAt.getTime() - b.createdAt.getTime()
-        : b.createdAt.getTime() - a.createdAt.getTime(),
+        ? new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
   return (
     <div className="flex flex-col md:p-4 w-full max-w-6xl mx-auto">
