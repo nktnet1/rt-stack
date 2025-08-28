@@ -15,6 +15,9 @@ export interface APIClientOptions {
   serverUrl: string;
 }
 
+// Oddly, this is needed for better-auth to not complain
+export type { AppRouter } from '../server';
+
 export type RouterOutput = InferContractRouterOutputs<typeof appContract>;
 
 export const createAPIClient = ({ serverUrl }: APIClientOptions) => {

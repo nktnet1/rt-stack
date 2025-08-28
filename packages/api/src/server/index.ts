@@ -5,6 +5,8 @@ import type { DatabaseInstance } from '@repo/db/client';
 import { createORPCContext } from './orpc';
 import { appRouter } from './router';
 
+export type AppRouter = typeof appRouter;
+
 export const createApi = ({
   auth,
   db,
