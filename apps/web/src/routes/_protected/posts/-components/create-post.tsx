@@ -1,4 +1,5 @@
 import { PlusIcon } from '@radix-ui/react-icons';
+import { isDefinedError } from '@repo/api/client';
 import { Button } from '@repo/ui/components/button';
 import {
   Dialog,
@@ -14,11 +15,10 @@ import { Label } from '@repo/ui/components/label';
 import { Textarea } from '@repo/ui/components/textarea';
 import { useForm } from '@tanstack/react-form';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { TRPCClientError } from '@trpc/client';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import * as v from 'valibot';
-import { trpc } from '@/router';
+import { apiClient } from '@/clients/apiClient';
 import FormFieldInfo from '@/routes/-components/common/form-field-info';
 import Spinner from '@/routes/-components/common/spinner';
 
@@ -36,8 +36,11 @@ const FormSchema = v.object({
 const generateTimestamp = () => +new Date();
 
 export default function CreatePostButton() {
-  const getAllPostsQuery = useQuery(trpc.posts.all.queryOptions());
-  const createPostMutation = useMutation(trpc.posts.create.mutationOptions());
+  const getAllPostsQuery = useQuery(apiClient.posts.all.queryOptions());
+  const createPostMutation = useMutation(
+    apiClient.posts.create.mutationOptions(),
+  );
+
   const [openDialog, setOpenDialog] = useState(false);
 
   const form = useForm({
@@ -60,22 +63,31 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
       onChange: FormSchema,
     },
     onSubmit: async ({ value, formApi }) => {
-      try {
-        await createPostMutation.mutateAsync({
-          title: value.title,
-          content: value.content,
+      await createPostMutation
+        .mutateAsync(
+          {
+            title: value.title,
+            content: value.content,
+          },
+          {
+            onSuccess: async () => {
+              setOpenDialog(false);
+              await getAllPostsQuery.refetch();
+              toast.success('Your post has been created!');
+              formApi.reset();
+            },
+            onError: (error) => {
+              if (isDefinedError(error)) {
+                toast.error(error.message);
+              } else {
+                toast.error(`${error.name} | ${error.message}`);
+              }
+            },
+          },
+        )
+        .catch(() => {
+          /* Error already handled */
         });
-        setOpenDialog(false);
-        await getAllPostsQuery.refetch();
-        formApi.reset();
-        toast.success('Your post has been created!');
-      } catch (error) {
-        if (error instanceof TRPCClientError) {
-          toast.error(error.message);
-        } else {
-          toast.error('An unknown error has occurred. Please try again!');
-        }
-      }
     },
   });
 

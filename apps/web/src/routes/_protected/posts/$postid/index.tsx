@@ -8,14 +8,14 @@ import {
   TooltipArrow,
 } from '@repo/ui/components/tooltip';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { apiClient } from '@/clients/apiClient';
 import { queryClient } from '@/clients/queryClient';
-import { trpc } from '@/router';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
   loader: ({ params }) =>
     queryClient.ensureQueryData(
-      trpc.posts.one.queryOptions({ id: params.postid }),
+      apiClient.posts.one.queryOptions({ input: { id: params.postid } }),
     ),
   component: RouteComponent,
   errorComponent: ({ error, reset }) => {

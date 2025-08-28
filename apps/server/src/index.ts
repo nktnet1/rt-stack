@@ -1,5 +1,4 @@
 import { serve } from '@hono/node-server';
-import { trpcServer } from '@hono/trpc-server';
 import { createApi } from '@repo/api/server';
 import { createAuth } from '@repo/auth/server';
 import { createDb } from '@repo/db/client';
@@ -8,13 +7,9 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { env } from './env';
 
-const trustedOrigins = [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin);
+// ========================================================================= //
 
-const wildcardPath = {
-  ALL: '*',
-  BETTER_AUTH: '/api/auth/*',
-  TRPC: '/trpc/*',
-} as const;
+const trustedOrigins = [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin);
 
 const db = createDb({ databaseUrl: env.SERVER_POSTGRES_URL });
 const auth = createAuth({
@@ -22,7 +17,7 @@ const auth = createAuth({
   db,
   webUrl: env.PUBLIC_WEB_URL,
 });
-const api = createApi({ auth, db });
+const api = createApi({ auth, db, prefix: '/api' });
 
 const app = new Hono<{
   Variables: {
@@ -31,14 +26,22 @@ const app = new Hono<{
   };
 }>();
 
+// ========================================================================= //
+
 app.get('/healthcheck', (c) => {
   return c.text('OK');
 });
 
 app.use(logger());
 
+app.get('/', (c) => {
+  return c.text('Hello Hono!');
+});
+
+// ========================================================================= //
+
 app.use(
-  wildcardPath.BETTER_AUTH,
+  '/api/auth/*',
   cors({
     origin: trustedOrigins,
     credentials: true,
@@ -49,29 +52,27 @@ app.use(
   }),
 );
 
+app.on(['POST', 'GET'], '/api/auth/*', (c) => auth.handler(c.req.raw));
+
+// ========================================================================= //
+
 app.use(
-  wildcardPath.TRPC,
+  '/api/*',
   cors({
     origin: trustedOrigins,
     credentials: true,
   }),
+  async (c, next) => {
+    const { matched, response } = await api.handler(c.req.raw);
+    if (matched) {
+      return c.newResponse(response.body, response);
+    }
+
+    await next();
+  },
 );
 
-app.on(['POST', 'GET'], wildcardPath.BETTER_AUTH, (c) =>
-  auth.handler(c.req.raw),
-);
-
-app.use(
-  wildcardPath.TRPC,
-  trpcServer({
-    router: api.trpcRouter,
-    createContext: (c) => api.createTRPCContext({ headers: c.req.headers }),
-  }),
-);
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
+// ========================================================================= //
 
 const server = serve(
   {

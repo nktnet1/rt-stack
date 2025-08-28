@@ -7,7 +7,7 @@ export const post = pgTable('post', (t) => ({
   id: t.uuid().primaryKey().defaultRandom(),
   title: t.varchar({ length: 256 }).notNull(),
   content: t.text().notNull(),
-  createdAt: t.timestamp().notNull().defaultNow(),
+  createdAt: t.timestamp({ mode: 'string' }).notNull().defaultNow(),
   createdBy: t
     .text()
     .references(() => user.id)
@@ -16,8 +16,8 @@ export const post = pgTable('post', (t) => ({
 
 export const CreatePostSchema = v.omit(
   createInsertSchema(post, {
-    title: v.pipe(v.string(), v.maxLength(256)),
-    content: v.pipe(v.string(), v.maxLength(512)),
+    title: v.pipe(v.string(), v.minLength(3), v.maxLength(256)),
+    content: v.pipe(v.string(), v.minLength(5), v.maxLength(512)),
   }),
   ['id', 'createdAt', 'createdBy'],
 );

@@ -1,8 +1,15 @@
-import { Link2Icon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import {
+  ExternalLinkIcon,
+  Link2Icon,
+  MoonIcon,
+  SunIcon,
+} from '@radix-ui/react-icons';
 import { Button } from '@repo/ui/components/button';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
+import urlJoin from 'url-join';
 import { authClient } from '@/clients/authClient';
+import { env } from '@/env';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/')({
@@ -30,6 +37,19 @@ function RouteComponent() {
                 here <Link2Icon className="mt-0.5" />
               </Link>{' '}
               to view your posts.
+            </div>
+            <div className="mt-3 flex gap-x-1.5">
+              You can also interact with the Open API documentation using{' '}
+              <a
+                href={urlJoin(env.PUBLIC_SERVER_URL, 'api')}
+                target="_blank"
+                className="flex items-center gap-x-1 text-blue-500 underline"
+                rel="noreferrer"
+              >
+                Scalar
+                <ExternalLinkIcon className="mt-0.5" />
+              </a>
+              .
             </div>
           </div>
         </>

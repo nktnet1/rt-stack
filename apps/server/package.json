@@ -16,7 +16,6 @@
   "prettier": "@repo/prettier-config",
   "dependencies": {
     "@hono/node-server": "catalog:",
-    "@hono/trpc-server": "catalog:",
     "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",

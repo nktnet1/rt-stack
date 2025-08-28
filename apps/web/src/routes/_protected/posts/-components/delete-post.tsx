@@ -10,7 +10,7 @@ import { cn } from '@repo/ui/lib/utils';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import type { ReactNode } from 'react';
-import { trpc } from '@/router';
+import { apiClient } from '@/clients/apiClient';
 import Spinner from '@/routes/-components/common/spinner';
 
 export default function DeletePostButton({
@@ -22,10 +22,10 @@ export default function DeletePostButton({
   className?: string;
   postId: string;
 }>) {
-  const { refetch } = useQuery(trpc.posts.all.queryOptions());
+  const { refetch } = useQuery(apiClient.posts.all.queryOptions());
 
   const deletePostMutation = useMutation(
-    trpc.posts.delete.mutationOptions({
+    apiClient.posts.delete.mutationOptions({
       onError: (error) => {
         toast.error(error.message);
       },
