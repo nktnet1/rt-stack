@@ -1,5 +1,7 @@
 import { OpenAPIHandler } from '@orpc/openapi/fetch';
+import { OpenAPIReferencePlugin } from '@orpc/openapi/plugins';
 import { StrictGetMethodPlugin } from '@orpc/server/plugins';
+import { experimental_ValibotToJsonSchemaConverter } from '@orpc/valibot';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
 import { createORPCContext } from './orpc';
@@ -17,7 +19,19 @@ export const createApi = ({
   prefix: `/${string}`;
 }) => {
   const handler = new OpenAPIHandler(appRouter, {
-    plugins: [new StrictGetMethodPlugin()],
+    plugins: [
+      new StrictGetMethodPlugin(),
+      new OpenAPIReferencePlugin({
+        docsProvider: 'scalar',
+        schemaConverters: [new experimental_ValibotToJsonSchemaConverter()],
+        specGenerateOptions: {
+          info: {
+            title: 'RT Stack API',
+            version: '1.0.0',
+          },
+        },
+      }),
+    ],
   });
   return {
     handler: async (request: Request) => {
