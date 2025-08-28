@@ -7,6 +7,8 @@ import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { env } from './env';
 
+// ========================================================================= //
+
 const trustedOrigins = [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin);
 
 const db = createDb({ databaseUrl: env.SERVER_POSTGRES_URL });
@@ -15,7 +17,7 @@ const auth = createAuth({
   db,
   webUrl: env.PUBLIC_WEB_URL,
 });
-const api = createApi({ auth, db, prefix: '/rpc' });
+const api = createApi({ auth, db, prefix: '/api' });
 
 const app = new Hono<{
   Variables: {
@@ -24,11 +26,17 @@ const app = new Hono<{
   };
 }>();
 
+// ========================================================================= //
+
 app.get('/healthcheck', (c) => {
   return c.text('OK');
 });
 
 app.use(logger());
+
+app.get('/', (c) => {
+  return c.text('Hello Hono!');
+});
 
 // ========================================================================= //
 
@@ -49,27 +57,22 @@ app.on(['POST', 'GET'], '/api/auth/*', (c) => auth.handler(c.req.raw));
 // ========================================================================= //
 
 app.use(
-  '/rpc/*',
+  '/api/*',
   cors({
     origin: trustedOrigins,
     credentials: true,
   }),
+  async (c, next) => {
+    const { matched, response } = await api.handler(c.req.raw);
+    if (matched) {
+      return c.newResponse(response.body, response);
+    }
+
+    await next();
+  },
 );
 
-app.use('/rpc/*', async (c, next) => {
-  const { matched, response } = await api.handler(c.req.raw);
-  if (matched) {
-    return c.newResponse(response.body, response);
-  }
-
-  await next();
-});
-
 // ========================================================================= //
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
 
 const server = serve(
   {

@@ -13,6 +13,7 @@ export { isDefinedError, safe } from '@orpc/client';
 
 export interface APIClientOptions {
   serverUrl: string;
+  prefix: `/${string}`;
 }
 
 // Oddly, this is needed for better-auth to not complain
@@ -20,9 +21,9 @@ export type { AppRouter } from '../server';
 
 export type RouterOutput = InferContractRouterOutputs<typeof appContract>;
 
-export const createAPIClient = ({ serverUrl }: APIClientOptions) => {
+export const createAPIClient = ({ serverUrl, prefix }: APIClientOptions) => {
   const link = new OpenAPILink(appContract, {
-    url: urlJoin(serverUrl, 'rpc'),
+    url: urlJoin(serverUrl, prefix),
     fetch: (request, init) => {
       return globalThis.fetch(request, {
         ...init,
