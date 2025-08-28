@@ -17,6 +17,7 @@
     "typecheck": "tsc --build"
   },
   "dependencies": {
+    "@orpc/contract": "^1.8.5",
     "@radix-ui/react-icons": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -25,8 +26,6 @@
     "@tanstack/react-query": "catalog:",
     "@tanstack/react-router": "catalog:",
     "@tanstack/router-devtools": "catalog:",
-    "@trpc/client": "catalog:",
-    "@trpc/tanstack-react-query": "catalog:",
     "dotenv-cli": "catalog:",
     "next-themes": "catalog:",
     "react": "catalog:",
@@ -43,14 +42,13 @@
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tanstack/router-plugin": "catalog:",
-    "@trpc/server": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "catalog:",
-    "shx": "catalog:",
     "prettier": "catalog:",
+    "shx": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

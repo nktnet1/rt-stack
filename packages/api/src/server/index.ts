@@ -1,11 +1,12 @@
+import { RPCHandler } from '@orpc/server/fetch';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import { createORPCContext } from './orpc';
 import postRouter from './router/post';
-import { createTRPCContext as createTRPCContextInternal, router } from './trpc';
 
-export const appRouter = router({
+export const appRouter = {
   posts: postRouter,
-});
+};
 
 export const createApi = ({
   auth,
@@ -14,10 +15,18 @@ export const createApi = ({
   auth: AuthInstance;
   db: DatabaseInstance;
 }) => {
+  const handler = new RPCHandler(appRouter);
   return {
-    trpcRouter: appRouter,
-    createTRPCContext: ({ headers }: { headers: Headers }) =>
-      createTRPCContextInternal({ auth, db, headers }),
+    handler: async (request: Request) => {
+      return handler.handle(request, {
+        prefix: '/rpc',
+        context: await createORPCContext({
+          db,
+          auth,
+          headers: request.headers,
+        }),
+      });
+    },
   };
 };
 

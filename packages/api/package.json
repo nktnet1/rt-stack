@@ -23,10 +23,13 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
+    "@orpc/client": "^1.8.5",
+    "@orpc/contract": "^1.8.5",
+    "@orpc/openapi": "^1.8.5",
+    "@orpc/server": "^1.8.5",
+    "@orpc/tanstack-query": "^1.8.5",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
-    "@trpc/client": "catalog:",
-    "@trpc/server": "catalog:",
     "superjson": "catalog:",
     "url-join": "catalog:",
     "valibot": "catalog:"

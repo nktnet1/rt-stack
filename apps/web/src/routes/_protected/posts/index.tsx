@@ -21,10 +21,9 @@ import {
 } from '@tanstack/react-router';
 import { Link, useNavigate } from '@tanstack/react-router';
 import * as v from 'valibot';
-import type { AppRouter } from '@repo/api/server';
-import type { inferRouterOutputs } from '@trpc/server';
+import type { RouterOutput } from '@repo/api/client';
+import { apiClient } from '@/clients/apiClient';
 import { queryClient } from '@/clients/queryClient';
-import { trpc } from '@/router';
 import CreatePostButton from '@/routes/_protected/posts/-components/create-post';
 import DeletePostButton from '@/routes/_protected/posts/-components/delete-post';
 import {
@@ -34,7 +33,7 @@ import {
 } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/')({
-  loader: () => queryClient.ensureQueryData(trpc.posts.all.queryOptions()),
+  loader: () => queryClient.ensureQueryData(apiClient.posts.all.queryOptions()),
   component: RouteComponent,
   validateSearch: (input: SearchSchemaInput) =>
     v.parse(postsSearchSchema, input),
@@ -54,7 +53,7 @@ function PostItem({
   post,
   disabled,
 }: Readonly<{
-  post: inferRouterOutputs<AppRouter>['posts']['all'][number];
+  post: RouterOutput['posts']['all'][number];
   disabled: boolean;
 }>) {
   return (
@@ -77,7 +76,9 @@ function PostItem({
 }
 
 function RouteComponent() {
-  const { data: posts, isPending } = useQuery(trpc.posts.all.queryOptions());
+  const { data: posts, isPending } = useQuery(
+    apiClient.posts.all.queryOptions(),
+  );
   const navigate = useNavigate({ from: Route.fullPath });
   const search = Route.useSearch();
 
