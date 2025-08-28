@@ -17,7 +17,6 @@
     "typecheck": "tsc --build"
   },
   "dependencies": {
-    "@orpc/contract": "catalog:",
     "@radix-ui/react-icons": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
