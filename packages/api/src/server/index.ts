@@ -32,7 +32,7 @@ export const createApi = ({
             title: 'RT Stack API',
             version: '1.0.0',
           },
-          servers: [{ url: urlJoin(serverUrl) }]
+          servers: [{ url: urlJoin(serverUrl, prefix) }]
         },
       }),
     ],
