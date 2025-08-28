@@ -15,7 +15,7 @@ const auth = createAuth({
   db,
   webUrl: env.PUBLIC_WEB_URL,
 });
-const api = createApi({ auth, db });
+const api = createApi({ auth, db, prefix: '/rpc' });
 
 const app = new Hono<{
   Variables: {

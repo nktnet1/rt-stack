@@ -4,21 +4,19 @@ import * as v from 'valibot';
 import { protectedProcedure } from '../orpc';
 
 const postRouter = {
-  all: protectedProcedure
-    .route({ method: 'GET', path: '/posts' })
-    .handler(({ context }) => {
-      return context.db.query.post.findMany({
-        columns: {
-          id: true,
-          title: true,
-          createdAt: true,
-        },
-        orderBy: desc(post.createdAt),
-      });
-    }),
+  all: protectedProcedure.route({ method: 'GET' }).handler(({ context }) => {
+    return context.db.query.post.findMany({
+      columns: {
+        id: true,
+        title: true,
+        createdAt: true,
+      },
+      orderBy: desc(post.createdAt),
+    });
+  }),
 
   one: protectedProcedure
-    .route({ method: 'GET', path: '/posts/{id}' })
+    .route({ method: 'GET' })
     .input(v.object({ id: v.pipe(v.string(), v.uuid()) }))
     .handler(async ({ context, input, errors }) => {
       const [dbPost] = await context.db
@@ -48,7 +46,7 @@ const postRouter = {
     }),
 
   create: protectedProcedure
-    .route({ method: 'POST', path: '/posts' })
+    .route({ method: 'POST' })
     .input(CreatePostSchema)
     .handler(async ({ context, input }) => {
       await context.db.insert(post).values({
@@ -59,7 +57,7 @@ const postRouter = {
     }),
 
   delete: protectedProcedure
-    .route({ method: 'DELETE', path: '/posts/{id}' })
+    .route({ method: 'DELETE' })
     .input(v.object({ id: v.pipe(v.string(), v.uuid()) }))
     .handler(async ({ context, input, errors }) => {
       const res = await context.db.delete(post).where(eq(post.id, input.id));
