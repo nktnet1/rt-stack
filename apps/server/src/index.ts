@@ -82,7 +82,12 @@ const server = serve(
   },
   (info) => {
     const host = info.family === 'IPv6' ? `[${info.address}]` : info.address;
-    console.log(`Hono internal server: http://${host}:${info.port}`);
+    console.log(`
+Hono
+- internal server url: http://${host}:${info.port}
+- external server url: ${env.PUBLIC_SERVER_URL}
+- public web url: ${env.PUBLIC_WEB_URL}
+    `);
   },
 );
 

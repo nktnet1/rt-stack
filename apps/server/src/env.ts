@@ -21,6 +21,9 @@ export const envSchema = v.object({
   SERVER_AUTH_SECRET: v.pipe(v.string(), v.minLength(1)),
   SERVER_POSTGRES_URL: v.string(),
 
+  // Backend URL, used to configure OpenAPI (Scalar)
+  PUBLIC_SERVER_URL: v.pipe(v.string(), v.url()),
+
   // Frontend URL, used to configure trusted origin (CORS)
   PUBLIC_WEB_URL: v.pipe(v.string(), v.url()),
 });
