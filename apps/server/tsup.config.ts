@@ -11,7 +11,7 @@ export default defineConfig({
   clean: true,
   env: { IS_SERVER_BUILD: 'true' },
   loader: { '.json': 'copy' },
-  minify: false,
+  minify: true,
   sourcemap: true,
 
   // https://github.com/egoist/tsup/issues/927#issuecomment-2416440833
