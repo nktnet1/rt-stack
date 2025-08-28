@@ -307,6 +307,9 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.12
+      url-join:
+        specifier: 'catalog:'
+        version: 5.0.0
       valibot:
         specifier: 'catalog:'
         version: 1.1.0(typescript@5.9.2)
