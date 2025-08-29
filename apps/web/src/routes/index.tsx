@@ -38,18 +38,41 @@ function RouteComponent() {
               </Link>{' '}
               to view your posts.
             </div>
-            <div className="mt-3 flex gap-x-1.5">
-              You can also interact with the Open API documentation using{' '}
-              <a
-                href={urlJoin(env.PUBLIC_SERVER_URL, 'api')}
-                target="_blank"
-                className="flex items-center gap-x-1 text-blue-500 underline"
-                rel="noreferrer"
-              >
-                Scalar
-                <ExternalLinkIcon className="mt-0.5" />
-              </a>
-              .
+
+            <div className="mt-3">
+              <p>
+                You can also interact with the OpenAPI specification using
+                Scalar:
+              </p>
+              <ul className="mt-2 list-disc space-y-1 pl-6">
+                <li>
+                  <a
+                    href={urlJoin(env.PUBLIC_SERVER_URL, 'api')}
+                    target="_blank"
+                    className="text-blue-500 underline inline-flex items-center gap-x-1 break-words"
+                    rel="noreferrer"
+                  >
+                    API
+                    <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={urlJoin(
+                      env.PUBLIC_SERVER_URL,
+                      'api',
+                      'auth',
+                      'reference',
+                    )}
+                    target="_blank"
+                    className="text-blue-500 underline inline-flex items-center gap-x-1 break-words"
+                    rel="noreferrer"
+                  >
+                    Auth
+                    <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </>

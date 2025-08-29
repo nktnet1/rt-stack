@@ -6,6 +6,7 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { env } from './env';
+import { generateRootHtml } from './utils';
 
 // ========================================================================= //
 
@@ -40,7 +41,7 @@ app.get('/healthcheck', (c) => {
 app.use(logger());
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!');
+  return c.html(generateRootHtml(env.PUBLIC_WEB_URL, env.PUBLIC_SERVER_URL));
 });
 
 // ========================================================================= //

@@ -1,6 +1,7 @@
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
 
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { openAPI } from 'better-auth/plugins';
 import type { DatabaseInstance } from '@repo/db/client';
 
 export interface AuthOptions {
@@ -24,7 +25,7 @@ export const getBaseOptions = (db: DatabaseInstance) =>
      * Only uncomment the line below if you are using plugins, so that
      * your types can be correctly inferred:
      */
-    // plugins: [],
+    plugins: [openAPI()],
   }) satisfies BetterAuthOptions;
 
 export const createAuth = ({ webUrl, db, authSecret }: AuthOptions) => {

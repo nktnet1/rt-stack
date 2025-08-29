@@ -145,8 +145,12 @@ pnpm dev
 
 By default the following URLs will be accessible:
 
-- web application: http://localhost:8085
-- backend server: http://localhost:3035
+- Web (frontend): http://localhost:8085
+- Server (backend): http://localhost:3035
+  - API - OpenAPI reference: http://localhost:3035/api
+  - Auth - OpenAPI reference: http://localhost:3035/api/auth/reference
+
+The [OpenAPI](https://www.openapis.org) reference uses [Scalar](https://github.com/scalar/scalar) to display all available endpoints.
 
 ### Using an External Database
 
@@ -161,7 +165,7 @@ Instead, you will need to modify the following environment variables:
 1. `DB_POSTGRES_URL` in the file `packages/db/.env`
    - used in database schema migrations with `pnpm db:push`
 
-## Developing
+## Development
 
 ### Working with a single package
 
