@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
-import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
+import tanstackRouter from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
 import * as v from 'valibot';
 import { defineConfig } from 'vite';
@@ -42,7 +42,7 @@ const port = parseInt(webUrl.port, 10);
 
 export default defineConfig({
   plugins: [
-    TanStackRouterVite({
+    tanstackRouter({
       routeToken: 'layout',
       autoCodeSplitting: true,
     }),
