@@ -65,7 +65,9 @@ function PostItem({
     >
       <div className="flex flex-col gap-y-1">
         <div className="text-lg font-bold line-clamp-3">{post.title}</div>
-        <div className="italic text-sm">{post.createdAt.toLocaleString()}</div>
+        <div className="italic text-sm">
+          {new Date(post.createdAt).toLocaleString()}
+        </div>
       </div>
 
       <DeletePostButton postId={post.id}>
