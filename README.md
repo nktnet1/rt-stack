@@ -185,7 +185,7 @@ pnpm --filter=@repo/ui format
 You can get a list of all package names using the command below:
 
 ```bash
-find . -maxdepth 3 -name "package.json" -exec grep '"name":' {} \;
+pnpm list --depth -1 --recursive
 ```
 
 ### Adding new shadcn components
