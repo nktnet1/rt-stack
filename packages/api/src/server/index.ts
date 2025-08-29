@@ -14,12 +14,12 @@ export const createApi = ({
   auth,
   db,
   serverUrl,
-  prefix,
+  apiPath,
 }: {
   auth: AuthInstance;
   db: DatabaseInstance;
   serverUrl: string;
-  prefix: `/${string}`;
+  apiPath: `/${string}`;
 }) => {
   const handler = new OpenAPIHandler(appRouter, {
     plugins: [
@@ -33,7 +33,7 @@ export const createApi = ({
             title: 'RT Stack API',
             version: '1.0.0',
           },
-          servers: [{ url: urlJoin(serverUrl, prefix) }],
+          servers: [{ url: urlJoin(serverUrl, apiPath) }],
         },
       }),
     ],
@@ -41,7 +41,7 @@ export const createApi = ({
   return {
     handler: async (request: Request) => {
       return handler.handle(request, {
-        prefix,
+        prefix: apiPath,
         context: await createORPCContext({
           db,
           auth,

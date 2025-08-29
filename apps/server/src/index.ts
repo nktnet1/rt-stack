@@ -14,15 +14,17 @@ const trustedOrigins = [env.PUBLIC_WEB_URL].map((url) => new URL(url).origin);
 
 const db = createDb({ databaseUrl: env.SERVER_POSTGRES_URL });
 const auth = createAuth({
+  webUrl: env.PUBLIC_WEB_URL,
+  serverUrl: env.PUBLIC_SERVER_URL,
+  apiPath: env.PUBLIC_SERVER_API_PATH,
   authSecret: env.SERVER_AUTH_SECRET,
   db,
-  webUrl: env.PUBLIC_WEB_URL,
 });
 const api = createApi({
   auth,
   db,
   serverUrl: env.PUBLIC_SERVER_URL,
-  prefix: '/api',
+  apiPath: env.PUBLIC_SERVER_API_PATH,
 });
 
 const app = new Hono<{
@@ -47,7 +49,7 @@ app.get('/', (c) => {
 // ========================================================================= //
 
 app.use(
-  '/api/auth/*',
+  `${env.PUBLIC_SERVER_API_PATH}/auth/*`,
   cors({
     origin: trustedOrigins,
     credentials: true,
@@ -58,12 +60,14 @@ app.use(
   }),
 );
 
-app.on(['POST', 'GET'], '/api/auth/*', (c) => auth.handler(c.req.raw));
+app.on(['POST', 'GET'], `${env.PUBLIC_SERVER_API_PATH}/auth/*`, (c) =>
+  auth.handler(c.req.raw),
+);
 
 // ========================================================================= //
 
 app.use(
-  '/api/*',
+  `${env.PUBLIC_SERVER_API_PATH}/*`,
   cors({
     origin: trustedOrigins,
     credentials: true,

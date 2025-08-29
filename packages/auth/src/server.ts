@@ -2,10 +2,13 @@ import { type BetterAuthOptions, betterAuth } from 'better-auth';
 
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { openAPI } from 'better-auth/plugins';
+import urlJoin from 'url-join';
 import type { DatabaseInstance } from '@repo/db/client';
 
 export interface AuthOptions {
   webUrl: string;
+  serverUrl: string;
+  apiPath: `/${string}`;
   authSecret: string;
   db: DatabaseInstance;
 }
@@ -28,9 +31,17 @@ export const getBaseOptions = (db: DatabaseInstance) =>
     plugins: [openAPI()],
   }) satisfies BetterAuthOptions;
 
-export const createAuth = ({ webUrl, db, authSecret }: AuthOptions) => {
+export const createAuth = ({
+  webUrl,
+  serverUrl,
+  apiPath,
+  db,
+  authSecret,
+}: AuthOptions) => {
+  console.log({ apiPath });
   return betterAuth({
     ...getBaseOptions(db),
+    baseURL: urlJoin(serverUrl, apiPath, 'auth'),
     secret: authSecret,
     trustedOrigins: [webUrl].map((url) => new URL(url).origin),
     session: {

@@ -3,5 +3,5 @@ import { env } from '@/env';
 
 export const apiClient = createTanstackQueryAPIClient({
   serverUrl: env.PUBLIC_SERVER_URL,
-  prefix: '/api',
+  apiPath: env.PUBLIC_SERVER_API_PATH,
 });

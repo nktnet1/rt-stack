@@ -8,6 +8,12 @@ export const envSchema = v.object({
    * a build-time variable (ARG) in docker.
    */
   PUBLIC_SERVER_URL: v.pipe(v.string(), v.url()),
+  PUBLIC_SERVER_API_PATH: v.optional(
+    v.custom<`/${string}`>(
+      (input) => typeof input === 'string' && input.startsWith('/'),
+    ),
+    '/api',
+  ),
 
   /**
    * Set this if you want to run or deploy your app at a base URL. This is

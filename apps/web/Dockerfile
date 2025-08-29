@@ -28,6 +28,9 @@ FROM base AS installer
 ARG PUBLIC_SERVER_URL
 ENV PUBLIC_SERVER_URL=${PUBLIC_SERVER_URL}
 
+ARG PUBLIC_SERVER_API_PATH
+ENV PUBLIC_SERVER_API_PATH=${PUBLIC_SERVER_API_PATH}
+
 COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile
 

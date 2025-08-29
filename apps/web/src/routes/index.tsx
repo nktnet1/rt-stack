@@ -47,7 +47,10 @@ function RouteComponent() {
               <ul className="mt-2 list-disc space-y-1 pl-6">
                 <li>
                   <a
-                    href={urlJoin(env.PUBLIC_SERVER_URL, 'api')}
+                    href={urlJoin(
+                      env.PUBLIC_SERVER_URL,
+                      env.PUBLIC_SERVER_API_PATH,
+                    )}
                     target="_blank"
                     className="text-blue-500 underline inline-flex items-center gap-x-1 break-words"
                     rel="noreferrer"
@@ -60,7 +63,7 @@ function RouteComponent() {
                   <a
                     href={urlJoin(
                       env.PUBLIC_SERVER_URL,
-                      'api',
+                      env.PUBLIC_SERVER_API_PATH,
                       'auth',
                       'reference',
                     )}
