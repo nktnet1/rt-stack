@@ -1,5 +1,6 @@
 {
   "name": "server",
+  "private": "true",
   "type": "module",
   "scripts": {
     "build": "tsup",

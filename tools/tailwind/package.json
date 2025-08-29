@@ -1,5 +1,6 @@
 {
   "name": "@repo/tailwind-config",
+  "private": "true",
   "type": "module",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo node_modules",
