@@ -1,4 +1,5 @@
 {
+  "name": "rt-stack",
   "private": true,
   "type": "module",
   "scripts": {
