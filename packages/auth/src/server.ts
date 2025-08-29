@@ -38,7 +38,6 @@ export const createAuth = ({
   db,
   authSecret,
 }: AuthOptions) => {
-  console.log({ apiPath });
   return betterAuth({
     ...getBaseOptions(db),
     baseURL: urlJoin(serverUrl, apiPath, 'auth'),

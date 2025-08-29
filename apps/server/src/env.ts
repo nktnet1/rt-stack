@@ -26,6 +26,7 @@ export const envSchema = v.object({
   PUBLIC_SERVER_API_PATH: v.optional(
     v.custom<`/${string}`>(
       (input) => typeof input === 'string' && input.startsWith('/'),
+      'API Path must start with "/" if provided.',
     ),
     '/api',
   ),
