@@ -3,6 +3,9 @@ import postContract from './posts';
 
 export const appContract = oc
   .errors({
+    UNAUTHORIZED: {
+      status: 401,
+    },
     FORBIDDEN: {
       status: 403,
     },

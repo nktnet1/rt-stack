@@ -51,8 +51,8 @@ export const publicProcedure = base
 export const protectedProcedure = publicProcedure.use(
   ({ context, next, errors }) => {
     if (!context.session?.user) {
-      throw errors.FORBIDDEN({
-        message: 'Invalid session',
+      throw errors.UNAUTHORIZED({
+        message: 'Missing user session. Please log in again!',
       });
     }
     return next({
