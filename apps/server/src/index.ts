@@ -17,7 +17,12 @@ const auth = createAuth({
   db,
   webUrl: env.PUBLIC_WEB_URL,
 });
-const api = createApi({ auth, db, serverUrl: env.PUBLIC_SERVER_URL, prefix: '/api' });
+const api = createApi({
+  auth,
+  db,
+  serverUrl: env.PUBLIC_SERVER_URL,
+  prefix: '/api',
+});
 
 const app = new Hono<{
   Variables: {

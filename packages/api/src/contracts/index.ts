@@ -5,9 +5,11 @@ export const appContract = oc
   .errors({
     UNAUTHORIZED: {
       status: 401,
+      message: 'Missing user session. Please log in!',
     },
     FORBIDDEN: {
       status: 403,
+      message: 'You do not have enough permission to perform this action.',
     },
   })
   .router({

@@ -25,6 +25,7 @@ export const createApi = ({
     plugins: [
       new StrictGetMethodPlugin(),
       new OpenAPIReferencePlugin({
+        docsTitle: 'RT Stack | API Reference',
         docsProvider: 'scalar',
         schemaConverters: [new experimental_ValibotToJsonSchemaConverter()],
         specGenerateOptions: {
@@ -32,7 +33,7 @@ export const createApi = ({
             title: 'RT Stack API',
             version: '1.0.0',
           },
-          servers: [{ url: urlJoin(serverUrl, prefix) }]
+          servers: [{ url: urlJoin(serverUrl, prefix) }],
         },
       }),
     ],

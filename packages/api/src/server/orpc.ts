@@ -52,7 +52,7 @@ export const protectedProcedure = publicProcedure.use(
   ({ context, next, errors }) => {
     if (!context.session?.user) {
       throw errors.UNAUTHORIZED({
-        message: 'Missing user session. Please log in again!',
+        message: 'Missing user session. Please log in!',
       });
     }
     return next({
