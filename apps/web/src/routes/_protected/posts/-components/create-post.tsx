@@ -26,10 +26,12 @@ const FormSchema = v.object({
   title: v.pipe(
     v.string(),
     v.minLength(3, 'Please enter at least 3 characters'),
+    v.maxLength(256, 'Please enter no more than 256 characters'),
   ),
   content: v.pipe(
     v.string(),
     v.minLength(5, 'Please enter at least 5 characters'),
+    v.maxLength(512, 'Please enter no more than 512 characters'),
   ),
 });
 
