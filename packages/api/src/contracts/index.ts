@@ -3,6 +3,9 @@ import postContract from './posts';
 
 export const appContract = oc
   .errors({
+    INPUT_VALIDATION_FAILED: {
+      status: 422,
+    },
     UNAUTHORIZED: {
       status: 401,
       message: 'Missing user session. Please log in!',

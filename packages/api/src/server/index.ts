@@ -1,8 +1,11 @@
+import { onError, ORPCError } from '@orpc/client';
+import { ValidationError } from '@orpc/contract';
 import { OpenAPIHandler } from '@orpc/openapi/fetch';
 import { OpenAPIReferencePlugin } from '@orpc/openapi/plugins';
 import { StrictGetMethodPlugin } from '@orpc/server/plugins';
-import { experimental_ValibotToJsonSchemaConverter } from '@orpc/valibot';
+import { experimental_ValibotToJsonSchemaConverter as ValibotToJsonSchemaConverter } from '@orpc/valibot';
 import urlJoin from 'url-join';
+import * as v from 'valibot';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
 import { createORPCContext } from './orpc';
@@ -27,7 +30,7 @@ export const createApi = ({
       new OpenAPIReferencePlugin({
         docsTitle: 'RT Stack | API Reference',
         docsProvider: 'scalar',
-        schemaConverters: [new experimental_ValibotToJsonSchemaConverter()],
+        schemaConverters: [new ValibotToJsonSchemaConverter()],
         specGenerateOptions: {
           info: {
             title: 'RT Stack API',
@@ -35,6 +38,26 @@ export const createApi = ({
           },
           servers: [{ url: urlJoin(serverUrl, apiPath) }],
         },
+      }),
+    ],
+    clientInterceptors: [
+      onError((error) => {
+        if (
+          error instanceof ORPCError &&
+          error.code === 'BAD_REQUEST' &&
+          error.cause instanceof ValidationError
+        ) {
+          const valiIssues = error.cause.issues as [
+            v.BaseIssue<unknown>,
+            ...v.BaseIssue<unknown>[],
+          ];
+          console.error(v.flatten(valiIssues));
+          throw new ORPCError('INPUT_VALIDATION_FAILED', {
+            status: 422,
+            message: v.summarize(valiIssues),
+            cause: error.cause,
+          });
+        }
       }),
     ],
   });
