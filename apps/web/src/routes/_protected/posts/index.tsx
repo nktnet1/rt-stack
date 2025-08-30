@@ -152,7 +152,7 @@ function RouteComponent() {
         </div>
       </div>
 
-      <div className="flex gap-x-3 gap-y-3 flex-wrap mt-6">
+      <div className="flex gap-x-3 gap-y-3 flex-wrap my-4 md:my-6">
         {filteredPost?.length
           ? filteredPost.map((p) => (
               <PostItem key={p.id} post={p} disabled={isPending} />
