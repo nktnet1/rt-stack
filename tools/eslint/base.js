@@ -82,7 +82,8 @@ export default tseslint.config([
   },
   {
     rules: {
-      semi: ['error', 'always'],
+      semi: ['warn', 'always'],
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
 ]);

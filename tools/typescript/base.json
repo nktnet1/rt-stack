@@ -7,8 +7,15 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
-    "verbatimModuleSyntax": true,
     "isolatedModules": true,
+
+    /**
+     * From Tanstack Docs: enabling verbatimModuleSyntax can result in server
+     * bundles leaking into client bundles. It is recommended to keep this
+     * option disabled. More details:
+     * - https://github.com/TanStack/router/issues/3401
+     */
+    "verbatimModuleSyntax": false,
 
     /** Keep TSC performant in monorepos */
     "incremental": true,
