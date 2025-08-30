@@ -60,11 +60,13 @@ function PostItem({
     <Link
       to="/posts/$postid"
       params={{ postid: post.id }}
-      className="border border-gray-500 bg-elevated p-4 w-full flex items-center justify-between gap-x-3 rounded-xl hover:brightness-90"
+      className="border border-gray-500 bg-elevated p-4 w-full flex items-center justify-between gap-3 rounded-xl hover:brightness-90"
       disabled={disabled}
     >
       <div className="flex flex-col gap-y-1">
-        <div className="text-lg font-bold line-clamp-3">{post.title}</div>
+        <div className="text-lg font-bold line-clamp-3 wrap-anywhere">
+          {post.title}
+        </div>
         <div className="italic text-sm">
           {new Date(post.createdAt).toLocaleString()}
         </div>
@@ -101,8 +103,8 @@ function RouteComponent() {
         : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
   return (
-    <div className="flex flex-col md:p-4 w-full max-w-6xl mx-auto">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col p-1.5 md:p-4 w-full max-w-6xl mx-auto">
+      <div className="flex items-center justify-between border">
         <h1 className="text-2xl">Posts</h1>
         <CreatePostButton />
       </div>

@@ -84,7 +84,7 @@ function RouteComponent() {
         </Tooltip>
       </TooltipProvider>
 
-      <div className="bg-elevated shadow rounded-2xl w-full min-h-96 border border-gray-500 break-words p-6 my-4 md:my-6">
+      <div className="bg-elevated shadow rounded-2xl w-full min-h-96 border border-gray-500 p-6 my-4 md:my-6">
         <p className="leading-relaxed whitespace-break-spaces">
           {post.content ?? 'No content available.'}
         </p>

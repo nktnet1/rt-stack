@@ -94,7 +94,7 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="h-8 md:h-10">
           <PlusIcon />
           Create
         </Button>
