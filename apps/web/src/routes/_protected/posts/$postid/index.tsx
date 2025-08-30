@@ -54,7 +54,7 @@ function RouteComponent() {
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
         <p className="text-sm text-gray-500 mt-2">
           Created by <span className="font-medium">{post.author.name}</span>,{' '}
-          {post.createdAt.toLocaleString()}
+          {new Date(post.createdAt).toLocaleString()}
         </p>
       </div>
       <hr className="border border-gray-500 mt-3" />
