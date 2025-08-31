@@ -96,12 +96,16 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
-        <Button className="h-8 md:h-10">
+        <Button className="h-8.5 px-3 md:h-10 md:px-4">
           <PlusIcon />
           Create
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right-1/3 data-[state=closed]:slide-out-to-right-1/3">
+      <DialogContent
+        // Don't auto-focus the first input field
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right-1/3 data-[state=closed]:slide-out-to-right-1/3 rounded-lg"
+      >
         <DialogHeader>
           <DialogTitle>Create Post</DialogTitle>
           <DialogDescription>

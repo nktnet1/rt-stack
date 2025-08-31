@@ -52,10 +52,12 @@ function RouteComponent() {
     <div className="flex flex-col px-4 w-full max-w-6xl mx-auto break-words">
       <div className="text-center p-5 rounded-2xl">
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
-        <p className="text-sm text-gray-500 mt-2">
-          Created by <span className="font-medium">{post.author.name}</span>,{' '}
+        <h2 className="text-sm text-gray-500 mt-2">
+          Created by <span className="font-medium">{post.author.name}</span>
+        </h2>
+        <h2 className="text-sm text-gray-500 mt-1">
           {new Date(post.createdAt).toLocaleString()}
-        </p>
+        </h2>
       </div>
       <hr className="border border-gray-500 mt-3" />
 

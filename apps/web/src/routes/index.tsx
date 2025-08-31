@@ -24,7 +24,7 @@ function RouteComponent() {
     <div className="mt-1">
       {session?.user && (
         <>
-          <div className="flex flex-col mb-5 bg-elevated p-3">
+          <div className="flex flex-col mb-5 bg-elevated p-3 rounded-lg">
             <div>
               Welcome, <span className="font-bold">{session.user.name}</span>!
             </div>
