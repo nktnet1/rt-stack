@@ -1,5 +1,4 @@
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
-
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { openAPI } from 'better-auth/plugins';
 import urlJoin from 'url-join';
