@@ -1,5 +1,6 @@
 import { PlusIcon } from '@radix-ui/react-icons';
 import { isDefinedError } from '@repo/api/client';
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import {
   Dialog,
@@ -38,6 +39,7 @@ const FormSchema = v.object({
 const generateTimestamp = () => +new Date();
 
 export default function CreatePostButton() {
+  const { t } = useTranslation();
   const getAllPostsQuery = useQuery(apiClient.posts.all.queryOptions());
   const createPostMutation = useMutation(
     apiClient.posts.create.mutationOptions(),
@@ -98,7 +100,7 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
       <DialogTrigger asChild>
         <Button className="h-8.5 px-3 md:h-10 md:px-4">
           <PlusIcon />
-          Create
+          {t('posts.create.buttonLabel')}
         </Button>
       </DialogTrigger>
       <DialogContent
@@ -107,10 +109,8 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
         className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right-1/3 data-[state=closed]:slide-out-to-right-1/3 rounded-lg"
       >
         <DialogHeader>
-          <DialogTitle>Create Post</DialogTitle>
-          <DialogDescription>
-            Write about an interesting topic!
-          </DialogDescription>
+          <DialogTitle>{t('posts.create.title')}</DialogTitle>
+          <DialogDescription>{t('posts.create.subtitle')}</DialogDescription>
         </DialogHeader>
         <form
           className="flex flex-col gap-y-3"
@@ -126,7 +126,9 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
               children={(field) => {
                 return (
                   <>
-                    <Label htmlFor={field.name}>Title</Label>
+                    <Label htmlFor={field.name}>
+                      {t('posts.create.postTitleLabel')}
+                    </Label>
                     <Input
                       className="mt-2"
                       id={field.name}
@@ -147,7 +149,9 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
               children={(field) => {
                 return (
                   <>
-                    <Label htmlFor={field.name}>Content</Label>
+                    <Label htmlFor={field.name}>
+                      {t('posts.create.postContentLabel')}
+                    </Label>
                     <Textarea
                       className="mt-2"
                       rows={8}
@@ -172,7 +176,7 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
                   disabled={!canSubmit}
                   className="mt-3 h-10 w-24"
                 >
-                  {isSubmitting ? <Spinner /> : `Create`}
+                  {isSubmitting ? <Spinner /> : t('posts.create.buttonLabel')}
                 </Button>
               )}
             />

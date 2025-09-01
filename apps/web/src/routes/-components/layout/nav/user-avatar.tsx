@@ -1,4 +1,5 @@
 import { ExitIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { useTranslation } from '@repo/i18n/react';
 import {
   Avatar,
   AvatarFallback,
@@ -18,6 +19,7 @@ export default function UserAvatar({
 }: Readonly<{
   user: typeof authClient.$Infer.Session.user;
 }>) {
+  const { t } = useTranslation();
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
@@ -38,6 +40,7 @@ export default function UserAvatar({
         </div>
 
         <hr className="mb-2" />
+
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={(e) => {
@@ -46,7 +49,7 @@ export default function UserAvatar({
           }}
         >
           {resolvedTheme === 'dark' ? <MoonIcon /> : <SunIcon />}
-          <span className="ml-[5px] capitalize">Theme</span>
+          <span className="ml-[5px] capitalize">{t('nav.avatar.theme')}</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={async () => {
@@ -55,7 +58,7 @@ export default function UserAvatar({
           className="cursor-pointer"
         >
           <ExitIcon className="mr-[5px] w-5 ml-[0.5px]" />
-          Logout
+          {t('nav.avatar.logout')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

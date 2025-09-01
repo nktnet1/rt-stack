@@ -1,4 +1,5 @@
 import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
 import { Label } from '@repo/ui/components/label';
@@ -20,6 +21,7 @@ const FormSchema = v.object({
 });
 
 export default function LoginCredentialsForm() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const form = useForm({
@@ -63,7 +65,9 @@ export default function LoginCredentialsForm() {
           children={(field) => {
             return (
               <>
-                <Label htmlFor={field.name}>Email</Label>
+                <Label htmlFor={field.name}>
+                  {t('auth.login.labels.email')}
+                </Label>
                 <Input
                   className="mt-1"
                   id={field.name}
@@ -84,7 +88,9 @@ export default function LoginCredentialsForm() {
           name="password"
           children={(field) => (
             <>
-              <Label htmlFor={field.name}>Password</Label>
+              <Label htmlFor={field.name}>
+                {t('auth.login.labels.password')}
+              </Label>
               <>
                 <div className="flex justify-end items-center relative w-full">
                   <Input
@@ -120,7 +126,7 @@ export default function LoginCredentialsForm() {
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit, isSubmitting]) => (
           <Button type="submit" disabled={!canSubmit} className="h-12 mt-3">
-            {isSubmitting ? <Spinner /> : 'Log in'}
+            {isSubmitting ? <Spinner /> : t('auth.login.verb')}
           </Button>
         )}
       />

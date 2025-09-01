@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "RT Stack"
+  },
+  "nav": {
+    "links": {
+      "home": "Trang chủ",
+      "posts": "Bài viết",
+      "login": "Đăng nhập",
+      "register": "Đăng ký"
+    },
+    "avatar": {
+      "theme": "Chủ đề",
+      "logout": "Đăng xuất"
+    }
+  },
+  "auth": {
+    "login": {
+      "labels": {
+        "email": "Thư điện tử",
+        "password": "Mật khẩu"
+      },
+      "verb": "Đăng nhập",
+      "registerLinkReference": "Chưa có tài khoản? <RegisterLink>Đăng ký</RegisterLink>!"
+    },
+    "register": {
+      "labels": {
+        "fullName": "Họ và tên",
+        "email": "Thư điện tử",
+        "password": "Mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu"
+      },
+      "verb": "Đăng ký",
+      "loginLinkReference": "Đã có tài khoản? <LoginLink>Đăng nhập</LoginLink>!"
+    }
+  },
+  "home": {
+    "authenticated": {
+      "welcomeUserText": "Chào mừng, <Bold>{{name}}</Bold>!",
+      "clickToViewPostText": "Nhấn <LinkComponent>vào đây <IconComponent/></LinkComponent> để xem bài viết của bạn.",
+      "openApiReferenceText": "Bạn cũng có thể tương tác với đặc tả OpenAPI bằng Scalar:"
+    },
+    "common": {
+      "liveDemoText": "Đây là bản demo trực tiếp của <LinkComponent>{{appName}}</LinkComponent>.",
+      "toggleThemeText": "Chuyển đổi chủ đề:",
+      "selectLanguageText": "Chọn ngôn ngữ:"
+    },
+    "unauthenticated": {
+      "loginText": "Vui lòng <LinkComponent>đăng nhập<LinkComponent>."
+    }
+  },
+  "posts": {
+    "list": {
+      "title": "Bài viết",
+      "emptyText": "Hiện không có bài viết nào.",
+      "searchPlaceholder": "Tìm kiếm theo tiêu đề...",
+      "sortByCreatedDateTooltip": "Sắp xếp theo ngày tạo"
+    },
+    "create": {
+      "buttonLabel": "Tạo mới",
+      "title": "Tạo bài viết",
+      "subtitle": "Hãy viết về một chủ đề thú vị!",
+      "postTitleLabel": "Tiêu đề",
+      "postContentLabel": "Nội dung"
+    },
+    "delete": {
+      "iconTooltip": "Xóa bài viết"
+    },
+    "view": {
+      "createdByLabel": "Tạo bởi",
+      "backButton": "Xem tất cả bài viết"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "RT Stack"
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "posts": "Posts",
+      "login": "Login",
+      "register": "Register"
+    },
+    "avatar": {
+      "theme": "Theme",
+      "logout": "Log out"
+    }
+  },
+  "auth": {
+    "login": {
+      "labels": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "verb": "Log In",
+      "registerLinkReference": "Don't have an account? <RegisterLink>Register</RegisterLink>!"
+    },
+    "register": {
+      "labels": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+      },
+      "verb": "Register",
+      "loginLinkReference": "Already have an account? <LoginLink>Log in</LoginLink>!"
+    }
+  },
+  "home": {
+    "authenticated": {
+      "welcomeUserText": "Welcome, <Bold>{{name}}</Bold>!",
+      "clickToViewPostText": "Click <LinkComponent>here <IconComponent/></LinkComponent> to view your posts.",
+      "openApiReferenceText": "You can also interact with the OpenAPI specification using Scalar:"
+    },
+    "common": {
+      "liveDemoText": "This is the live demo for <LinkComponent>{{appName}}</LinkComponent>.",
+      "toggleThemeText": "Toggle Theme:",
+      "selectLanguageText": "Select Language:"
+    },
+    "unauthenticated": {
+      "loginText": "Please <LinkComponent>login<LinkComponent>."
+    }
+  },
+  "posts": {
+    "list": {
+      "title": "Posts",
+      "emptyText": "There are no posts available.",
+      "searchPlaceholder": "Search by title...",
+      "sortByCreatedDateTooltip": "Sort by created date"
+    },
+    "create": {
+      "buttonLabel": "Create",
+      "title": "Create Post",
+      "subtitle": "Write about an interesting topic!",
+      "postTitleLabel": "Title",
+      "postContentLabel": "Content"
+    },
+    "delete": {
+      "iconTooltip": "Delete post"
+    },
+    "view": {
+      "createdByLabel": "Created by",
+      "backButton": "View all posts"
+    }
+  }
+}

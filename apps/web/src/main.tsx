@@ -1,4 +1,5 @@
 import '@/style.css';
+import '@/clients/i18nClient';
 import { RouterProvider } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';

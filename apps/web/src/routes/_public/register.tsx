@@ -1,3 +1,4 @@
+import { Trans } from '@repo/i18n/react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import RegisterCredentialsForm from '@/routes/_public/-components/register-form';
 
@@ -11,11 +12,12 @@ function RouteComponent() {
       <div className="border p-4 md:p-8 w-full max-w-md rounded-lg bg-elevated">
         <RegisterCredentialsForm />
         <div className="mt-4 text-center">
-          Already have an account?{' '}
-          <Link to="/login" className="underline">
-            Log in
-          </Link>
-          !
+          <Trans
+            i18nKey="auth.register.loginLinkReference"
+            components={{
+              LoginLink: <Link to="/login" className="underline" />,
+            }}
+          />
         </div>
       </div>
     </div>

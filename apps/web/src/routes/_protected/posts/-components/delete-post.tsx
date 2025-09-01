@@ -1,3 +1,4 @@
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import {
   Tooltip,
@@ -22,6 +23,7 @@ export default function DeletePostButton({
   className?: string;
   postId: string;
 }>) {
+  const { t } = useTranslation();
   const { refetch } = useQuery(apiClient.posts.all.queryOptions());
 
   const deletePostMutation = useMutation(
@@ -57,7 +59,7 @@ export default function DeletePostButton({
           sideOffset={4}
           className="bg-neutral-500 fill-neutral-500 duration-0"
         >
-          <span>Delete Post</span>
+          <span>{t('posts.delete.iconTooltip')}</span>
           <TooltipArrow width={15} height={10} className="duration-0" />
         </TooltipContent>
       </Tooltip>
