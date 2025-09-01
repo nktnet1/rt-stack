@@ -4,6 +4,7 @@ import {
   MagnifyingGlassIcon,
   TrashIcon,
 } from '@radix-ui/react-icons';
+import { useTranslation } from '@repo/i18n/react';
 import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
 import {
@@ -80,6 +81,7 @@ function PostItem({
 }
 
 function RouteComponent() {
+  const { t } = useTranslation();
   const { data: posts, isPending } = useQuery(
     apiClient.posts.all.queryOptions(),
   );
@@ -105,7 +107,7 @@ function RouteComponent() {
   return (
     <div className="flex flex-col p-1.5 md:p-4 w-full max-w-6xl mx-auto">
       <div className="flex items-center justify-between border">
-        <h1 className="text-2xl">Posts</h1>
+        <h1 className="text-2xl">{t('posts.list.title')}</h1>
         <CreatePostButton />
       </div>
       <hr className="mt-4 border-b-2 border-gray-400" />
@@ -138,7 +140,7 @@ function RouteComponent() {
               onPointerDownOutside={(e) => e.preventDefault()}
               className="bg-neutral-500 fill-neutral-500 duration-0"
             >
-              <span>Sort by created date ({search.sortDirection})</span>
+              <span>{t('posts.list.sortByCreatedDateTooltip')}</span>
               <TooltipArrow width={15} height={10} className="duration-0" />
             </TooltipContent>
           </Tooltip>
@@ -147,7 +149,7 @@ function RouteComponent() {
           <Input
             value={search.searchString}
             onChange={(e) => updateFilters('searchString', e.target.value)}
-            placeholder="Search by title..."
+            placeholder={t('posts.list.searchPlaceholder')}
             className="w-full pr-10 placeholder:italic peer"
           />
           <MagnifyingGlassIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 text-input peer-focus:text-foreground transition-colors" />
@@ -159,7 +161,7 @@ function RouteComponent() {
           ? filteredPost.map((p) => (
               <PostItem key={p.id} post={p} disabled={isPending} />
             ))
-          : 'There are no posts available.'}
+          : t('posts.list.emptyText')}
       </div>
     </div>
   );

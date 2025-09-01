@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/typescript-config/internal-package.json",
+  "include": ["src", "locales/**/*.json", "@types"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "lib": ["dom", "ES2022"],
+    "baseUrl": "."
+  }
+}

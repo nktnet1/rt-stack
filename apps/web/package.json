@@ -18,6 +18,7 @@
   "dependencies": {
     "@radix-ui/react-icons": "catalog:",
     "@repo/auth": "workspace:*",
+    "@repo/i18n": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-form": "catalog:",

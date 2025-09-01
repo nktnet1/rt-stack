@@ -1,5 +1,7 @@
+import { useTranslation } from '@repo/i18n/react';
 import { Link } from '@tanstack/react-router';
 import type { AuthSession } from '@/clients/authClient';
+import LanguageSelector from '@/routes/-components/common/language-toggle';
 import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
@@ -7,6 +9,7 @@ import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-l
 const activeClassName = 'underline decoration-2 opacity-70';
 
 export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
+  const { t } = useTranslation();
   return (
     <NavContainer>
       <div className="flex gap-x-4">
@@ -15,19 +18,22 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
           activeProps={{ className: activeClassName }}
           activeOptions={{ exact: true }}
         >
-          Home
+          {t('nav.links.home')}
         </Link>
         {session?.user ? (
           <Link
             {...postsLinkOptions}
             activeProps={{ className: activeClassName }}
           >
-            Posts
+            {t('nav.links.posts')}
           </Link>
         ) : null}
       </div>
       {session?.user ? (
-        <UserAvatar user={session.user} />
+        <div className="flex gap-x-2">
+          <LanguageSelector />
+          <UserAvatar user={session.user} />
+        </div>
       ) : (
         <div className="flex gap-x-2 justify-between">
           <Link
@@ -35,7 +41,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
             activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
-            Login
+            {t('nav.links.login')}
           </Link>
           <span>|</span>
           <Link
@@ -43,7 +49,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
             activeProps={{ className: activeClassName }}
             activeOptions={{ exact: true }}
           >
-            Register
+            {t('nav.links.register')}
           </Link>
         </div>
       )}
