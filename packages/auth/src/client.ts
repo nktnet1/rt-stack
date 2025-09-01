@@ -1,3 +1,4 @@
+import { adminClient, organizationClient } from 'better-auth/client/plugins';
 import { createAuthClient as createBetterAuthClient } from 'better-auth/react';
 import urlJoin from 'url-join';
 
@@ -19,5 +20,5 @@ export const createAuthClient = ({
      * Ensure that you are using the client-side version of the plugin,
      * e.g. `adminClient` instead of `admin`.
      */
-    // plugins: []
+    plugins: [adminClient(), organizationClient()],
   });
