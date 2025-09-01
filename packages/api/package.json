@@ -28,7 +28,7 @@
     "@orpc/openapi-client": "catalog:",
     "@orpc/server": "catalog:",
     "@orpc/tanstack-query": "catalog:",
-    "@orpc/valibot": "^1.8.5",
+    "@orpc/valibot": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "url-join": "catalog:",
