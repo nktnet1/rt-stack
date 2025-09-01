@@ -1,4 +1,5 @@
 import { createORPCClient } from '@orpc/client';
+import { ResponseValidationPlugin } from '@orpc/contract/plugins';
 import { OpenAPILink } from '@orpc/openapi-client/fetch';
 import { createTanstackQueryUtils } from '@orpc/tanstack-query';
 import urlJoin from 'url-join';
@@ -6,7 +7,6 @@ import type {
   ContractRouterClient,
   InferContractRouterOutputs,
 } from '@orpc/contract';
-import type { JsonifiedClient } from '@orpc/openapi-client';
 import { appContract } from '../contracts';
 
 export { isDefinedError, safe } from '@orpc/client';
@@ -24,6 +24,7 @@ export type RouterOutput = InferContractRouterOutputs<typeof appContract>;
 export const createAPIClient = ({ serverUrl, apiPath }: APIClientOptions) => {
   const link = new OpenAPILink(appContract, {
     url: urlJoin(serverUrl, apiPath),
+    plugins: [new ResponseValidationPlugin(appContract)],
     fetch: (request, init) => {
       return globalThis.fetch(request, {
         ...init,
@@ -31,7 +32,7 @@ export const createAPIClient = ({ serverUrl, apiPath }: APIClientOptions) => {
       });
     },
   });
-  const client: JsonifiedClient<ContractRouterClient<typeof appContract>> =
+  const client: ContractRouterClient<typeof appContract> =
     createORPCClient(link);
 
   return client;
