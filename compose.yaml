@@ -14,7 +14,7 @@ services:
       timeout: 10s
       retries: 3
       test:
-        ['CMD-SHELL', 'curl --fail --silent http://localhost:80/healthcheck']
+        ["CMD-SHELL", "curl --fail --silent http://localhost:80/healthcheck"]
     depends_on:
       - server
 
@@ -30,14 +30,15 @@ services:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=3000
       - PUBLIC_WEB_URL=http://localhost:8085
+      - PUBLIC_SERVER_URL=http://localhost:3035
     healthcheck:
       interval: 30s
       timeout: 10s
       retries: 3
       test:
         [
-          'CMD-SHELL',
-          'wget --quiet --spider http://$$SERVER_HOST:$$SERVER_PORT/healthcheck',
+          "CMD-SHELL",
+          "wget --quiet --spider http://$$SERVER_HOST:$$SERVER_PORT/healthcheck",
         ]
     depends_on:
       - db
@@ -46,7 +47,7 @@ services:
     image: docker.io/postgres:latest
     ports:
       - 5432:5432
-    command: ['postgres', '-c', 'log_statement=all']
+    command: ["postgres", "-c", "log_statement=all"]
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -57,10 +58,10 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      test: ['CMD', 'pg_isready', '-U', 'postgres', '-d', 'postgres']
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
 
   drizzle:
-    restart: 'no'
+    restart: "no"
     command: /bin/sh
     build:
       context: .
