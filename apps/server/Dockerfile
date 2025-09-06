@@ -50,4 +50,4 @@ USER hono
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
   CMD wget --quiet --spider http://${SERVER_HOST}:${SERVER_PORT}/healthcheck || exit 1
 
-CMD ["node", "/app/dist/index.js"]
+CMD ["node", "/app/dist/server.js"]

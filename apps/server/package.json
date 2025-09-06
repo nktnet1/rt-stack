@@ -5,13 +5,13 @@
   "scripts": {
     "build": "tsup",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "pnpm env:run tsx watch src/index.ts",
+    "dev": "pnpm env:run tsx watch src/server.ts",
     "env:copy-example": "shx -- cp -n .env.example .env",
     "env:remove": "shx -- rm -f .env",
     "env:run": "dotenv --",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "start": "NODE_ENV=production pnpm env:run node dist/index.js",
+    "start": "NODE_ENV=production pnpm env:run node dist/server.js",
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@repo/prettier-config",
