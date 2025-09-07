@@ -4,9 +4,11 @@ out/
 
 .cache/
 .turbo/
+.vercel/
+.vscode/
+
+.DS_Store
 
 .env*
 !.env.example
 
-.DS_Store
-.vscode
