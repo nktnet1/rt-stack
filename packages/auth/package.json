@@ -19,7 +19,6 @@
   "dependencies": {
     "@repo/db": "workspace:*",
     "better-auth": "catalog:",
-    "i": "^0.3.7",
     "url-join": "catalog:"
   },
   "devDependencies": {
