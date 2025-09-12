@@ -12,7 +12,7 @@ export default defineConfig({
   env: { IS_SERVER_BUILD: 'true' },
   loader: { '.json': 'copy' },
   minify: true,
-  sourcemap: true,
+  sourcemap: false,
 
   // https://github.com/egoist/tsup/issues/927#issuecomment-2416440833
   banner: ({ format }) => {
