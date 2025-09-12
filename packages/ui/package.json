@@ -26,7 +26,7 @@
     "lint": "eslint",
     "postui-add": "prettier src --write --list-different",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "ui-add": "pnpm dlx shadcn@canary add"
+    "ui-add": "pnpm dlx shadcn@latest add"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "catalog:",
