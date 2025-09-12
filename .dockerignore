@@ -4,11 +4,9 @@
 
 **/.cache/
 **/.turbo/
-**/.vercel/
 **/.vscode/
 
 **/.DS_Store
 
 
 **/.env*
-
