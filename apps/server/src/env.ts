@@ -22,7 +22,11 @@ export const envSchema = v.object({
   SERVER_POSTGRES_URL: v.string(),
 
   // Backend URL, used to configure OpenAPI (Scalar)
-  PUBLIC_SERVER_URL: v.pipe(v.string(), v.url()),
+  PUBLIC_SERVER_URL: v.pipe(
+    v.fallback(v.string(), `https://${process.env.VERCEL_URL}`),
+    v.url(),
+  ),
+
   PUBLIC_SERVER_API_PATH: v.optional(
     v.custom<`/${string}`>(
       (input) => typeof input === 'string' && input.startsWith('/'),

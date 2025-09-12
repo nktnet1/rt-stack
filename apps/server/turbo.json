@@ -8,7 +8,7 @@
       "persistent": true
     },
     "build": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
+      "env": ["SERVER_*", "PUBLIC_WEB_URL", "VERCEL_*"],
       "inputs": ["$TURBO_DEFAULT$", ".env"]
     },
     "start": {
