@@ -34,7 +34,7 @@ COPY --from=builder /app/out/json/ .
 RUN pnpm install --frozen-lockfile
 
 COPY --from=builder /app/out/full/ .
-RUN pnpm build
+RUN pnpm --filter=server build
 
 # =========================================================================== #
 
