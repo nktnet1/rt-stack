@@ -34,6 +34,7 @@ deployments and 100% type-safety.
 - [Deployment](#deployment)
   - [Using Containers](#using-containers)
   - [Using Major Platforms](#using-major-platforms)
+  - [Domain Caveat](#domain-caveat)
 - [Other Notes](#other-notes)
   - [Tanstack Router](#tanstack-router)
   - [Server API Artificial Delays](#server-api-artificial-delays)
@@ -350,15 +351,18 @@ easily deployed to platforms such as GitHub/GitLab pages, Vercel and Netlify.
 You can refer to the [vite documentation](https://vite.dev/guide/static-deploy)
 for deployment guides on all major platforms.
 
-The **server** application uses the [hono](https://hono.dev) web framework with
-the [NodeJS runtime](https://hono.dev/docs/getting-started/nodejs). However,
+The **server** application uses the [hono](https://hono.dev) web framework with the [NodeJS runtime](https://hono.dev/docs/getting-started/nodejs). However,
 this can be exchanged with other runtimes before deploying to your chosen
 platforms. For example, deploying to Netlify is covered within
 [Hono's documentations](https://hono.dev/docs/getting-started/netlify#_4-deploy).
 
-Note that when deploying your web frontend and server backend to two different
-domains, you will need to [tweak your better-auth configurations](https://www.better-auth.com/docs/integrations/hono#cross-domain-cookies).
-Apple's Safari browser also does not support third party cookies, so auth will
+Specific to deploying the **server** application to vercel, please see [GitHub Discussion #21](https://github.com/nktnet1/rt-stack/discussions/21#discussioncomment-14380642).
+
+### Domain Caveat
+
+When deploying your web frontend and server backend to two different
+root domains, you will need to [tweak your better-auth configurations](https://www.better-auth.com/docs/integrations/hono#cross-domain-cookies).
+Apple's Safari browser also does not support third-party cookies (and other browsers will soon follow suit), so auth will
 not function as expected without any proxy workarounds.
 
 To keep things simple, it is recommended that you host your frontend and
