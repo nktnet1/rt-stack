@@ -60,7 +60,7 @@ catalog:
   tailwind-merge: ^3.3.1
   tailwindcss: ^4.1.13
   tailwindcss-animate: ^1.0.7
-  tsup: ^8.5.0
+  tsdown: ^0.15.0
   tsx: ^4.20.5
   turbo: ^2.5.6
   typescript: ^5.9.2

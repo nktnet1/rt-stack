@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "pnpm env:run tsx watch src/server.ts",
     "env:copy-example": "shx -- cp -n .env.example .env",
@@ -32,7 +32,7 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "shx": "catalog:",
-    "tsup": "catalog:",
+    "tsdown": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
   }
