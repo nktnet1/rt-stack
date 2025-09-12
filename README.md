@@ -91,7 +91,8 @@ Many aspects of the RT Stack were derived from the
 there is a preference for:
 
 - [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
-- [better auth](https://www.better-auth.com) for authentication instead [auth.js (next auth)](https://authjs.dev)
+- [better auth](https://www.better-auth.com) for authentication instead of [auth.js (next-auth)](https://authjs.dev)
+- [orpc](https://orpc.unnoq.com) with openapi support instead of [trpc](https://trpc.io)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
 - [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
 - using `.env` in each application/package instead of globally, as per [turborepo's recommendations](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
