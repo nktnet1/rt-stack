@@ -90,19 +90,12 @@ Many aspects of the RT Stack were derived from the
 [t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo). However,
 there is a preference for:
 
-- [tanstack router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
-- [better auth](https://www.better-auth.com) for authentication instead of [auth.js (next-auth)](https://authjs.dev)
+- [tanstack-router](https://tanstack.com/router/latest) (web) + [hono](https://hono.dev) (server) instead of [nextjs](https://nextjs.org) (fullstack)
+- [better-auth](https://www.better-auth.com) for authentication instead of [auth.js (next-auth)](https://authjs.dev)
 - [orpc](https://orpc.unnoq.com) with openapi support instead of [trpc](https://trpc.io)
 - [valibot](https://valibot.dev) for input validation instead of [zod](https://zod.dev)
-- [tanstack form](https://tanstack.com/form/latest) instead of [react-hook-form](https://react-hook-form.com)
+- [tanstack-form](https://tanstack.com/form/latest) for type-safe forms instead of [react-hook-form](https://react-hook-form.com)
 - using `.env` in each application/package instead of globally, as per [turborepo's recommendations](https://turbo.build/repo/docs/crafting-your-repository/using-environment-variables#best-practices)
-
-This project also aims to consistently adopt the latest releases of dependencies and tools. For example:
-
-- react v19
-- tailwindcss v4 & shadcn-ui (canary)
-- eslint v9
-- pnpm v10
 
 ## Quick Start
 
