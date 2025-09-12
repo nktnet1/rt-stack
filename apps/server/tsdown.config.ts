@@ -10,4 +10,7 @@ export default defineConfig({
   clean: true,
   minify: true,
   sourcemap: false,
+  outputOptions: {
+    inlineDynamicImports: true,
+  },
 });
