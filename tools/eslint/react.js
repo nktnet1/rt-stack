@@ -4,9 +4,10 @@ import tseslint from 'typescript-eslint';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
+import { defineConfig } from 'eslint/config';
 import baseConfig from './base.js';
 
-export default tseslint.config([
+export default defineConfig([
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,

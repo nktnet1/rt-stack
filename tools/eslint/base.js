@@ -6,9 +6,10 @@ import turboConfig from 'eslint-config-turbo/flat';
 import eslintPluginImport from 'eslint-plugin-import';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 import onlyWarn from 'eslint-plugin-only-warn';
 
-export const restrictEnvAccess = tseslint.config(
+export const restrictEnvAccess = defineConfig([
   { ignores: ['**/env.ts', 'dist/**'] },
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
@@ -33,9 +34,9 @@ export const restrictEnvAccess = tseslint.config(
       ],
     },
   },
-);
+]);
 
-export default tseslint.config([
+export default defineConfig([
   { ignores: ['dist/**'] },
   ...turboConfig,
   js.configs.recommended,
