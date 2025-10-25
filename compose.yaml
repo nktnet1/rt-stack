@@ -44,7 +44,7 @@ services:
       - db
 
   db:
-    image: docker.io/postgres:latest
+    image: docker.io/postgres:18
     ports:
       - 5432:5432
     command: ["postgres", "-c", "log_statement=all"]
@@ -53,7 +53,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/18/data
     healthcheck:
       interval: 30s
       timeout: 10s
