@@ -4,51 +4,51 @@ packages:
   - tools/*
 
 catalog:
-  '@eslint/js': ^9.38.0
-  '@hono/node-server': ^1.19.5
-  '@orpc/client': ^1.10.1
-  '@orpc/contract': ^1.10.1
-  '@orpc/openapi': ^1.10.1
-  '@orpc/openapi-client': ^1.10.1
-  '@orpc/server': ^1.10.1
-  '@orpc/tanstack-query': ^1.10.1
-  '@orpc/valibot': ^1.10.1
-  '@radix-ui/react-avatar': ^1.1.10
+  '@eslint/js': ^9.39.1
+  '@hono/node-server': ^1.19.6
+  '@orpc/client': ^1.11.3
+  '@orpc/contract': ^1.11.3
+  '@orpc/openapi': ^1.11.3
+  '@orpc/openapi-client': ^1.11.3
+  '@orpc/server': ^1.11.3
+  '@orpc/tanstack-query': ^1.11.3
+  '@orpc/valibot': ^1.11.3
+  '@radix-ui/react-avatar': ^1.1.11
   '@radix-ui/react-dialog': ^1.1.15
   '@radix-ui/react-dropdown-menu': ^2.1.16
   '@radix-ui/react-icons': ^1.3.2
-  '@radix-ui/react-label': ^2.1.7
-  '@radix-ui/react-slot': ^1.2.3
+  '@radix-ui/react-label': ^2.1.8
+  '@radix-ui/react-slot': ^1.2.4
   '@radix-ui/react-toast': ^1.2.15
   '@radix-ui/react-tooltip': ^1.2.8
-  '@tailwindcss/vite': ^4.1.16
-  '@tanstack/react-form': ^1.23.8
-  '@tanstack/react-query': ^5.90.5
-  '@tanstack/react-router': ^1.133.27
-  '@tanstack/router-devtools': ^1.133.27
-  '@tanstack/router-plugin': ^1.133.27
+  '@tailwindcss/vite': ^4.1.17
+  '@tanstack/react-form': ^1.25.0
+  '@tanstack/react-query': ^5.90.10
+  '@tanstack/react-router': ^1.139.3
+  '@tanstack/router-devtools': ^1.139.3
+  '@tanstack/router-plugin': ^1.139.3
   '@types/eslint-config-prettier': ^6.11.3
-  '@types/node': ^24.9.1
-  '@types/pg': ^8.15.5
-  '@types/react': ^19.2.2
-  '@types/react-dom': ^19.2.2
-  '@vitejs/plugin-react-swc': ^4.2.0
-  better-auth: ^1.3.31
+  '@types/node': ^24.10.1
+  '@types/pg': ^8.15.6
+  '@types/react': ^19.2.6
+  '@types/react-dom': ^19.2.3
+  '@vitejs/plugin-react-swc': ^4.2.2
+  better-auth: 1.3.33
   class-variance-authority: ^0.7.1
-  dotenv-cli: ^10.0.0
-  drizzle-kit: ^0.31.5
+  dotenv-cli: ^11.0.0
+  drizzle-kit: ^0.31.7
   drizzle-orm: ^0.44.7
   drizzle-valibot: ^0.4.2
-  eslint: ^9.38.0
+  eslint: ^9.39.1
   eslint-config-prettier: ^10.1.8
-  eslint-config-turbo: ^2.5.8
+  eslint-config-turbo: ^2.6.1
   eslint-plugin-import: ^2.32.0
   eslint-plugin-only-warn: ^1.1.0
   eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^7.0.1
-  eslint-plugin-turbo: ^2.5.8
-  globals: ^16.4.0
-  hono: ^4.10.3
+  eslint-plugin-turbo: ^2.6.1
+  globals: ^16.5.0
+  hono: ^4.10.6
   next-themes: ^0.4.6
   pg: ^8.16.3
   prettier: ^3.6.2
@@ -57,17 +57,17 @@ catalog:
   react-dom: ^19.2.0
   shx: ^0.4.0
   sonner: ^2.0.7
-  tailwind-merge: ^3.3.1
-  tailwindcss: ^4.1.16
+  tailwind-merge: ^3.4.0
+  tailwindcss: ^4.1.17
   tailwindcss-animate: ^1.0.7
-  tsdown: ^0.15.9
+  tsdown: ^0.16.6
   tsx: ^4.20.6
-  turbo: ^2.5.8
+  turbo: ^2.6.1
   typescript: ^5.9.3
-  typescript-eslint: ^8.46.2
+  typescript-eslint: ^8.47.0
   url-join: ^5.0.0
   valibot: ^1.1.0
-  vite: ^7.1.12
+  vite: ^7.2.4
 
 ignoredBuiltDependencies:
   - '@swc/core'
