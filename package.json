@@ -26,6 +26,6 @@
     "turbo": "catalog:"
   },
   "engines": {
-    "node": ">=22.10.0"
+    "node": ">=24"
   }
 }

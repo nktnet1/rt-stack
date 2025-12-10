@@ -103,7 +103,7 @@ there is a preference for:
 
 Ensure the following tools are available on your system:
 
-1. [node](https://nodejs.org/en/download) (version 22+)
+1. [node](https://nodejs.org/en/download) (version 24+)
 1. [pnpm](https://pnpm.io/installation) (version 10+)
 1. [postgres](https://www.postgresql.org) database, which you can easily run using tools like:
    - [docker](https://docs.docker.com/engine/install) and [docker-compose](https://docs.docker.com/compose)
