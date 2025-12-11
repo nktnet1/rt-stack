@@ -26,6 +26,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "push": "pnpm env:run drizzle-kit push",
+    "container:build": "tsdown",
     "studio": "pnpm env:run drizzle-kit studio",
     "typecheck": "tsc --build --noEmit --emitDeclarationOnly false"
   },
@@ -45,8 +46,9 @@
     "dotenv-cli": "catalog:",
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",
-    "shx": "catalog:",
     "prettier": "catalog:",
+    "shx": "catalog:",
+    "tsdown": "catalog:",
     "typescript": "catalog:"
   }
 }

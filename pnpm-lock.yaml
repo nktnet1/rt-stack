@@ -500,6 +500,9 @@ importers:
       shx:
         specifier: 'catalog:'
         version: 0.4.0
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.17.0(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3

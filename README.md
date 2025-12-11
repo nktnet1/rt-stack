@@ -281,8 +281,8 @@ docker compose up --build
 docker compose run --build --rm drizzle
 
 # Upon completion, you will be inside the `drizzle` docker container instead
-# of the host machine. It is now possible to push the schema with:
-pnpm db:push
+# of the host machine. You can now push the schema with:
+node dist/push.mjs
 ```
 
 You can then open the web link below in your browser:
