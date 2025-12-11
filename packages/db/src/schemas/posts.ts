@@ -8,11 +8,11 @@ export const post = pgTable('post', (t) => ({
   title: t.varchar({ length: 256 }).notNull(),
   content: t.text().notNull(),
   createdAt: t
-    .timestamp({ mode: 'string', withTimezone: true })
+    .timestamp('created_at', { mode: 'string', withTimezone: true })
     .notNull()
     .defaultNow(),
   createdBy: t
-    .text()
+    .text('created_by')
     .references(() => user.id)
     .notNull(),
 }));
