@@ -53,7 +53,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/18/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       interval: 30s
       timeout: 10s
