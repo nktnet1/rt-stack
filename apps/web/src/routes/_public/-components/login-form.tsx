@@ -88,7 +88,7 @@ export default function LoginCredentialsForm() {
               <>
                 <div className="flex justify-end items-center relative w-full">
                   <Input
-                    className="mt-1"
+                    className="mt-1 pr-10"
                     id={field.name}
                     type={isPasswordVisible ? 'text' : 'password'}
                     name={field.name}
