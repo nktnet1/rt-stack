@@ -79,8 +79,8 @@ View all catalog dependencies in [pnpm-workspace.yaml](pnpm-workspace.yaml).
 The following features are implemented out-of-the-box:
 
 - login/register (using [better-auth email/password](https://www.better-auth.com/docs/authentication/email-password)) credentials provider
-- themes (dark/light mode using [next-themes](github.com/pacocoursey/next-themes))
-- web/server integration ([orpc](https://orpc.unnoq.com/docs/getting-started) API example for creating/listing posts)
+- themes (dark/light mode using [next-themes](https://github.com/pacocoursey/next-themes))
+- web/server integration ([oRPC](https://orpc.unnoq.com/docs/getting-started) API example for creating/listing posts)
 
 You can visit the [live demo](https://rtstack.nktnet.uk) to see these features in action.
 
@@ -138,7 +138,7 @@ You can then start all applications with
 pnpm dev
 ```
 
-By default the following URLs will be accessible:
+By default, the following URLs will be accessible:
 
 - Web (frontend): http://localhost:8085
 - Server (backend): http://localhost:3035
@@ -320,7 +320,7 @@ paired with
 
 Personally, I recommend setting up a Virtual Private Server (e.g. on [Hetzner](https://www.hetzner.com))
 and make use of self-hostable PaaS software which automatically handles the complexity of deployment
-mentioned above for you - these includes:
+mentioned above for you - this includes:
 
 - Coolify
   - https://github.com/coollabsio/coolify
@@ -345,7 +345,7 @@ easily deployed to platforms such as GitHub/GitLab pages, Vercel and Netlify.
 You can refer to the [vite documentation](https://vite.dev/guide/static-deploy)
 for deployment guides on all major platforms.
 
-The **server** application uses the [hono](https://hono.dev) web framework with the [NodeJS runtime](https://hono.dev/docs/getting-started/nodejs). However,
+The **server** application uses the [hono](https://hono.dev) web framework with the [Node.js runtime](https://hono.dev/docs/getting-started/nodejs). However,
 this can be exchanged with other runtimes before deploying to your chosen
 platforms. For example, deploying to Netlify is covered within
 [Hono's documentations](https://hono.dev/docs/getting-started/netlify#_4-deploy).
@@ -377,7 +377,7 @@ TanStackRouterVite({
 }),
 ```
 
-This enables the use of a `layout.tsx` file in each directory similar to NextJS.
+This enables the use of a `layout.tsx` file in each directory similar to Next.js.
 You can read more about this
 [here](https://github.com/TanStack/router/discussions/1102#discussioncomment-10946603).
 
@@ -407,7 +407,7 @@ in [./packages/api/src/server/orpc.ts](./packages/api/src/server/orpc.ts)
 
 ### Environment Variables
 
-This template was made to follow the the recommendation of
+This template was made to follow the recommendation of
 
 - @tyleralbee in [this turborepo's GitHub discussion](https://github.com/vercel/turborepo/discussions/9458#discussioncomment-11443969)
 - @cjkihl in [create-t3-turbo issue #397](https://github.com/t3-oss/create-t3-turbo/issues/397#issuecomment-1630028405)
@@ -461,7 +461,7 @@ example script set in [apps/server/package.json](apps/server/package.json).
   <tbody>
     <tr>
       <td>NextJS</td>
-      <td>Adds a <code>docs</code> application that uses NextJS and Fumadocs, along with the workspace <code>@repo/ui</code> package.</td>
+      <td>Adds a <code>docs</code> application that uses Next.js and Fumadocs, along with the workspace <code>@repo/ui</code> package.</td>
       <td><a href="https://github.com/nktnet1/rt-stack/tree/nextjs-fumadocs">nextjs-fumadocs</a></td>
     </tr>
     <tr>
