@@ -56,8 +56,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof PublicLoginRoute
   '/register': typeof PublicRegisterRoute
-  '/posts': typeof ProtectedPostsIndexRoute
-  '/posts/$postid': typeof ProtectedPostsPostidIndexRoute
+  '/posts/': typeof ProtectedPostsIndexRoute
+  '/posts/$postid/': typeof ProtectedPostsPostidIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,7 +78,7 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
+  fullPaths: '/' | '/login' | '/register' | '/posts/' | '/posts/$postid/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/login' | '/register' | '/posts' | '/posts/$postid'
   id:
@@ -103,14 +103,14 @@ declare module '@tanstack/react-router' {
     '/_public': {
       id: '/_public'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof PublicLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_protected': {
       id: '/_protected'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof ProtectedLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -138,14 +138,14 @@ declare module '@tanstack/react-router' {
     '/_protected/posts/': {
       id: '/_protected/posts/'
       path: '/posts'
-      fullPath: '/posts'
+      fullPath: '/posts/'
       preLoaderRoute: typeof ProtectedPostsIndexRouteImport
       parentRoute: typeof ProtectedLayoutRoute
     }
     '/_protected/posts/$postid/': {
       id: '/_protected/posts/$postid/'
       path: '/posts/$postid'
-      fullPath: '/posts/$postid'
+      fullPath: '/posts/$postid/'
       preLoaderRoute: typeof ProtectedPostsPostidIndexRouteImport
       parentRoute: typeof ProtectedLayoutRoute
     }
