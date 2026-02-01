@@ -49,7 +49,7 @@ function RouteComponent() {
   const post = Route.useLoaderData();
 
   return (
-    <div className="flex flex-col px-4 w-full max-w-6xl mx-auto break-words">
+    <div className="flex flex-col px-4 w-full max-w-6xl mx-auto wrap-break-word">
       <div className="text-center p-5 rounded-2xl">
         <h1 className="text-2xl md:text-4xl font-bold">{post.title}</h1>
         <h2 className="text-sm text-gray-500 mt-2">

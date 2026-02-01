@@ -52,7 +52,7 @@ function RouteComponent() {
                       env.PUBLIC_SERVER_API_PATH,
                     )}
                     target="_blank"
-                    className="text-blue-500 underline inline-flex items-center gap-x-1 break-words"
+                    className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
                     rel="noreferrer"
                   >
                     API
@@ -68,7 +68,7 @@ function RouteComponent() {
                       'reference',
                     )}
                     target="_blank"
-                    className="text-blue-500 underline inline-flex items-center gap-x-1 break-words"
+                    className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
                     rel="noreferrer"
                   >
                     Auth

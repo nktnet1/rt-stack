@@ -32,7 +32,7 @@ export default function UserAvatar({
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
-        <div className="flex flex-col p-2 max-w-full break-words whitespace-break-spaces">
+        <div className="flex flex-col p-2 max-w-full wrap-break-word whitespace-break-spaces">
           <span className="text-sm font-bold line-clamp-2">{user.name}</span>
           <span className="text-xs italic mt-1 line-clamp-2">{user.email}</span>
         </div>
@@ -46,7 +46,7 @@ export default function UserAvatar({
           }}
         >
           {resolvedTheme === 'dark' ? <MoonIcon /> : <SunIcon />}
-          <span className="ml-[5px] capitalize">Theme</span>
+          <span className="ml-1.25 capitalize">Theme</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={async () => {
@@ -54,7 +54,7 @@ export default function UserAvatar({
           }}
           className="cursor-pointer"
         >
-          <ExitIcon className="mr-[5px] w-5 ml-[0.5px]" />
+          <ExitIcon className="mr-1.25 w-5 ml-[0.5px]" />
           Logout
         </DropdownMenuItem>
       </DropdownMenuContent>

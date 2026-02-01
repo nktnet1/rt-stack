@@ -104,7 +104,7 @@ and to the unceasing vigilance of agents of the United States Handicapper Genera
       <DialogContent
         // Don't auto-focus the first input field
         onOpenAutoFocus={(e) => e.preventDefault()}
-        className="max-w-[90vw] xl:max-w-screen-lg data-[state=open]:slide-in-from-right-1/3 data-[state=closed]:slide-out-to-right-1/3 rounded-lg"
+        className="max-w-[90vw] xl:max-w-5xl data-[state=open]:slide-in-from-right-1/3 data-[state=closed]:slide-out-to-right-1/3 rounded-lg"
       >
         <DialogHeader>
           <DialogTitle>Create Post</DialogTitle>
