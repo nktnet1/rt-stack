@@ -10,5 +10,8 @@ export default defineConfig({
   clean: true,
   minify: true,
   sourcemap: false,
-  dts: { build: true },
+  dts: {
+    build: true,
+  },
+  inlineOnly: false,
 });
