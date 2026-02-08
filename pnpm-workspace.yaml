@@ -24,15 +24,15 @@ catalog:
   '@tailwindcss/vite': ^4.1.18
   '@tanstack/react-form': ^1.28.0
   '@tanstack/react-query': ^5.90.20
-  '@tanstack/react-router': ^1.157.17
-  '@tanstack/router-devtools': ^1.157.17
-  '@tanstack/router-plugin': ^1.157.17
+  '@tanstack/react-router': ^1.159.3
+  '@tanstack/router-devtools': ^1.159.3
+  '@tanstack/router-plugin': ^1.159.3
   '@types/eslint-config-prettier': ^6.11.3
-  '@types/node': ^25.1.0
+  '@types/node': ^25.2.2
   '@types/pg': ^8.16.0
-  '@types/react': ^19.2.10
+  '@types/react': ^19.2.13
   '@types/react-dom': ^19.2.3
-  '@vitejs/plugin-react-swc': ^4.2.2
+  '@vitejs/plugin-react-swc': ^4.2.3
   better-auth: ^1.4.18
   class-variance-authority: ^0.7.1
   dotenv-cli: ^11.0.0
@@ -41,14 +41,14 @@ catalog:
   drizzle-valibot: ^0.4.2
   eslint: ^9.39.2
   eslint-config-prettier: ^10.1.8
-  eslint-config-turbo: ^2.8.1
+  eslint-config-turbo: ^2.8.3
   eslint-plugin-import: ^2.32.0
   eslint-plugin-only-warn: ^1.1.0
   eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^7.0.1
-  eslint-plugin-turbo: ^2.8.1
-  globals: ^17.2.0
-  hono: ^4.11.7
+  eslint-plugin-turbo: ^2.8.3
+  globals: ^17.3.0
+  hono: ^4.11.9
   next-themes: ^0.4.6
   pg: ^8.18.0
   prettier: ^3.8.1
@@ -60,9 +60,9 @@ catalog:
   tailwind-merge: ^3.4.0
   tailwindcss: ^4.1.18
   tailwindcss-animate: ^1.0.7
-  tsdown: ^0.20.1
+  tsdown: ^0.20.3
   tsx: ^4.21.0
-  turbo: ^2.8.1
+  turbo: ^2.8.3
   typescript: ^5.9.3
   typescript-eslint: ^8.54.0
   url-join: ^5.0.0
