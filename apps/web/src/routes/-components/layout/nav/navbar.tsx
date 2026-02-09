@@ -4,7 +4,9 @@ import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
 import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
-const activeClassName = 'underline decoration-2 opacity-70';
+const className = {
+  linkActiveProps: 'underline decoration-2 opacity-70',
+};
 
 export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
   return (
@@ -12,7 +14,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
       <div className="flex gap-x-4">
         <Link
           to="/"
-          activeProps={{ className: activeClassName }}
+          activeProps={{ className: className.linkActiveProps }}
           activeOptions={{ exact: true }}
         >
           Home
@@ -20,7 +22,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
         {session?.user ? (
           <Link
             {...postsLinkOptions}
-            activeProps={{ className: activeClassName }}
+            activeProps={{ className: className.linkActiveProps }}
           >
             Posts
           </Link>
@@ -32,7 +34,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
         <div className="flex gap-x-2 justify-between">
           <Link
             to="/login"
-            activeProps={{ className: activeClassName }}
+            activeProps={{ className: className.linkActiveProps }}
             activeOptions={{ exact: true }}
           >
             Login
@@ -40,7 +42,7 @@ export function Navbar({ session }: Readonly<{ session: AuthSession }>) {
           <span>|</span>
           <Link
             to="/register"
-            activeProps={{ className: activeClassName }}
+            activeProps={{ className: className.linkActiveProps }}
             activeOptions={{ exact: true }}
           >
             Register
