@@ -25,9 +25,9 @@
     "env:run": "dotenv --",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "push": "pnpm env:run drizzle-kit push",
+    "db:push": "pnpm env:run drizzle-kit push",
+    "db:studio": "pnpm env:run drizzle-kit studio",
     "container:build": "tsdown",
-    "studio": "pnpm env:run drizzle-kit studio",
     "typecheck": "tsc --build --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@repo/prettier-config",

@@ -31,17 +31,17 @@
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json"]
     },
-    "push": {
+    "db:push": {
       "env": ["DB_POSTGRES_URL"],
       "cache": false,
       "interactive": true
     },
-    "start": {
-      "dependsOn": ["^build"]
-    },
-    "studio": {
+    "db:studio": {
       "cache": false,
       "persistent": true
+    },
+    "start": {
+      "dependsOn": ["^build"]
     },
     "ui-add": {
       "cache": false,
