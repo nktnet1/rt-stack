@@ -19,7 +19,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   void dbPush()
     .then(() => {
       console.log('Database pushed successfully.');
-      process.exit(1);
+      process.exit(0);
     })
     .catch((e) => {
       console.error(e);
