@@ -51,20 +51,24 @@ export default function RegisterCredentialsForm() {
       onChange: FormSchema,
     },
     onSubmit: async ({ value }) => {
-      const { error } = await authClient.signUp.email(
-        {
-          name: value.name,
-          email: value.email,
-          password: value.password,
-        },
-        {
-          onSuccess: () => {
-            navigate({ to: '/' });
+      try {
+        const { error } = await authClient.signUp.email(
+          {
+            name: value.name,
+            email: value.email,
+            password: value.password,
           },
-        },
-      );
-      if (error) {
-        toast.error(error.message ?? JSON.stringify(error));
+          {
+            onSuccess: () => {
+              navigate({ to: '/' });
+            },
+          },
+        );
+        if (error) {
+          toast.error(error.message ?? JSON.stringify(error));
+        }
+      } catch (error: unknown) {
+        toast.error(String(error));
       }
     },
   });
