@@ -5,7 +5,7 @@ packages:
 
 catalog:
   '@eslint/js': ^9.39.3
-  '@hono/node-server': ^1.19.9
+  '@hono/node-server': ^1.19.10
   '@orpc/client': ^1.13.6
   '@orpc/contract': ^1.13.6
   '@orpc/openapi': ^1.13.6
@@ -33,7 +33,7 @@ catalog:
   '@types/react': ^19.2.14
   '@types/react-dom': ^19.2.3
   '@vitejs/plugin-react-swc': ^4.2.3
-  better-auth: ^1.5.1
+  better-auth: ^1.5.2
   class-variance-authority: ^0.7.1
   dotenv-cli: ^11.0.0
   drizzle-kit: ^0.31.9
@@ -41,14 +41,14 @@ catalog:
   drizzle-valibot: ^0.4.2
   eslint: ^9.39.3
   eslint-config-prettier: ^10.1.8
-  eslint-config-turbo: ^2.8.12
+  eslint-config-turbo: ^2.8.13
   eslint-plugin-import: ^2.32.0
   eslint-plugin-only-warn: ^1.2.1
   eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^7.0.1
-  eslint-plugin-turbo: ^2.8.12
+  eslint-plugin-turbo: ^2.8.13
   globals: ^17.4.0
-  hono: ^4.12.3
+  hono: ^4.12.4
   next-themes: ^0.4.6
   pg: ^8.19.0
   prettier: ^3.8.1
@@ -60,9 +60,9 @@ catalog:
   tailwind-merge: ^3.5.0
   tailwindcss: ^4.2.1
   tailwindcss-animate: ^1.0.7
-  tsdown: ^0.21.0-beta.2
+  tsdown: ^0.20.3
   tsx: ^4.21.0
-  turbo: ^2.8.12
+  turbo: ^2.8.13
   typescript: ^5.9.3
   typescript-eslint: ^8.56.1
   url-join: ^5.0.0
@@ -70,9 +70,11 @@ catalog:
   vite: ^7.3.1
 
 ignoredBuiltDependencies:
+  - '@prisma/engines'
   - '@swc/core'
   - '@tailwindcss/oxide'
   - esbuild
+  - prisma
 
 overrides:
   diff@<=8.0.2: '>=8.0.3'
