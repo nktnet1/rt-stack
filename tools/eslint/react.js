@@ -26,7 +26,13 @@ export default defineConfig([
     plugins: {
       'react-hooks': pluginReactHooks,
     },
-    settings: { react: { version: 'detect' } },
+    settings: {
+      react: {
+        // Explicitly use '19' instead of 'detect':
+        // - https://gist.github.com/OscarGauss/1f305edf5b7c103bb2ee32ba479f4261
+        version: '19'
+      }
+    },
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
       // React scope no longer necessary with new JSX transform.

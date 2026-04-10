@@ -3,11 +3,12 @@
   "include": ["src"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "types": ["node"],
+    "rootDir": "./src",
     "lib": ["dom", "ES2022"],
     "composite": false,
     "emitDeclarationOnly": false,
     "declarationMap": false,
-    "declaration": false,
-    "baseUrl": "."
+    "declaration": false
   }
 }

@@ -7,8 +7,8 @@
     "postauth:schema:generate": "echo NOTE: you will also need to fix styles and db:push your new schema",
     "build": "turbo run build",
     "clean": "turbo run clean",
-    "db:push": "turbo -F @repo/db push",
-    "db:studio": "turbo -F @repo/db studio",
+    "db:push": "turbo -F @repo/db db:push",
+    "db:studio": "turbo -F @repo/db db:studio",
     "dev": "turbo watch dev --continue",
     "env:copy-example": "turbo run env:copy-example",
     "env:remove": "turbo run env:remove",
@@ -21,7 +21,7 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "devDependencies": {
     "turbo": "catalog:"
   },
