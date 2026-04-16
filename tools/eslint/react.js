@@ -30,8 +30,8 @@ export default defineConfig([
       react: {
         // Explicitly use '19' instead of 'detect':
         // - https://gist.github.com/OscarGauss/1f305edf5b7c103bb2ee32ba479f4261
-        version: '19'
-      }
+        version: '19',
+      },
     },
     rules: {
       ...pluginReactHooks.configs.recommended.rules,

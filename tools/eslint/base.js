@@ -3,7 +3,6 @@
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import turboConfig from 'eslint-config-turbo/flat';
-import eslintPluginImport from 'eslint-plugin-import';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
@@ -53,32 +52,6 @@ export default defineConfig([
   {
     plugins: {
       onlyWarn,
-    },
-  },
-  {
-    plugins: {
-      import: eslintPluginImport,
-    },
-    rules: {
-      'import/no-cycle': 'warn',
-      'import/order': [
-        'warn',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'type',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-            'object',
-          ],
-          alphabetize: {
-            order: 'asc',
-          },
-        },
-      ],
     },
   },
   {
