@@ -23,4 +23,10 @@ export const envSchema = v.object({
   PUBLIC_BASE_PATH: v.pipe(v.optional(v.string(), '/'), v.startsWith('/')),
 });
 
-export const env = v.parse(envSchema, import.meta.env);
+const { output, issues } = v.safeParse(envSchema, import.meta.env);
+
+if (issues) {
+  throw new Error(v.summarize(issues));
+}
+
+export const env = output;
