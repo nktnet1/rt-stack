@@ -19,19 +19,18 @@ RUN corepack enable pnpm
 
 FROM builder-base AS builder
 
-RUN pnpm install --global turbo@^2
-
 COPY . .
 
 # https://turbo.build/repo/docs/guides/tools/docker#the-solution
-RUN turbo prune server --docker
+RUN pnpm dlx turbo prune server --docker
 
 # =========================================================================== #
 
 FROM builder-base AS installer
 
 COPY --from=builder /app/out/json/ .
-RUN pnpm install --frozen-lockfile
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm install --frozen-lockfile
 
 COPY --from=builder /app/out/full/ .
 RUN pnpm --filter=server build

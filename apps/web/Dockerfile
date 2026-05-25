@@ -14,12 +14,9 @@ RUN corepack enable pnpm
 
 FROM base AS builder
 
-RUN pnpm install --global turbo@^2
-
 COPY . .
 
-# https://turbo.build/repo/docs/guides/tools/docker#the-solution
-RUN turbo prune web --docker
+RUN pnpm dlx turbo prune web --docker
 
 # =========================================================================== #
 
@@ -32,7 +29,8 @@ ARG PUBLIC_SERVER_API_PATH
 ENV PUBLIC_SERVER_API_PATH=${PUBLIC_SERVER_API_PATH}
 
 COPY --from=builder /app/out/json/ .
-RUN pnpm install --frozen-lockfile
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm install --frozen-lockfile
 
 COPY --from=builder /app/out/full/ .
 RUN pnpm build
