@@ -57,7 +57,7 @@ export default defineConfig({
     strictPort: true,
   },
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         /**
          * Modified from:
