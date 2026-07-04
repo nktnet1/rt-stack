@@ -1,4 +1,4 @@
-import { Navigate, Outlet, createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Navigate, Outlet } from '@tanstack/react-router';
 import { authClient } from '@/clients/authClient';
 import Spinner from '@/routes/-components/common/spinner';
 

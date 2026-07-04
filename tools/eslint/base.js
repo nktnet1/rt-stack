@@ -1,12 +1,12 @@
 /// <reference types="./types.d.ts" />
 
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import turboConfig from 'eslint-config-turbo/flat';
+import onlyWarn from 'eslint-plugin-only-warn';
 import turboPlugin from 'eslint-plugin-turbo';
 import tseslint from 'typescript-eslint';
-import { defineConfig } from 'eslint/config';
-import onlyWarn from 'eslint-plugin-only-warn';
 
 export const restrictEnvAccess = defineConfig([
   { ignores: ['**/env.ts', 'dist/**'] },

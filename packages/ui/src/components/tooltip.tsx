@@ -32,7 +32,7 @@ TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 export {
   Tooltip,
   TooltipArrow,
-  TooltipTrigger,
   TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 };

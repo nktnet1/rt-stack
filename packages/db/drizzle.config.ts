@@ -1,5 +1,5 @@
-import * as v from 'valibot';
 import type { Config } from 'drizzle-kit';
+import * as v from 'valibot';
 
 const envSchema = v.object({
   DB_POSTGRES_URL: v.pipe(v.string(), v.minLength(1)),

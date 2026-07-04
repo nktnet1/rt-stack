@@ -35,7 +35,7 @@ const FormSchema = v.object({
   ),
 });
 
-const generateTimestamp = () => +new Date();
+const generateTimestamp = () => Date.now();
 
 export default function CreatePostButton() {
   const getAllPostsQuery = useQuery(apiClient.posts.all.queryOptions());

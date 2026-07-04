@@ -4,32 +4,33 @@ import {
   MagnifyingGlassIcon,
   TrashIcon,
 } from '@radix-ui/react-icons';
+import type { RouterOutput } from '@repo/api/client';
 import { Button } from '@repo/ui/components/button';
 import { Input } from '@repo/ui/components/input';
 import {
   Tooltip,
-  TooltipTrigger,
-  TooltipContent,
   TooltipArrow,
+  TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from '@repo/ui/components/tooltip';
 import { useQuery } from '@tanstack/react-query';
 import {
   createFileRoute,
-  stripSearchParams,
+  Link,
   type SearchSchemaInput,
+  stripSearchParams,
+  useNavigate,
 } from '@tanstack/react-router';
-import { Link, useNavigate } from '@tanstack/react-router';
 import * as v from 'valibot';
-import type { RouterOutput } from '@repo/api/client';
 import { apiClient } from '@/clients/apiClient';
 import { queryClient } from '@/clients/queryClient';
 import CreatePostButton from '@/routes/_protected/posts/-components/create-post';
 import DeletePostButton from '@/routes/_protected/posts/-components/delete-post';
 import {
+  type PostSearchSchema,
   postsSearchDefaults,
   postsSearchSchema,
-  type PostSearchSchema,
 } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/')({

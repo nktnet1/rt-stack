@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server';
-import { env } from './env';
 import app from '.';
+import { env } from './env';
 
 const server = serve(
   {

@@ -89,33 +89,31 @@ export default function LoginCredentialsForm() {
           children={(field) => (
             <>
               <Label htmlFor={field.name}>Password</Label>
-              <>
-                <div className="flex justify-end items-center relative w-full">
-                  <Input
-                    className="mt-1 pr-10"
-                    id={field.name}
-                    type={isPasswordVisible ? 'text' : 'password'}
-                    name={field.name}
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(e.target.value)}
-                  />
-                  <Button
-                    className="absolute mr-2 w-7 h-7 rounded-full"
-                    type="button"
-                    tabIndex={-1}
-                    variant="ghost"
-                    size="icon"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsPasswordVisible(!isPasswordVisible);
-                    }}
-                  >
-                    {isPasswordVisible ? <EyeOpenIcon /> : <EyeNoneIcon />}
-                  </Button>
-                </div>
-                <FormFieldInfo field={field} />
-              </>
+              <div className="flex justify-end items-center relative w-full">
+                <Input
+                  className="mt-1 pr-10"
+                  id={field.name}
+                  type={isPasswordVisible ? 'text' : 'password'}
+                  name={field.name}
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                />
+                <Button
+                  className="absolute mr-2 w-7 h-7 rounded-full"
+                  type="button"
+                  tabIndex={-1}
+                  variant="ghost"
+                  size="icon"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsPasswordVisible(!isPasswordVisible);
+                  }}
+                >
+                  {isPasswordVisible ? <EyeOpenIcon /> : <EyeNoneIcon />}
+                </Button>
+              </div>
+              <FormFieldInfo field={field} />
             </>
           )}
         />

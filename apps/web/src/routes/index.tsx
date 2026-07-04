@@ -23,62 +23,59 @@ function RouteComponent() {
   return (
     <div className="mt-1">
       {session?.user && (
-        <>
-          <div className="flex flex-col mb-5 bg-elevated p-3 rounded-lg">
-            <div>
-              Welcome, <span className="font-bold">{session.user.name}</span>!
-            </div>
-            <div className="mt-3 flex gap-x-1.5">
-              Click{' '}
-              <Link
-                {...postsLinkOptions}
-                className="flex items-center gap-x-1 text-blue-500 underline"
-              >
-                here <Link2Icon className="mt-0.5" />
-              </Link>{' '}
-              to view your posts.
-            </div>
-
-            <div className="mt-3">
-              <p>
-                You can also interact with the OpenAPI specification using
-                Scalar:
-              </p>
-              <ul className="mt-2 list-disc space-y-1 pl-6">
-                <li>
-                  <a
-                    href={urlJoin(
-                      env.PUBLIC_SERVER_URL,
-                      env.PUBLIC_SERVER_API_PATH,
-                    )}
-                    target="_blank"
-                    className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
-                    rel="noreferrer"
-                  >
-                    API
-                    <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={urlJoin(
-                      env.PUBLIC_SERVER_URL,
-                      env.PUBLIC_SERVER_API_PATH,
-                      'auth',
-                      'reference',
-                    )}
-                    target="_blank"
-                    className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
-                    rel="noreferrer"
-                  >
-                    Auth
-                    <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <div className="flex flex-col mb-5 bg-elevated p-3 rounded-lg">
+          <div>
+            Welcome, <span className="font-bold">{session.user.name}</span>!
           </div>
-        </>
+          <div className="mt-3 flex gap-x-1.5">
+            Click{' '}
+            <Link
+              {...postsLinkOptions}
+              className="flex items-center gap-x-1 text-blue-500 underline"
+            >
+              here <Link2Icon className="mt-0.5" />
+            </Link>{' '}
+            to view your posts.
+          </div>
+
+          <div className="mt-3">
+            <p>
+              You can also interact with the OpenAPI specification using Scalar:
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-6">
+              <li>
+                <a
+                  href={urlJoin(
+                    env.PUBLIC_SERVER_URL,
+                    env.PUBLIC_SERVER_API_PATH,
+                  )}
+                  target="_blank"
+                  className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
+                  rel="noreferrer"
+                >
+                  API
+                  <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={urlJoin(
+                    env.PUBLIC_SERVER_URL,
+                    env.PUBLIC_SERVER_API_PATH,
+                    'auth',
+                    'reference',
+                  )}
+                  target="_blank"
+                  className="text-blue-500 underline inline-flex items-center gap-x-1 wrap-break-word"
+                  rel="noreferrer"
+                >
+                  Auth
+                  <ExternalLinkIcon className="mt-0.5 h-4 w-4" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       )}
       <div>
         This is the live demo for{' '}

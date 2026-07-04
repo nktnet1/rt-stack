@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router';
 import type { AuthSession } from '@/clients/authClient';
+import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 import NavContainer from '@/routes/-components/layout/nav/nav-container';
 import UserAvatar from '@/routes/-components/layout/nav/user-avatar';
-import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
 
 const className = {
   linkActiveProps: 'underline decoration-2 opacity-70',

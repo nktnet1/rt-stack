@@ -1,9 +1,8 @@
+import type { DatabaseInstance } from '@repo/db/client';
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
-
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { openAPI } from 'better-auth/plugins';
 import urlJoin from 'url-join';
-import type { DatabaseInstance } from '@repo/db/client';
 
 export interface AuthOptions {
   webUrl: string;

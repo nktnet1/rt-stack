@@ -1,4 +1,4 @@
-import { os, implement } from '@orpc/server';
+import { implement, os } from '@orpc/server';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
 import { appContract } from '../contracts';
