@@ -114,7 +114,7 @@ Ensure the following tools are available on your system:
 
 ```bash
 # Create a repository using the rt-stack template (replace YOUR_PROJECT)
-pnpm dlx create-turbo@latest -m pnpm -e https://github.com/nktnet1/rt-stack YOUR_PROJECT
+pnpx create-turbo@latest -m pnpm -e https://github.com/nktnet1/rt-stack YOUR_PROJECT
 
 # Enter the directory or open in your IDE (replace YOUR_PROJECT)
 cd YOUR_PROJECT
