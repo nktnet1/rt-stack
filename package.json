@@ -21,7 +21,7 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.15.0",
   "devDependencies": {
     "turbo": "catalog:"
   },
