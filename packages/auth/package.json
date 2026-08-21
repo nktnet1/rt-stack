@@ -11,7 +11,7 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
-    "auth:schema:generate": "pnpx @better-auth/cli generate --config ./src/cli-config.ts --output ../db/src/schemas/auth.ts",
+    "auth:schema:generate": "pnpx auth@latest generate --config ./src/cli-config.ts --output ../db/src/schemas/auth.ts",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
