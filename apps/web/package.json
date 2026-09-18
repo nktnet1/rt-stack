@@ -12,7 +12,7 @@
     "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "preview": "pnpm env:run preview",
-    "start": "dotenv -- node scripts/prepare-serve.mjs && serve -s dist -l tcp://0.0.0.0:8085",
+    "start": "dotenv -- node scripts/prepare-serve.ts && serve -s dist -l tcp://0.0.0.0:8085",
     "typecheck": "tsc --build"
   },
   "dependencies": {

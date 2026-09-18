@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
-const normalizeBasePath = (input) => {
+const normalizeBasePath = (input: string): string => {
   if (!input.startsWith('/')) {
     throw new Error('PUBLIC_BASE_PATH must start with "/".');
   }
@@ -37,7 +37,7 @@ try {
     `dist is already prepared for PUBLIC_BASE_PATH=${stagedBasePath}. Rebuild before changing the base path.`,
   );
 } catch (error) {
-  if (error?.code !== 'ENOENT') {
+  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
     throw error;
   }
 }
