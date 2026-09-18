@@ -44,7 +44,7 @@ export const Route = createFileRoute('/_protected/posts/')({
   errorComponent: ({ error }) => {
     return (
       <div className="flex flex-col items-center w-full gap-y-3">
-        <div>{error.message}</div>
+        <div>{error instanceof Error ? error.message : String(error)}</div>
       </div>
     );
   },

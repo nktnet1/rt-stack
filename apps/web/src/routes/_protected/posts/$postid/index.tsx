@@ -14,14 +14,14 @@ import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-l
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
   loader: ({ params }) =>
-    queryClient.ensureQueryData(
+    queryClient.query(
       apiClient.posts.one.queryOptions({ input: { id: params.postid } }),
     ),
   component: RouteComponent,
   errorComponent: ({ error, reset }) => {
     return (
       <div className="flex flex-col items-center w-full gap-y-3">
-        <div>{error.message}</div>
+        <div>{error instanceof Error ? error.message : String(error)}</div>
         <div className="flex gap-2">
           <Button asChild variant="outline" className="w-full">
             <Link {...postsLinkOptions}>

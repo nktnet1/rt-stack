@@ -9,7 +9,7 @@ overrides:
   "@babel/core@<=7.29.0": ^7.29.1
   "@hono/node-server@<1.19.13": ">=1.19.13"
   brace-expansion@<1.1.18: ^1.1.18
-  brace-expansion@>=5.0.0 <5.0.6: ^5.0.9
+  brace-expansion@>=5.0.0 <5.0.6: ^5.0.12
   effect@<3.20.0: ">=3.20.0"
   esbuild@<0.28.1: ">=0.28.1"
   hono@<4.12.14: ">=4.12.14"
@@ -20,13 +20,13 @@ overrides:
 catalog:
   "@eslint/js": ^10.0.1
   "@hono/node-server": ^2.1.1
-  "@orpc/client": ^1.15.0
-  "@orpc/contract": ^1.15.0
-  "@orpc/openapi": ^1.15.0
-  "@orpc/openapi-client": ^1.15.0
-  "@orpc/server": ^1.15.0
-  "@orpc/tanstack-query": ^1.15.0
-  "@orpc/valibot": ^1.15.0
+  "@orpc/client": ^1.15.1
+  "@orpc/contract": ^1.15.1
+  "@orpc/openapi": ^1.15.1
+  "@orpc/openapi-client": ^1.15.1
+  "@orpc/server": ^1.15.1
+  "@orpc/tanstack-query": ^1.15.1
+  "@orpc/valibot": ^1.15.1
   "@radix-ui/react-avatar": ^1.2.6
   "@radix-ui/react-dialog": ^1.1.23
   "@radix-ui/react-dropdown-menu": ^2.1.24
@@ -36,47 +36,47 @@ catalog:
   "@radix-ui/react-tooltip": ^1.2.16
   "@tailwindcss/vite": ^4.3.3
   "@tanstack/react-form": ^1.33.5
-  "@tanstack/react-query": ^5.101.4
-  "@tanstack/react-router": ^1.170.31
-  "@tanstack/router-devtools": ^1.167.1
-  "@tanstack/router-plugin": ^1.168.34
-  "@types/node": ^26.2.0
+  "@tanstack/react-query": ^5.103.1
+  "@tanstack/react-router": ^1.170.38
+  "@tanstack/router-devtools": ^1.167.2
+  "@tanstack/router-plugin": ^1.168.40
+  "@types/node": ^26.6.1
   "@types/pg": ^8.23.1
-  "@types/react": ^19.2.18
-  "@types/react-dom": ^19.2.4
+  "@types/react": ^19.3.0
+  "@types/react-dom": ^19.3.0
   "@vitejs/plugin-react-swc": ^4.3.3
-  better-auth: ^1.7.1
+  better-auth: ^1.7.5
   class-variance-authority: ^0.7.1
   dotenv-cli: ^11.0.0
   drizzle-kit: ^0.31.10
   drizzle-orm: ^0.45.2
   drizzle-valibot: ^0.4.2
-  eslint: ^10.8.1
+  eslint: ^10.10.0
   eslint-config-prettier: ^10.1.8
-  eslint-config-turbo: ^2.10.11
+  eslint-config-turbo: ^2.10.13
   eslint-plugin-only-warn: ^1.2.1
   eslint-plugin-react: ^7.37.5
   eslint-plugin-react-hooks: ^7.1.1
-  eslint-plugin-turbo: ^2.10.11
-  globals: ^17.11.0
-  hono: ^4.13.3
+  eslint-plugin-turbo: ^2.10.13
+  globals: ^17.12.0
+  hono: ^4.13.8
   knip: 6.36.0
   next-themes: ^0.4.6
   pg: ^8.23.0
-  prettier: ^3.9.6
-  react: ^19.2.8
-  react-dom: ^19.2.8
+  prettier: ^3.9.7
+  react: ^19.3.0
+  react-dom: ^19.3.0
   shx: ^0.4.0
   sonner: ^2.0.8
-  tailwind-merge: ^3.6.0
+  tailwind-merge: ^3.7.0
   tailwindcss: ^4.3.3
   tailwindcss-animate: ^1.0.7
   taze: 21.1.0
-  tsdown: ^0.22.14
-  tsx: ^4.23.12
-  turbo: ^2.10.11
+  tsdown: ^0.23.0
+  tsx: ^4.23.13
+  turbo: ^2.10.13
   typescript: ^6.0.3
-  typescript-eslint: ^8.67.0
+  typescript-eslint: ^8.70.0
   url-join: ^5.0.0
-  valibot: ^1.4.2
-  vite: ^8.2.1
+  valibot: ^1.5.0
+  vite: ^8.3.0
