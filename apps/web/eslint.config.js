@@ -6,7 +6,7 @@ export default [
   ...reactConfig,
   ...restrictEnvAccess,
   {
-    files: ['vite.config.ts'],
+    files: ['vite.config.ts', 'scripts/**/*.ts'],
     rules: {
       'no-restricted-properties': 'off',
     },

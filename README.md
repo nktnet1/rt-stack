@@ -329,9 +329,12 @@ mentioned above for you - this includes:
   - https://github.com/Dokploy/dokploy
   - http://dokploy.com
 
-Do note that for the **web** application, the `PUBLIC_SERVER_URL` variable needs
-to be available at build time (as a docker build argument), rather than an environment
-variable at runtime.
+For the **web** application, `PUBLIC_SERVER_URL`, `PUBLIC_SERVER_API_PATH`,
+and `PUBLIC_BASE_PATH` are build-time variables. When building the Docker image,
+pass them as build arguments rather than runtime environment variables.
+`PUBLIC_SERVER_API_PATH` defaults to `/api` and `PUBLIC_BASE_PATH` defaults to
+`/`. Set `PUBLIC_BASE_PATH` when the static site is served below the domain root,
+for example `/my-app/`.
 
 Also, both the **server** application's `PUBLIC_WEB_URL` and the **web**
 application's `PUBLIC_SERVER_URL` need to be set as internet-accessible URLs

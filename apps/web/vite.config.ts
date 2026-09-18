@@ -6,7 +6,12 @@ import react from '@vitejs/plugin-react-swc';
 import * as v from 'valibot';
 import { defineConfig } from 'vite';
 
-import { publicBasePathSchema, toViteBasePath } from './env.shared.ts';
+import { publicWebEnvEntries } from './env.client.ts';
+import {
+  parseWebServerAddress,
+  publicWebUrlSchema,
+  toViteBasePath,
+} from './env.shared.ts';
 
 /**
  * Fixes issue with "__dirname is not defined in ES module scope"
@@ -20,26 +25,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const envSchema = v.object({
-  /**
-   * Vite uses this URL to configure the host and port for development and
-   * preview servers. For example: http://127.0.0.1:8085.
-   */
-  PUBLIC_WEB_URL: v.pipe(
-    v.optional(v.string(), 'http://127.0.0.1:8085'),
-    v.url(),
-  ),
+  ...publicWebEnvEntries,
 
   /**
-   * Set this if you want to run or deploy your app at a base URL. This is
-   * usually required for deploying a repository to GitHub/GitLab Pages.
+   * Vite and the production-like local server use this URL to configure the
+   * host and port. For example: http://127.0.0.1:8085.
    */
-  PUBLIC_BASE_PATH: publicBasePathSchema,
+  PUBLIC_WEB_URL: publicWebUrlSchema,
 });
 
 const env = v.parse(envSchema, process.env);
-const webUrl = new URL(env.PUBLIC_WEB_URL);
-const host = webUrl.hostname;
-const port = parseInt(webUrl.port, 10);
+const { host, port } = parseWebServerAddress(env.PUBLIC_WEB_URL);
+const serverOptions = {
+  host,
+  port,
+  strictPort: true,
+};
 
 export default defineConfig({
   plugins: [
@@ -52,11 +53,8 @@ export default defineConfig({
   ],
   base: toViteBasePath(env.PUBLIC_BASE_PATH),
   envPrefix: 'PUBLIC_',
-  server: {
-    host,
-    port,
-    strictPort: true,
-  },
+  server: serverOptions,
+  preview: serverOptions,
   build: {
     rolldownOptions: {
       output: {

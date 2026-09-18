@@ -1,6 +1,11 @@
 {
   "extends": "@repo/typescript-config/base.json",
-  "include": ["env.shared.ts", "vite.config.ts", "scripts/**/*.ts"],
+  "include": [
+    "env.client.ts",
+    "env.shared.ts",
+    "vite.config.ts",
+    "scripts/**/*.ts"
+  ],
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",

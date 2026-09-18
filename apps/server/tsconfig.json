@@ -1,6 +1,6 @@
 {
   "extends": "@repo/typescript-config/base.json",
-  "include": ["src"],
+  "include": ["src", "scripts"],
   "compilerOptions": {
     "module": "es2022",
     "lib": ["ES2022", "DOM"],

@@ -1,3 +1,4 @@
+import { apiPathSchema } from '@repo/api/path';
 import * as v from 'valibot';
 
 const DEFAULT_SERVER_PORT = 3035;
@@ -11,21 +12,6 @@ const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
     v.minValue(0),
     v.maxValue(65535),
   );
-
-const apiPathSchema = v.pipe(
-  v.custom<`/${string}`>(
-    (input) => typeof input === 'string' && input.startsWith('/'),
-    'API Path must start with "/" if provided.',
-  ),
-  v.transform((input) => {
-    const normalized = input.split('/').filter(Boolean).join('/');
-    return `/${normalized}` as `/${string}`;
-  }),
-  v.check(
-    (input) => input !== '/',
-    'API Path must contain at least one path segment.',
-  ),
-);
 
 const envSchema = v.object({
   SERVER_PORT: createPortSchema({ defaultPort: DEFAULT_SERVER_PORT }),

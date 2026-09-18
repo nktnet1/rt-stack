@@ -10,9 +10,9 @@
     "env:remove": "shx -- rm -f .env",
     "env:run": "dotenv -- vite --configLoader runner",
     "format": "prettier --check . --ignore-path .prettierignore --ignore-path ../../.gitignore",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint .",
     "preview": "pnpm env:run preview",
-    "start": "dotenv -- node scripts/prepare-serve.ts && serve -s dist -l tcp://127.0.0.1:8085",
+    "start": "dotenv -- node scripts/start.ts",
     "typecheck": "tsc --build"
   },
   "dependencies": {
