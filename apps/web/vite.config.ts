@@ -17,6 +17,23 @@ import { defineConfig } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const basePathSchema = v.pipe(
+  v.custom<`/${string}`>(
+    (input) => typeof input === 'string' && input.startsWith('/'),
+    'Base Path must start with "/" if provided.',
+  ),
+  v.check(
+    (input) =>
+      !input.includes('\\') &&
+      input.split('/').every((segment) => segment !== '.' && segment !== '..'),
+    'Base Path must not contain backslashes, ".", or ".." path segments.',
+  ),
+  v.transform((input) => {
+    const normalized = input.split('/').filter(Boolean).join('/');
+    return normalized ? `/${normalized}/` : '/';
+  }),
+);
+
 const envSchema = v.object({
   /**
    * Vite uses this URL to configure the host and port for development and
@@ -31,7 +48,7 @@ const envSchema = v.object({
    * Set this if you want to run or deploy your app at a base URL. This is
    * usually required for deploying a repository to GitHub/GitLab Pages.
    */
-  PUBLIC_BASE_PATH: v.pipe(v.optional(v.string(), '/'), v.startsWith('/')),
+  PUBLIC_BASE_PATH: v.optional(basePathSchema, '/'),
 });
 
 const env = v.parse(envSchema, process.env);

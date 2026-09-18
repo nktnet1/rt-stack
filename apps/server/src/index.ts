@@ -53,11 +53,8 @@ app.get('/', (c) => {
 
 // ========================================================================= //
 
-const apiRoutePath =
-  env.PUBLIC_SERVER_API_PATH === '/' ? '' : env.PUBLIC_SERVER_API_PATH;
-
 app.use(
-  `${apiRoutePath}/auth/*`,
+  `${env.PUBLIC_SERVER_API_PATH}/auth/*`,
   cors({
     origin: trustedOrigins,
     credentials: true,
@@ -68,14 +65,14 @@ app.use(
   }),
 );
 
-app.on(['POST', 'GET'], `${apiRoutePath}/auth/*`, (c) =>
+app.on(['POST', 'GET'], `${env.PUBLIC_SERVER_API_PATH}/auth/*`, (c) =>
   auth.handler(c.req.raw),
 );
 
 // ========================================================================= //
 
 app.use(
-  `${apiRoutePath}/*`,
+  `${env.PUBLIC_SERVER_API_PATH}/*`,
   cors({
     origin: trustedOrigins,
     credentials: true,

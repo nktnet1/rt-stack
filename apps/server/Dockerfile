@@ -39,6 +39,9 @@ RUN pnpm --filter=server build
 
 FROM base AS production
 
+ENV SERVER_HOST=0.0.0.0
+ENV SERVER_PORT=3000
+
 RUN addgroup --system --gid 1001 nodejs \
     && adduser --system --uid 1001 --ingroup nodejs hono
 

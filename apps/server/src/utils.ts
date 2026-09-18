@@ -1,3 +1,5 @@
+import urlJoin from 'url-join';
+
 export const generateRootHtml = (
   webUrl: string,
   serverUrl: string,
@@ -68,12 +70,12 @@ export const generateRootHtml = (
           </a>
         </li>
         <li>
-          <a href="${serverUrl}${apiPath}" target="_blank" rel="noreferrer">
+          <a href="${urlJoin(serverUrl, apiPath)}" target="_blank" rel="noreferrer">
             API - OpenAPI Reference (Scalar)
           </a>
         </li>
         <li>
-          <a href="${serverUrl}${apiPath}/auth/reference" target="_blank" rel="noreferrer">
+          <a href="${urlJoin(serverUrl, apiPath, 'auth/reference')}" target="_blank" rel="noreferrer">
             Auth - OpenAPI Reference (Scalar)
           </a>
         </li>

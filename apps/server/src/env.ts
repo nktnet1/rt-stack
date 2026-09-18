@@ -21,6 +21,10 @@ const apiPathSchema = v.pipe(
     const normalized = input.split('/').filter(Boolean).join('/');
     return `/${normalized}` as `/${string}`;
   }),
+  v.check(
+    (input) => input !== '/',
+    'API Path must contain at least one path segment.',
+  ),
 );
 
 const envSchema = v.object({

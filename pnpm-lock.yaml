@@ -395,6 +395,9 @@ importers:
       hono:
         specifier: 'catalog:'
         version: 4.13.8
+      url-join:
+        specifier: 'catalog:'
+        version: 5.0.0
       valibot:
         specifier: 'catalog:'
         version: 1.5.0(typescript@6.0.3)

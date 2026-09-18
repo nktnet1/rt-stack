@@ -5,8 +5,8 @@ services:
       dockerfile: ./apps/web/Dockerfile
       args:
         # Backend API server - used at build time to create the bundle
-        PUBLIC_SERVER_URL: http://localhost:3035
-        PUBLIC_SERVER_API_PATH: /api
+        PUBLIC_SERVER_URL: ${PUBLIC_SERVER_URL:-http://localhost:3035}
+        PUBLIC_SERVER_API_PATH: ${PUBLIC_SERVER_API_PATH:-/api}
         PUBLIC_BASE_PATH: ${PUBLIC_BASE_PATH:-/}
     ports:
       - 8085:80
@@ -30,8 +30,9 @@ services:
       - SERVER_POSTGRES_URL=postgres://postgres:postgres@db:5432/postgres
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=3000
-      - PUBLIC_WEB_URL=http://localhost:8085
-      - PUBLIC_SERVER_URL=http://localhost:3035
+      - PUBLIC_WEB_URL=${PUBLIC_WEB_URL:-http://localhost:8085}
+      - PUBLIC_SERVER_URL=${PUBLIC_SERVER_URL:-http://localhost:3035}
+      - PUBLIC_SERVER_API_PATH=${PUBLIC_SERVER_API_PATH:-/api}
     healthcheck:
       interval: 30s
       timeout: 10s

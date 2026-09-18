@@ -9,6 +9,27 @@ const apiPathSchema = v.pipe(
     const normalized = input.split('/').filter(Boolean).join('/');
     return `/${normalized}` as `/${string}`;
   }),
+  v.check(
+    (input) => input !== '/',
+    'API Path must contain at least one path segment.',
+  ),
+);
+
+const basePathSchema = v.pipe(
+  v.custom<`/${string}`>(
+    (input) => typeof input === 'string' && input.startsWith('/'),
+    'Base Path must start with "/" if provided.',
+  ),
+  v.check(
+    (input) =>
+      !input.includes('\\') &&
+      input.split('/').every((segment) => segment !== '.' && segment !== '..'),
+    'Base Path must not contain backslashes, ".", or ".." path segments.',
+  ),
+  v.transform((input) => {
+    const normalized = input.split('/').filter(Boolean).join('/');
+    return normalized ? `/${normalized}` : '/';
+  }),
 );
 
 const envSchema = v.object({
@@ -23,7 +44,7 @@ const envSchema = v.object({
    * Set this if you want to run or deploy your app at a base URL. This is
    * usually required for deploying a repository to GitHub/GitLab Pages.
    */
-  PUBLIC_BASE_PATH: v.pipe(v.optional(v.string(), '/'), v.startsWith('/')),
+  PUBLIC_BASE_PATH: v.optional(basePathSchema, '/'),
 });
 
 const { output, issues } = v.safeParse(envSchema, import.meta.env);

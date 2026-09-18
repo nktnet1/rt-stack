@@ -3,16 +3,16 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
+      "env": ["SERVER_*", "PUBLIC_*"],
       "inputs": ["$TURBO_DEFAULT$", ".env"],
       "persistent": true
     },
     "build": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
+      "env": ["SERVER_*", "PUBLIC_*"],
       "inputs": ["$TURBO_DEFAULT$", ".env"]
     },
     "start": {
-      "env": ["SERVER_*", "PUBLIC_WEB_URL"],
+      "env": ["SERVER_*", "PUBLIC_*"],
       "persistent": true
     }
   }

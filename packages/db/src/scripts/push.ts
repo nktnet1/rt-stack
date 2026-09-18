@@ -10,7 +10,15 @@ const dbPush = async () => {
     schema,
     db as unknown as PgDatabase<PgQueryResultHKT>,
   );
-  console.log('Has data loss:', res.hasDataLoss);
+
+  if (res.hasDataLoss) {
+    console.error(
+      'Database push aborted because the proposed schema changes would cause data loss.',
+    );
+    console.error('Warnings:', res.warnings);
+    process.exit(1);
+  }
+
   console.log('Warnings:', res.warnings);
   return res.apply();
 };
