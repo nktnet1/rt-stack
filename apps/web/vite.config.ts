@@ -6,6 +6,8 @@ import react from '@vitejs/plugin-react-swc';
 import * as v from 'valibot';
 import { defineConfig } from 'vite';
 
+import { publicBasePathSchema, toViteBasePath } from './env.shared.ts';
+
 /**
  * Fixes issue with "__dirname is not defined in ES module scope"
  * https://flaviocopes.com/fix-dirname-not-defined-es-module-scope
@@ -16,23 +18,6 @@ import { defineConfig } from 'vite';
  */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const basePathSchema = v.pipe(
-  v.custom<`/${string}`>(
-    (input) => typeof input === 'string' && input.startsWith('/'),
-    'Base Path must start with "/" if provided.',
-  ),
-  v.check(
-    (input) =>
-      !input.includes('\\') &&
-      input.split('/').every((segment) => segment !== '.' && segment !== '..'),
-    'Base Path must not contain backslashes, ".", or ".." path segments.',
-  ),
-  v.transform((input) => {
-    const normalized = input.split('/').filter(Boolean).join('/');
-    return normalized ? `/${normalized}/` : '/';
-  }),
-);
 
 const envSchema = v.object({
   /**
@@ -48,7 +33,7 @@ const envSchema = v.object({
    * Set this if you want to run or deploy your app at a base URL. This is
    * usually required for deploying a repository to GitHub/GitLab Pages.
    */
-  PUBLIC_BASE_PATH: v.optional(basePathSchema, '/'),
+  PUBLIC_BASE_PATH: publicBasePathSchema,
 });
 
 const env = v.parse(envSchema, process.env);
@@ -65,7 +50,7 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  base: env.PUBLIC_BASE_PATH,
+  base: toViteBasePath(env.PUBLIC_BASE_PATH),
   envPrefix: 'PUBLIC_',
   server: {
     host,

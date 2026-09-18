@@ -2,25 +2,9 @@ import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
-const normalizeBasePath = (input: string): string => {
-  if (!input.startsWith('/')) {
-    throw new Error('PUBLIC_BASE_PATH must start with "/".');
-  }
+import { parseBasePath, toViteBasePath } from '../env.shared.ts';
 
-  const segments = input.split('/').filter(Boolean);
-  if (
-    input.includes('\\') ||
-    segments.some((segment) => segment === '.' || segment === '..')
-  ) {
-    throw new Error(
-      'PUBLIC_BASE_PATH must not contain backslashes, ".", or ".." path segments.',
-    );
-  }
-
-  return segments.length === 0 ? '/' : `/${segments.join('/')}/`;
-};
-
-const basePath = normalizeBasePath(process.env.PUBLIC_BASE_PATH ?? '/');
+const basePath = toViteBasePath(parseBasePath(process.env.PUBLIC_BASE_PATH));
 if (basePath === '/') {
   process.exit(0);
 }

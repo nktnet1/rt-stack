@@ -36,27 +36,19 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
 COPY --from=builder /app/out/full/ .
-RUN pnpm build
+RUN pnpm build && \
+    cd apps/web && \
+    node scripts/prepare-serve.ts && \
+    rm -f dist/.serve-base-path
 
 # =========================================================================== #
 
 FROM nginx:stable-alpine AS production
 
-ARG PUBLIC_BASE_PATH=/
-ENV PUBLIC_BASE_PATH=${PUBLIC_BASE_PATH}
-
 WORKDIR /app
 
 COPY apps/web/nginx.conf /etc/nginx/nginx.conf
-COPY --from=installer /app/apps/web/dist /tmp/web-dist
-RUN set -eux; \
-    cp -R /tmp/web-dist/. /usr/share/nginx/html/; \
-    base_path="$(printf '%s' "$PUBLIC_BASE_PATH" | sed -e 's#//*#/#g' -e 's#^/##' -e 's#/$##')"; \
-    if [ -n "$base_path" ]; then \
-      mkdir -p "/usr/share/nginx/html/$base_path"; \
-      cp -R /tmp/web-dist/. "/usr/share/nginx/html/$base_path/"; \
-    fi; \
-    rm -rf /tmp/web-dist
+COPY --from=installer /app/apps/web/dist /usr/share/nginx/html
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
   CMD curl --fail --silent http://0.0.0.0:80/healthcheck || exit 1

@@ -12,3 +12,6 @@ out/
 !.env.example
 
 .vercel
+
+*.bundle
+*.patch
