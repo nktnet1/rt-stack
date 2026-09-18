@@ -35,24 +35,22 @@
     "@radix-ui/react-icons": "catalog:",
     "@radix-ui/react-label": "catalog:",
     "@radix-ui/react-slot": "catalog:",
-    "@radix-ui/react-toast": "catalog:",
     "@radix-ui/react-tooltip": "catalog:",
     "class-variance-authority": "catalog:",
     "next-themes": "catalog:",
-    "radix-ui": "catalog:",
     "sonner": "catalog:",
     "tailwind-merge": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
-    "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   },
   "peerDependencies": {
     "react": "catalog:"

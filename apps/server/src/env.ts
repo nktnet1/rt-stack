@@ -12,7 +12,7 @@ const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
     v.maxValue(65535),
   );
 
-export const envSchema = v.object({
+const envSchema = v.object({
   SERVER_PORT: createPortSchema({ defaultPort: DEFAULT_SERVER_PORT }),
   SERVER_HOST: v.pipe(
     v.optional(v.string(), DEFAULT_SERVER_HOST),

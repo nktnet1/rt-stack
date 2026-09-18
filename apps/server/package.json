@@ -34,6 +34,7 @@
     "shx": "catalog:",
     "tsdown": "catalog:",
     "tsx": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

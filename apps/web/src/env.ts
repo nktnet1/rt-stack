@@ -1,8 +1,6 @@
 import * as v from 'valibot';
 
-export const CLIENT_ENV_PREFIX = 'PUBLIC_';
-
-export const envSchema = v.object({
+const envSchema = v.object({
   /**
    * This is the backend API server. Note that this should be passed as
    * a build-time variable (ARG) in docker.

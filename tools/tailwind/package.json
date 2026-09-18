@@ -19,6 +19,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier-config": "workspace:*",
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

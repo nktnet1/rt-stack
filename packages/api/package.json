@@ -41,6 +41,7 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
     "vite": "catalog:"
   }
 }

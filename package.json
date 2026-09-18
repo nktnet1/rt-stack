@@ -9,6 +9,8 @@
     "clean": "turbo run clean",
     "db:push": "turbo -F @repo/db db:push",
     "db:studio": "turbo -F @repo/db db:studio",
+    "deps:check": "knip",
+    "deps:update": "taze --maturity-period 1 --include-locked --recursive --interactive",
     "dev": "turbo watch dev --continue",
     "env:copy-example": "turbo run env:copy-example",
     "env:remove": "turbo run env:remove",
@@ -23,6 +25,8 @@
   },
   "packageManager": "pnpm@11.22.0",
   "devDependencies": {
+    "knip": "catalog:",
+    "taze": "catalog:",
     "turbo": "catalog:"
   },
   "engines": {

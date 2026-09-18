@@ -49,6 +49,7 @@
     "prettier": "catalog:",
     "shx": "catalog:",
     "tsdown": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }
