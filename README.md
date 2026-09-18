@@ -212,7 +212,7 @@ When integrating more better-auth plugins, e.g.
 You should
 
 1. Modify the auth package server and client files in accordance with the plugin's
-   respective documentations.
+   respective documentation.
 
 2. Run the interactive command:
 
@@ -242,7 +242,7 @@ You should
    pnpm clean && pnpm install
    ```
 
-   followed by a restarting your TS Server or reloading VSCode.
+   followed by restarting your TS Server or reloading VSCode.
 
 You can find an example in the [better-auth-admin-organization-plugins](https://github.com/nktnet1/rt-stack/tree/better-auth-admin-organization-plugins) branch.
 
@@ -267,7 +267,7 @@ pnpx codemod pnpm/catalog   # migrate dependencies to pnpm-workspace.yaml
 
 ## Containerisation (Docker/Podman)
 
-Both the `web` and `server` applications have been containerised. You can start
+Both the `web` and `server` applications have been containerised. You can
 see this in action by running the commands:
 
 ```bash
@@ -307,7 +307,7 @@ details, see
 
 ### Using Containers
 
-You can deploy applications to any services that supports docker deployment.
+You can deploy applications to any services that support Docker deployment.
 
 Using docker compose (see [compose.yaml](compose.yaml)) is also an option,
 although this alone may not be production-ready at scale. However, it can be
@@ -329,12 +329,12 @@ mentioned above for you - this includes:
   - https://github.com/Dokploy/dokploy
   - http://dokploy.com
 
-Do note that for the **web** application, the `PUBLIC_SERVER_URL` variable
-available at build time (as a docker build argument), rather than an environment
+Do note that for the **web** application, the `PUBLIC_SERVER_URL` variable needs
+to be available at build time (as a docker build argument), rather than an environment
 variable at runtime.
 
 Also, both the **server** application's `PUBLIC_WEB_URL` and the **web**
-application's `PUBLIC_SERVER_URL` needs to be set as internet-accessible URLs
+application's `PUBLIC_SERVER_URL` need to be set as internet-accessible URLs
 when deployed, e.g. `https://mycompany.com` and `https://api.mycompany.com`,
 rather than referencing `http://localhost:8085` like in development.
 
@@ -348,7 +348,7 @@ for deployment guides on all major platforms.
 The **server** application uses the [hono](https://hono.dev) web framework with the [Node.js runtime](https://hono.dev/docs/getting-started/nodejs). However,
 this can be exchanged with other runtimes before deploying to your chosen
 platforms. For example, deploying to Netlify is covered within
-[Hono's documentations](https://hono.dev/docs/getting-started/netlify#_4-deploy).
+[Hono's documentation](https://hono.dev/docs/getting-started/netlify#_4-deploy).
 
 Specific to deploying the **server** application to vercel, please see [GitHub Discussion #21](https://github.com/nktnet1/rt-stack/discussions/21#discussioncomment-14380642).
 
@@ -444,7 +444,7 @@ pnpm env:remove
 pnpm env:copy-example
 ```
 
-It is recommended that any new apps that uses environment variables follow the
+It is recommended that any new apps that use environment variables follow the
 example script set in [apps/server/package.json](apps/server/package.json).
 
 <h3>Extensions to Existing Template</h3>
