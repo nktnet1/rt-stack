@@ -37,10 +37,10 @@ const basePathSchema = v.pipe(
 const envSchema = v.object({
   /**
    * Vite uses this URL to configure the host and port for development and
-   * preview servers. For example: http://localhost:8085.
+   * preview servers. For example: http://127.0.0.1:8085.
    */
   PUBLIC_WEB_URL: v.pipe(
-    v.optional(v.string(), 'http://localhost:8085'),
+    v.optional(v.string(), 'http://127.0.0.1:8085'),
     v.url(),
   ),
 

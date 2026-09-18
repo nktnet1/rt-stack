@@ -140,10 +140,10 @@ pnpm dev
 
 By default, the following URLs will be accessible:
 
-- Web (frontend): http://localhost:8085
-- Server (backend): http://localhost:3035
-  - API - OpenAPI reference: http://localhost:3035/api
-  - Auth - OpenAPI reference: http://localhost:3035/api/auth/reference
+- Web (frontend): http://127.0.0.1:8085
+- Server (backend): http://127.0.0.1:3035
+  - API - OpenAPI reference: http://127.0.0.1:3035/api
+  - Auth - OpenAPI reference: http://127.0.0.1:3035/api/auth/reference
 
 The [OpenAPI](https://www.openapis.org) reference uses [Scalar](https://github.com/scalar/scalar) to display all available endpoints.
 
@@ -287,7 +287,7 @@ node dist/push.mjs
 
 You can then open the web link below in your browser:
 
-- http://localhost:8085
+- http://127.0.0.1:8085
 
 Please note that these containers are run in production mode. For further
 details, see
@@ -336,7 +336,7 @@ variable at runtime.
 Also, both the **server** application's `PUBLIC_WEB_URL` and the **web**
 application's `PUBLIC_SERVER_URL` need to be set as internet-accessible URLs
 when deployed, e.g. `https://mycompany.com` and `https://api.mycompany.com`,
-rather than referencing `http://localhost:8085` like in development.
+rather than referencing `http://127.0.0.1:8085` like in development.
 
 ### Using Major Platforms
 

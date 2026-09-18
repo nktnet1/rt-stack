@@ -1,7 +1,7 @@
 import * as v from 'valibot';
 
 const DEFAULT_SERVER_PORT = 3035;
-const DEFAULT_SERVER_HOST = 'localhost';
+const DEFAULT_SERVER_HOST = '127.0.0.1';
 
 const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
   v.pipe(
