@@ -1,4 +1,8 @@
-export const generateRootHtml = (webUrl: string, serverUrl: string) => `
+export const generateRootHtml = (
+  webUrl: string,
+  serverUrl: string,
+  apiPath: string,
+) => `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -64,12 +68,12 @@ export const generateRootHtml = (webUrl: string, serverUrl: string) => `
           </a>
         </li>
         <li>
-          <a href="${serverUrl}/api" target="_blank" rel="noreferrer">
+          <a href="${serverUrl}${apiPath}" target="_blank" rel="noreferrer">
             API - OpenAPI Reference (Scalar)
           </a>
         </li>
         <li>
-          <a href="${serverUrl}/api/auth/reference" target="_blank" rel="noreferrer">
+          <a href="${serverUrl}${apiPath}/auth/reference" target="_blank" rel="noreferrer">
             Auth - OpenAPI Reference (Scalar)
           </a>
         </li>
