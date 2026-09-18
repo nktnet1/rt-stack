@@ -35,7 +35,7 @@ function RouteComponent() {
             >
               here <Link2Icon className="mt-0.5" />
             </Link>{' '}
-            to view your posts.
+            to view posts.
           </div>
 
           <div className="mt-3">
