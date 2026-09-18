@@ -19,12 +19,11 @@ const __dirname = path.dirname(__filename);
 
 const envSchema = v.object({
   /**
-   * Since vite is only used during development, we can assume the structure
-   * will resemble a URL such as: http://localhost:3035.
-   * This will then be used to set the vite dev server's host and port.
+   * Vite uses this URL to configure the host and port for development and
+   * preview servers. For example: http://localhost:8085.
    */
   PUBLIC_WEB_URL: v.pipe(
-    v.optional(v.string(), 'http://localhost:3035'),
+    v.optional(v.string(), 'http://localhost:8085'),
     v.url(),
   ),
 
