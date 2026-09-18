@@ -1,6 +1,6 @@
 import * as v from 'valibot';
 
-import { publicWebEnvSchema } from '../env.client.ts';
+import { publicWebEnvSchema } from '#/env.client.ts';
 
 const { output, issues } = v.safeParse(publicWebEnvSchema, import.meta.env);
 

@@ -1,10 +1,10 @@
 import { Toaster } from '@repo/ui/components/sonner';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import React from 'react';
-import { authClient } from '@/clients/authClient';
-import Spinner from '@/routes/-components/common/spinner';
-import NavContainer from '@/routes/-components/layout/nav/nav-container';
-import { Navbar } from '@/routes/-components/layout/nav/navbar';
+import { authClient } from '#/clients/authClient';
+import Spinner from '#/routes/-components/common/spinner';
+import NavContainer from '#/routes/-components/layout/nav/nav-container';
+import { Navbar } from '#/routes/-components/layout/nav/navbar';
 
 export const Route = createRootRoute({
   component: RootComponent,

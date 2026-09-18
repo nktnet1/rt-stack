@@ -1,12 +1,6 @@
 {
   "extends": "@repo/typescript-config/vite.json",
-  "include": [
-    "env.client.ts",
-    "env.shared.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/style.css"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/style.css"],
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -14,7 +8,7 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src/*"]
+      "#/*": ["./src/*"]
     }
   }
 }

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-import { parseBasePath, toViteBasePath } from '../env.shared.ts';
+import { parseBasePath, toViteBasePath } from '#/env.shared.ts';
 
 export const prepareServe = async () => {
   const basePath = toViteBasePath(parseBasePath(process.env.PUBLIC_BASE_PATH));

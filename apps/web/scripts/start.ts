@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { parseWebServerAddress } from '../env.shared.ts';
+import { parseWebServerAddress } from '#/env.shared.ts';
 import { prepareServe } from './prepare-serve.ts';
 
 await prepareServe();

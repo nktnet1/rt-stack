@@ -8,9 +8,9 @@ import { Button } from '@repo/ui/components/button';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTheme } from 'next-themes';
 import urlJoin from 'url-join';
-import { authClient } from '@/clients/authClient';
-import { env } from '@/env';
-import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
+import { authClient } from '#/clients/authClient';
+import { env } from '#/env';
+import { postsLinkOptions } from '#/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,

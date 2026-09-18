@@ -23,15 +23,15 @@ import {
   useNavigate,
 } from '@tanstack/react-router';
 import * as v from 'valibot';
-import { apiClient } from '@/clients/apiClient';
-import { queryClient } from '@/clients/queryClient';
-import CreatePostButton from '@/routes/_protected/posts/-components/create-post';
-import DeletePostButton from '@/routes/_protected/posts/-components/delete-post';
+import { apiClient } from '#/clients/apiClient';
+import { queryClient } from '#/clients/queryClient';
+import CreatePostButton from '#/routes/_protected/posts/-components/create-post';
+import DeletePostButton from '#/routes/_protected/posts/-components/delete-post';
 import {
   type PostSearchSchema,
   postsSearchDefaults,
   postsSearchSchema,
-} from '@/routes/_protected/posts/-validations/posts-link-options';
+} from '#/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/')({
   loader: () => queryClient.ensureQueryData(apiClient.posts.all.queryOptions()),

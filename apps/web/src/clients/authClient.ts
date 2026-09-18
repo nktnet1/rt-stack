@@ -1,5 +1,5 @@
 import { createAuthClient } from '@repo/auth/client';
-import { env } from '@/env';
+import { env } from '#/env';
 
 type AuthClient = ReturnType<typeof createAuthClient>;
 

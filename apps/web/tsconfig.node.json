@@ -1,8 +1,8 @@
 {
   "extends": "@repo/typescript-config/base.json",
   "include": [
-    "env.client.ts",
-    "env.shared.ts",
+    "src/env.client.ts",
+    "src/env.shared.ts",
     "vite.config.ts",
     "scripts/**/*.ts"
   ],
@@ -12,6 +12,9 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "types": ["node"],
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "#/*": ["./src/*"]
+    }
   }
 }

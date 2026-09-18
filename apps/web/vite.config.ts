@@ -1,28 +1,15 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
 import tanstackRouter from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
 import * as v from 'valibot';
 import { defineConfig } from 'vite';
 
-import { publicWebEnvEntries } from './env.client.ts';
+import { publicWebEnvEntries } from '#/env.client.ts';
 import {
   parseWebServerAddress,
   publicWebUrlSchema,
   toViteBasePath,
-} from './env.shared.ts';
-
-/**
- * Fixes issue with "__dirname is not defined in ES module scope"
- * https://flaviocopes.com/fix-dirname-not-defined-es-module-scope
- *
- * This is only necessary when using vite with `--configLoader runner`.
- * We use this option to allow for importing TS files from monorepos.
- * https://vite.dev/config/#configuring-vite
- */
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+} from '#/env.shared.ts';
 
 const envSchema = v.object({
   ...publicWebEnvEntries,
@@ -78,11 +65,6 @@ export default defineConfig({
           }
         },
       },
-    },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
     },
   },
 });

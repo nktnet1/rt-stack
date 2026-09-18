@@ -18,9 +18,9 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import * as v from 'valibot';
-import { apiClient } from '@/clients/apiClient';
-import FormFieldInfo from '@/routes/-components/common/form-field-info';
-import Spinner from '@/routes/-components/common/spinner';
+import { apiClient } from '#/clients/apiClient';
+import FormFieldInfo from '#/routes/-components/common/form-field-info';
+import Spinner from '#/routes/-components/common/spinner';
 
 const FormSchema = v.object({
   title: v.pipe(

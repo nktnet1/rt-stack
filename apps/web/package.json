@@ -2,6 +2,9 @@
   "name": "web",
   "private": true,
   "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "scripts": {
     "build": "pnpm env:run build",
     "clean": "git clean -xdf .cache dist .turbo node_modules",

@@ -1,7 +1,7 @@
 import { apiPathSchema } from '@repo/api/path';
 import * as v from 'valibot';
 
-import { publicBasePathSchema } from './env.shared.ts';
+import { publicBasePathSchema } from '#/env.shared.ts';
 
 export const publicWebEnvEntries = {
   /** Backend API server URL. */

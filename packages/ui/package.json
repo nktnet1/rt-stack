@@ -6,7 +6,7 @@
     "dist"
   ],
   "imports": {
-    "#*": "./src/*"
+    "#/*": "./src/*"
   },
   "exports": {
     "./lib/*": {

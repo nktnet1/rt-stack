@@ -8,9 +8,9 @@ import {
   TooltipTrigger,
 } from '@repo/ui/components/tooltip';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { apiClient } from '@/clients/apiClient';
-import { queryClient } from '@/clients/queryClient';
-import { postsLinkOptions } from '@/routes/_protected/posts/-validations/posts-link-options';
+import { apiClient } from '#/clients/apiClient';
+import { queryClient } from '#/clients/queryClient';
+import { postsLinkOptions } from '#/routes/_protected/posts/-validations/posts-link-options';
 
 export const Route = createFileRoute('/_protected/posts/$postid/')({
   loader: ({ params }) =>
