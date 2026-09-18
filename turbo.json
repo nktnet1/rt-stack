@@ -41,7 +41,7 @@
       "persistent": true
     },
     "start": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["build"]
     },
     "ui-add": {
       "cache": false,

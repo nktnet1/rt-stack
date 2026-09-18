@@ -7,6 +7,7 @@ services:
         # Backend API server - used at build time to create the bundle
         PUBLIC_SERVER_URL: http://localhost:3035
         PUBLIC_SERVER_API_PATH: /api
+        PUBLIC_BASE_PATH: ${PUBLIC_BASE_PATH:-/}
     ports:
       - 8085:80
     healthcheck:

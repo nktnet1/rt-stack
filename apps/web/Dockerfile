@@ -28,6 +28,9 @@ ENV PUBLIC_SERVER_URL=${PUBLIC_SERVER_URL}
 ARG PUBLIC_SERVER_API_PATH
 ENV PUBLIC_SERVER_API_PATH=${PUBLIC_SERVER_API_PATH}
 
+ARG PUBLIC_BASE_PATH=/
+ENV PUBLIC_BASE_PATH=${PUBLIC_BASE_PATH}
+
 COPY --from=builder /app/out/json/ .
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile

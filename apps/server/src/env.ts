@@ -12,6 +12,17 @@ const createPortSchema = ({ defaultPort }: { defaultPort: number }) =>
     v.maxValue(65535),
   );
 
+const apiPathSchema = v.pipe(
+  v.custom<`/${string}`>(
+    (input) => typeof input === 'string' && input.startsWith('/'),
+    'API Path must start with "/" if provided.',
+  ),
+  v.transform((input) => {
+    const normalized = input.split('/').filter(Boolean).join('/');
+    return `/${normalized}` as `/${string}`;
+  }),
+);
+
 const envSchema = v.object({
   SERVER_PORT: createPortSchema({ defaultPort: DEFAULT_SERVER_PORT }),
   SERVER_HOST: v.pipe(
@@ -23,13 +34,7 @@ const envSchema = v.object({
 
   // Backend URL, used to configure OpenAPI (Scalar)
   PUBLIC_SERVER_URL: v.pipe(v.string(), v.url()),
-  PUBLIC_SERVER_API_PATH: v.optional(
-    v.custom<`/${string}`>(
-      (input) => typeof input === 'string' && input.startsWith('/'),
-      'API Path must start with "/" if provided.',
-    ),
-    '/api',
-  ),
+  PUBLIC_SERVER_API_PATH: v.optional(apiPathSchema, '/api'),
 
   // Frontend URL, used to configure trusted origin (CORS)
   PUBLIC_WEB_URL: v.pipe(v.string(), v.url()),

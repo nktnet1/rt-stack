@@ -29,7 +29,7 @@ const envSchema = v.object({
 
   /**
    * Set this if you want to run or deploy your app at a base URL. This is
-   * usually required for deploying a repository to Github/Gitlab pages.
+   * usually required for deploying a repository to GitHub/GitLab Pages.
    */
   PUBLIC_BASE_PATH: v.pipe(v.optional(v.string(), '/'), v.startsWith('/')),
 });
