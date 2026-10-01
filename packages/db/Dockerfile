@@ -21,7 +21,7 @@ FROM builder-base AS builder
 
 COPY . .
 
-RUN pnpx turbo prune @repo/db --docker
+RUN pnpm dlx turbo@2.11.5 prune @repo/db --docker
 
 # =========================================================================== #
 

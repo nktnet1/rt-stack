@@ -9,7 +9,7 @@ const normalizeApiPath = (input: ApiPath): ApiPath => {
 
 const isSafeApiPath = (input: ApiPath) => {
   try {
-    const url = new URL(input, 'http://localhost');
+    const url = new URL(input, 'http://127.0.0.1');
     if (url.pathname !== input || url.search || url.hash) {
       return false;
     }

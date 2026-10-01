@@ -16,7 +16,7 @@ FROM base AS builder
 
 COPY . .
 
-RUN pnpm dlx turbo prune web --docker
+RUN pnpm dlx turbo@2.11.5 prune web --docker
 
 # =========================================================================== #
 
@@ -51,6 +51,6 @@ COPY apps/web/nginx.conf /etc/nginx/nginx.conf
 COPY --from=installer /app/apps/web/dist /usr/share/nginx/html
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD curl --fail --silent http://0.0.0.0:80/healthcheck || exit 1
+  CMD curl --fail --silent http://127.0.0.1:80/healthcheck || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]

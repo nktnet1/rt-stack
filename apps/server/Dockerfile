@@ -22,7 +22,7 @@ FROM builder-base AS builder
 COPY . .
 
 # https://turbo.build/repo/docs/guides/tools/docker#the-solution
-RUN pnpm dlx turbo prune server --docker
+RUN pnpm dlx turbo@2.11.5 prune server --docker
 
 # =========================================================================== #
 
@@ -50,6 +50,6 @@ COPY --from=installer --chown=hono:nodejs /app/apps/server/dist /app/dist
 USER hono
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-  CMD wget --quiet --spider http://${SERVER_HOST}:${SERVER_PORT}/healthcheck || exit 1
+  CMD wget --quiet --spider http://127.0.0.1:${SERVER_PORT}/healthcheck || exit 1
 
 CMD ["node", "/app/dist/server.mjs"]
