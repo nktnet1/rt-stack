@@ -21,8 +21,8 @@
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "hono": "catalog:",
-    "valibot": "catalog:",
-    "url-join": "catalog:"
+    "url-join": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
