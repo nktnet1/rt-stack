@@ -23,7 +23,7 @@
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --"
   },
-  "packageManager": "pnpm@12.8.1",
+  "packageManager": "pnpm@12.14.0",
   "devDependencies": {
     "knip": "catalog:",
     "taze": "catalog:",
